@@ -20,8 +20,9 @@ export function IntroSection() {
         <div className="col-span-full w-full md:col-span-16 md:col-start-5">
           <MediaFrame
             src={MEDIA.intro}
-            alt="Clinical wellness consultation"
+            alt="GLP-1 metabolic care protocol supplies"
             aspect="cinema"
+            objectFit="contain"
             rounded="2xl"
           />
         </div>

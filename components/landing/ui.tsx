@@ -80,12 +80,14 @@ export function MediaFrame({
   alt,
   aspect = "cinema",
   rounded = "2xl",
+  objectFit = "cover",
   className,
 }: {
   src: string;
   alt: string;
   aspect?: "cinema" | "card" | "portrait";
   rounded?: "lg" | "2xl";
+  objectFit?: "cover" | "contain";
   className?: string;
 }) {
   const aspectClass =
@@ -99,6 +101,7 @@ export function MediaFrame({
     <div
       className={cn(
         "relative w-full overflow-hidden bg-[var(--grey-2)]",
+        objectFit === "contain" && "bg-white",
         aspectClass,
         rounded === "2xl" ? "rounded-basal-2xl" : "rounded-basal-lg",
         className,
@@ -108,7 +111,7 @@ export function MediaFrame({
         src={src}
         alt={alt}
         fill
-        className="object-cover"
+        className={objectFit === "contain" ? "object-contain" : "object-cover"}
         sizes="(max-width: 860px) 90vw, 70vw"
       />
     </div>
