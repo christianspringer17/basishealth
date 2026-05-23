@@ -3,7 +3,7 @@ import { BasalButton, MediaFrame, TextBlock } from "./ui";
 
 export function IntroSection() {
   return (
-    <section className="flex w-full flex-col items-center gap-y-80 py-100">
+    <section className="section-shell section-gap-lg w-full">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-6 md:col-span-16 md:col-start-5">
           <TextBlock

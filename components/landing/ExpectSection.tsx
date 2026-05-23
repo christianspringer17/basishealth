@@ -67,7 +67,7 @@ export function ExpectSection() {
   return (
     <section
       id="how-it-works"
-      className="flex w-full flex-col items-center gap-y-16 overflow-hidden py-100"
+      className="flex w-full flex-col items-center section-gap-md overflow-hidden section-shell w-full"
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">

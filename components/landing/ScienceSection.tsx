@@ -41,7 +41,7 @@ export function ScienceSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section id="protocols" className="flex w-full flex-col gap-y-80 py-100">
+    <section id="protocols" className="section-shell section-gap-lg w-full">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-start gap-6 md:col-span-16 md:col-start-5">
           <h2 className="text-h1-lg max-w-[900px] text-pretty text-grey-7">

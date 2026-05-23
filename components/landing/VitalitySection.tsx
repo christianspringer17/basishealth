@@ -3,7 +3,7 @@ import { BasalButton, MediaFrame } from "./ui";
 
 export function VitalitySection() {
   return (
-    <section className="flex w-full flex-col items-center gap-y-20 py-100">
+    <section className="flex w-full flex-col items-center section-shell section-gap-md w-full">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
           <h2 className="text-h1-lg leading-100 text-grey-9">

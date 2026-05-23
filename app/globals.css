@@ -5,6 +5,10 @@
   --grid-gap: 12px;
   --margin-horizontal: 24px;
   --spacing-page-top: 110px;
+  --section-py: 100px;
+  --section-gap-lg: 80px;
+  --section-gap-md: 32px;
+  --main-section-gap: 96px; /* matches gap-y-24 */
 
   --grey-1: oklch(98.809% 0.00011 271.152);
   --grey-2: oklch(97.614% 0.00011 271.152);
@@ -680,4 +684,22 @@ body {
   margin: 0 auto 12px;
   border-radius: 9999px;
   background: var(--grey-3);
+}
+
+
+/* Basal section rhythm — py-100 blocks, 80px / 32px internal gaps */
+.section-shell {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding-block: var(--section-py);
+}
+
+.section-gap-lg {
+  gap: var(--section-gap-lg);
+}
+
+.section-gap-md {
+  gap: var(--section-gap-md);
 }

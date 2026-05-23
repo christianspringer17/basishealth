@@ -27,7 +27,7 @@ export function ProgramSection() {
     <>
       <section
         id="program"
-        className="flex w-full flex-col items-center gap-y-20 py-100"
+        className="section-shell w-full"
       >
         <div className="site-container site-grid w-full">
           <div className="col-span-full flex flex-col items-center gap-6 text-center md:col-span-16 md:col-start-5">
@@ -41,7 +41,7 @@ export function ProgramSection() {
           </div>
         </div>
 
-        <div className="site-container site-grid w-full place-items-center gap-y-16">
+        <div className="site-container site-grid w-full place-items-center section-gap-lg">
           <div className="col-span-full w-full md:col-span-18 md:col-start-4">
             <MediaFrame
               src={MEDIA.program}
