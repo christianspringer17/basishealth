@@ -5,7 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { EonicLogo } from "./EonicLogo";
 import { NavDropdown } from "./NavDropdown";
 import { NavLink } from "./NavLink";
-import { NAV_ITEMS } from "./nav-config";
+import { getNavMenuLinks, NAV_ITEMS } from "./nav-config";
 import { cn } from "./ui";
 
 export function Header() {
@@ -92,13 +92,13 @@ export function Header() {
                       href={item.href}
                       onHero={onHero}
                       ariaExpanded={
-                        item.dropdown ? activeMenu === item.id : undefined
+                        item.menu ? activeMenu === item.id : undefined
                       }
                       onMouseEnter={() =>
-                        item.dropdown ? openMenu(item.id) : closeMenu()
+                        item.menu ? openMenu(item.id) : closeMenu()
                       }
                       onFocus={() =>
-                        item.dropdown ? openMenu(item.id) : closeMenu()
+                        item.menu ? openMenu(item.id) : closeMenu()
                       }
                     >
                       {item.label}
@@ -107,10 +107,10 @@ export function Header() {
                 ))}
               </nav>
 
-              {activeItem?.dropdown && (
+              {activeItem?.menu && (
                 <div className="nav-dropdown-bridge absolute top-full left-1/2 z-50 -translate-x-1/2 pt-5">
                   <NavDropdown
-                    items={activeItem.dropdown}
+                    menu={activeItem.menu}
                     open
                     onNavigate={closeMenu}
                   />
@@ -184,9 +184,9 @@ export function Header() {
                 className="border-b border-[var(--grey-3)] pb-5"
               >
                 <p className="text-h5 font-medium text-grey-9">{item.label}</p>
-                {item.dropdown && (
+                {item.menu && (
                   <ul className="mt-3 flex flex-col gap-2 pl-1">
-                    {item.dropdown.map((link) => (
+                    {getNavMenuLinks(item.menu).map((link) => (
                       <li key={link.label}>
                         <Link
                           href={link.href}

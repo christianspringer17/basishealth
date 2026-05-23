@@ -1,14 +1,50 @@
-export type NavDropdownItem = {
+export const NAV_IMAGES = {
+  protocolProduct: "/images/nav/protocol-product.png",
+  aboutHowItWorks: "/images/nav/nav-about.jpg",
+  aboutVitality: "/images/nav/nav-unlock.jpg",
+  learnProtocols: "/images/nav/nav-learn-metabolism.jpg",
+  learnPersonalized: "/images/nav/nav-learn-fingerprint.jpg",
+  learnScience: "/images/nav/nav-learn-markers.jpg",
+} as const;
+
+export type NavFeaturedMenu = {
+  variant: "featured";
+  image: string;
+  imageAlt: string;
+  title: string;
+  description: string;
+  cta: { label: string; href: string };
+};
+
+export type NavImageCard = {
   label: string;
   href: string;
-  description?: string;
+  image: string;
+  imageAlt: string;
+  showPlayIcon?: boolean;
 };
+
+export type NavAboutMenu = {
+  variant: "about";
+  cards: NavImageCard[];
+  contactLabel: string;
+  contactHref: string;
+};
+
+export type NavLearnMenu = {
+  variant: "learn";
+  imageCards: NavImageCard[];
+  links: { label: string; href: string }[];
+  allTopics: { label: string; href: string };
+};
+
+export type NavMenu = NavFeaturedMenu | NavAboutMenu | NavLearnMenu;
 
 export type NavItem = {
   id: string;
   label: string;
   href: string;
-  dropdown?: NavDropdownItem[];
+  menu?: NavMenu;
 };
 
 export const NAV_ITEMS: NavItem[] = [
@@ -16,84 +52,97 @@ export const NAV_ITEMS: NavItem[] = [
     id: "protocols",
     label: "Protocols",
     href: "#protocols",
-    dropdown: [
-      {
-        label: "Energy",
-        href: "#protocols",
-        description: "Sustainable daily energy support",
-      },
-      {
-        label: "Metabolism",
-        href: "#protocols",
-        description: "Metabolic markers and habits",
-      },
-      {
-        label: "Recovery",
-        href: "#protocols",
-        description: "Rest, repair, and resilience",
-      },
-      {
-        label: "Sleep",
-        href: "#protocols",
-        description: "Sleep quality and rhythm",
-      },
-      {
-        label: "Healthy aging",
-        href: "#protocols",
-        description: "Long-horizon vitality",
-      },
-      {
-        label: "Performance",
-        href: "#protocols",
-        description: "Output and recovery balance",
-      },
-    ],
+    menu: {
+      variant: "featured",
+      image: NAV_IMAGES.protocolProduct,
+      imageAlt: "Eonic Health clinical protocol supplies",
+      title: "Personalized protocols",
+      description:
+        "Provider-guided longevity and performance care tailored to your goals.",
+      cta: { label: "Get started", href: "#waitlist" },
+    },
   },
   {
     id: "about",
     label: "About",
     href: "#how-it-works",
-    dropdown: [
-      {
-        label: "How it works",
-        href: "#how-it-works",
-        description: "What to expect from Eonic",
-      },
-      {
-        label: "Our approach",
-        href: "#protocols",
-        description: "Provider-guided protocols",
-      },
-      {
-        label: "Privacy Policy",
-        href: "/privacy",
-      },
-      {
-        label: "Terms of Use",
-        href: "/terms",
-      },
-    ],
+    menu: {
+      variant: "about",
+      cards: [
+        {
+          label: "How it works",
+          href: "#how-it-works",
+          image: NAV_IMAGES.aboutHowItWorks,
+          imageAlt: "Clinical consultation",
+        },
+        {
+          label: "Built for vitality",
+          href: "#program",
+          image: NAV_IMAGES.aboutVitality,
+          imageAlt: "Long-term wellness",
+          showPlayIcon: true,
+        },
+      ],
+      contactLabel: "Get in touch: hello@eonichealth.com",
+      contactHref: "mailto:hello@eonichealth.com",
+    },
   },
   {
     id: "learn",
     label: "Learn",
-    href: "#how-it-works",
-    dropdown: [
-      {
-        label: "What to expect",
-        href: "#how-it-works",
-        description: "Your guided path",
-      },
-      {
-        label: "Protocol areas",
-        href: "#protocols",
-        description: "Energy, sleep, aging & more",
-      },
-      {
-        label: "Join the waitlist",
-        href: "#waitlist",
-        description: "Early access updates",
-      },
-    ],
+    href: "#protocols",
+    menu: {
+      variant: "learn",
+      imageCards: [
+        {
+          label: "Your protocol areas",
+          href: "#protocols",
+          image: NAV_IMAGES.learnProtocols,
+          imageAlt: "Personalized care",
+        },
+        {
+          label: "As unique as your goals",
+          href: "#how-it-works",
+          image: NAV_IMAGES.learnPersonalized,
+          imageAlt: "Individual health journey",
+        },
+        {
+          label: "What we measure",
+          href: "#protocols",
+          image: NAV_IMAGES.learnScience,
+          imageAlt: "Health markers and science",
+        },
+      ],
+      links: [
+        { label: "What to expect", href: "#how-it-works" },
+        { label: "Protocol areas", href: "#protocols" },
+        { label: "Our program", href: "#program" },
+        { label: "Join the waitlist", href: "#waitlist" },
+      ],
+      allTopics: { label: "All topics", href: "#protocols" },
+    },
   },
 ];
+
+export function getNavMenuLinks(
+  menu: NavMenu,
+): { label: string; href: string }[] {
+  switch (menu.variant) {
+    case "featured":
+      return [
+        { label: menu.title, href: "#protocols" },
+        { label: menu.cta.label, href: menu.cta.href },
+      ];
+    case "about":
+      return [
+        ...menu.cards.map((c) => ({ label: c.label, href: c.href })),
+        { label: "Contact", href: menu.contactHref },
+      ];
+    case "learn":
+      return [
+        ...menu.imageCards.map((c) => ({ label: c.label, href: c.href })),
+        ...menu.links,
+        menu.allTopics,
+      ];
+  }
+}
