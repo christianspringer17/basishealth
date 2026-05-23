@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { MediaPanel } from "./ui";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { IMAGES, MediaFrame } from "./ui";
 
 const steps = [
   {
@@ -24,6 +24,32 @@ const steps = [
 
 export function ExpectSection() {
   const [active, setActive] = useState(0);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const onScroll = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slides = track.querySelectorAll<HTMLElement>("[data-slide]");
+    const center = track.scrollLeft + track.clientWidth / 2;
+    let closest = 0;
+    let minDist = Infinity;
+    slides.forEach((slide, i) => {
+      const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+      const dist = Math.abs(center - slideCenter);
+      if (dist < minDist) {
+        minDist = dist;
+        closest = i;
+      }
+    });
+    setActive(closest);
+  }, []);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    track.addEventListener("scroll", onScroll, { passive: true });
+    return () => track.removeEventListener("scroll", onScroll);
+  }, [onScroll]);
 
   return (
     <section
@@ -31,37 +57,45 @@ export function ExpectSection() {
       className="flex w-full flex-col items-center gap-y-32 overflow-hidden py-100"
     >
       <div className="site-container site-grid w-full">
-        <div className="col-span-full flex flex-col items-center text-center md:col-span-16 md:col-start-5">
+        <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">
           <h2 className="text-h3 leading-100 text-accent-5">What to expect</h2>
         </div>
       </div>
 
-      <div className="carousel-track w-full px-horz">
+      <div
+        ref={trackRef}
+        className="carousel-track w-full px-horz"
+      >
         {steps.map((step, index) => (
           <div
             key={step.title}
-            className="carousel-slide flex flex-col gap-5 text-center"
-            onMouseEnter={() => setActive(index)}
-            onFocus={() => setActive(index)}
+            data-slide
+            className="carousel-slide flex flex-col gap-5"
           >
-            <MediaPanel className="!aspect-[4/5] md:!aspect-video" />
+            <MediaFrame
+              src={IMAGES.steps[index]}
+              alt=""
+              aspect="card"
+              rounded="lg"
+            />
           </div>
         ))}
       </div>
 
-      <div className="site-container relative grid w-full place-items-start">
+      <div className="site-container relative min-h-[130px] w-full">
         {steps.map((step, index) => (
           <div
             key={step.title}
-            className="col-span-full mx-auto flex w-full max-w-[550px] flex-col items-center gap-1 text-center transition-opacity duration-500"
+            className="mx-auto flex w-full max-w-[550px] flex-col items-center gap-1 px-horz text-center transition-opacity duration-500 ease-out"
             style={{
               opacity: active === index ? 1 : 0,
               position: active === index ? "relative" : "absolute",
+              inset: active === index ? undefined : "0",
               pointerEvents: active === index ? "auto" : "none",
             }}
           >
             <p className="text-h4 text-grey-9">{step.title}</p>
-            <p className="text-body text-grey-7 text-pretty">{step.body}</p>
+            <p className="text-body-lg text-grey-7 text-pretty">{step.body}</p>
           </div>
         ))}
       </div>

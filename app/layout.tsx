@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 
+const outfit = Outfit({
+  variable: "--font-display",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500"],
+});
+
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -42,8 +49,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-white text-[#171717] antialiased">
+    <html
+      lang="en"
+      className={`${outfit.variable} ${inter.variable} h-full scroll-smooth`}
+    >
+      <body className="min-h-full bg-white font-sans text-[var(--grey-9)] antialiased">
         {children}
       </body>
     </html>

@@ -1,4 +1,4 @@
-import { BasalButton, MediaPanel, TextBlock } from "./ui";
+import { BasalButton, IMAGES, MediaFrame, TextBlock } from "./ui";
 
 export function IntroSection() {
   return (
@@ -9,7 +9,7 @@ export function IntroSection() {
             title="Introducing Eonic Health"
             subtitle="Provider-guided longevity and performance care."
           />
-          <div className="flex items-center justify-center pt-3">
+          <div className="flex justify-center pt-3">
             <BasalButton href="#waitlist">Get started</BasalButton>
           </div>
         </div>
@@ -17,11 +17,16 @@ export function IntroSection() {
 
       <div className="site-container site-grid w-full place-items-center gap-y-80">
         <div className="col-span-full w-full md:col-span-16 md:col-start-5">
-          <MediaPanel />
+          <MediaFrame
+            src={IMAGES.intro}
+            alt="Clinical wellness consultation"
+            aspect="cinema"
+            rounded="2xl"
+          />
         </div>
         <p className="col-span-full max-w-[300px] text-center text-h5 text-grey-7 md:col-span-8 md:col-start-9">
-          Visual modules are illustrative. Clinical services, where offered, follow
-          eligibility review and provider oversight.
+          Imagery is illustrative. Clinical services, where offered, follow
+          eligibility review and licensed provider oversight.
         </p>
       </div>
     </section>

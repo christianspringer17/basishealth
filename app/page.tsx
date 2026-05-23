@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col gap-y-0">
+      <main className="flex flex-col gap-y-24">
         <Hero />
         <StatementSection />
         <IntroSection />
