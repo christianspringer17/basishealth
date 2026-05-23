@@ -1,4 +1,5 @@
-import { BasalButton, IMAGES, MediaFrame, TextBlock } from "./ui";
+import { MEDIA } from "@/lib/media";
+import { BasalButton, MediaFrame, TextBlock } from "./ui";
 
 export function IntroSection() {
   return (
@@ -18,7 +19,7 @@ export function IntroSection() {
       <div className="site-container site-grid w-full place-items-center gap-y-80">
         <div className="col-span-full w-full md:col-span-16 md:col-start-5">
           <MediaFrame
-            src={IMAGES.intro}
+            src={MEDIA.intro}
             alt="Clinical wellness consultation"
             aspect="cinema"
             rounded="2xl"

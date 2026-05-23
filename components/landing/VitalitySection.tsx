@@ -1,4 +1,5 @@
-import { IMAGES, MediaFrame } from "./ui";
+import { MEDIA } from "@/lib/media";
+import { MediaFrame } from "./ui";
 
 export function VitalitySection() {
   return (
@@ -17,7 +18,7 @@ export function VitalitySection() {
       <div className="site-container site-grid w-full">
         <div className="col-span-full md:col-span-20 md:col-start-3">
           <MediaFrame
-            src={IMAGES.vitality}
+            src={MEDIA.vitality}
             alt="Wellness and vitality"
             aspect="cinema"
             rounded="2xl"

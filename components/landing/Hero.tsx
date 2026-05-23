@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { IMAGES } from "./ui";
+import { MEDIA } from "@/lib/media";
+import { VideoMedia } from "./VideoMedia";
 
 export function Hero() {
   return (
@@ -7,15 +7,13 @@ export function Hero() {
       id="hero"
       className="relative flex h-svh w-full items-center justify-center overflow-hidden"
     >
-      <Image
-        src={IMAGES.hero}
+      <VideoMedia
+        poster={MEDIA.heroPoster}
+        videoSrc={MEDIA.heroVideo}
         alt=""
-        fill
         priority
-        className="object-cover"
-        sizes="100vw"
       />
-      <div className="hero-overlay absolute inset-0" aria-hidden />
+      <div className="hero-overlay absolute inset-0 z-[1]" aria-hidden />
 
       <div className="site-container site-grid relative z-[2] w-full">
         <div className="col-span-full flex flex-col items-center gap-4 px-2 text-center md:col-span-16 md:col-start-5">

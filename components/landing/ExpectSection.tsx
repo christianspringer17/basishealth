@@ -1,7 +1,8 @@
 "use client";
 
+import { MEDIA } from "@/lib/media";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { IMAGES, MediaFrame } from "./ui";
+import { MediaFrame } from "./ui";
 
 const steps = [
   {
@@ -62,18 +63,11 @@ export function ExpectSection() {
         </div>
       </div>
 
-      <div
-        ref={trackRef}
-        className="carousel-track w-full px-horz"
-      >
+      <div ref={trackRef} className="carousel-track w-full px-horz">
         {steps.map((step, index) => (
-          <div
-            key={step.title}
-            data-slide
-            className="carousel-slide flex flex-col gap-5"
-          >
+          <div key={step.title} data-slide className="carousel-slide flex flex-col gap-5">
             <MediaFrame
-              src={IMAGES.steps[index]}
+              src={MEDIA.steps[index]}
               alt=""
               aspect="card"
               rounded="lg"
