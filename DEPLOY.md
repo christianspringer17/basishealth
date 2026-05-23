@@ -28,3 +28,7 @@ npm run dev
 ```
 
 See [README.md](./README.md) for troubleshooting.
+
+## Cursor agents
+
+Use the **Vercel plugin** (`vercel/vercel-plugin`) for deploys, env vars, and logs — see [AGENTS.md](./AGENTS.md).
