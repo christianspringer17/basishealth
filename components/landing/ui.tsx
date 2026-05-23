@@ -60,11 +60,12 @@ export function TextBlock({
   );
 }
 
-export function PlusButton() {
+export function PlusButton({ onClick }: { onClick?: () => void }) {
   return (
     <button
       type="button"
-      aria-label="Learn more"
+      aria-label="Learn more about the program"
+      onClick={onClick}
       className="flex h-[44px] w-[44px] items-center justify-center rounded-[14px] border border-[var(--grey-3)] bg-[var(--grey-1)] text-[var(--grey-9)] transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
     >
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

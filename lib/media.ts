@@ -11,6 +11,7 @@ export const MEDIA = {
     "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=2400&q=85&auto=format&fit=crop",
   visualVideo:
     process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
+  editorialModal: "/images/nav/nav-about.jpg",
   intro:
     "https://images.unsplash.com/photo-1631217868264-e5b96427fada?w=2000&q=85&auto=format&fit=crop",
   program:
