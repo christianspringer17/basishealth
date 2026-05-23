@@ -82,7 +82,7 @@ export function WaitlistSection() {
             <button
               type="submit"
               disabled={loading}
-              className="h-[44px] shrink-0 rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white transition-colors hover:bg-[var(--accent-5)] disabled:opacity-50"
+              className="h-[44px] shrink-0 rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white transition-colors hover:border-[var(--accent-button-hover)] hover:bg-[var(--accent-button-hover)] disabled:opacity-50"
             >
               {loading ? "Joining…" : "Join waitlist"}
             </button>

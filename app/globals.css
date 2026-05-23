@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Basal-aligned tokens — refined warm accent (lower chroma = more premium) */
+/* Grey scale — Basal oklch */
 :root {
   --grid-gap: 12px;
   --margin-horizontal: 24px;
@@ -13,19 +13,20 @@
   --grey-8: oklch(58% 0.008 50);
   --grey-9: oklch(32% 0 0);
 
-  /* Accent — mirrors Basal green ramp structure, hue ~48–58 */
-  --accent-1: oklch(97.8% 0.011 58);
-  --accent-2: oklch(95.2% 0.022 56);
-  --accent-3: oklch(88% 0.055 52);
-  --accent-4: oklch(72% 0.1 48);
-  --accent-5: oklch(58% 0.12 42);
-  --accent-button: oklch(62% 0.13 46);
-  --accent-button-hover: oklch(54% 0.13 40);
+  /* Exciting orange accent */
+  --accent-1: #fff0e6;
+  --accent-2: #ffc299;
+  --accent-3: #ff8f47;
+  --accent-4: #ff6318;
+  --accent-5: #ff5500;
+  --accent-button: #ff5500;
+  --accent-button-hover: #e84d00;
+  --accent-glow: rgb(255 85 0 / 0.42);
 
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-2xl: 40px;
-  --radius-dropdown: 20px;
+  --radius-dropdown: 32px;
 
   --h1-font-size: 20px;
   --h1-line-height: 1.2;
@@ -50,7 +51,7 @@
     --radius-lg: 32px;
     --radius-xl: 40px;
     --radius-2xl: 60px;
-    --radius-dropdown: 24px;
+    --radius-dropdown: 50px;
 
     --h1-font-size: 24px;
     --h1-lg-font-size: 32px;
@@ -137,14 +138,6 @@ body {
   font-weight: 400;
 }
 
-.text-h2 {
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: var(--h2-font-size);
-  line-height: 1.15;
-  letter-spacing: -0.025em;
-  font-weight: 400;
-}
-
 .text-h3 {
   font-family: var(--font-display), system-ui, sans-serif;
   font-size: var(--h3-font-size);
@@ -176,9 +169,6 @@ body {
 .text-grey-7 {
   color: var(--grey-7);
 }
-.text-grey-8 {
-  color: var(--grey-8);
-}
 .text-grey-9 {
   color: var(--grey-9);
 }
@@ -197,8 +187,8 @@ body {
   border-radius: var(--radius-2xl);
 }
 
-/* Basal nav pill — glass hover via ::after */
-.nav-pill-basal {
+/* Basal nav link — exact interactive pill pattern */
+.nav-link-basal {
   position: relative;
   z-index: 2;
   display: inline-flex;
@@ -210,10 +200,12 @@ body {
   border: 1px solid transparent;
   padding-inline: 14px;
   font-size: var(--h5-font-size);
+  background: transparent;
   transition: color 0.22s var(--ease-in-out-quad);
+  white-space: nowrap;
 }
 
-.nav-pill-basal::after {
+.nav-link-basal::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -221,54 +213,86 @@ body {
   border-radius: 14px;
   border: 1px solid transparent;
   opacity: 0;
+  backdrop-filter: blur(16px);
   transition:
     opacity 0.22s var(--ease-in-out-quad),
     background-color 0.22s var(--ease-in-out-quad),
     border-color 0.22s var(--ease-in-out-quad);
 }
 
-.nav-pill-basal:hover::after,
-.nav-pill-basal[aria-expanded="true"]::after {
+.nav-link-basal:hover::after,
+.nav-link-basal:focus-visible::after,
+.nav-link-basal[aria-expanded="true"]::after {
   opacity: 1;
 }
 
-.nav-pill-basal--dark {
+/* On hero — white text, subtle glass always visible (Basal interactive:after) */
+.nav-link-basal--hero {
   color: var(--grey-1);
 }
-.nav-pill-basal--dark:hover {
-  color: var(--grey-1);
-}
-.nav-pill-basal--dark:hover::after,
-.nav-pill-basal--dark[aria-expanded="true"]::after {
+.nav-link-basal--hero::after {
+  opacity: 1;
   background: rgb(255 255 255 / 0.05);
   border-color: rgb(255 255 255 / 0.05);
-  backdrop-filter: blur(16px);
+}
+.nav-link-basal--hero:hover,
+.nav-link-basal--hero:focus-visible,
+.nav-link-basal--hero[aria-expanded="true"] {
+  color: var(--grey-8);
+}
+.nav-link-basal--hero:hover::after,
+.nav-link-basal--hero:focus-visible::after,
+.nav-link-basal--hero[aria-expanded="true"]::after {
+  background: rgb(255 255 255 / 0.05);
+  border-color: rgb(255 255 255 / 0.05);
 }
 
-.nav-pill-basal--light {
+/* Scrolled — grey text, grey-1 hover fill */
+.nav-link-basal--light {
   color: var(--grey-7);
 }
-.nav-pill-basal--light:hover {
+.nav-link-basal--light:hover {
   color: var(--grey-9);
 }
-.nav-pill-basal--light:hover::after,
-.nav-pill-basal--light[aria-expanded="true"]::after {
+.nav-link-basal--light:hover::after,
+.nav-link-basal--light:focus-visible::after,
+.nav-link-basal--light[aria-expanded="true"]::after {
   background: var(--grey-1);
-  border-color: var(--grey-3);
+  border-color: var(--grey-2);
 }
 
-/* Basal dropdown panel */
-.nav-dropdown {
+/* Basal dropdown — 50px radius on desktop */
+.nav-dropdown-basal {
+  position: absolute;
+  top: calc(100% + 20px);
+  left: 50%;
+  z-index: 0;
   min-width: 320px;
+  width: max-content;
+  max-width: min(90vw, 400px);
+  transform: translateX(-50%);
+  transform-origin: top center;
   border-radius: var(--radius-dropdown);
   background: #fff;
   box-shadow:
     0 4px 24px oklch(0% 0 0 / 0.06),
-    0 12px 48px oklch(0% 0 0 / 0.08);
-  transform-origin: top center;
+    0 16px 48px oklch(0% 0 0 / 0.1);
+  padding: 24px 28px;
   transition:
     opacity 0.22s var(--ease-in-out-quad),
     transform 0.22s var(--ease-in-out-quad);
+}
+
+.nav-dropdown-basal--closed {
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) scale(0.95);
+}
+
+.nav-dropdown-basal--open {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
 }
 
 .nav-dropdown-link {

@@ -2,26 +2,24 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { EonicLogo } from "./EonicLogo";
 import { NavDropdown } from "./NavDropdown";
+import { NavLink } from "./NavLink";
 import { NAV_ITEMS } from "./nav-config";
 import { cn } from "./ui";
 
 export function Header() {
-  const [overHero, setOverHero] = useState(true);
+  const [onHero, setOnHero] = useState(true);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  const variant = overHero ? "dark" : "light";
-  const pill = `nav-pill-basal nav-pill-basal--${variant}`;
 
   useEffect(() => {
     const hero = document.getElementById("hero");
     if (!hero) return;
     const observer = new IntersectionObserver(
-      ([entry]) => setOverHero(entry.isIntersecting),
-      { threshold: 0.12, rootMargin: "-72px 0px 0px 0px" },
+      ([entry]) => setOnHero(entry.isIntersecting),
+      { threshold: 0.08, rootMargin: "-60px 0px 0px 0px" },
     );
     observer.observe(hero);
     return () => observer.disconnect();
@@ -47,140 +45,133 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, [closeAll]);
 
-  const openDropdown = (id: string) => {
+  const openMenu = (id: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveMenu(id);
   };
 
   const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 120);
+    closeTimer.current = setTimeout(() => setActiveMenu(null), 150);
+  };
+
+  const cancelClose = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
   };
 
   const activeItem = NAV_ITEMS.find((item) => item.id === activeMenu);
 
   return (
     <>
-      <header
-        className={cn(
-          "site-container site-grid fixed top-0 right-0 left-0 z-50 py-5 transition-[background-color,box-shadow] duration-300",
-          !overHero && "bg-white/92 shadow-[0_1px_0_var(--grey-3)] backdrop-blur-xl",
-        )}
-      >
+      <header className="group/header site-container site-grid fixed top-0 right-0 left-0 z-50 py-20">
         <div className="relative z-[2] col-span-full flex w-full items-center justify-between md:col-span-20 md:col-start-3">
-          {/* Logo */}
-          <div className="flex flex-1 justify-start">
-            <Link href="/" className={cn(pill, "font-medium tracking-tight")}>
-              Eonic Health
-            </Link>
-          </div>
+          <div className="flex w-full items-center justify-between text-[length:var(--body-font-size)]">
+            {/* Left — logo (Basal: flex-1, SVG h-10) */}
+            <div className="flex flex-1 justify-start">
+              <NavLink href="/" onHero={onHero} className="!px-14">
+                <span className="sr-only">Eonic Health</span>
+                <EonicLogo className="h-10 w-auto" />
+              </NavLink>
+            </div>
 
-          {/* Desktop center nav */}
-          <nav
-            ref={navRef}
-            className="relative hidden items-center justify-center gap-3 md:flex"
-            aria-label="Main"
-            onMouseLeave={scheduleClose}
-          >
-            {NAV_ITEMS.map((item) =>
-              item.dropdown ? (
-                <div
-                  key={item.id}
-                  className="relative"
-                  onMouseEnter={() => openDropdown(item.id)}
-                >
-                  <button
-                    type="button"
-                    className={pill}
-                    aria-expanded={activeMenu === item.id}
-                    aria-haspopup="menu"
-                    onClick={() =>
-                      setActiveMenu((cur) =>
-                        cur === item.id ? null : item.id,
-                      )
+            {/* Center — nav */}
+            <nav
+              className="relative hidden items-center justify-center gap-x-12 text-h5 md:flex"
+              aria-label="Main"
+              onMouseLeave={scheduleClose}
+              onMouseEnter={cancelClose}
+            >
+              {NAV_ITEMS.map((item) => (
+                <div key={item.id}>
+                  <NavLink
+                    href={item.href}
+                    onHero={onHero}
+                    ariaExpanded={item.dropdown ? activeMenu === item.id : undefined}
+                    onMouseEnter={() =>
+                      item.dropdown ? openMenu(item.id) : setActiveMenu(null)
+                    }
+                    onClick={
+                      item.dropdown
+                        ? (e) => {
+                            e.preventDefault();
+                            setActiveMenu((cur) =>
+                              cur === item.id ? null : item.id,
+                            );
+                          }
+                        : undefined
                     }
                   >
                     {item.label}
-                  </button>
+                  </NavLink>
                 </div>
-              ) : (
-                <Link key={item.id} href={item.href} className={pill}>
-                  {item.label}
-                </Link>
-              ),
-            )}
+              ))}
 
-            {activeItem?.dropdown && (
-              <div onMouseEnter={() => openDropdown(activeItem.id)}>
-                <NavDropdown
-                  items={activeItem.dropdown}
-                  open={!!activeMenu}
-                />
-              </div>
-            )}
-          </nav>
+              {/* Shared dropdown — Basal: absolute, z-0, min-w-320, rounded-dropdown */}
+              <NavDropdown
+                items={activeItem?.dropdown ?? []}
+                open={!!activeItem?.dropdown && !!activeMenu}
+              />
 
-          {/* Desktop CTA */}
-          <div className="hidden flex-1 items-center justify-end gap-3 md:flex">
-            <Link href="mailto:hello@eonichealth.com" className={pill}>
-              Contact
-            </Link>
-            <Link
-              href="#waitlist"
-              className={cn(
-                pill,
-                "border-[var(--accent-button)]/30 bg-[var(--accent-button)]/10 !text-[var(--grey-1)] hover:!text-white",
-                !overHero &&
-                  "border-[var(--accent-button)] bg-[var(--accent-button)] !text-white",
-              )}
-            >
-              Join waitlist
-            </Link>
+              <div
+                className={cn(
+                  "fixed inset-0 -z-[1] bg-transparent transition-opacity duration-200",
+                  activeMenu ? "pointer-events-auto" : "pointer-events-none",
+                )}
+                aria-hidden
+                onClick={closeAll}
+              />
+            </nav>
+
+            {/* Right — single link like Basal Account */}
+            <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
+              <NavLink
+                href="#waitlist"
+                onHero={onHero}
+                onMouseEnter={() => setActiveMenu(null)}
+              >
+                Join waitlist
+              </NavLink>
+            </div>
+
+            {/* Mobile menu toggle — Basal dimensions */}
+            <div className="md:hidden">
+              <button
+                type="button"
+                className={cn(
+                  "nav-link-basal focus flex-center",
+                  onHero ? "nav-link-basal--hero" : "nav-link-basal--light",
+                )}
+                aria-expanded={mobileOpen}
+                aria-controls="mobile-nav"
+                onClick={() => setMobileOpen((o) => !o)}
+              >
+                <span className="sr-only">
+                  {mobileOpen ? "Close menu" : "Open menu"}
+                </span>
+                <span className="grid h-8 w-7 place-items-center">
+                  <span
+                    className={cn(
+                      "block h-[1.5px] w-full origin-center rounded-full bg-current transition-transform duration-[550ms] ease-[var(--ease-out-expo)] will-change-transform",
+                      mobileOpen
+                        ? "translate-y-0 rotate-45"
+                        : "-translate-y-3 rotate-0",
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "block h-[1.5px] w-full origin-center rounded-full bg-current transition-transform duration-[550ms] ease-[var(--ease-out-expo)] will-change-transform",
+                      mobileOpen
+                        ? "-translate-y-[1.5px] -rotate-45"
+                        : "translate-y-3 rotate-0",
+                    )}
+                  />
+                </span>
+              </button>
+            </div>
           </div>
-
-          {/* Mobile menu button — Basal two-line */}
-          <button
-            type="button"
-            className={cn(pill, "md:hidden")}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
-            onClick={() => setMobileOpen((o) => !o)}
-          >
-            <span className="grid h-2 w-7 place-items-center">
-              <span
-                className={cn(
-                  "block h-[1.5px] w-full rounded-full bg-current transition-transform duration-500",
-                  mobileOpen
-                    ? "translate-y-0 rotate-45"
-                    : "-translate-y-[5px] rotate-0",
-                )}
-              />
-              <span
-                className={cn(
-                  "block h-[1.5px] w-full rounded-full bg-current transition-transform duration-500",
-                  mobileOpen
-                    ? "-translate-y-[1.5px] -rotate-45"
-                    : "translate-y-[5px] rotate-0",
-                )}
-              />
-            </span>
-          </button>
         </div>
       </header>
 
-      {/* Dropdown backdrop */}
-      <div
-        className={cn(
-          "fixed inset-0 z-40 transition-opacity duration-200",
-          activeMenu && !mobileOpen
-            ? "pointer-events-auto opacity-100"
-            : "pointer-events-none opacity-0",
-        )}
-        aria-hidden
-        onClick={closeAll}
-      />
-
-      {/* Mobile menu */}
+      {/* Mobile drawer */}
       <div
         id="mobile-nav"
         className={cn(
@@ -191,21 +182,21 @@ export function Header() {
         )}
         aria-hidden={!mobileOpen}
       >
-        <div className="flex h-full flex-col overflow-y-auto pt-[100px] pb-10">
-          <div className="px-horz flex flex-col gap-8">
+        <div className="flex h-full flex-col overflow-y-auto pt-24 pb-12">
+          <div className="px-horz flex flex-col gap-6">
             {NAV_ITEMS.map((item) => (
               <div
                 key={item.id}
-                className="border-b border-[var(--grey-3)] pb-6"
+                className="border-b border-[var(--grey-3)] pb-5"
               >
-                <p className="text-h5 text-grey-9">{item.label}</p>
-                {item.dropdown ? (
-                  <ul className="mt-4 flex flex-col gap-3">
+                <p className="text-h5 font-medium text-grey-9">{item.label}</p>
+                {item.dropdown && (
+                  <ul className="mt-3 flex flex-col gap-2 pl-1">
                     {item.dropdown.map((link) => (
                       <li key={link.label}>
                         <Link
                           href={link.href}
-                          className="block text-h5 text-grey-7"
+                          className="nav-dropdown-link"
                           onClick={closeAll}
                         >
                           {link.label}
@@ -213,24 +204,25 @@ export function Header() {
                       </li>
                     ))}
                   </ul>
-                ) : (
-                  <Link
-                    href={item.href}
-                    className="mt-4 block text-h5 text-grey-7"
-                    onClick={closeAll}
-                  >
-                    View
-                  </Link>
                 )}
               </div>
             ))}
-            <Link
-              href="#waitlist"
-              className="inline-flex h-11 items-center justify-center rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white"
-              onClick={closeAll}
-            >
-              Join waitlist
-            </Link>
+            <div className="flex flex-col gap-3 pt-2">
+              <Link
+                href="mailto:hello@eonichealth.com"
+                className="nav-dropdown-link"
+                onClick={closeAll}
+              >
+                Contact
+              </Link>
+              <Link
+                href="#waitlist"
+                className="inline-flex h-[44px] items-center justify-center rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white transition-colors hover:border-[var(--accent-button-hover)] hover:bg-[var(--accent-button-hover)]"
+                onClick={closeAll}
+              >
+                Join waitlist
+              </Link>
+            </div>
           </div>
         </div>
       </div>
