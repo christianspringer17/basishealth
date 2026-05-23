@@ -3,19 +3,56 @@
 import { FormEvent, useState } from "react";
 import { Button, Section, SectionHeading } from "./ui";
 
+type Status = "idle" | "loading" | "success" | "error" | "server-error";
+
 export function WaitlistForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [status, setStatus] = useState<Status>("idle");
+  const [message, setMessage] = useState("");
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const trimmed = email.trim();
+
     if (!trimmed || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed)) {
       setStatus("error");
+      setMessage("Please enter a valid email address.");
       return;
     }
-    setStatus("success");
-    setEmail("");
+
+    setStatus("loading");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: trimmed }),
+      });
+
+      const data = (await response.json()) as {
+        success?: boolean;
+        error?: string;
+      };
+
+      if (!response.ok) {
+        setStatus("server-error");
+        setMessage(
+          data.error ??
+            "Something went wrong. Please try again or email hello@eonichealth.com.",
+        );
+        return;
+      }
+
+      setStatus("success");
+      setMessage("Thank you. We will be in touch with launch updates.");
+      setEmail("");
+    } catch {
+      setStatus("server-error");
+      setMessage(
+        "Network error. Please try again or email hello@eonichealth.com.",
+      );
+    }
   }
 
   return (
@@ -41,27 +78,37 @@ export function WaitlistForm() {
                 type="email"
                 autoComplete="email"
                 required
+                disabled={status === "loading"}
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  if (status !== "idle") setStatus("idle");
+                  if (status !== "idle" && status !== "loading") {
+                    setStatus("idle");
+                    setMessage("");
+                  }
                 }}
                 placeholder="you@example.com"
-                className="h-12 w-full rounded-2xl border border-[#e8e4df] bg-white px-4 text-[#171717] placeholder:text-[#66615c]/60 outline-none transition-colors focus:border-[#C75A2A]/50 focus:ring-2 focus:ring-[#C75A2A]/15"
+                className="h-12 w-full rounded-2xl border border-[#e8e4df] bg-white px-4 text-[#171717] placeholder:text-[#66615c]/60 outline-none transition-colors focus:border-[#C75A2A]/50 focus:ring-2 focus:ring-[#C75A2A]/15 disabled:opacity-60"
               />
             </div>
-            <Button type="submit" variant="primary" size="large" className="shrink-0 sm:h-12">
-              Join waitlist
+            <Button
+              type="submit"
+              variant="primary"
+              size="large"
+              className="shrink-0 sm:h-12"
+              ariaLabel="Join waitlist"
+            >
+              {status === "loading" ? "Joining…" : "Join waitlist"}
             </Button>
           </form>
-          {status === "success" && (
-            <p className="mt-4 text-sm text-[#A83A24]" role="status">
-              Thank you. We will be in touch with launch updates.
-            </p>
-          )}
-          {status === "error" && (
-            <p className="mt-4 text-sm text-[#A83A24]" role="alert">
-              Please enter a valid email address.
+          {message && (
+            <p
+              className={`mt-4 text-sm ${
+                status === "success" ? "text-[#A83A24]" : "text-[#A83A24]"
+              }`}
+              role={status === "success" ? "status" : "alert"}
+            >
+              {message}
             </p>
           )}
           <p className="mt-4 text-xs leading-relaxed text-[#66615c]">

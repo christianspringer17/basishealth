@@ -29,13 +29,13 @@ export function Footer() {
             aria-label="Footer navigation"
           >
             <Link
-              href="#"
+              href="/privacy"
               className="text-[#66615c] transition-colors hover:text-[#171717]"
             >
               Privacy Policy
             </Link>
             <Link
-              href="#"
+              href="/terms"
               className="text-[#66615c] transition-colors hover:text-[#171717]"
             >
               Terms
