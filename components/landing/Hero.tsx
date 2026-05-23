@@ -1,4 +1,5 @@
 import { MEDIA } from "@/lib/media";
+import { BasalButton } from "./ui";
 import { VideoMedia } from "./VideoMedia";
 
 export function Hero() {
@@ -16,10 +17,17 @@ export function Hero() {
       <div className="hero-overlay absolute inset-0 z-[1]" aria-hidden />
 
       <div className="site-container site-grid relative z-[2] w-full">
-        <div className="col-span-full flex flex-col items-center gap-4 px-2 text-center md:col-span-16 md:col-start-5">
+        <div className="col-span-full flex flex-col items-center gap-6 px-2 text-center md:col-span-16 md:col-start-5">
           <h1 className="text-h1-xl max-w-[900px] text-pretty text-grey-1">
             Personalized health protocols for long-term vitality.
           </h1>
+          <p className="text-h3 max-w-[520px] text-pretty text-grey-8">
+            Provider-guided care for energy, recovery, metabolism, and healthy
+            aging—designed around your goals.
+          </p>
+          <div className="pt-2">
+            <BasalButton href="#waitlist">Join the waitlist</BasalButton>
+          </div>
         </div>
       </div>
     </section>

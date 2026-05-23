@@ -2,7 +2,7 @@
 
 import { MEDIA } from "@/lib/media";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { MediaFrame } from "./ui";
+import { cn, MediaFrame } from "./ui";
 
 const steps = [
   {
@@ -52,10 +52,22 @@ export function ExpectSection() {
     return () => track.removeEventListener("scroll", onScroll);
   }, [onScroll]);
 
+  const goToSlide = (index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slide = track.querySelectorAll<HTMLElement>("[data-slide]")[index];
+    slide?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+    setActive(index);
+  };
+
   return (
     <section
       id="how-it-works"
-      className="flex w-full flex-col items-center gap-y-32 overflow-hidden py-100"
+      className="flex w-full flex-col items-center gap-y-16 overflow-hidden py-100"
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">
@@ -65,7 +77,11 @@ export function ExpectSection() {
 
       <div ref={trackRef} className="carousel-track w-full px-horz">
         {steps.map((step, index) => (
-          <div key={step.title} data-slide className="carousel-slide flex flex-col gap-5">
+          <div
+            key={step.title}
+            data-slide
+            className="carousel-slide flex flex-col gap-5"
+          >
             <MediaFrame
               src={MEDIA.steps[index]}
               alt=""
@@ -73,6 +89,29 @@ export function ExpectSection() {
               rounded="lg"
             />
           </div>
+        ))}
+      </div>
+
+      <div
+        className="flex items-center justify-center gap-2"
+        role="tablist"
+        aria-label="Steps"
+      >
+        {steps.map((step, index) => (
+          <button
+            key={step.title}
+            type="button"
+            role="tab"
+            aria-selected={active === index}
+            aria-label={step.title}
+            onClick={() => goToSlide(index)}
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-300",
+              active === index
+                ? "w-8 bg-[var(--accent-button)]"
+                : "w-1.5 bg-[var(--grey-3)] hover:bg-[var(--grey-7)]",
+            )}
+          />
         ))}
       </div>
 

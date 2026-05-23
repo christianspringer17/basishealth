@@ -33,8 +33,14 @@ export function Header() {
   }, [mobileOpen]);
 
   const closeAll = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
     setActiveMenu(null);
     setMobileOpen(false);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(null);
   }, []);
 
   useEffect(() => {
@@ -50,14 +56,6 @@ export function Header() {
     setActiveMenu(id);
   };
 
-  const scheduleClose = () => {
-    closeTimer.current = setTimeout(() => setActiveMenu(null), 150);
-  };
-
-  const cancelClose = () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  };
-
   const activeItem = NAV_ITEMS.find((item) => item.id === activeMenu);
 
   return (
@@ -65,80 +63,71 @@ export function Header() {
       <header className="group/header site-container site-grid fixed top-0 right-0 left-0 z-50 py-10">
         <div className="relative z-[2] col-span-full flex w-full items-center justify-between md:col-span-20 md:col-start-3">
           <div className="flex w-full items-center justify-between text-[length:var(--body-font-size)]">
-            {/* Left — wordmark (Basal: compact mark, flush to top) */}
             <div className="flex flex-1 justify-start">
               <Link
                 href="/"
                 className={cn(
                   "focus relative z-[2] inline-flex h-[34px] items-center py-0 pr-2 pl-0",
-                  onHero ? "text-grey-1 hover:text-grey-8" : "text-grey-9 hover:text-grey-9",
+                  onHero ? "text-grey-1 hover:text-grey-8" : "text-grey-9",
                 )}
+                onMouseEnter={closeMenu}
               >
                 <span className="sr-only">Eonic Health</span>
                 <EonicLogo />
               </Link>
             </div>
 
-            {/* Center — nav */}
-            <nav
-              className="relative hidden items-center justify-center gap-x-12 text-h5 md:flex"
-              aria-label="Main"
-              onMouseLeave={scheduleClose}
-              onMouseEnter={cancelClose}
+            {/* Center nav + dropdown share one hover zone so leaving closes the menu */}
+            <div
+              className="relative hidden md:block"
+              onMouseLeave={closeMenu}
             >
-              {NAV_ITEMS.map((item) => (
-                <div key={item.id}>
-                  <NavLink
-                    href={item.href}
-                    onHero={onHero}
-                    ariaExpanded={item.dropdown ? activeMenu === item.id : undefined}
-                    onMouseEnter={() =>
-                      item.dropdown ? openMenu(item.id) : setActiveMenu(null)
-                    }
-                    onClick={
-                      item.dropdown
-                        ? (e) => {
-                            e.preventDefault();
-                            setActiveMenu((cur) =>
-                              cur === item.id ? null : item.id,
-                            );
-                          }
-                        : undefined
-                    }
-                  >
-                    {item.label}
-                  </NavLink>
+              <nav
+                className="flex items-center justify-center gap-x-12 text-h5"
+                aria-label="Main"
+              >
+                {NAV_ITEMS.map((item) => (
+                  <div key={item.id}>
+                    <NavLink
+                      href={item.href}
+                      onHero={onHero}
+                      ariaExpanded={
+                        item.dropdown ? activeMenu === item.id : undefined
+                      }
+                      onMouseEnter={() =>
+                        item.dropdown ? openMenu(item.id) : closeMenu()
+                      }
+                      onFocus={() =>
+                        item.dropdown ? openMenu(item.id) : closeMenu()
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </div>
+                ))}
+              </nav>
+
+              {activeItem?.dropdown && (
+                <div className="nav-dropdown-bridge absolute top-full left-1/2 z-50 -translate-x-1/2 pt-5">
+                  <NavDropdown
+                    items={activeItem.dropdown}
+                    open
+                    onNavigate={closeMenu}
+                  />
                 </div>
-              ))}
+              )}
+            </div>
 
-              {/* Shared dropdown — Basal: absolute, z-0, min-w-320, rounded-dropdown */}
-              <NavDropdown
-                items={activeItem?.dropdown ?? []}
-                open={!!activeItem?.dropdown && !!activeMenu}
-              />
-
-              <div
-                className={cn(
-                  "fixed inset-0 -z-[1] bg-transparent transition-opacity duration-200",
-                  activeMenu ? "pointer-events-auto" : "pointer-events-none",
-                )}
-                aria-hidden
-                onClick={closeAll}
-              />
-            </nav>
-
-            {/* Right — single link like Basal Account */}
             <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
               <NavLink
                 href="#waitlist"
                 onHero={onHero}
-                onMouseEnter={() => setActiveMenu(null)}
+                onMouseEnter={closeMenu}
               >
                 Join waitlist
               </NavLink>
             </div>
 
-            {/* Mobile menu toggle — Basal dimensions */}
             <div className="md:hidden">
               <button
                 type="button"
@@ -177,7 +166,6 @@ export function Header() {
         </div>
       </header>
 
-      {/* Mobile drawer */}
       <div
         id="mobile-nav"
         className={cn(

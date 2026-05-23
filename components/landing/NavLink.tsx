@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { MouseEventHandler, ReactNode } from "react";
+import type { FocusEventHandler, MouseEventHandler, ReactNode } from "react";
 import { cn } from "./ui";
 
 /** Basal.health nav pill — h-34, px-14, glass ::after, 220ms transitions */
@@ -10,6 +10,7 @@ export function NavLink({
   className,
   onClick,
   onMouseEnter,
+  onFocus,
   ariaExpanded,
   type = "link",
 }: {
@@ -19,6 +20,7 @@ export function NavLink({
   className?: string;
   onClick?: MouseEventHandler<HTMLAnchorElement | HTMLButtonElement>;
   onMouseEnter?: () => void;
+  onFocus?: FocusEventHandler<HTMLAnchorElement | HTMLButtonElement>;
   ariaExpanded?: boolean;
   type?: "link" | "button";
 }) {
@@ -35,6 +37,7 @@ export function NavLink({
         className={classes}
         onClick={onClick}
         onMouseEnter={onMouseEnter}
+        onFocus={onFocus}
         aria-expanded={ariaExpanded}
       >
         {children}
@@ -48,6 +51,7 @@ export function NavLink({
       className={classes}
       onClick={onClick}
       onMouseEnter={onMouseEnter}
+      onFocus={onFocus}
       aria-expanded={ariaExpanded}
     >
       {children}

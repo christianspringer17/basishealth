@@ -303,6 +303,20 @@ body {
   transition: color 0.28s var(--ease-out-expo);
 }
 
+
+.nav-dropdown-basal--positioned {
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: scale(0.95);
+}
+.nav-dropdown-basal--positioned.nav-dropdown-basal--open {
+  transform: scale(1);
+}
+.nav-dropdown-bridge {
+  min-width: 320px;
+}
+
 .nav-dropdown-link:hover {
   color: var(--grey-9);
 }
