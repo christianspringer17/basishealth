@@ -62,15 +62,21 @@ export function Header() {
 
   return (
     <>
-      <header className="group/header site-container site-grid fixed top-0 right-0 left-0 z-50 py-20">
+      <header className="group/header site-container site-grid fixed top-0 right-0 left-0 z-50 py-10">
         <div className="relative z-[2] col-span-full flex w-full items-center justify-between md:col-span-20 md:col-start-3">
           <div className="flex w-full items-center justify-between text-[length:var(--body-font-size)]">
-            {/* Left — logo (Basal: flex-1, SVG h-10) */}
+            {/* Left — wordmark (Basal: compact mark, flush to top) */}
             <div className="flex flex-1 justify-start">
-              <NavLink href="/" onHero={onHero} className="!px-14">
+              <Link
+                href="/"
+                className={cn(
+                  "focus relative z-[2] inline-flex h-[34px] items-center py-0 pr-2 pl-0",
+                  onHero ? "text-grey-1 hover:text-grey-8" : "text-grey-9 hover:text-grey-9",
+                )}
+              >
                 <span className="sr-only">Eonic Health</span>
-                <EonicLogo className="h-10 w-auto" />
-              </NavLink>
+                <EonicLogo />
+              </Link>
             </div>
 
             {/* Center — nav */}
