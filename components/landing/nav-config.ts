@@ -46,33 +46,33 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "protocols",
     label: "Protocols",
-    href: "#protocols",
+    href: "/#protocols",
     menu: {
       variant: "featured",
       image: NAV_IMAGES.protocolProduct,
-      imageAlt: "Athene Health clinical protocol supplies",
+      imageAlt: "Athene Health GLP-One clinical protocol supplies",
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
-      cta: { label: "Get started", href: "#waitlist" },
+      cta: { label: "Get started", href: "/#waitlist" },
     },
   },
   {
     id: "about",
     label: "About",
-    href: "#how-it-works",
+    href: "/about",
     menu: {
       variant: "about",
       cards: [
         {
           label: "How it works",
-          href: "#how-it-works",
+          href: "/about/how-it-works",
           image: NAV_IMAGES.aboutHowItWorks,
           imageAlt: "Clinical consultation",
         },
         {
           label: "Built for vitality",
-          href: "#program",
+          href: "/about/vitality",
           image: NAV_IMAGES.aboutVitality,
           imageAlt: "Long-term wellness",
           showPlayIcon: true,
@@ -85,36 +85,36 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "learn",
     label: "Learn",
-    href: "#protocols",
+    href: "/learn",
     menu: {
       variant: "learn",
       imageCards: [
         {
           label: "Your protocol areas",
-          href: "#protocols",
+          href: "/learn/protocol-areas",
           image: NAV_IMAGES.learnProtocols,
           imageAlt: "Personalized care",
         },
         {
           label: "As unique as your goals",
-          href: "#how-it-works",
+          href: "/learn/as-unique-as-your-goals",
           image: NAV_IMAGES.learnPersonalized,
           imageAlt: "Individual health journey",
         },
         {
           label: "What we measure",
-          href: "#protocols",
+          href: "/learn/what-we-measure",
           image: NAV_IMAGES.learnScience,
           imageAlt: "Health markers and science",
         },
       ],
       links: [
-        { label: "What to expect", href: "#how-it-works" },
-        { label: "Protocol areas", href: "#protocols" },
-        { label: "Our program", href: "#program" },
-        { label: "Join the waitlist", href: "#waitlist" },
+        { label: "What to expect", href: "/learn/what-to-expect" },
+        { label: "Protocol areas", href: "/learn/protocol-areas" },
+        { label: "Our program", href: "/learn/our-program" },
+        { label: "Join the waitlist", href: "/#waitlist" },
       ],
-      allTopics: { label: "All topics", href: "#protocols" },
+      allTopics: { label: "All topics", href: "/learn" },
     },
   },
 ];
@@ -125,7 +125,7 @@ export function getNavMenuLinks(
   switch (menu.variant) {
     case "featured":
       return [
-        { label: menu.title, href: "#protocols" },
+        { label: menu.title, href: "/#protocols" },
         { label: menu.cta.label, href: menu.cta.href },
       ];
     case "about":

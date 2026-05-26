@@ -15,8 +15,6 @@ const arrowIcon = (
   </svg>
 );
 
-type BasalButtonTone = "accent" | "grey";
-
 function BasalButtonInner({ children }: { children: ReactNode }) {
   return (
     <>
@@ -28,28 +26,25 @@ function BasalButtonInner({ children }: { children: ReactNode }) {
   );
 }
 
-const basalBtnClass = (tone: BasalButtonTone, className?: string) =>
+const basalBtnClass = (className?: string) =>
   cn(
-    "group/button basal-btn focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-button)]",
-    tone === "accent" ? "basal-btn--accent" : "basal-btn--grey",
+    "group/button basal-btn basal-btn--grey focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--grey-3)]",
     className,
   );
 
 export function BasalButton({
   href,
   children,
-  tone = "accent",
   className,
   onClick,
 }: {
   href: string;
   children: ReactNode;
-  tone?: BasalButtonTone;
   className?: string;
   onClick?: () => void;
 }) {
   return (
-    <Link href={href} className={basalBtnClass(tone, className)} onClick={onClick}>
+    <Link href={href} className={basalBtnClass(className)} onClick={onClick}>
       <BasalButtonInner>{children}</BasalButtonInner>
     </Link>
   );
@@ -57,19 +52,17 @@ export function BasalButton({
 
 export function BasalSubmitButton({
   children,
-  tone = "accent",
   className,
   ...props
 }: {
   children: ReactNode;
-  tone?: BasalButtonTone;
   className?: string;
 } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "type">) {
   return (
     <button
       type={props.type ?? "submit"}
       disabled={props.disabled}
-      className={cn(basalBtnClass(tone, className), "cursor-pointer")}
+      className={cn(basalBtnClass(className), "cursor-pointer")}
     >
       <BasalButtonInner>{children}</BasalButtonInner>
     </button>

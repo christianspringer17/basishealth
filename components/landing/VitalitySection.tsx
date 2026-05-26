@@ -14,7 +14,7 @@ export function VitalitySection() {
             where medically appropriate.
           </p>
           <div className="pt-2">
-            <BasalButton href="#waitlist">Join the waitlist</BasalButton>
+            <BasalButton href="/#waitlist">Join the waitlist</BasalButton>
           </div>
         </div>
       </div>

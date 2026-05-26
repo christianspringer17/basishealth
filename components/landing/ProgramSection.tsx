@@ -64,7 +64,7 @@ export function ProgramSection() {
           </div>
 
           <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">
-            <BasalButton href="#how-it-works" tone="grey">
+            <BasalButton href="/learn/what-to-expect">
               See how it works
             </BasalButton>
           </div>

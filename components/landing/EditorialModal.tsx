@@ -81,7 +81,7 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
               Your protocol adapts as your body responds.
             </p>
             <div className="pt-2">
-              <BasalButton href="#waitlist" onClick={onClose}>
+              <BasalButton href="/#waitlist" onClick={onClose}>
                 Get started
               </BasalButton>
             </div>

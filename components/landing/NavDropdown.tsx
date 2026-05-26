@@ -18,7 +18,7 @@ function FeaturedMenu({
           src={menu.image}
           alt={menu.imageAlt}
           fill
-          className="object-cover"
+          className="object-contain p-6"
           sizes="360px"
           priority
         />

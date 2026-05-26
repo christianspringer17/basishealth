@@ -11,7 +11,7 @@ export function IntroSection() {
             subtitle="Provider-guided longevity and performance care."
           />
           <div className="flex justify-center pt-3">
-            <BasalButton href="#waitlist">Get started</BasalButton>
+            <BasalButton href="/#waitlist">Get started</BasalButton>
           </div>
         </div>
       </div>
@@ -20,8 +20,9 @@ export function IntroSection() {
         <div className="col-span-full w-full md:col-span-16 md:col-start-5">
           <MediaFrame
             src={MEDIA.intro}
-            alt="Clinical protocol supplies and care materials"
+            alt="GLP-One clinical protocol supplies"
             aspect="cinema"
+            objectFit="contain"
             rounded="2xl"
           />
         </div>

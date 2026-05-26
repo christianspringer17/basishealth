@@ -16,7 +16,10 @@ export function Header() {
 
   useEffect(() => {
     const hero = document.getElementById("hero");
-    if (!hero) return;
+    if (!hero) {
+      setOnHero(false);
+      return;
+    }
     const observer = new IntersectionObserver(
       ([entry]) => setOnHero(entry.isIntersecting),
       { threshold: 0.08, rootMargin: "-60px 0px 0px 0px" },
@@ -120,7 +123,7 @@ export function Header() {
 
             <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
               <NavLink
-                href="#waitlist"
+                href="/#waitlist"
                 onHero={onHero}
                 onMouseEnter={closeMenu}
               >
@@ -209,7 +212,7 @@ export function Header() {
               >
                 Contact
               </Link>
-              <BasalButton href="#waitlist" onClick={closeAll}>
+              <BasalButton href="/#waitlist" onClick={closeAll}>
                 Join waitlist
               </BasalButton>
             </div>

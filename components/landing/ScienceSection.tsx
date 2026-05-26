@@ -54,7 +54,7 @@ export function ScienceSection() {
             integrates each of these signals into your care.
           </p>
           <div className="pb-6 pt-2">
-            <BasalButton href="#how-it-works" tone="grey">
+            <BasalButton href="/learn/what-to-expect">
               Learn more
             </BasalButton>
           </div>
@@ -115,7 +115,7 @@ export function ScienceSection() {
                 {protocols[active].description}
               </p>
               <Link
-                href="#waitlist"
+                href="/#waitlist"
                 className="mt-5 text-h5 text-accent-5 underline-offset-4 transition-opacity hover:underline"
               >
                 Explore

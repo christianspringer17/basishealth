@@ -1,10 +1,9 @@
 /**
  * Media — drop videos in /public/videos/ or set env URLs.
- * Replace Unsplash URLs with brand photography when ready.
  */
 export const MEDIA = {
   heroPoster:
-    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=2400&q=85&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=2400&q=85&auto=format&fit=crop",
   heroVideo:
     process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/hero.mp4",
   visualPoster:
@@ -12,8 +11,7 @@ export const MEDIA = {
   visualVideo:
     process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
   editorialModal: "/images/nav/nav-about.jpg",
-  intro:
-    "https://images.unsplash.com/photo-1587854692152-cf2654cfba29?w=2000&q=85&auto=format&fit=crop",
+  intro: "/images/nav/protocol-product.png",
   program:
     "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=2000&q=85&auto=format&fit=crop",
   vitality:
@@ -27,8 +25,7 @@ export const MEDIA = {
 } as const;
 
 export const NAV_IMAGES = {
-  protocolProduct:
-    "https://images.unsplash.com/photo-1587854692152-cf2654cfba29?w=800&q=85&auto=format&fit=crop",
+  protocolProduct: "/images/nav/protocol-product.png",
   aboutHowItWorks: "/images/nav/nav-about.jpg",
   aboutVitality: "/images/nav/nav-unlock.jpg",
   learnProtocols: "/images/nav/nav-learn-metabolism.jpg",
