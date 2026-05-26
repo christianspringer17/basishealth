@@ -51,7 +51,7 @@ export function ProgramSection() {
               rounded="2xl"
             />
 
-            <div className="grid w-full gap-6 md:grid-cols-2">
+            <div className="grid w-full gap-6 pt-6 md:grid-cols-2 md:pt-10">
               {pillars.map((pillar) => (
                 <div
                   key={pillar.title}
