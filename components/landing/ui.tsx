@@ -41,7 +41,7 @@ export function BasalButton({
   href: string;
   children: ReactNode;
   className?: string;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
 }) {
   return (
     <Link href={href} className={basalBtnClass(className)} onClick={onClick}>

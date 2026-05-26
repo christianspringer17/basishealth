@@ -6,13 +6,31 @@ function getRepo(): string {
   return process.env.GITHUB_REPO ?? "christianspringer17/Athenehealth";
 }
 
-async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
+export async function registerWaitlistEmail(
+  email: string,
+): Promise<WaitlistResult> {
+  return registerAssessment({ email, goals: [], plan: "unknown" });
+}
+
+export type AssessmentPayload = {
+  email: string;
+  goals: string[];
+  plan: string;
+};
+
+async function saveAssessmentViaGitHub(
+  payload: AssessmentPayload,
+): Promise<WaitlistResult> {
   const token = process.env.WAITLIST_GITHUB_TOKEN ?? process.env.GITHUB_TOKEN;
-  if (!token) {
-    return { ok: false, error: "GitHub token not configured" };
-  }
+  if (!token) return { ok: false, error: "GitHub token not configured" };
 
   const repo = getRepo();
+  const { email, goals, plan } = payload;
+  const title =
+    plan === "unknown"
+      ? `Waitlist: ${email}`
+      : `Assessment: ${email} (${plan})`;
+
   const response = await fetch(`https://api.github.com/repos/${repo}/issues`, {
     method: "POST",
     headers: {
@@ -22,14 +40,20 @@ async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      title: `Waitlist: ${email}`,
+      title,
       body: [
-        "New Athene Health waitlist signup",
+        plan === "unknown"
+          ? "New Athene Health waitlist signup"
+          : "New Athene Health clinical assessment",
         "",
         `- **Email:** ${email}`,
+        `- **Plan:** ${plan}`,
+        goals.length > 0 ? `- **Goals:** ${goals.join(", ")}` : null,
         `- **Submitted:** ${new Date().toISOString()}`,
-      ].join("\n"),
-      labels: ["waitlist"],
+      ]
+        .filter(Boolean)
+        .join("\n"),
+      labels: plan === "unknown" ? ["waitlist"] : ["assessment"],
     }),
   });
 
@@ -45,8 +69,8 @@ async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          title: `Waitlist: ${email}`,
-          body: `New waitlist signup for ${email} at ${new Date().toISOString()}`,
+          title,
+          body: `Assessment for ${email}, plan: ${plan}, goals: ${goals.join(", ")}`,
         }),
       });
       if (retry.ok) return { ok: true, channel: "github" };
@@ -57,16 +81,16 @@ async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
   return { ok: true, channel: "github" };
 }
 
-async function notifyViaResend(email: string): Promise<WaitlistResult> {
+async function notifyAssessmentViaResend(
+  payload: AssessmentPayload,
+): Promise<WaitlistResult> {
   const apiKey = process.env.RESEND_API_KEY;
   const notifyTo = process.env.WAITLIST_NOTIFY_EMAIL;
-  const from =
-    process.env.WAITLIST_FROM_EMAIL ?? "onboarding@resend.dev";
+  const from = process.env.WAITLIST_FROM_EMAIL ?? "onboarding@resend.dev";
 
-  if (!apiKey || !notifyTo) {
-    return { ok: false, error: "Resend not configured" };
-  }
+  if (!apiKey || !notifyTo) return { ok: false, error: "Resend not configured" };
 
+  const { email, goals, plan } = payload;
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -76,52 +100,55 @@ async function notifyViaResend(email: string): Promise<WaitlistResult> {
     body: JSON.stringify({
       from,
       to: [notifyTo],
-      subject: `Athene Health waitlist: ${email}`,
-      text: `New waitlist signup: ${email}\nTime: ${new Date().toISOString()}`,
+      subject: `Athene assessment: ${email} (${plan})`,
+      text: [
+        `Email: ${email}`,
+        `Plan: ${plan}`,
+        `Goals: ${goals.join(", ") || "—"}`,
+        `Time: ${new Date().toISOString()}`,
+      ].join("\n"),
     }),
   });
 
-  if (!response.ok) {
-    return { ok: false, error: "Resend delivery failed" };
-  }
-
+  if (!response.ok) return { ok: false, error: "Resend delivery failed" };
   return { ok: true, channel: "resend" };
 }
 
-async function saveViaWeb3Forms(email: string): Promise<WaitlistResult> {
+async function saveAssessmentViaWeb3Forms(
+  payload: AssessmentPayload,
+): Promise<WaitlistResult> {
   const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-  if (!accessKey) {
-    return { ok: false, error: "Web3Forms not configured" };
-  }
+  if (!accessKey) return { ok: false, error: "Web3Forms not configured" };
 
+  const { email, goals, plan } = payload;
   const response = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       access_key: accessKey,
-      subject: "Athene Health Waitlist",
+      subject: "Athene Health Assessment",
       email,
-      message: `Waitlist signup: ${email}`,
+      message: `Plan: ${plan}\nGoals: ${goals.join(", ")}`,
     }),
   });
 
   const data = (await response.json()) as { success?: boolean };
-  if (!data.success) {
-    return { ok: false, error: "Web3Forms submission failed" };
-  }
-
+  if (!data.success) return { ok: false, error: "Web3Forms submission failed" };
   return { ok: true, channel: "web3forms" };
 }
 
-export async function registerWaitlistEmail(
-  email: string,
+export async function registerAssessment(
+  payload: AssessmentPayload,
 ): Promise<WaitlistResult> {
-  const backends = [saveViaGitHubIssue, notifyViaResend, saveViaWeb3Forms];
+  const backends = [
+    saveAssessmentViaGitHub,
+    notifyAssessmentViaResend,
+    saveAssessmentViaWeb3Forms,
+  ];
 
   const errors: string[] = [];
-
   for (const backend of backends) {
-    const result = await backend(email);
+    const result = await backend(payload);
     if (result.ok) return result;
     errors.push(result.error);
   }
@@ -129,6 +156,6 @@ export async function registerWaitlistEmail(
   return {
     ok: false,
     error:
-      "Waitlist storage is not configured on the server. Set GITHUB_TOKEN, RESEND_API_KEY, or WEB3FORMS_ACCESS_KEY.",
+      "Assessment storage is not configured on the server. Set GITHUB_TOKEN, RESEND_API_KEY, or WEB3FORMS_ACCESS_KEY.",
   };
 }

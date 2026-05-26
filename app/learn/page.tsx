@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export default function LearnPage() {
-  const categories = ["Understand", "Measure"] as const;
+  const categories = ["Understand", "Measure", "Improve"] as const;
 
   return (
     <MarketingShell>

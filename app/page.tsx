@@ -6,6 +6,7 @@ import { IntroSection } from "@/components/landing/IntroSection";
 import { ProgramSection } from "@/components/landing/ProgramSection";
 import { ScienceSection } from "@/components/landing/ScienceSection";
 import { StatementSection } from "@/components/landing/StatementSection";
+import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { VitalitySection } from "@/components/landing/VitalitySection";
 import { VisualSection } from "@/components/landing/VisualSection";
 import { WaitlistSection } from "@/components/landing/WaitlistSection";
@@ -22,6 +23,7 @@ export default function Home() {
         <ProgramSection />
         <ExpectSection />
         <ScienceSection />
+        <TestimonialsSection />
         <VitalitySection />
         <WaitlistSection />
       </main>

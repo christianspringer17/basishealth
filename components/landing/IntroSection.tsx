@@ -11,7 +11,7 @@ export function IntroSection() {
             subtitle="Provider-guided longevity and performance care."
           />
           <div className="flex justify-center pt-3">
-            <BasalButton href="/#waitlist">Get started</BasalButton>
+            <BasalButton href="/signup">Get started</BasalButton>
           </div>
         </div>
       </div>

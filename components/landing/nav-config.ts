@@ -46,7 +46,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "protocols",
     label: "Protocols",
-    href: "/#protocols",
+    href: "/glp-one",
     menu: {
       variant: "featured",
       image: NAV_IMAGES.protocolProduct,
@@ -54,7 +54,7 @@ export const NAV_ITEMS: NavItem[] = [
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
-      cta: { label: "Get started", href: "/#waitlist" },
+      cta: { label: "Get started", href: "/signup" },
     },
   },
   {
@@ -112,7 +112,7 @@ export const NAV_ITEMS: NavItem[] = [
         { label: "What to expect", href: "/learn/what-to-expect" },
         { label: "Protocol areas", href: "/learn/protocol-areas" },
         { label: "Our program", href: "/learn/our-program" },
-        { label: "Join the waitlist", href: "/#waitlist" },
+        { label: "Join the waitlist", href: "/signup" },
       ],
       allTopics: { label: "All topics", href: "/learn" },
     },
@@ -125,7 +125,7 @@ export function getNavMenuLinks(
   switch (menu.variant) {
     case "featured":
       return [
-        { label: menu.title, href: "/#protocols" },
+        { label: menu.title, href: "/glp-one" },
         { label: menu.cta.label, href: menu.cta.href },
       ];
     case "about":

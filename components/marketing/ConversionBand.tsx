@@ -4,7 +4,7 @@ export function ConversionBand({
   title = "Begin with clarity.",
   description = "See if Athene Health is right for your goals. Choose a 3- or 6-month protocol and start with a licensed provider review.",
   primaryLabel = "Join the waitlist",
-  primaryHref = "/#waitlist",
+  primaryHref = "/signup",
   secondaryLabel = "How it works",
   secondaryHref = "/about/how-it-works",
 }: {

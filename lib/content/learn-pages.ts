@@ -47,6 +47,42 @@ export const learnIndexEntries: LearnIndexEntry[] = [
     description:
       "One guided program with clinical oversight, personalized protocols, and subscription plans built for commitment.",
   },
+  {
+    slug: "why-insulin-sensitivity-matters",
+    title: "Why insulin sensitivity matters before glucose goes wrong",
+    category: "Understand",
+    readTime: "5 min read",
+    published: "May 2026",
+    description:
+      "Fasting glucose can look normal while insulin resistance is already progressing. Here is what to watch for.",
+  },
+  {
+    slug: "five-metabolic-pillars",
+    title: "The five pillars we use to read metabolic health",
+    category: "Understand",
+    readTime: "3 min read",
+    published: "May 2026",
+    description:
+      "How insulin sensitivity, muscle, hormones, aerobic reserve, and body composition form a complete picture.",
+  },
+  {
+    slug: "why-muscle-is-metabolic-reserve",
+    title: "Why muscle is metabolic reserve",
+    category: "Understand",
+    readTime: "3 min read",
+    published: "May 2026",
+    description:
+      "Muscle tissue is not just for strength—it is one of your largest metabolic organs.",
+  },
+  {
+    slug: "meet-your-metabolism",
+    title: "Meet your metabolism",
+    category: "Improve",
+    readTime: "6 min read",
+    published: "May 2026",
+    description:
+      "Metabolism is coordination between systems—not a single dial to turn up or down.",
+  },
 ];
 
 export const learnPages: Record<string, ArticlePageContent> = {
@@ -259,7 +295,87 @@ export const learnPages: Record<string, ArticlePageContent> = {
         heading: "3- and 6-month subscriptions",
         paragraphs: [
           "Choose the horizon that fits your goals. Six months for deeper metabolic recalibration; three months to establish a strong foundation with option to renew.",
-          "Join the waitlist for launch pricing and early access to assessment booking.",
+          "Complete the clinical assessment to begin with launch pricing.",
+        ],
+      },
+    ],
+  },
+  "why-insulin-sensitivity-matters": {
+    slug: "why-insulin-sensitivity-matters",
+    title: "Why insulin sensitivity matters before glucose goes wrong",
+    category: "Understand",
+    readTime: "5 min read",
+    published: "May 2026",
+    lead:
+      "Fasting glucose is a lagging indicator. Insulin sensitivity often shifts years before glucose crosses a diagnostic threshold.",
+    sections: [
+      {
+        heading: "The hidden workload",
+        paragraphs: [
+          "When cells become less responsive to insulin, the pancreas compensates by producing more. Fasting glucose can remain normal while pancreatic workload increases—a pattern fasting insulin may reveal earlier.",
+        ],
+      },
+      {
+        heading: "Why this matters for treatment",
+        paragraphs: [
+          "GLP-1 therapies and lifestyle interventions work differently depending on where you sit on the insulin sensitivity spectrum. Calibrating to your starting point improves outcomes.",
+        ],
+      },
+    ],
+  },
+  "five-metabolic-pillars": {
+    slug: "five-metabolic-pillars",
+    title: "The five pillars we use to read metabolic health",
+    category: "Understand",
+    readTime: "3 min read",
+    published: "May 2026",
+    lead:
+      "Five signals—insulin sensitivity, muscle mass, hormonal rhythm, aerobic reserve, and body composition—tell us how your metabolic systems communicate.",
+    sections: [
+      {
+        heading: "More than one marker",
+        paragraphs: [
+          "Single metrics like scale weight or fasting glucose miss the coordination between systems. Our protocol integrates multiple pillars so care stays coherent.",
+        ],
+      },
+    ],
+  },
+  "why-muscle-is-metabolic-reserve": {
+    slug: "why-muscle-is-metabolic-reserve",
+    title: "Why muscle is metabolic reserve",
+    category: "Understand",
+    readTime: "3 min read",
+    published: "May 2026",
+    lead:
+      "Skeletal muscle is a primary site of glucose disposal. Preserving and building muscle supports metabolic health across the lifespan.",
+    sections: [
+      {
+        heading: "Muscle as an organ",
+        paragraphs: [
+          "Muscle tissue influences insulin sensitivity, resting metabolic rate, and functional capacity. Protocols that ignore muscle often underperform long-term.",
+        ],
+      },
+    ],
+  },
+  "meet-your-metabolism": {
+    slug: "meet-your-metabolism",
+    title: "Meet your metabolism",
+    category: "Improve",
+    readTime: "6 min read",
+    published: "May 2026",
+    lead:
+      "Metabolism is the coordination of fuel use, hormone signaling, and recovery—not a single speed setting on a dial.",
+    sections: [
+      {
+        heading: "Coordination, not speed",
+        paragraphs: [
+          "Popular culture treats metabolism as fast vs. slow. Clinically, it is more useful to ask whether your systems are communicating well—insulin, cortisol, thyroid, and cellular energy pathways working in concert.",
+        ],
+      },
+      {
+        heading: "What you can influence",
+        paragraphs: [
+          "Sleep, resistance training, protein intake, meal timing, and therapeutics where appropriate all modify metabolic coordination. The right combination depends on your baseline.",
         ],
       },
     ],
