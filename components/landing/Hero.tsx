@@ -1,5 +1,4 @@
 import { MEDIA } from "@/lib/media";
-import { BasalButton } from "./ui";
 import { VideoMedia } from "./VideoMedia";
 
 export function Hero() {
@@ -25,9 +24,6 @@ export function Hero() {
             Provider-guided care for energy, recovery, metabolism, and healthy
             aging—designed around your goals.
           </p>
-          <div className="pt-2">
-            <BasalButton href="#waitlist">Join the waitlist</BasalButton>
-          </div>
         </div>
       </div>
     </section>

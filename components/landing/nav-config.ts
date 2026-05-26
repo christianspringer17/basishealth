@@ -1,11 +1,6 @@
-export const NAV_IMAGES = {
-  protocolProduct: "/images/nav/protocol-product.png",
-  aboutHowItWorks: "/images/nav/nav-about.jpg",
-  aboutVitality: "/images/nav/nav-unlock.jpg",
-  learnProtocols: "/images/nav/nav-learn-metabolism.jpg",
-  learnPersonalized: "/images/nav/nav-learn-fingerprint.jpg",
-  learnScience: "/images/nav/nav-learn-markers.jpg",
-} as const;
+import { NAV_IMAGES } from "@/lib/media";
+
+export { NAV_IMAGES };
 
 export type NavFeaturedMenu = {
   variant: "featured";

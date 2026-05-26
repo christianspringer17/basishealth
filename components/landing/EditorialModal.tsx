@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useCallback, useEffect, useId, useRef } from "react";
 import { MEDIA } from "@/lib/media";
+import { BasalButton } from "./ui";
 
 type EditorialModalProps = {
   open: boolean;
@@ -81,9 +81,9 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
               Your protocol adapts as your body responds.
             </p>
             <div className="pt-2">
-              <Link href="#waitlist" className="nav-dropdown-cta" onClick={onClose}>
+              <BasalButton href="#waitlist" onClick={onClose}>
                 Get started
-              </Link>
+              </BasalButton>
             </div>
           </header>
 

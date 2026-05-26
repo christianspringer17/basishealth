@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { NavMenu } from "./nav-config";
 import { NavDropdownImageCard } from "./NavDropdownImageCard";
-import { cn } from "./ui";
+import { BasalButton, cn } from "./ui";
 
 function FeaturedMenu({
   menu,
@@ -18,7 +18,7 @@ function FeaturedMenu({
           src={menu.image}
           alt={menu.imageAlt}
           fill
-          className="object-contain p-4"
+          className="object-cover"
           sizes="360px"
           priority
         />
@@ -26,13 +26,9 @@ function FeaturedMenu({
       <div className="nav-dropdown-featured-copy">
         <p className="text-h4 text-grey-9">{menu.title}</p>
         <p className="text-h5 text-pretty text-grey-7">{menu.description}</p>
-        <Link
-          href={menu.cta.href}
-          className="nav-dropdown-cta"
-          onClick={onNavigate}
-        >
+        <BasalButton href={menu.cta.href} onClick={onNavigate}>
           {menu.cta.label}
-        </Link>
+        </BasalButton>
       </div>
     </div>
   );

@@ -6,7 +6,7 @@ import { EonicLogo } from "./EonicLogo";
 import { NavDropdown } from "./NavDropdown";
 import { NavLink } from "./NavLink";
 import { getNavMenuLinks, NAV_ITEMS } from "./nav-config";
-import { cn } from "./ui";
+import { BasalButton, cn } from "./ui";
 
 export function Header() {
   const [onHero, setOnHero] = useState(true);
@@ -209,13 +209,9 @@ export function Header() {
               >
                 Contact
               </Link>
-              <Link
-                href="#waitlist"
-                className="inline-flex h-[44px] items-center justify-center rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white transition-colors hover:border-[var(--accent-button-hover)] hover:bg-[var(--accent-button-hover)]"
-                onClick={closeAll}
-              >
+              <BasalButton href="#waitlist" onClick={closeAll}>
                 Join waitlist
-              </Link>
+              </BasalButton>
             </div>
           </div>
         </div>

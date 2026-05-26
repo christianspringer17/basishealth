@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { MEDIA } from "@/lib/media";
 
 export function cn(...classes: (string | false | undefined)[]) {
@@ -9,37 +9,70 @@ export function cn(...classes: (string | false | undefined)[]) {
 
 export const IMAGES = MEDIA;
 
+const arrowIcon = (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M13.172 12 8.222 7.05l1.415-1.415L16 12l-6.364 6.364-1.415-1.415z" />
+  </svg>
+);
+
+type BasalButtonTone = "accent" | "grey";
+
+function BasalButtonInner({ children }: { children: ReactNode }) {
+  return (
+    <>
+      <span className="basal-btn__label">{children}</span>
+      <span className="basal-btn__pill" aria-hidden>
+        {arrowIcon}
+      </span>
+    </>
+  );
+}
+
+const basalBtnClass = (tone: BasalButtonTone, className?: string) =>
+  cn(
+    "group/button basal-btn focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-button)]",
+    tone === "accent" ? "basal-btn--accent" : "basal-btn--grey",
+    className,
+  );
+
 export function BasalButton({
   href,
   children,
   tone = "accent",
+  className,
+  onClick,
 }: {
   href: string;
   children: ReactNode;
-  tone?: "accent" | "grey";
+  tone?: BasalButtonTone;
+  className?: string;
+  onClick?: () => void;
 }) {
-  const accent =
-    "inline-flex h-[44px] items-center rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] pl-[18px] pr-[6px] text-h5 text-white transition-[background-color,border-color] duration-200 hover:border-[var(--accent-button-hover)] hover:bg-[var(--accent-button-hover)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--accent-button)]";
-  const grey =
-    "inline-flex h-[44px] items-center rounded-[14px] border border-[var(--grey-3)] bg-[var(--grey-1)] pl-[18px] pr-[6px] text-h5 text-[var(--grey-9)] transition-colors duration-200 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
-
   return (
-    <Link href={href} className={cn("group/button focus", tone === "accent" ? accent : grey)}>
-      <span className="relative z-[2]">{children}</span>
-      <span
-        className={cn(
-          "relative z-[1] -mr-[10px] ml-1 flex h-7 min-w-7 items-center justify-center rounded-[12px] border [&>svg]:size-3",
-          tone === "accent"
-            ? "border-[var(--accent-button-hover)] bg-[var(--accent-button-hover)] text-white"
-            : "border-[var(--grey-3)] bg-white text-[var(--grey-9)]",
-        )}
-        aria-hidden
-      >
-        <svg viewBox="0 0 24 24" fill="currentColor">
-          <path d="M13.172 12 8.222 7.05l1.415-1.415L16 12l-6.364 6.364-1.415-1.415z" />
-        </svg>
-      </span>
+    <Link href={href} className={basalBtnClass(tone, className)} onClick={onClick}>
+      <BasalButtonInner>{children}</BasalButtonInner>
     </Link>
+  );
+}
+
+export function BasalSubmitButton({
+  children,
+  tone = "accent",
+  className,
+  ...props
+}: {
+  children: ReactNode;
+  tone?: BasalButtonTone;
+  className?: string;
+} & Pick<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "type">) {
+  return (
+    <button
+      type={props.type ?? "submit"}
+      disabled={props.disabled}
+      className={cn(basalBtnClass(tone, className), "cursor-pointer")}
+    >
+      <BasalButtonInner>{children}</BasalButtonInner>
+    </button>
   );
 }
 

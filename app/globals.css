@@ -14,7 +14,7 @@
   --grey-2: oklch(97.614% 0.00011 271.152);
   --grey-3: oklch(94.611% 0.00011 271.152);
   --grey-7: oklch(65.004% 0.00007 271.152);
-  --grey-8: oklch(58% 0.008 50);
+  --grey-8: oklch(60% 0 271.152);
   --grey-9: oklch(32% 0 0);
 
   /* Primary blue accent */
@@ -412,24 +412,125 @@ body {
   padding-inline: 8px;
 }
 
-.nav-dropdown-cta {
+/* Basal-style pill buttons — grey body, accent arrow pill */
+.basal-btn {
+  position: relative;
   display: inline-flex;
+  min-width: 44px;
   height: 44px;
-  min-width: 140px;
   align-items: center;
-  justify-content: center;
-  border-radius: 14px;
-  border: 1px solid var(--accent-button);
-  background: var(--accent-button);
-  padding-inline: 20px;
+  overflow: hidden;
+  border-radius: 16px;
+  padding-inline: 18px 6px;
   font-size: var(--h5-font-size);
-  color: #fff;
+  line-height: 1.35;
   transition:
-    background-color 0.22s var(--ease-in-out-quad),
-    border-color 0.22s var(--ease-in-out-quad);
+    color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.nav-dropdown-cta:hover {
+@media (min-width: 860px) {
+  .basal-btn {
+    border-radius: 18px;
+  }
+}
+
+.basal-btn:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.basal-btn__label {
+  position: relative;
+  z-index: 2;
+}
+
+.basal-btn__pill {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 28px;
+  min-width: 28px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-right: -10px;
+  margin-left: 4px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  padding-inline: 10px;
+  transition:
+    color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+    border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.basal-btn__pill svg {
+  width: 12px;
+  height: 12px;
+}
+
+.basal-btn--grey {
+  border: 1px solid oklab(94.611% 0.00000221155 -0.000109978 / 0.5);
+  background: var(--grey-2);
+  color: var(--grey-8);
+}
+
+.basal-btn--grey:hover {
+  background: var(--grey-3);
+}
+
+.basal-btn--grey .basal-btn__pill {
+  border-color: var(--grey-3);
+  background: #fff;
+  color: var(--grey-9);
+}
+
+.basal-btn--accent {
+  border: none;
+  background: var(--grey-2);
+  color: var(--grey-8);
+}
+
+.basal-btn--accent::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: 0;
+  transform-origin: right center;
+  border-radius: 16px;
+  background: var(--accent-button);
+  clip-path: inset(calc(50% - 14px) 9px calc(50% - 14px) calc(100% - 37px) round 12px);
+  transition: clip-path 0.45s var(--ease-out-expo);
+}
+
+@media (min-width: 860px) {
+  .basal-btn--accent::after {
+    border-radius: 18px;
+  }
+}
+
+.basal-btn--accent:hover {
+  color: #fff;
+}
+
+.basal-btn--accent:hover::after {
+  clip-path: inset(0 0 0 0 round 16px);
+}
+
+@media (min-width: 860px) {
+  .basal-btn--accent:hover::after {
+    clip-path: inset(0 0 0 0 round 18px);
+  }
+}
+
+.basal-btn--accent .basal-btn__pill {
+  border-color: var(--accent-button);
+  background: var(--accent-button);
+  color: #fff;
+}
+
+.basal-btn--accent:hover .basal-btn__pill {
   border-color: var(--accent-button-hover);
   background: var(--accent-button-hover);
 }

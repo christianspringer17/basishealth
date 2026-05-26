@@ -44,14 +44,14 @@ export function ScienceSection() {
     <section id="protocols" className="section-shell section-gap-lg w-full">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-start gap-6 md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg max-w-[900px] text-pretty text-grey-7">
-            <span className="text-grey-9">Longevity care should be coherent.</span>
-            <br />
-            Not fragmented across supplements, labs, and advice.
+          <h2 className="text-h1-lg max-w-[900px] text-pretty text-grey-9">
+            The science has changed. Your care should, too.
           </h2>
           <p className="text-h3 max-w-[900px] text-pretty text-grey-7">
-            Athene integrates your goals, biomarkers, and provider guidance into one
-            evolving plan—designed to support clarity over noise.
+            Your metabolism isn&apos;t one thing. It&apos;s a conversation between
+            systems. New research has given us five markers to tell us how well that
+            conversation is flowing. Our metabolism-first approach to wellness
+            integrates each of these signals into your care.
           </p>
           <div className="pb-6 pt-2">
             <BasalButton href="#how-it-works" tone="grey">

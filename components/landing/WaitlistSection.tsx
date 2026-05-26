@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { BasalButton } from "./ui";
+import { BasalButton, BasalSubmitButton } from "./ui";
 
 export function WaitlistSection() {
   const [email, setEmail] = useState("");
@@ -79,13 +79,9 @@ export function WaitlistSection() {
               placeholder="you@example.com"
               className="h-[44px] flex-1 rounded-[14px] border border-[var(--grey-3)] bg-white px-4 text-body text-grey-9 outline-none transition-[border-color,box-shadow] focus:border-[var(--accent-button)] focus:ring-2 focus:ring-[var(--accent-button)]/12 disabled:opacity-50"
             />
-            <button
-              type="submit"
-              disabled={loading}
-              className="h-[44px] shrink-0 rounded-[14px] border border-[var(--accent-button)] bg-[var(--accent-button)] px-6 text-h5 text-white transition-colors hover:border-[var(--accent-button-hover)] hover:bg-[var(--accent-button-hover)] disabled:opacity-50"
-            >
+            <BasalSubmitButton tone="accent" disabled={loading} className="shrink-0">
               {loading ? "Joining…" : "Join waitlist"}
-            </button>
+            </BasalSubmitButton>
           </form>
           {message && (
             <p
