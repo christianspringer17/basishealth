@@ -9,9 +9,39 @@ Place MP4 files here. They are **native static assets** — same as images in `p
 
 ## How to add your video
 
+**Drag-and-drop often fails** for MP4s in Cursor (size limits, cloud workspaces). Use one of these instead:
+
+### Option A — Copy via terminal (local clone)
+
+```bash
+cp ~/Downloads/your-video.mp4 public/videos/hero.mp4
+git add public/videos/hero.mp4
+git commit -m "Add hero video"
+git push
+```
+
+### Option B — Finder / File Explorer
+
+1. Open the project folder on your computer (not only inside Cursor).
+2. Go to `public/videos/`.
+3. Paste `hero.mp4` there.
+4. Commit and push from Cursor or terminal.
+
+### Option C — Fuse asset upload
+
+If Fuse hosts your site, upload `hero.mp4` through Fuse’s file/asset manager to the same path (`/videos/hero.mp4` on your domain). No Git required if Fuse deploys from their UI.
+
+### Option D — Share a link with your dev agent
+
+Upload the MP4 to Google Drive, Dropbox, or similar (direct download link), and ask your agent or dev to pull it into `public/videos/hero.mp4`.
+
+---
+
+After the file is in place:
+
 1. Export as **MP4 (H.264)**
-2. Copy into this folder as `hero.mp4` (and/or `visual.mp4`)
-3. Commit and deploy with the rest of the site
+2. Name it `hero.mp4` (and/or `visual.mp4`)
+3. Deploy with the rest of the site
 
 The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https://yoursite.com/videos/hero.mp4`.
 
