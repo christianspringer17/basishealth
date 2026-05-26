@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/landing/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Eonic Health",
-  description: "How Eonic Health handles your information.",
+  title: "Privacy Policy — Athene Health",
+  description: "How Athene Health handles your information.",
 };
 
 export default function PrivacyPage() {
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
       <section className="space-y-4">
         <h2 className="text-lg font-medium text-[#171717]">Overview</h2>
         <p>
-          Eonic Health (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) respects your privacy. This
+          Athene Health (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) respects your privacy. This
           policy describes how we collect, use, and protect information when you
           visit our website or join our waitlist.
         </p>
@@ -35,7 +35,7 @@ export default function PrivacyPage() {
         <p>We use waitlist information to:</p>
         <ul className="list-disc space-y-2 pl-6">
           <li>Send product and launch updates you request</li>
-          <li>Understand interest in Eonic Health services</li>
+          <li>Understand interest in Athene Health services</li>
           <li>Improve our website and communications</li>
         </ul>
       </section>
@@ -64,10 +64,10 @@ export default function PrivacyPage() {
           You may unsubscribe from marketing emails at any time using the link in
           our messages or by contacting{" "}
           <a
-            href="mailto:hello@eonichealth.com"
-            className="text-[#C75A2A] underline-offset-2 hover:underline"
+            href="mailto:hello@athenehealth.com"
+            className="text-[#4A6FA5] underline-offset-2 hover:underline"
           >
-            hello@eonichealth.com
+            hello@athenehealth.com
           </a>
           .
         </p>
@@ -78,10 +78,10 @@ export default function PrivacyPage() {
         <p>
           Questions about this policy:{" "}
           <a
-            href="mailto:hello@eonichealth.com"
-            className="text-[#C75A2A] underline-offset-2 hover:underline"
+            href="mailto:hello@athenehealth.com"
+            className="text-[#4A6FA5] underline-offset-2 hover:underline"
           >
-            hello@eonichealth.com
+            hello@athenehealth.com
           </a>
         </p>
       </section>

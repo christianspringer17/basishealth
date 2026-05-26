@@ -55,7 +55,7 @@ export const NAV_ITEMS: NavItem[] = [
     menu: {
       variant: "featured",
       image: NAV_IMAGES.protocolProduct,
-      imageAlt: "Eonic Health clinical protocol supplies",
+      imageAlt: "Athene Health clinical protocol supplies",
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
@@ -83,8 +83,8 @@ export const NAV_ITEMS: NavItem[] = [
           showPlayIcon: true,
         },
       ],
-      contactLabel: "Get in touch: hello@eonichealth.com",
-      contactHref: "mailto:hello@eonichealth.com",
+      contactLabel: "Get in touch: hello@athenehealth.com",
+      contactHref: "mailto:hello@athenehealth.com",
     },
   },
   {

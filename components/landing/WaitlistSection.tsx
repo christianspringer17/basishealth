@@ -29,14 +29,14 @@ export function WaitlistSection() {
       const data = (await res.json()) as { error?: string };
       if (!res.ok) {
         setError(true);
-        setMessage(data.error ?? "Please email hello@eonichealth.com.");
+        setMessage(data.error ?? "Please email hello@athenehealth.com.");
         return;
       }
       setEmail("");
       setMessage("Thank you. We will be in touch with launch updates.");
     } catch {
       setError(true);
-      setMessage("Network error. Please email hello@eonichealth.com.");
+      setMessage("Network error. Please email hello@athenehealth.com.");
     } finally {
       setLoading(false);
     }
@@ -51,7 +51,7 @@ export function WaitlistSection() {
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
           <h2 className="text-h1-lg leading-100 text-grey-9">Begin with clarity.</h2>
           <p className="text-h3 max-w-[600px] text-pretty text-grey-7">
-            See if Eonic Health is right for your goals. Join the waitlist for early
+            See if Athene Health is right for your goals. Join the waitlist for early
             access updates.
           </p>
         </div>

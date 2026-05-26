@@ -20,7 +20,7 @@ export function Footer() {
 
           <div className="grid w-full gap-12 border-t border-[var(--grey-3)] pt-12 md:grid-cols-3">
             <div>
-              <h3 className="text-h5 text-grey-9">Eonic Health</h3>
+              <h3 className="text-h5 text-grey-9">Athene Health</h3>
               <ul className="mt-4 flex flex-col gap-2">
                 <li>
                   <Link
@@ -66,10 +66,10 @@ export function Footer() {
               <ul className="mt-4 flex flex-col gap-2">
                 <li>
                   <a
-                    href="mailto:hello@eonichealth.com"
+                    href="mailto:hello@athenehealth.com"
                     className="text-h5 text-grey-7 transition-colors duration-280 hover:text-grey-9"
                   >
-                    hello@eonichealth.com
+                    hello@athenehealth.com
                   </a>
                 </li>
               </ul>
@@ -83,7 +83,7 @@ export function Footer() {
             appropriate.
           </p>
           <p className="mt-6 text-h5 text-grey-7">
-            © {new Date().getFullYear()} Eonic Health
+            © {new Date().getFullYear()} Athene Health
           </p>
         </div>
       </div>

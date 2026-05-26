@@ -3,7 +3,7 @@ type WaitlistResult =
   | { ok: false; error: string };
 
 function getRepo(): string {
-  return process.env.GITHUB_REPO ?? "christianspringer17/Eonichealth";
+  return process.env.GITHUB_REPO ?? "christianspringer17/Athenehealth";
 }
 
 async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
@@ -24,7 +24,7 @@ async function saveViaGitHubIssue(email: string): Promise<WaitlistResult> {
     body: JSON.stringify({
       title: `Waitlist: ${email}`,
       body: [
-        "New Eonic Health waitlist signup",
+        "New Athene Health waitlist signup",
         "",
         `- **Email:** ${email}`,
         `- **Submitted:** ${new Date().toISOString()}`,
@@ -76,7 +76,7 @@ async function notifyViaResend(email: string): Promise<WaitlistResult> {
     body: JSON.stringify({
       from,
       to: [notifyTo],
-      subject: `Eonic Health waitlist: ${email}`,
+      subject: `Athene Health waitlist: ${email}`,
       text: `New waitlist signup: ${email}\nTime: ${new Date().toISOString()}`,
     }),
   });
@@ -99,7 +99,7 @@ async function saveViaWeb3Forms(email: string): Promise<WaitlistResult> {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       access_key: accessKey,
-      subject: "Eonic Health Waitlist",
+      subject: "Athene Health Waitlist",
       email,
       message: `Waitlist signup: ${email}`,
     }),

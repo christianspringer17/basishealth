@@ -16,11 +16,11 @@ export function LegalPage({
             href="/"
             className="text-lg font-semibold tracking-tight text-[#171717]"
           >
-            Eonic Health
+            Athene Health
           </Link>
           <Link
             href="/"
-            className="text-sm font-medium text-[#66615c] hover:text-[#C75A2A]"
+            className="text-sm font-medium text-[#66615c] hover:text-[#4A6FA5]"
           >
             ← Back to home
           </Link>

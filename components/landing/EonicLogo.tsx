@@ -9,7 +9,7 @@ export function EonicLogo({ className }: { className?: string }) {
         className,
       )}
     >
-      Eonic
+      Athene
     </span>
   );
 }

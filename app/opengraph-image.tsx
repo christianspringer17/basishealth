@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Eonic Health — Personalized health protocols";
+export const alt = "Athene Health — Personalized health protocols";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -15,18 +15,18 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: 80,
-          background: "linear-gradient(160deg, #FFF7F0 0%, #ffffff 50%, #F6C7A8 100%)",
+          background: "linear-gradient(160deg, #eef2f8 0%, #ffffff 50%, #c5d4e8 100%)",
         }}
       >
         <div
           style={{
             fontSize: 28,
             fontWeight: 600,
-            color: "#C75A2A",
+            color: "#4A6FA5",
             marginBottom: 24,
           }}
         >
-          Eonic Health
+          Athene Health
         </div>
         <div
           style={{

@@ -50,7 +50,7 @@ export function ScienceSection() {
             Not fragmented across supplements, labs, and advice.
           </h2>
           <p className="text-h3 max-w-[900px] text-pretty text-grey-7">
-            Eonic integrates your goals, biomarkers, and provider guidance into one
+            Athene integrates your goals, biomarkers, and provider guidance into one
             evolving plan—designed to support clarity over noise.
           </p>
           <div className="pb-6 pt-2">

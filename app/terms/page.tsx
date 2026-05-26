@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/landing/LegalPage";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Eonic Health",
-  description: "Terms governing use of the Eonic Health website.",
+  title: "Terms of Use — Athene Health",
+  description: "Terms governing use of the Athene Health website.",
 };
 
 export default function TermsPage() {
@@ -14,7 +14,7 @@ export default function TermsPage() {
       <section className="space-y-4">
         <h2 className="text-lg font-medium text-[#171717]">Agreement</h2>
         <p>
-          By accessing the Eonic Health website, you agree to these Terms of Use.
+          By accessing the Athene Health website, you agree to these Terms of Use.
           If you do not agree, please do not use the site.
         </p>
       </section>
@@ -50,7 +50,7 @@ export default function TermsPage() {
       <section className="space-y-4">
         <h2 className="text-lg font-medium text-[#171717]">Intellectual property</h2>
         <p>
-          Site content, branding, and materials are owned by Eonic Health or its
+          Site content, branding, and materials are owned by Athene Health or its
           licensors and may not be copied or used without permission.
         </p>
       </section>
@@ -58,7 +58,7 @@ export default function TermsPage() {
       <section className="space-y-4">
         <h2 className="text-lg font-medium text-[#171717]">Limitation of liability</h2>
         <p>
-          To the fullest extent permitted by law, Eonic Health is not liable for
+          To the fullest extent permitted by law, Athene Health is not liable for
           damages arising from your use of this website or reliance on its
           content.
         </p>
@@ -69,10 +69,10 @@ export default function TermsPage() {
         <p>
           Questions about these terms:{" "}
           <a
-            href="mailto:hello@eonichealth.com"
-            className="text-[#C75A2A] underline-offset-2 hover:underline"
+            href="mailto:hello@athenehealth.com"
+            className="text-[#4A6FA5] underline-offset-2 hover:underline"
           >
-            hello@eonichealth.com
+            hello@athenehealth.com
           </a>
         </p>
       </section>

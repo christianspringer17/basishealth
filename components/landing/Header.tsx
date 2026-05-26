@@ -72,7 +72,7 @@ export function Header() {
                 )}
                 onMouseEnter={closeMenu}
               >
-                <span className="sr-only">Eonic Health</span>
+                <span className="sr-only">Athene Health</span>
                 <EonicLogo />
               </Link>
             </div>
@@ -203,7 +203,7 @@ export function Header() {
             ))}
             <div className="flex flex-col gap-3 pt-2">
               <Link
-                href="mailto:hello@eonichealth.com"
+                href="mailto:hello@athenehealth.com"
                 className="nav-dropdown-link"
                 onClick={closeAll}
               >

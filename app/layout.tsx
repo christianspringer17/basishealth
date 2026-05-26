@@ -16,27 +16,27 @@ const inter = Inter({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://eonichealth.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://athenehealth.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Eonic Health — Personalized health protocols",
-    template: "%s | Eonic Health",
+    default: "Athene Health — Personalized health protocols",
+    template: "%s | Athene Health",
   },
   description:
     "Provider-guided longevity and performance protocols designed to support energy, recovery, metabolism, and long-term vitality.",
   openGraph: {
-    title: "Eonic Health — Personalized health protocols",
+    title: "Athene Health — Personalized health protocols",
     description:
       "Provider-guided longevity and performance protocols for energy, recovery, metabolism, and long-term vitality.",
-    siteName: "Eonic Health",
+    siteName: "Athene Health",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Eonic Health",
+    title: "Athene Health",
     description:
       "Personalized, provider-guided health protocols for long-term vitality.",
   },

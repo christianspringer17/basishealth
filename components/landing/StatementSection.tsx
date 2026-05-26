@@ -5,7 +5,7 @@ export function StatementSection() {
         <div className="col-span-full flex flex-col items-center gap-y-16 py-100 md:gap-y-20 text-center md:col-span-16 md:col-start-5">
           <h2 className="text-h1-lg max-w-[700px] text-pretty">
             <span className="text-grey-7">
-              Eonic Health combines clinical oversight, modern diagnostics, and
+              Athene Health combines clinical oversight, modern diagnostics, and
               personalized protocol design
             </span>{" "}
             <span className="text-grey-9">

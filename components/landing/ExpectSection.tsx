@@ -11,7 +11,7 @@ const steps = [
   },
   {
     title: "Complete intake and eligibility review",
-    body: "A structured intake helps licensed providers determine whether Eonic Health is appropriate for you, based on eligibility and medical history.",
+    body: "A structured intake helps licensed providers determine whether Athene Health is appropriate for you, based on eligibility and medical history.",
   },
   {
     title: "Receive a personalized protocol",

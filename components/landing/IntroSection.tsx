@@ -7,7 +7,7 @@ export function IntroSection() {
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-6 md:col-span-16 md:col-start-5">
           <TextBlock
-            title="Introducing Eonic Health"
+            title="Introducing Athene Health"
             subtitle="Provider-guided longevity and performance care."
           />
           <div className="flex justify-center pt-3">

@@ -4,7 +4,7 @@
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
-# Eonic Health — agent notes
+# Athene Health — agent notes
 
 ## Deployment (Vercel)
 
@@ -30,7 +30,7 @@ Configure at least one on Vercel (via plugin or dashboard):
 | Variable | Purpose |
 |----------|---------|
 | `WAITLIST_GITHUB_TOKEN` | GitHub PAT with `repo` — creates an issue per signup |
-| `GITHUB_REPO` | `christianspringer17/Eonichealth` |
+| `GITHUB_REPO` | `christianspringer17/Athenehealth` |
 | `RESEND_API_KEY` + `WAITLIST_NOTIFY_EMAIL` | Email via Resend |
 | `WEB3FORMS_ACCESS_KEY` | Web3Forms |
 | `NEXT_PUBLIC_SITE_URL` | Production URL for OG metadata |

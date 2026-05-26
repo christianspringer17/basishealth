@@ -1,6 +1,6 @@
-# Eonic Health
+# Athene Health
 
-Landing page for Eonic Health — personalized, provider-guided longevity and performance protocols.
+Landing page for Athene Health — personalized, provider-guided longevity and performance protocols.
 
 ## View the site (no local setup)
 

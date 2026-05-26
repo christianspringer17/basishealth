@@ -17,15 +17,15 @@
   --grey-8: oklch(58% 0.008 50);
   --grey-9: oklch(32% 0 0);
 
-  /* Exciting orange accent */
-  --accent-1: #fff0e6;
-  --accent-2: #ffc299;
-  --accent-3: #ff8f47;
-  --accent-4: #ff6318;
-  --accent-5: #ff5500;
-  --accent-button: #ff5500;
-  --accent-button-hover: #e84d00;
-  --accent-glow: rgb(255 85 0 / 0.42);
+  /* Primary blue accent */
+  --accent-1: #eef2f8;
+  --accent-2: #c5d4e8;
+  --accent-3: #8aa4c9;
+  --accent-4: #5a82ad;
+  --accent-5: #4a6fa5;
+  --accent-button: #4a6fa5;
+  --accent-button-hover: #3a5a8c;
+  --accent-glow: rgb(74 111 165 / 0.35);
 
   --radius-lg: 24px;
   --radius-xl: 32px;

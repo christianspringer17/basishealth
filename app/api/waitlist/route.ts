@@ -28,7 +28,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "We could not save your signup right now. Please email hello@eonichealth.com and we will add you manually.",
+          "We could not save your signup right now. Please email hello@athenehealth.com and we will add you manually.",
       },
       { status: 503 },
     );
