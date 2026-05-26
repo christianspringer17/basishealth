@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "predev": "node scripts/check-node.mjs",
-    "prebuild": "node scripts/check-node.mjs"
+    "prebuild": "node scripts/check-node.mjs",
+    "video:hero": "powershell -ExecutionPolicy Bypass -File scripts/install-hero-video.ps1"
   },
   "dependencies": {
     "next": "^15.5.18",
