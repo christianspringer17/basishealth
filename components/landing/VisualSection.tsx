@@ -14,8 +14,8 @@ export function VisualSection() {
         </div>
       </div>
 
-      <div className="site-container site-grid w-full place-items-center gap-y-80">
-        <div className="col-span-full w-full md:col-span-22 md:col-start-2">
+      <div className="site-container site-grid w-full">
+        <div className="section-stack col-span-full md:col-span-22 md:col-start-2">
           <CinematicBlock
             poster={MEDIA.visualPoster}
             videoSrc={MEDIA.visualVideo}
@@ -24,12 +24,12 @@ export function VisualSection() {
             rounded="2xl"
             showControls
           />
+          <p className="max-w-[480px] text-center text-h5 text-grey-7">
+            GLP–One is clinician-guided treatment with ongoing clinical support.
+            Eligibility review helps determine whether treatment is appropriate for
+            you.
+          </p>
         </div>
-        <p className="col-span-full max-w-[480px] text-center text-h5 text-grey-7 md:col-span-12 md:col-start-7">
-          GLP–One is clinician-guided treatment with ongoing clinical support.
-          Eligibility review helps determine whether treatment is appropriate for
-          you.
-        </p>
       </div>
     </section>
   );

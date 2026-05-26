@@ -111,13 +111,15 @@ export function MediaFrame({
 }: {
   src: string;
   alt: string;
-  aspect?: "cinema" | "card" | "portrait";
+  aspect?: "cinema" | "card" | "portrait" | "product";
   rounded?: "lg" | "2xl";
   objectFit?: "cover" | "contain";
   className?: string;
 }) {
   const aspectClass =
-    aspect === "cinema"
+    aspect === "product"
+      ? "aspect-[4/3] md:aspect-[3/2]"
+      : aspect === "cinema"
       ? "aspect-[0.75] md:aspect-[16/9]"
       : aspect === "portrait"
         ? "aspect-[0.75] md:aspect-[1.78]"

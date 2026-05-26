@@ -16,21 +16,21 @@ export function IntroSection() {
         </div>
       </div>
 
-      <div className="site-container site-grid w-full place-items-center gap-y-80">
-        <div className="col-span-full w-full md:col-span-16 md:col-start-5">
+      <div className="site-container site-grid w-full">
+        <div className="section-stack col-span-full md:col-span-16 md:col-start-5">
           <MediaFrame
             src={MEDIA.intro}
             alt="GLP-One clinical protocol supplies"
-            aspect="cinema"
+            aspect="product"
             objectFit="contain"
             rounded="2xl"
           />
+          <p className="max-w-[420px] text-center text-h5 text-grey-7">
+            Includes medication and personalized dosing support where medically
+            appropriate. Imagery is illustrative; actual medication appearance may
+            vary by compounding pharmacy partner.
+          </p>
         </div>
-        <p className="col-span-full max-w-[420px] text-center text-h5 text-grey-7 md:col-span-10 md:col-start-8">
-          Includes medication and personalized dosing support where medically
-          appropriate. Imagery is illustrative; actual medication appearance may
-          vary by compounding pharmacy partner.
-        </p>
       </div>
     </section>
   );

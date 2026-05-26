@@ -42,29 +42,27 @@ export function ProgramSection() {
           </div>
         </div>
 
-        <div className="site-container site-grid w-full place-items-center gap-y-80">
-          <div className="col-span-full w-full md:col-span-18 md:col-start-4">
+        <div className="site-container site-grid w-full">
+          <div className="section-stack-loose col-span-full md:col-span-18 md:col-start-4">
             <MediaFrame
               src={MEDIA.program}
               alt="Provider reviewing a personalized health plan"
               aspect="cinema"
               rounded="2xl"
             />
-          </div>
 
-          <div className="col-span-full grid w-full gap-6 md:col-span-20 md:col-start-3 md:grid-cols-2">
-            {pillars.map((pillar) => (
-              <div
-                key={pillar.title}
-                className="flex flex-col gap-2 rounded-basal-lg border border-[var(--grey-3)] bg-[var(--grey-1)] p-6"
-              >
-                <h3 className="text-h4 text-grey-9">{pillar.title}</h3>
-                <p className="text-h5 text-pretty text-grey-7">{pillar.body}</p>
-              </div>
-            ))}
-          </div>
+            <div className="grid w-full gap-6 md:grid-cols-2">
+              {pillars.map((pillar) => (
+                <div
+                  key={pillar.title}
+                  className="flex flex-col gap-2 rounded-basal-lg border border-[var(--grey-3)] bg-[var(--grey-1)] p-6"
+                >
+                  <h3 className="text-h4 text-grey-9">{pillar.title}</h3>
+                  <p className="text-h5 text-pretty text-grey-7">{pillar.body}</p>
+                </div>
+              ))}
+            </div>
 
-          <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">
             <BasalButton href="/glp-one">Explore GLP–One</BasalButton>
           </div>
         </div>

@@ -3,13 +3,15 @@
  */
 export const MEDIA = {
   heroPoster:
-    "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=2400&q=85&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f50bdf31?w=2400&q=85&auto=format&fit=crop",
   heroVideo:
-    process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/hero.mp4",
+    process.env.NEXT_PUBLIC_HERO_VIDEO_URL ??
+    "https://videos.pexels.com/video-files/3835982/3835982-hd_1920_1080_25fps.mp4",
   visualPoster:
     "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=2400&q=85&auto=format&fit=crop",
   visualVideo:
-    process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
+    process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ??
+    "https://videos.pexels.com/video-files/5066222/5066222-hd_1920_1080_25fps.mp4",
   editorialModal: "/images/nav/nav-about.jpg",
   intro: "/images/nav/protocol-product.png",
   program:

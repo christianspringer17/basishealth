@@ -73,7 +73,7 @@ export function AboutPageLayout({ content }: { content: AboutPageContent }) {
           </div>
         )}
 
-        <div className="site-container site-grid w-full gap-y-80">
+        <div className="site-container site-grid w-full section-stack-loose">
           {content.sections.map((section) => (
             <div
               key={section.heading}

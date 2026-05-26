@@ -41,7 +41,7 @@ export function VideoMedia({
         fill
         priority={priority}
         className={cn(
-          "object-cover transition-opacity duration-700",
+          "object-cover object-center transition-opacity duration-700",
           showVideo && ready ? "opacity-0" : "opacity-100",
         )}
         sizes="100vw"
@@ -50,15 +50,16 @@ export function VideoMedia({
         <video
           ref={videoRef}
           className={cn(
-            "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
+            "absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700",
             ready ? "opacity-100" : "opacity-0",
           )}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           poster={poster}
+          onLoadedData={() => setReady(true)}
           onCanPlay={() => setReady(true)}
           onError={() => setFailed(true)}
         >

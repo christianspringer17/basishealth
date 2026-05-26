@@ -13,16 +13,14 @@ export function VitalitySection() {
           </p>
         </div>
       </div>
-      <div className="site-container site-grid w-full place-items-center gap-y-80">
-        <div className="col-span-full w-full md:col-span-20 md:col-start-3">
+      <div className="site-container site-grid w-full">
+        <div className="section-stack col-span-full md:col-span-20 md:col-start-3">
           <MediaFrame
             src={MEDIA.vitality}
             alt="Wellness and vitality"
             aspect="cinema"
             rounded="2xl"
           />
-        </div>
-        <div className="col-span-full flex justify-center">
           <BasalButton href="/signup">Begin again</BasalButton>
         </div>
       </div>
