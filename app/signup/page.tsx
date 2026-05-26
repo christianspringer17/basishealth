@@ -130,7 +130,10 @@ function SignupForm() {
 
       {step === 2 && (
         <div className="flex flex-col gap-6">
-          <h2 className="text-h1-lg text-grey-9">Choose your protocol term</h2>
+          <h2 className="text-h1-lg text-grey-9">Which protocol term interests you?</h2>
+          <p className="text-h5 text-grey-7">
+            This helps us prepare for your consultation. No payment is collected here.
+          </p>
           <PricingCards selected={plan} onSelect={setPlan} />
           <div className="flex flex-wrap gap-3">
             <BasalButton
@@ -159,8 +162,8 @@ function SignupForm() {
         <form onSubmit={handleSubmit} className="flex max-w-md flex-col gap-6">
           <h2 className="text-h1-lg text-grey-9">Where should we send next steps?</h2>
           <p className="text-h5 text-grey-7">
-            Selected: {PLANS.find((p) => p.id === plan)?.name} · $
-            {PLANS.find((p) => p.id === plan)?.priceTotal.toLocaleString()} upfront
+            Preferred plan: {PLANS.find((p) => p.id === plan)?.name} (from $
+            {PLANS.find((p) => p.id === plan)?.priceMonthly}/mo)
           </p>
           <label htmlFor="email" className="sr-only">
             Email

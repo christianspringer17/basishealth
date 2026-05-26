@@ -7,16 +7,20 @@ import { BasalButton, MediaFrame, PlusButton } from "./ui";
 
 const pillars = [
   {
-    title: "Clinical intake",
-    body: "Structured assessment and eligibility review with licensed providers.",
+    title: "Eligibility screening & clinician review",
+    body: "Structured intake gives providers the data to determine whether GLP-1 therapy is right for you—no rubber-stamp prescriptions.",
   },
   {
     title: "Personalized protocol",
-    body: "A plan aligned to your goals and health context—not a generic template.",
+    body: "Dosing, titration, and supportive care tailored to your goals and biology—not a one-size-fits-all template.",
   },
   {
-    title: "Ongoing adaptation",
-    body: "Check-ins and adjustments as your biomarkers and priorities evolve.",
+    title: "Ongoing adaptive care",
+    body: "Scheduled check-ins and thoughtful adjustments as your body responds over months—not days.",
+  },
+  {
+    title: "Metabolic literacy",
+    body: "Education and counseling so you understand the markers that predict long-term health—not just short-term scale change.",
   },
 ];
 
@@ -25,14 +29,11 @@ export function ProgramSection() {
 
   return (
     <>
-      <section
-        id="program"
-        className="section-shell section-gap-lg w-full"
-      >
+      <section id="program" className="section-shell section-gap-lg w-full">
         <div className="site-container site-grid w-full">
           <div className="col-span-full flex flex-col items-center gap-6 text-center md:col-span-16 md:col-start-5">
             <div className="flex flex-col items-center gap-2">
-              <h2 className="text-h1-lg leading-100 text-grey-9">One guided program.</h2>
+              <h2 className="text-h1-lg leading-100 text-grey-9">One adaptive program.</h2>
               <p className="text-h1-lg leading-100 text-grey-7">
                 Clinician-guided from day one.
               </p>
@@ -51,7 +52,7 @@ export function ProgramSection() {
             />
           </div>
 
-          <div className="col-span-full grid w-full gap-8 md:col-span-20 md:col-start-3 md:grid-cols-3">
+          <div className="col-span-full grid w-full gap-6 md:col-span-20 md:col-start-3 md:grid-cols-2">
             {pillars.map((pillar) => (
               <div
                 key={pillar.title}
@@ -64,9 +65,7 @@ export function ProgramSection() {
           </div>
 
           <div className="col-span-full flex justify-center md:col-span-16 md:col-start-5">
-            <BasalButton href="/learn/what-to-expect">
-              See how it works
-            </BasalButton>
+            <BasalButton href="/glp-one">Explore GLP–One</BasalButton>
           </div>
         </div>
       </section>

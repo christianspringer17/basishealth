@@ -8,25 +8,25 @@ const testimonials = [
     quote:
       "I was doing everything right — training, nutrition, sleep. None of it moved the needle until my protocol was adjusted with proper clinical oversight. The difference was having a plan that evolved with me.",
     name: "Sarah M.",
-    role: "Athene Health member",
+    role: "GLP–One patient",
   },
   {
     quote:
-      "What sold me was the focus on metabolic markers, not just weight. My energy stabilized within the first month of my 6-month plan, and I finally understood what my labs were telling me.",
+      "What sold me was the focus on metabolic markers, not just weight. My energy stabilized within the first few months, and I finally understood what my labs were telling me.",
     name: "James K.",
-    role: "Athene Health member",
+    role: "GLP–One patient",
   },
   {
     quote:
-      "The upfront subscription model made me commit in a good way. Knowing I had six months of provider check-ins kept me accountable without feeling like I was on my own.",
+      "The assessment was thorough—nobody rushed me into treatment. I felt like a participant in my care, not just a prescription.",
     name: "Elena R.",
-    role: "Athene Health member",
+    role: "GLP–One patient",
   },
   {
     quote:
-      "I appreciated that nobody rushed me into treatment. The eligibility review was thorough, and the education around GLP-1 therapy helped me feel like a participant—not a prescription.",
+      "Having a clinician who monitors progress and adjusts dosing made all the difference. This isn't a set-it-and-forget-it program.",
     name: "David T.",
-    role: "Athene Health member",
+    role: "GLP–One patient",
   },
 ];
 
@@ -56,10 +56,9 @@ export function TestimonialsSection() {
     <section className="section-shell section-gap-md w-full overflow-hidden">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg text-grey-9">Trusted by patients like you</h2>
+          <h2 className="text-h1-lg text-grey-9">Patient stories</h2>
           <p className="text-h3 max-w-[560px] text-pretty text-grey-7">
-            Real stories from people investing in long-term metabolic health with
-            provider-guided care.
+            Real experiences from people investing in long-term metabolic health.
           </p>
         </div>
       </div>
@@ -67,7 +66,7 @@ export function TestimonialsSection() {
       <div
         ref={trackRef}
         onScroll={onScroll}
-        className="carousel-track mt-8 w-full px-horz"
+        className="carousel-track mt-10 w-full px-horz"
       >
         {testimonials.map((item) => (
           <article
@@ -75,7 +74,8 @@ export function TestimonialsSection() {
             data-slide
             className="carousel-slide flex flex-col justify-between rounded-basal-2xl border border-[var(--grey-3)] bg-[var(--grey-1)] p-8"
           >
-            <blockquote className="text-h4 text-pretty text-grey-9">
+            <p className="text-h5 text-grey-7">Customer review</p>
+            <blockquote className="mt-4 text-h4 text-pretty text-grey-9">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
             <footer className="mt-8">
@@ -93,14 +93,11 @@ export function TestimonialsSection() {
             type="button"
             aria-label={`Go to testimonial ${index + 1}`}
             className={cn(
-              "h-2 rounded-full transition-all duration-300",
-              active === index
-                ? "w-8 bg-[var(--grey-9)]"
-                : "w-2 bg-[var(--grey-3)]",
+              "h-1.5 rounded-full transition-all duration-300",
+              active === index ? "w-8 bg-[var(--grey-9)]" : "w-1.5 bg-[var(--grey-3)]",
             )}
             onClick={() => {
-              const track = trackRef.current;
-              const slide = track?.querySelector<HTMLElement>(
+              const slide = trackRef.current?.querySelector<HTMLElement>(
                 `[data-slide]:nth-child(${index + 1})`,
               );
               slide?.scrollIntoView({
@@ -111,13 +108,6 @@ export function TestimonialsSection() {
             }}
           />
         ))}
-      </div>
-
-      <div className="site-container mt-12">
-        <p className="text-center text-h5 text-grey-7">
-          Licensed clinicians · HIPAA-compliant care · Transparent 3- & 6-month
-          pricing
-        </p>
       </div>
     </section>
   );

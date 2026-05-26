@@ -2,8 +2,8 @@ import { BasalButton } from "@/components/landing/ui";
 
 export function ConversionBand({
   title = "Begin with clarity.",
-  description = "See if Athene Health is right for your goals. Choose a 3- or 6-month protocol and start with a licensed provider review.",
-  primaryLabel = "Join the waitlist",
+  description = "See if GLP–One is right for your body and goals. Complete a short clinical assessment—your provider will confirm eligibility and discuss plan options.",
+  primaryLabel = "Begin clinical assessment",
   primaryHref = "/signup",
   secondaryLabel = "How it works",
   secondaryHref = "/about/how-it-works",
@@ -25,10 +25,6 @@ export function ConversionBand({
             <BasalButton href={primaryHref}>{primaryLabel}</BasalButton>
             <BasalButton href={secondaryHref}>{secondaryLabel}</BasalButton>
           </div>
-          <p className="text-h5 max-w-[480px] text-pretty text-grey-7">
-            Transparent upfront pricing for 3- and 6-month care plans. No hidden
-            fees—just clinician-guided metabolic care built for long-term results.
-          </p>
         </div>
       </div>
     </section>

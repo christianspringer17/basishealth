@@ -1,4 +1,5 @@
 import { ExpectSection } from "@/components/landing/ExpectSection";
+import { AssessmentSection } from "@/components/landing/AssessmentSection";
 import { Footer } from "@/components/landing/Footer";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
@@ -9,7 +10,6 @@ import { StatementSection } from "@/components/landing/StatementSection";
 import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { VitalitySection } from "@/components/landing/VitalitySection";
 import { VisualSection } from "@/components/landing/VisualSection";
-import { WaitlistSection } from "@/components/landing/WaitlistSection";
 
 export default function Home() {
   return (
@@ -19,13 +19,13 @@ export default function Home() {
         <Hero />
         <StatementSection />
         <IntroSection />
-        <VisualSection />
         <ProgramSection />
         <ExpectSection />
         <ScienceSection />
         <TestimonialsSection />
         <VitalitySection />
-        <WaitlistSection />
+        <VisualSection />
+        <AssessmentSection />
       </main>
       <Footer />
     </>

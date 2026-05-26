@@ -3,13 +3,13 @@ export function StatementSection() {
     <div className="w-full">
       <div className="site-container site-grid">
         <div className="col-span-full flex flex-col items-center gap-y-16 py-100 md:gap-y-20 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg max-w-[700px] text-pretty">
+          <h2 className="text-h1-lg max-w-[760px] text-pretty">
             <span className="text-grey-7">
               Athene Health combines clinical oversight, modern diagnostics, and
-              personalized protocol design
+              metabolism-first protocol design
             </span>{" "}
             <span className="text-grey-9">
-              to help you move from guesswork to a clearer plan.
+              to help you move from guesswork to a plan you can trust.
             </span>
           </h2>
         </div>

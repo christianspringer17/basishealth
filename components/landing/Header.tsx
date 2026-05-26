@@ -123,11 +123,11 @@ export function Header() {
 
             <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
               <NavLink
-                href="/#waitlist"
+                href="/signup"
                 onHero={onHero}
                 onMouseEnter={closeMenu}
               >
-                Join waitlist
+                Get started
               </NavLink>
             </div>
 
@@ -212,8 +212,8 @@ export function Header() {
               >
                 Contact
               </Link>
-              <BasalButton href="/#waitlist" onClick={closeAll}>
-                Join waitlist
+              <BasalButton href="/signup" onClick={closeAll}>
+                Get started
               </BasalButton>
             </div>
           </div>

@@ -4,36 +4,31 @@ import Link from "next/link";
 import { useState } from "react";
 import { BasalButton } from "./ui";
 
-const protocols = [
+const markers = [
   {
-    name: "Energy",
+    name: "Insulin sensitivity",
     description:
-      "Protocols designed to support sustainable daily energy, informed by your goals and health context.",
+      "How effectively your cells respond to insulin affects energy stability, body composition, and long-term metabolic risk.",
   },
   {
-    name: "Metabolism",
+    name: "Muscle mass",
     description:
-      "A structured approach to metabolic markers and habits, with provider oversight where appropriate.",
+      "Muscle is metabolic reserve—it influences glucose disposal, hormonal signaling, and functional capacity as you age.",
   },
   {
-    name: "Recovery",
+    name: "Hormonal response",
     description:
-      "Guidance focused on rest, repair, and resilience—personalized rather than one-size-fits-all.",
+      "Cortisol, thyroid, and sex hormones interact with metabolism. Rhythm and proportion matter as much as single lab values.",
   },
   {
-    name: "Sleep",
+    name: "VO₂ max",
     description:
-      "Support for sleep quality and rhythm as part of a broader longevity-oriented plan.",
+      "Cardiorespiratory fitness predicts mortality and metabolic flexibility better than many static labs alone.",
   },
   {
-    name: "Healthy aging",
+    name: "Body composition",
     description:
-      "Long-horizon protocols designed to support vitality over time, not quick fixes.",
-  },
-  {
-    name: "Performance",
-    description:
-      "For those balancing output and recovery—with protocols aligned to your baseline and goals.",
+      "Where you store fat—and how much lean mass you retain—often matters more than scale weight for metabolic outcomes.",
   },
 ];
 
@@ -50,13 +45,11 @@ export function ScienceSection() {
           <p className="text-h3 max-w-[900px] text-pretty text-grey-7">
             Your metabolism isn&apos;t one thing. It&apos;s a conversation between
             systems. New research has given us five markers to tell us how well that
-            conversation is flowing. Our metabolism-first approach to wellness
-            integrates each of these signals into your care.
+            conversation is flowing. Our metabolism-first approach integrates each
+            signal into your care.
           </p>
           <div className="pb-6 pt-2">
-            <BasalButton href="/learn/what-to-expect">
-              Learn more
-            </BasalButton>
+            <BasalButton href="/learn/what-we-measure">Learn more</BasalButton>
           </div>
         </div>
       </div>
@@ -65,11 +58,11 @@ export function ScienceSection() {
         <div className="col-span-full md:col-span-22 md:col-start-2">
           <div className="flex min-h-[480px] flex-col items-center overflow-hidden rounded-basal-2xl bg-accent-1 py-10 text-accent-5 md:min-h-[min(90svh,700px)] md:py-14 md:px-horz">
             <h3 className="text-h3 leading-100 px-horz text-center md:px-0">
-              Protocol areas
+              The Five Metabolic Markers
             </h3>
 
             <div className="mt-8 hidden w-full flex-1 items-start justify-center gap-0 md:flex">
-              {protocols.map((item, index) => (
+              {markers.map((item, index) => (
                 <button
                   key={item.name}
                   type="button"
@@ -85,19 +78,19 @@ export function ScienceSection() {
                       }}
                     />
                     <div
-                      className="relative h-3 w-3 rounded-full bg-[var(--accent-button)] transition-all duration-350"
+                      className="relative h-3 w-3 rounded-full bg-[var(--accent-5)] transition-all duration-350"
                       style={{
                         transform: active === index ? "scale(1.25)" : "scale(1)",
                       }}
                     />
                   </div>
-                  <p className="text-h3 leading-100 text-accent-5">{item.name}</p>
+                  <p className="text-h3 leading-100 text-accent-5 text-center">{item.name}</p>
                 </button>
               ))}
             </div>
 
             <div className="mt-6 grid w-full grid-cols-2 gap-2 px-horz md:hidden">
-              {protocols.map((item, index) => (
+              {markers.map((item, index) => (
                 <button
                   key={item.name}
                   type="button"
@@ -112,10 +105,10 @@ export function ScienceSection() {
 
             <div className="mt-auto flex w-full max-w-[450px] flex-col items-center px-horz pt-10 text-center md:px-0 md:pt-0">
               <p className="text-h4 text-pretty text-accent-5 transition-opacity duration-300">
-                {protocols[active].description}
+                {markers[active].description}
               </p>
               <Link
-                href="/#waitlist"
+                href="/learn/what-we-measure"
                 className="mt-5 text-h5 text-accent-5 underline-offset-4 transition-opacity hover:underline"
               >
                 Explore

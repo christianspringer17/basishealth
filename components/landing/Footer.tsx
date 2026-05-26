@@ -15,7 +15,7 @@ export function Footer() {
             <h2 className="text-h1-lg max-w-lg text-pretty text-grey-9">
               Begin with a clearer plan.
             </h2>
-            <BasalButton href="/#waitlist">Join the waitlist</BasalButton>
+            <BasalButton href="/signup">Begin clinical assessment</BasalButton>
           </div>
 
           <div className="grid w-full gap-12 border-t border-[var(--grey-3)] pt-12 md:grid-cols-3">
@@ -24,10 +24,10 @@ export function Footer() {
               <ul className="mt-4 flex flex-col gap-2">
                 <li>
                   <Link
-                    href="/#waitlist"
+                    href="/signup"
                     className="text-h5 text-grey-7 transition-colors duration-280 hover:text-grey-9"
                   >
-                    Join waitlist
+                    Get started
                   </Link>
                 </li>
                 <li>

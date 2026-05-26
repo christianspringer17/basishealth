@@ -54,7 +54,7 @@ export const NAV_ITEMS: NavItem[] = [
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
-      cta: { label: "Get started", href: "/signup" },
+      cta: { label: "Begin assessment", href: "/signup" },
     },
   },
   {
@@ -112,7 +112,7 @@ export const NAV_ITEMS: NavItem[] = [
         { label: "What to expect", href: "/learn/what-to-expect" },
         { label: "Protocol areas", href: "/learn/protocol-areas" },
         { label: "Our program", href: "/learn/our-program" },
-        { label: "Join the waitlist", href: "/signup" },
+        { label: "Begin assessment", href: "/signup" },
       ],
       allTopics: { label: "All topics", href: "/learn" },
     },

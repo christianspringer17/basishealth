@@ -3,12 +3,12 @@ import { BasalButton, MediaFrame, TextBlock } from "./ui";
 
 export function IntroSection() {
   return (
-    <section className="section-shell section-gap-lg w-full">
+    <section id="intro" className="section-shell section-gap-lg w-full">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-6 md:col-span-16 md:col-start-5">
           <TextBlock
-            title="Introducing Athene Health"
-            subtitle="Provider-guided longevity and performance care."
+            title="Introducing GLP–One"
+            subtitle="Clinician-guided care with personalized dosing support, built for long-term metabolic health."
           />
           <div className="flex justify-center pt-3">
             <BasalButton href="/signup">Get started</BasalButton>
@@ -26,9 +26,10 @@ export function IntroSection() {
             rounded="2xl"
           />
         </div>
-        <p className="col-span-full max-w-[300px] text-center text-h5 text-grey-7 md:col-span-8 md:col-start-9">
-          Imagery is illustrative. Clinical services, where offered, follow
-          eligibility review and licensed provider oversight.
+        <p className="col-span-full max-w-[420px] text-center text-h5 text-grey-7 md:col-span-10 md:col-start-8">
+          Includes medication and personalized dosing support where medically
+          appropriate. Imagery is illustrative; actual medication appearance may
+          vary by compounding pharmacy partner.
         </p>
       </div>
     </section>

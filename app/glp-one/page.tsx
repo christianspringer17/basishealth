@@ -26,12 +26,12 @@ const features = [
 
 const faqs = [
   {
-    q: "What is included in my subscription?",
+    q: "What is included in my protocol?",
     a: "Clinician review, personalized protocol design, scheduled check-ins, and dosing support. Medication is included where medically appropriate and prescribed.",
   },
   {
-    q: "Why pay upfront for 3 or 6 months?",
-    a: "Metabolic care requires continuity. Upfront plans align your care team around sustained outcomes and allow proper titration windows.",
+    q: "Why offer 3- and 6-month plans?",
+    a: "Metabolic care requires continuity. Longer plans align your care team around sustained outcomes and allow proper titration windows.",
   },
   {
     q: "Is GLP-One right for everyone?",
@@ -115,11 +115,11 @@ export default function GlpOnePage() {
         <div className="site-container site-grid w-full gap-y-12">
           <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
             <h2 className="text-h1-lg text-grey-9">
-              GLP-1 changes appetite. Care determines outcomes.
+              Choose the care term that fits your goals
             </h2>
             <p className="text-h3 max-w-[620px] text-pretty text-grey-7">
-              Choose the subscription term that fits your goals. Pay upfront for
-              3 or 6 months of clinician-guided care.
+              Plans from $199/month. Pricing and eligibility are confirmed during
+              your clinical assessment—no payment required to begin.
             </p>
           </div>
           <div className="col-span-full md:col-span-18 md:col-start-4">
