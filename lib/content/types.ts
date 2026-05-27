@@ -10,9 +10,19 @@ export type AboutPageContent = {
   intro?: string;
   backHref?: string;
   backLabel?: string;
+  founders?: {
+    names: string;
+    role: string;
+    image: { src: string; alt: string };
+  };
   heroImage?: { src: string; alt: string };
-  cta?: { label: string; href: string };
+  /** Editorial blocks (eyebrow + heading + body) */
   sections: EditorialSection[];
+  /** Closing “Our approach” block — matches basal.health/about */
+  approach?: EditorialSection;
+  /** Numbered steps for /about/how-it-works */
+  steps?: EditorialSection[];
+  cta?: { label: string; href: string };
 };
 
 export type ArticlePageContent = {

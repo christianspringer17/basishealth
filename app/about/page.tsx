@@ -13,7 +13,7 @@ export default function AboutPage() {
   return (
     <MarketingShell>
       <AboutPageLayout content={ABOUT_PAGES.main} />
-      <ConversionBand />
+      <ConversionBand primaryLabel="Begin your clinical assessment" />
     </MarketingShell>
   );
 }

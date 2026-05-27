@@ -204,7 +204,7 @@ function SignupForm() {
 export default function SignupPage() {
   return (
     <MarketingShell>
-      <section className="section-shell w-full min-h-[70svh]">
+      <section className="marketing-page section-shell w-full min-h-[70svh]">
         <div className="site-container site-grid w-full">
           <div className="col-span-full md:col-span-14 md:col-start-6">
             <Suspense fallback={<p className="text-h5 text-grey-7">Loading…</p>}>

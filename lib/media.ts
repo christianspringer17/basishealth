@@ -1,35 +1,37 @@
 /**
  * Static media paths — files live in /public and ship with the site.
- * Works on Fuse, GoHighLevel, Vercel, or any host that serves the built app.
+ * No stock URLs (Pexels/Unsplash); works on Fuse, GoHighLevel, Vercel, etc.
  *
- * Videos: add MP4s to public/videos/ (see public/videos/README.md).
- * Optional env overrides for staging only — not required for production.
+ * Videos: public/videos/hero.mp4, visual.mp4
+ * Posters: public/images/hero-poster.jpg, visual-poster.jpg (frame from video)
+ * See public/videos/README.md and public/images/README.md
  */
 export const MEDIA = {
-  heroPoster:
-    "https://images.unsplash.com/photo-1571019613454-1cb2f50bdf31?w=2400&q=85&auto=format&fit=crop",
-  heroVideo:
-    process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/hero.mp4",
-  visualPoster:
-    "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=2400&q=85&auto=format&fit=crop",
-  visualVideo:
-    process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
+  heroPoster: "/images/video2-poster.jpg",
+  heroVideo: process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/video2.mp4",
+  /** Previous hero video, moved into the Program section */
+  programPoster: "/images/hero-poster.jpg",
+  programVideo: "/videos/hero.mp4",
+  visualPoster: "/images/visual-poster.jpg",
+  visualVideo: process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
   editorialModal: "/images/nav/nav-about.jpg",
   intro: "/images/nav/protocol-product.png",
-  program:
-    "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=2000&q=85&auto=format&fit=crop",
-  vitality:
-    "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=2000&q=85&auto=format&fit=crop",
+  /** Replace with /images/sections/*.jpg when brand photography is ready */
+  program: "/images/placeholder.svg",
+  vitality: "/images/placeholder.svg",
+  placeholder: "/images/placeholder.svg",
   steps: [
-    "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1666214280557-f5018554ce93?w=1200&q=80&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80&auto=format&fit=crop",
+    "/images/placeholder.svg",
+    "/images/placeholder.svg",
+    "/images/placeholder.svg",
+    "/images/placeholder.svg",
   ],
 } as const;
 
 export const NAV_IMAGES = {
   protocolProduct: "/images/nav/protocol-product.png",
+  /** Vial shot — GLP–One nav dropdown only */
+  protocolDropdown: "/images/nav/protocol-dropdown.png",
   aboutHowItWorks: "/images/nav/nav-about.jpg",
   aboutVitality: "/images/nav/nav-unlock.jpg",
   learnProtocols: "/images/nav/nav-learn-metabolism.jpg",

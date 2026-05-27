@@ -60,6 +60,15 @@ When this site is deployed on Fuse or embedded in GoHighLevel:
 - Videos stay on the same origin as the site (no third-party stock URLs)
 - If a file is missing, the hero falls back to the poster image automatically
 
+## npm scripts (from repo root)
+
+| Command | Action |
+|---------|--------|
+| `npm run video:hero` | Copy hero MP4 from Downloads + extract poster |
+| `npm run video:visual` | Copy visual MP4 (edit script source path if needed) |
+| `npm run poster:hero` | Extract `public/images/hero-poster.jpg` |
+| `npm run poster:visual` | Extract `public/images/visual-poster.jpg` |
+
 ## Optional override
 
 Only if you need a different URL in staging:

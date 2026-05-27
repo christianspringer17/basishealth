@@ -1,3 +1,4 @@
+import { BrandLockupSection } from "@/components/landing/BrandLockupSection";
 import { ExpectSection } from "@/components/landing/ExpectSection";
 import { AssessmentSection } from "@/components/landing/AssessmentSection";
 import { Footer } from "@/components/landing/Footer";
@@ -21,6 +22,7 @@ export default function Home() {
         <IntroSection />
         <ProgramSection />
         <ExpectSection />
+        <BrandLockupSection />
         <ScienceSection />
         <TestimonialsSection />
         <VitalitySection />

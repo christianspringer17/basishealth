@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useId, useRef } from "react";
+import { SIGNUP_HREF, SIGNUP_LABELS } from "@/lib/cta";
 import { MEDIA } from "@/lib/media";
 import { BasalButton } from "./ui";
 
@@ -81,8 +82,8 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
               Your protocol adapts as your body responds.
             </p>
             <div className="pt-2">
-              <BasalButton href="/#waitlist" onClick={onClose}>
-                Get started
+              <BasalButton href={SIGNUP_HREF} onClick={onClose}>
+                {SIGNUP_LABELS.getStarted}
               </BasalButton>
             </div>
           </header>

@@ -1,62 +1,65 @@
-import Link from "next/link";
 import { ConversionBand } from "@/components/marketing/ConversionBand";
+import { LearnArticleCard } from "@/components/marketing/LearnArticleCard";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { learnIndexEntries } from "@/lib/content/learn-pages";
 
 export const metadata = {
   title: "Learn",
   description:
-    "Expert guides on metabolic health, personalized protocols, and what to expect from Athene Health care.",
+    "Evidence-informed guides on metabolic health—from insulin sensitivity to body composition and personalized protocols.",
 };
 
+const FEATURED_SLUG = "meet-your-metabolism";
+const CATEGORIES = ["Understand", "Measure", "Improve"] as const;
+
 export default function LearnPage() {
-  const categories = ["Understand", "Measure", "Improve"] as const;
+  const featured =
+    learnIndexEntries.find((e) => e.slug === FEATURED_SLUG) ?? learnIndexEntries[0];
+  const recent = learnIndexEntries
+    .filter((e) => e.slug !== featured.slug)
+    .slice(0, 4);
 
   return (
     <MarketingShell>
-      <section className="section-shell section-gap-lg w-full">
-        <div className="site-container site-grid w-full">
-          <div className="col-span-full flex flex-col items-start gap-6 md:col-span-16 md:col-start-5">
-            <h1 className="text-h1-xl text-grey-9">Learn</h1>
-            <p className="text-h3 max-w-[680px] text-pretty text-grey-7">
-              Evidence-informed guides on metabolic health—written for patients who
-              want clarity, not noise.
-            </p>
-          </div>
-        </div>
-
-        {categories.map((category) => {
-          const entries = learnIndexEntries.filter((e) => e.category === category);
-          if (entries.length === 0) return null;
-          return (
-            <div key={category} className="site-container site-grid w-full gap-y-8">
-              <h2 className="col-span-full text-h1-lg text-grey-9 md:col-span-16 md:col-start-5">
-                {category}
-              </h2>
-              <div className="col-span-full flex flex-col gap-4 md:col-span-16 md:col-start-5">
-                {entries.map((entry) => (
-                  <Link
-                    key={entry.slug}
-                    href={`/learn/${entry.slug}`}
-                    className="group flex flex-col gap-2 rounded-basal-lg border border-[var(--grey-3)] bg-[var(--grey-1)] p-6 transition-colors hover:bg-white"
-                  >
-                    <div className="flex flex-wrap items-center gap-x-3 text-h5 text-grey-7">
-                      <span>{entry.category}</span>
-                      <span aria-hidden>·</span>
-                      <span>{entry.readTime}</span>
-                    </div>
-                    <h3 className="text-h4 text-grey-9 group-hover:text-[var(--accent-5)]">
-                      {entry.title}
-                    </h3>
-                    <p className="text-h5 text-pretty text-grey-7">{entry.description}</p>
-                  </Link>
-                ))}
+      <div className="marketing-page">
+        <section className="section-shell section-gap-lg w-full">
+          <div className="site-container site-grid w-full section-stack-loose">
+            {featured && (
+              <div className="col-span-full md:col-span-18 md:col-start-4">
+                <LearnArticleCard entry={featured} variant="featured" />
               </div>
-            </div>
-          );
-        })}
-      </section>
-      <ConversionBand />
+            )}
+
+            {recent.length > 0 && (
+              <div className="col-span-full md:col-span-18 md:col-start-4">
+                <h2 className="learn-section-title">Recent</h2>
+                <div className="learn-card-grid learn-card-grid--recent">
+                  {recent.map((entry) => (
+                    <LearnArticleCard key={entry.slug} entry={entry} variant="compact" />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {CATEGORIES.map((category) => {
+              const entries = learnIndexEntries.filter((e) => e.category === category);
+              if (entries.length === 0) return null;
+              return (
+                <div key={category} className="col-span-full md:col-span-18 md:col-start-4">
+                  <h2 className="learn-section-title">{category}</h2>
+                  <div className="learn-card-grid">
+                    {entries.map((entry) => (
+                      <LearnArticleCard key={entry.slug} entry={entry} variant="compact" />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+      </div>
+
+      <ConversionBand secondaryLabel="Explore GLP–One" secondaryHref="/glp-one" />
     </MarketingShell>
   );
 }

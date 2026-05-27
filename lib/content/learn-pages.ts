@@ -76,7 +76,7 @@ export const learnIndexEntries: LearnIndexEntry[] = [
   },
   {
     slug: "meet-your-metabolism",
-    title: "Meet your metabolism",
+    title: "Meet Your Metabolism",
     category: "Improve",
     readTime: "6 min read",
     published: "May 2026",
@@ -359,7 +359,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
   },
   "meet-your-metabolism": {
     slug: "meet-your-metabolism",
-    title: "Meet your metabolism",
+    title: "Meet Your Metabolism",
     category: "Improve",
     readTime: "6 min read",
     published: "May 2026",

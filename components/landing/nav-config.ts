@@ -45,12 +45,12 @@ export type NavItem = {
 export const NAV_ITEMS: NavItem[] = [
   {
     id: "protocols",
-    label: "Protocols",
+    label: "GLP–One",
     href: "/glp-one",
     menu: {
       variant: "featured",
-      image: NAV_IMAGES.protocolProduct,
-      imageAlt: "Athene Health GLP-One clinical protocol supplies",
+      image: NAV_IMAGES.protocolDropdown,
+      imageAlt: "GLP-One tirzepatide vial",
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
@@ -74,8 +74,7 @@ export const NAV_ITEMS: NavItem[] = [
           label: "Built for vitality",
           href: "/about/vitality",
           image: NAV_IMAGES.aboutVitality,
-          imageAlt: "Long-term wellness",
-          showPlayIcon: true,
+          imageAlt: "Active lifestyle and long-term vitality",
         },
       ],
       contactLabel: "Get in touch: hello@athenehealth.com",

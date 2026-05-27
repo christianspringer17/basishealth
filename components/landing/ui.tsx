@@ -77,10 +77,12 @@ export function TextBlock({
   subtitle?: ReactNode;
 }) {
   return (
-    <div className="flex flex-col items-center gap-2 text-center">
-      <div className="text-h1-lg text-grey-9 text-pretty">{title}</div>
+    <div className="flex flex-col items-center gap-1.5 text-center">
+      <div className="text-h1 text-grey-9 text-pretty md:text-h1-lg">{title}</div>
       {subtitle && (
-        <div className="text-h1-lg text-grey-7 text-pretty">{subtitle}</div>
+        <div className="text-h3 text-grey-7 text-pretty md:text-h1-lg md:leading-[1.12]">
+          {subtitle}
+        </div>
       )}
     </div>
   );
@@ -120,10 +122,10 @@ export function MediaFrame({
     aspect === "product"
       ? "aspect-[4/3] md:aspect-[3/2]"
       : aspect === "cinema"
-      ? "aspect-[0.75] md:aspect-[16/9]"
-      : aspect === "portrait"
-        ? "aspect-[0.75] md:aspect-[1.78]"
-        : "aspect-[0.85] md:aspect-video";
+        ? "aspect-[0.75] md:aspect-[16/9]"
+        : aspect === "portrait"
+          ? "aspect-[0.75] md:aspect-[1.78]"
+          : "aspect-[0.85] md:aspect-video";
 
   return (
     <div

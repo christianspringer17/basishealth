@@ -21,9 +21,10 @@ export function NavDropdownImageCard({
         src={card.image}
         alt={card.imageAlt}
         fill
-        className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        sizes="360px"
+        className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+        sizes="380px"
       />
+      <span className="nav-dropdown-image-scrim" aria-hidden />
       <span className={pillClassName}>
         {card.label}
         {card.showPlayIcon && (

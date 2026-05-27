@@ -1,28 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
+import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { BasalButton } from "@/components/landing/ui";
+import { SIGNUP_HREF, SIGNUP_LABELS } from "@/lib/cta";
 import type { ArticlePageContent } from "@/lib/content/types";
 
 export function ArticlePage({ content }: { content: ArticlePageContent }) {
   return (
-    <>
-      <article className="section-shell section-gap-lg w-full">
+    <article className="marketing-page">
+      <section className="section-shell section-gap-lg w-full">
         <div className="site-container site-grid w-full">
-          <header className="col-span-full flex flex-col items-start gap-6 md:col-span-16 md:col-start-5">
-            <Link
-              href="/learn"
-              className="text-h5 text-grey-7 transition-colors hover:text-grey-9"
-            >
+          <header className="editorial-page-hero col-span-full md:col-span-16 md:col-start-5">
+            <Link href="/learn" className="editorial-back">
               ← Learn
             </Link>
-            <p className="text-h5 text-grey-7">{content.category}</p>
-            <h1 className="text-h1-xl max-w-[900px] text-pretty text-grey-9">
-              {content.title}
-            </h1>
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-h5 text-grey-7">
+            <p className="editorial-eyebrow">{content.category}</p>
+            <h1 className="text-h1-xl max-w-[900px] text-pretty text-grey-9">{content.title}</h1>
+            <div className="learn-card-meta-row">
               <span>{content.readTime}</span>
               <span aria-hidden>·</span>
-              <span>Published {content.published}</span>
+              <span>{content.published}</span>
             </div>
             <p className="text-h3 max-w-[760px] text-pretty text-grey-7">{content.lead}</p>
           </header>
@@ -31,7 +28,7 @@ export function ArticlePage({ content }: { content: ArticlePageContent }) {
         {content.heroImage && (
           <div className="site-container site-grid w-full">
             <div className="col-span-full md:col-span-20 md:col-start-3">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-basal-2xl bg-[var(--grey-2)] md:aspect-[16/9]">
+              <div className="editorial-figure">
                 <Image
                   src={content.heroImage.src}
                   alt={content.heroImage.alt}
@@ -47,42 +44,37 @@ export function ArticlePage({ content }: { content: ArticlePageContent }) {
 
         <div className="site-container site-grid w-full">
           <div className="col-span-full md:col-span-14 md:col-start-6">
-            <div className="article-body flex flex-col gap-8">
+            <div className="article-body">
               {content.sections.map((section) => (
-                <section key={section.heading}>
-                  <h2 className="text-h1-lg mb-4 text-grey-9">{section.heading}</h2>
-                  {section.paragraphs.map((paragraph) => (
-                    <p
-                      key={paragraph.slice(0, 48)}
-                      className="text-body-lg mb-4 text-pretty text-grey-7 last:mb-0"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                <section key={section.heading} className="editorial-block">
+                  {section.eyebrow && <p className="editorial-eyebrow">{section.eyebrow}</p>}
+                  <h2 className="editorial-heading">{section.heading}</h2>
+                  <div className="editorial-body">
+                    {section.paragraphs.map((paragraph) => (
+                      <p
+                        key={paragraph.slice(0, 48)}
+                        className="text-body-lg text-pretty text-grey-7"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 </section>
               ))}
             </div>
 
             {content.faqs && content.faqs.length > 0 && (
-              <section className="mt-16 border-t border-[var(--grey-3)] pt-12">
-                <h2 className="text-h1-lg mb-8 text-grey-9">FAQs</h2>
-                <div className="flex flex-col gap-8">
-                  {content.faqs.map((faq) => (
-                    <div key={faq.question}>
-                      <h3 className="text-h4 mb-2 text-grey-9">{faq.question}</h3>
-                      <p className="text-body text-pretty text-grey-7">{faq.answer}</p>
-                    </div>
-                  ))}
-                </div>
+              <section className="article-faqs">
+                <FaqAccordion title="FAQs" items={content.faqs} />
               </section>
             )}
 
-            <div className="mt-12">
-              <BasalButton href="/#waitlist">Start your assessment</BasalButton>
+            <div className="article-cta">
+              <BasalButton href={SIGNUP_HREF}>{SIGNUP_LABELS.startAssessment}</BasalButton>
             </div>
           </div>
         </div>
-      </article>
-    </>
+      </section>
+    </article>
   );
 }

@@ -20,4 +20,10 @@ Copy-Item -LiteralPath $source -Destination $dest -Force
 
 $sizeMB = [math]::Round((Get-Item $dest).Length / 1MB, 1)
 Write-Host "Done: public/videos/hero.mp4 ($sizeMB MB)"
-Write-Host "Next: git add public/videos/hero.mp4 && git commit -m 'Add hero video' && git push"
+
+$extractScript = Join-Path (Split-Path -Parent $MyInvocation.MyCommand.Path) "extract-poster.ps1"
+if (Test-Path $extractScript) {
+  & $extractScript -Video "public\videos\hero.mp4" -Output "public\images\hero-poster.jpg"
+}
+
+Write-Host "Next: git add public/videos/hero.mp4 public/images/hero-poster.jpg && git commit && git push"

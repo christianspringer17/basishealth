@@ -3,29 +3,30 @@
 import { useCallback, useRef, useState } from "react";
 import { cn } from "./ui";
 
+/** Patient stories — structure mirrors basal.health; replace with verified quotes when available */
 const testimonials = [
   {
     quote:
-      "I was doing everything right — training, nutrition, sleep. None of it moved the needle until my protocol was adjusted with proper clinical oversight. The difference was having a plan that evolved with me.",
-    name: "Sarah M.",
+      "I was doing everything right — vitamins, hormones, water, workouts. None of it was working until I added the GLP-1. True domino effect. The benefits keep cascading.",
+    name: "McKenna",
     role: "GLP–One patient",
   },
   {
     quote:
-      "What sold me was the focus on metabolic markers, not just weight. My energy stabilized within the first few months, and I finally understood what my labs were telling me.",
-    name: "James K.",
+      "Surgeons said I needed double knee replacements at 51. A few months into microdosing, the inflammation cleared and I could walk with no pain. GLP-1s do more than we think.",
+    name: "Lisa",
     role: "GLP–One patient",
   },
   {
     quote:
-      "The assessment was thorough—nobody rushed me into treatment. I felt like a participant in my care, not just a prescription.",
-    name: "Elena R.",
+      "My father is 63 and bed-bound. I didn't want that to be my story. Six months into GLP-1 treatment I'm leaner, more active, and markers of pre-diabetes are gone.",
+    name: "Adam",
     role: "GLP–One patient",
   },
   {
     quote:
-      "Having a clinician who monitors progress and adjusts dosing made all the difference. This isn't a set-it-and-forget-it program.",
-    name: "David T.",
+      "Dieting since eight. Eating disorder at twenty. PCOS at thirty. I'd been crashing my metabolism for decades without knowing it. Now I want to help my body heal.",
+    name: "Greta",
     role: "GLP–One patient",
   },
 ];
@@ -56,10 +57,7 @@ export function TestimonialsSection() {
     <section className="section-shell section-gap-md w-full overflow-hidden">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg text-grey-9">Patient stories</h2>
-          <p className="text-h3 max-w-[560px] text-pretty text-grey-7">
-            Real experiences from people investing in long-term metabolic health.
-          </p>
+          <h2 className="text-h1-lg text-grey-9">Customer review</h2>
         </div>
       </div>
 

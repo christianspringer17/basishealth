@@ -9,7 +9,10 @@
     "lint": "next lint",
     "predev": "node scripts/check-node.mjs",
     "prebuild": "node scripts/check-node.mjs",
-    "video:hero": "powershell -ExecutionPolicy Bypass -File scripts/install-hero-video.ps1"
+    "video:hero": "powershell -ExecutionPolicy Bypass -File scripts/install-hero-video.ps1",
+    "video:visual": "powershell -ExecutionPolicy Bypass -File scripts/install-visual-video.ps1",
+    "poster:hero": "powershell -ExecutionPolicy Bypass -File scripts/extract-poster.ps1 -Video public/videos/hero.mp4 -Output public/images/hero-poster.jpg",
+    "poster:visual": "powershell -ExecutionPolicy Bypass -File scripts/extract-poster.ps1 -Video public/videos/visual.mp4 -Output public/images/visual-poster.jpg"
   },
   "dependencies": {
     "next": "^15.5.18",
