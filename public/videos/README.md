@@ -43,7 +43,7 @@ After the file is in place:
 2. Name it `hero.mp4` (and/or `visual.mp4`)
 3. Deploy with the rest of the site
 
-The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https://basis.health/videos/hero.mp4`.
+The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https://basis.care/videos/hero.mp4`.
 
 ## Specs
 

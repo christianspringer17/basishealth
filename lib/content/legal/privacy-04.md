@@ -2,7 +2,7 @@
 
 Basis strives to provide you with choices regarding the Personal Information you provide to us. Basis has created mechanisms to provide you with the following control over your information:
 
-**Changing and Correcting Your Personal Information.** If your Personal Information changes in any way, we invite you to correct or update your information as soon as possible. You can make updates to your profile information by logging into your account on Basis at any time. You can also request changes or access to your information by emailing support@basis.health.
+**Changing and Correcting Your Personal Information.** If your Personal Information changes in any way, we invite you to correct or update your information as soon as possible. You can make updates to your profile information by logging into your account on Basis at any time. You can also request changes or access to your information by emailing support@basis.care.
 
 ## SMS Communications
 
@@ -14,7 +14,7 @@ Message frequency: Message frequency varies based on your activity and care stat
 
 How to opt out: Reply STOP at any time to unsubscribe. You will receive a one-time confirmation message and no further texts will be sent.
 
-Help: Reply HELP for assistance or contact us at support@basis.health
+Help: Reply HELP for assistance or contact us at support@basis.care
 
 Rates: Message and data rates may apply depending on your carrier and plan.
 
@@ -81,6 +81,6 @@ No mobile information will be shared with third parties/affiliates for marketing
 
 If you have questions about this Privacy Policy or wish to exercise your privacy rights, contact Basis Health LLC:
 
-- Email: support@basis.health
+- Email: support@basis.care
 - Phone: (888) 341-5138
-- Website: https://basis.health
+- Website: https://basis.care

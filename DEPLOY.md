@@ -8,7 +8,7 @@
 
 | Variable | Purpose |
 |----------|---------|
-| `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://basis.health`) |
+| `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://basis.care`) |
 | `NEXT_PUBLIC_GHL_FORM_EMBED_URL` | GoHighLevel form embed URL (waitlist) |
 | `NEXT_PUBLIC_MYDOSE_CHECKOUT_URL` | MyDose whitelabel checkout / intake URL (when live) |
 | `WAITLIST_GITHUB_TOKEN` | GitHub PAT with `repo` scope — creates an issue per signup (native waitlist fallback) |

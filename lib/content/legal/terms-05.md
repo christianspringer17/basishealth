@@ -10,7 +10,7 @@ In the event that your credit card expires or Basis Health LLC, its affiliates, 
 
 Certain products or services offered on the Services may be offered on a subscription basis ("Subscription Services"). For Subscription Services, your payment method will be automatically charged at regular intervals as described during the checkout process for the applicable Subscription Services. You may cancel a subscription at any time, and you will continue to have access to the Services through the end of your billing period.
 
-You may cancel your subscription at any time either by sending an email with your name and email address associated with the service to support@basis.health or by contacting your Provider directly. Your Subscription Services may also be governed by Provider policies and cancellation procedures outside of the terms of this document.
+You may cancel your subscription at any time either by sending an email with your name and email address associated with the service to support@basis.care or by contacting your Provider directly. Your Subscription Services may also be governed by Provider policies and cancellation procedures outside of the terms of this document.
 
 Basis Health (or our third-party payment processor) may place a pre-authorization hold on your payment method at the time you request Services. This pre-authorization is not an actual charge and is used to verify your payment method and reserve an amount that may be applied toward the cost of your visit and any related Healthcare Services.
 
@@ -36,7 +36,7 @@ You agree that if your access to or use of the Services is terminated under thes
 
 These Terms of Service, together with the Additional Terms, contains the entire agreement between you and Basis Health LLC regarding the use of the Site. The section titles in these Terms are for convenience only and have no legal or contractual effect. These Terms operate to the fullest extent permissible by law. If any provision of these Terms are held invalid, the remainder of these Terms continue in full force and effect. The failure of Basis Health LLC to exercise or enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. You agree that your online account is non-transferable and all of your rights to your profile or contents within your account terminate upon your death. No agency, partnership, joint venture or employment is created as a result of these Terms and you may not make any representations or bind Basis Health LLC in any manner.
 
-You may contact Basis Health LLC online at https://basis.health or by phone at 888-341-5138.
+You may contact Basis Health LLC online at https://basis.care or by phone at 888-341-5138.
 
 ## California Users
 
@@ -52,4 +52,4 @@ By providing your phone number, you consent to receive automated text messages f
 
 Carriers are not liable for delayed or undelivered messages.
 
-For questions: support@basis.health or (888) 341-5138
+For questions: support@basis.care or (888) 341-5138

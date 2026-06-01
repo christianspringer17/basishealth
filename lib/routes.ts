@@ -21,5 +21,14 @@ export const ROUTES = {
   termsRefunds: "/terms#refunds",
   privacy: "/privacy",
   accessibility: "/accessibility",
+  /** v2 homepage anchors */
   homeHowItWorks: "/#how-it-works",
+  homeProtocols: "/#protocols",
+  homeMembership: "/#membership",
+  homeDiagnostics: "/#diagnostics",
+  homeTherapies: "/#therapies",
+  homeQuarterly: "/#quarterly",
+  homeWaitlist: "/#waitlist",
+  homePhilosophy: "/#philosophy",
+  homeProtocolNotes: "/#protocol-notes",
 } as const;

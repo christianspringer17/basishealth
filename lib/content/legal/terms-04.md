@@ -12,7 +12,7 @@ As described above, you may not post, distribute, or reproduce in any way any co
 - A statement by you, made under penalty of perjury, that the above information in your notice is accurate and that you are the copyright owner or authorized to act on the copyright owner's behalf; and
 - An electronic or physical signature of the person authorized to act on behalf of the owner of the copyright interest.
 
-Notice of claims of copyright infringement should be provided to Basis Health LLC's Copyright Agent at support@basis.health. Basis Health LLC will terminate the accounts of repeat infringers.
+Notice of claims of copyright infringement should be provided to Basis Health LLC's Copyright Agent at support@basis.care. Basis Health LLC will terminate the accounts of repeat infringers.
 
 ## Modifications to Site or Service
 
@@ -52,9 +52,9 @@ The arbitration will be administered by the American Arbitration Association ("A
 
 Payment of filing, administration, and arbitrator fees will be governed by the AAA's rules. If your claim for damages is less than $10,000, Basis Health LLC will reimburse your filing fee if required by AAA rules and you have complied with the notice requirements below, unless the arbitrator finds your claims frivolous or brought for an improper purpose.
 
-You may opt out of this arbitration agreement within thirty (30) days of first accepting these Terms by sending written notice to support@basis.health with your name, account email (if any), and a clear statement that you wish to opt out of arbitration. Your opt-out will not affect other provisions of these Terms.
+You may opt out of this arbitration agreement within thirty (30) days of first accepting these Terms by sending written notice to support@basis.care with your name, account email (if any), and a clear statement that you wish to opt out of arbitration. Your opt-out will not affect other provisions of these Terms.
 
-Before initiating arbitration, you agree to first contact us at support@basis.health and attempt to resolve the dispute informally. If the dispute is not resolved within sixty (60) days, either party may commence arbitration.
+Before initiating arbitration, you agree to first contact us at support@basis.care and attempt to resolve the dispute informally. If the dispute is not resolved within sixty (60) days, either party may commence arbitration.
 
 ## Governing Law
 

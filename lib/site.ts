@@ -4,8 +4,8 @@ export const SITE_NAME = "Basis Health";
 export const SITE_NAME_SHORT = "Basis";
 export const SITE_LEGAL_NAME = "Basis Health LLC";
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://basis.health";
-export const SITE_EMAIL = "support@basis.health";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://basis.care";
+export const SITE_EMAIL = "support@basis.care";
 export const SITE_PHONE = "(888) 341-5138";
 
 export type SocialPlatform = "instagram" | "twitter" | "youtube" | "linkedin";
