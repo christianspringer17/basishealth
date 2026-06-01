@@ -10,7 +10,7 @@
 |----------|---------|
 | `NEXT_PUBLIC_SITE_URL` | Production URL (e.g. `https://basis.health`) |
 | `NEXT_PUBLIC_GHL_FORM_EMBED_URL` | GoHighLevel form embed URL (waitlist) |
-| `NEXT_PUBLIC_FUSE_CHECKOUT_URL` | Fuse checkout URL (when live) |
+| `NEXT_PUBLIC_MYDOSE_CHECKOUT_URL` | MyDose whitelabel checkout / intake URL (when live) |
 | `WAITLIST_GITHUB_TOKEN` | GitHub PAT with `repo` scope — creates an issue per signup (native waitlist fallback) |
 | `GITHUB_REPO` | `christianspringer17/basishealth` |
 | `RESEND_API_KEY` + `WAITLIST_NOTIFY_EMAIL` | Email notification via [Resend](https://resend.com) |

@@ -6,6 +6,6 @@ export const LEGAL_BRAND = {
   supportEmail: "support@basis.health",
   phone: "888-341-5138",
   phoneDisplay: "(888) 341-5138",
-  telehealthPartner: "Fuse Health",
+  telehealthPartner: "MyDose",
   governingState: "Utah",
 } as const;

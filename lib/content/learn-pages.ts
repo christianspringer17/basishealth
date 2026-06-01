@@ -1,10 +1,10 @@
-import { EDITORIAL_IMAGES } from "@/lib/media";
 import { learnIndexEntries } from "./learn-index";
+import { LEARN_ARTICLE_IMAGES } from "./learn-images";
 import type { ArticlePageContent } from "./types";
 
 export { getLearnEntry, learnIndexEntries } from "./learn-index";
 
-const E = EDITORIAL_IMAGES;
+const I = LEARN_ARTICLE_IMAGES;
 
 export const learnPages: Record<string, ArticlePageContent> = {
   "protocol-areas": {
@@ -15,7 +15,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "Basis Health organizes care around the domains where metabolic health shows up in daily life—so your protocol stays coherent instead of fragmented.",
-    heroImage: { src: E.coastalSky, alt: "Coastal horizon at dawn" },
+    heroImage: I["protocol-areas"],
     sections: [
       {
         heading: "Energy",
@@ -58,7 +58,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "Identical meals, training plans, and medications produce different metabolic responses in different people. Your protocol should reflect that variation—not ignore it.",
-    heroImage: { src: E.wellnessField, alt: "Resting in a field of wildflowers" },
+    heroImage: I["as-unique-as-your-goals"],
     sections: [
       {
         heading: "The same input, different outcomes",
@@ -91,7 +91,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "We focus on five metabolic markers that predict long-term health—signals that tell us how well your systems are communicating.",
-    heroImage: { src: E.clinicalBlue, alt: "Clinical science imagery" },
+    heroImage: I["what-we-measure"],
     sections: [
       {
         heading: "Insulin sensitivity",
@@ -133,7 +133,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "A clear timeline for your first months with Basis Health—from eligibility review through protocol adaptation on a 1- or 3-month plan.",
-    heroImage: { src: E.wellnessField, alt: "Patient-centered clinical care" },
+    heroImage: I["what-to-expect"],
     sections: [
       {
         heading: "Week 1: Intake & eligibility",
@@ -175,7 +175,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "One adaptive program with clinician guidance from day one—structured subscription plans, transparent pricing, and protocols that evolve with you.",
-    heroImage: { src: E.clinicalBlue, alt: "Basis Health Health clinical protocol" },
+    heroImage: I["our-program"],
     sections: [
       {
         heading: "Clinical intake",
@@ -212,7 +212,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "Fasting glucose is a lagging indicator. Insulin sensitivity often shifts years before glucose crosses a diagnostic threshold.",
-    heroImage: { src: E.clinicalBlue, alt: "Metabolic markers and insulin sensitivity" },
+    heroImage: I["why-insulin-sensitivity-matters"],
     sections: [
       {
         heading: "The hidden workload",
@@ -236,7 +236,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "Five signals—insulin sensitivity, muscle mass, hormonal rhythm, aerobic reserve, and body composition—tell us how your metabolic systems communicate.",
-    heroImage: { src: E.clinicalBlue, alt: "Five metabolic health pillars" },
+    heroImage: I["five-metabolic-pillars"],
     sections: [
       {
         heading: "More than one marker",
@@ -254,7 +254,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "March 20, 2026",
     lead:
       "Skeletal muscle is a primary site of glucose disposal. Preserving and building muscle supports metabolic health across the lifespan.",
-    heroImage: { src: E.wellnessField, alt: "Muscle and metabolic reserve" },
+    heroImage: I["why-muscle-is-metabolic-reserve"],
     sections: [
       {
         heading: "Muscle as an organ",
@@ -272,7 +272,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
     published: "October 2, 2025",
     lead:
       "Metabolism is often described as speed: fast or slow, efficient or sluggish. What metabolism actually does is coordinate—how the body partitions fuel, shifts between substrates, and adjusts to hormonal signals and time of day.",
-    heroImage: { src: E.coastalSky, alt: "Coastal horizon at dawn" },
+    heroImage: I["meet-your-metabolism"],
     sections: [
       {
         heading: "Beyond the calorie model",

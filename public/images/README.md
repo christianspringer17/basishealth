@@ -41,6 +41,6 @@ Until posters exist, the site uses `placeholder.svg` automatically.
 
 Replace placeholders with licensed brand photography when ready.
 
-## Fuse / GoHighLevel
+## MyDose / GoHighLevel
 
 Upload the full `public/` folder (including `videos/` and `images/`) with your static site build.

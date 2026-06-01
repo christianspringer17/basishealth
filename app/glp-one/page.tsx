@@ -8,7 +8,7 @@ import { MetabolicMarkersSection } from "@/components/marketing/MetabolicMarkers
 import { GlpOnePricingSection } from "@/components/marketing/GlpOnePricingSection";
 import { BasalButton } from "@/components/landing/ui";
 import { GLP_FAQS } from "@/lib/content/faqs";
-import { CHECKOUT_HREF, checkoutCtaLabel, isCheckoutLive, primaryCtaLabel, WAITLIST_HREF } from "@/lib/cta";
+import { CHECKOUT_HREF, checkoutCtaLabel, isCheckoutLive, primaryCtaLabel } from "@/lib/cta";
 import { MEDIA } from "@/lib/media";
 import { lowestEffectiveMonthly } from "@/lib/pricing";
 import { ROUTES } from "@/lib/routes";

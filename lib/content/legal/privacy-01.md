@@ -47,7 +47,7 @@ Basis collects this information:
 - Information that you provide in email or other correspondence with Basis.
 - You may elect to use certain services on or through the Website which require you to download and install software on your computer or mobile device ("Downloaded Software"). The Downloaded Software may collect and transmit information from your computer system or mobile device solely relating to the Downloaded Software and for the purpose of providing you with the relevant services.
 - Automatically as you navigate through the Website. Information collected automatically may include usage details, IP addresses and information collected through cookies, web beacons and other tracking technologies.
-- From third parties, for example, our business partners such as Fuse Health (clinical and checkout services) and GoHighLevel (waitlist, CRM, and marketing automation).
+- From third parties, for example, our business partners such as MyDose (clinical and checkout services) and GoHighLevel (waitlist, CRM, and marketing automation).
 
 ## Children Under the Age of 18
 

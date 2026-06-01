@@ -1,14 +1,14 @@
 import type { PlanId } from "@/lib/pricing";
 
-/** Primary conversion — waitlist until Fuse Health checkout is live */
+/** Primary conversion — waitlist until MyDose checkout is live */
 export const WAITLIST_HREF = "/#waitlist";
 
 /** @deprecated Use WAITLIST_HREF — /signup redirects to waitlist */
 export const SIGNUP_HREF = WAITLIST_HREF;
 
-/** Fuse Health checkout URL when configured (else waitlist) */
+/** MyDose whitelabel checkout / intake URL when configured (else waitlist) */
 export const CHECKOUT_HREF =
-  process.env.NEXT_PUBLIC_FUSE_CHECKOUT_URL?.trim() || WAITLIST_HREF;
+  process.env.NEXT_PUBLIC_MYDOSE_CHECKOUT_URL?.trim() || WAITLIST_HREF;
 
 export const CTA_LABELS = {
   waitlist: "Join waitlist",
@@ -19,11 +19,11 @@ export const CTA_LABELS = {
 } as const;
 
 export function isCheckoutLive(): boolean {
-  const url = process.env.NEXT_PUBLIC_FUSE_CHECKOUT_URL?.trim();
+  const url = process.env.NEXT_PUBLIC_MYDOSE_CHECKOUT_URL?.trim();
   return Boolean(url && url.startsWith("http"));
 }
 
-/** Pre-Fuse: Join waitlist. Post-Fuse: Get started → checkout */
+/** Pre-MyDose: Join waitlist. Post-MyDose: Get started → checkout */
 export function primaryCtaLabel(): string {
   return isCheckoutLive() ? CTA_LABELS.getStarted : CTA_LABELS.waitlist;
 }
@@ -36,7 +36,7 @@ export function checkoutCtaLabel(): string {
   return isCheckoutLive() ? CTA_LABELS.startCheckout : CTA_LABELS.waitlist;
 }
 
-/** Append plan query param for Fuse Health checkout deep links */
+/** Append plan query param for MyDose checkout deep links */
 export function checkoutUrlForPlan(
   plan: PlanId,
   baseUrl: string = CHECKOUT_HREF,

@@ -1,6 +1,6 @@
 /**
  * Static media paths — files live in /public and ship with the site.
- * No stock URLs (Pexels/Unsplash); works on Fuse Health, GoHighLevel, Vercel, etc.
+ * No stock URLs (Pexels/Unsplash); works on MyDose, GoHighLevel, Vercel, etc.
  *
  * Videos: public/videos/hero.mp4, visual.mp4
  * Posters: public/images/hero-poster.jpg, visual-poster.jpg (frame from video)

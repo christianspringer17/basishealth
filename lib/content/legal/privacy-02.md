@@ -34,14 +34,14 @@ Basis uses information that Basis collects about you or that you provide to us, 
 - To carry out Basis's obligations and enforce Basis's rights arising from any contracts entered into between you and Basis.
 - To notify you about changes to the Website, mobile applications, or any products or services Basis offers or provides.
 - To allow you to participate in interactive features on the Website or in the mobile application.
-- To connect you with applicable Providers, including Fuse Health as our network provider, where appropriate.
+- To connect you with applicable Providers, including MyDose as our network provider, where appropriate.
 - To remind you of upcoming or follow-up appointments with Providers.
 - In any other way we may describe when you provide the information.
 - For any other purpose, with your consent.
 
 ## Telemedicine Provider Information And State Licensure Disclosures
 
-Basis partners with Fuse Health and affiliated licensed medical professionals to facilitate access to telehealth services. In certain states, applicable telemedicine guidance requires public disclosure of provider information, including provider names, license numbers, and types of licenses held. The following providers may deliver telehealth services through the Basis platform, subject to availability, licensure, and scope of practice:
+Basis partners with MyDose and affiliated licensed medical professionals to facilitate access to telehealth services. In certain states, applicable telemedicine guidance requires public disclosure of provider information, including provider names, license numbers, and types of licenses held. The following providers may deliver telehealth services through the Basis platform, subject to availability, licensure, and scope of practice:
 
 ### Massachusetts (MA)
 

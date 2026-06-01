@@ -27,9 +27,9 @@ git push
 3. Paste `hero.mp4` there.
 4. Commit and push from Cursor or terminal.
 
-### Option C — Fuse asset upload
+### Option C — Vercel deploy
 
-If Fuse hosts your site, upload `hero.mp4` through Fuse’s file/asset manager to the same path (`/videos/hero.mp4` on your domain). No Git required if Fuse deploys from their UI.
+Videos in `public/videos/` deploy automatically with the site on Vercel. No separate upload step.
 
 ### Option D — Share a link with your dev agent
 
@@ -43,7 +43,7 @@ After the file is in place:
 2. Name it `hero.mp4` (and/or `visual.mp4`)
 3. Deploy with the rest of the site
 
-The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https://yoursite.com/videos/hero.mp4`.
+The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https://basis.health/videos/hero.mp4`.
 
 ## Specs
 
@@ -52,9 +52,9 @@ The site loads them from `/videos/hero.mp4` on **your domain** — e.g. `https:/
 - Size: under ~8MB per file when possible
 - No audio track needed (hero autoplays muted)
 
-## Fuse / GoHighLevel
+## Deployment (Vercel / GoHighLevel)
 
-When this site is deployed on Fuse or embedded in GoHighLevel:
+When this site is deployed on Vercel or embedded in GoHighLevel:
 
 - Upload or sync the **whole project build** including `public/videos/`
 - Videos stay on the same origin as the site (no third-party stock URLs)

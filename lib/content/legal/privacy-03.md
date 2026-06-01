@@ -18,7 +18,7 @@ Basis does not sell or rent any Personal Information to third parties. Basis may
 - To contractors, service providers and other third parties Basis uses to support its business and who are bound by contractual obligations to keep personal information confidential and use it only for the purposes for which we disclose it to them.
 - To a buyer or other successor in the event of a merger, divestiture, restructuring, reorganization, dissolution or other sale or transfer of some or all of Basis's assets, whether as a going concern or as part of bankruptcy, liquidation or similar proceeding.
 - To fulfill the purpose for which you provide it.
-- To Providers you select to receive your Personal Information, including providers in our network such as Fuse Health.
+- To Providers you select to receive your Personal Information, including providers in our network such as MyDose.
 - For any other purpose disclosed by Basis when you provide the information.
 - With your consent.
 
@@ -29,7 +29,7 @@ Basis may also disclose your Personal Information:
 - If Basis believes disclosure is necessary or appropriate to protect the rights, property, or safety of Basis Health LLC, Basis's customers or others. This includes exchanging information with other companies and organizations for the purposes of fraud protection and credit risk reduction.
 - To respond to claims that any posting or other content violates the rights of third-parties.
 
-Basis partners with Fuse Health as our network provider to facilitate access to licensed medical professionals. Your Personal Information may be shared with Fuse Health and its affiliated providers as necessary to deliver these services.
+Basis partners with MyDose as our network provider to facilitate access to licensed medical professionals. Your Personal Information may be shared with MyDose and its affiliated providers as necessary to deliver these services.
 
 ## Aggregate Data
 
