@@ -7,15 +7,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Personalized health protocols`,
+    default: `${SITE_NAME} — Protocol-based care`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Provider-guided longevity and performance protocols designed to support energy, recovery, metabolism, and long-term vitality.",
+    "Membership-based protocol care for metabolic health, longevity, and performance. Physician-guided protocols with therapies when clinically appropriate.",
   openGraph: {
-    title: `${SITE_NAME} — Personalized health protocols`,
+    title: `${SITE_NAME} — Protocol-based care`,
     description:
-      "Provider-guided longevity and performance protocols for energy, recovery, metabolism, and long-term vitality.",
+      "Membership-based protocol care for metabolic health, longevity, and performance.",
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",

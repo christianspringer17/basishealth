@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { WAITLIST_HREF, primaryCtaLabel } from "@/lib/cta";
+import { PROTOCOL_NOTES_LABEL } from "@/lib/positioning";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+} from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import {
   SOCIAL_LABELS,
@@ -11,27 +15,28 @@ import { BasalButton } from "./ui";
 
 const FOOTER_NAV = [
   {
-    title: "GLP–One",
+    title: "Platform",
     links: [
-      { label: "Get started", href: WAITLIST_HREF },
-      { label: "Learn more", href: ROUTES.glpOne },
+      { label: "How it works", href: ROUTES.homeHowItWorks },
+      { label: "Protocols", href: ROUTES.homeProtocols },
+      { label: "Membership", href: ROUTES.homeMembership },
+      { label: "Diagnostics", href: ROUTES.homeDiagnostics },
     ],
   },
   {
     title: "About",
     links: [
       { label: "About us", href: ROUTES.about },
-      { label: "Unlock living", href: ROUTES.aboutVitality },
-      { label: "How it works", href: ROUTES.aboutHowItWorks },
+      { label: "Philosophy", href: ROUTES.homePhilosophy },
+      { label: "Basis Metabolic", href: ROUTES.glpOne },
     ],
   },
   {
-    title: "Learn",
+    title: PROTOCOL_NOTES_LABEL,
     links: [
-      { label: "Primers", href: ROUTES.learn },
+      { label: "All notes", href: ROUTES.learn },
       { label: "Most recent", href: ROUTES.learnFeatured },
       { label: "What to expect", href: ROUTES.learnWhatToExpect },
-      { label: "All topics", href: ROUTES.learn },
     ],
   },
   {
@@ -54,16 +59,6 @@ const FOOTER_NAV = [
 
 export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) {
   const year = new Date().getFullYear();
-  const ctaLabel = primaryCtaLabel();
-
-  const footerNav = FOOTER_NAV.map((column) => ({
-    ...column,
-    links: column.links.map((link) =>
-      link.href === WAITLIST_HREF && link.label === "Get started"
-        ? { ...link, label: ctaLabel }
-        : link,
-    ),
-  }));
 
   return (
     <footer className="site-footer">
@@ -71,7 +66,7 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
         <>
           <div className="site-container">
             <div className="footer-cta">
-              <BasalButton href={WAITLIST_HREF}>{primaryCtaLabel()}</BasalButton>
+              <BasalButton href={primaryCtaHref()}>{primaryCtaLabel()}</BasalButton>
             </div>
           </div>
           <div className="site-container">
@@ -82,7 +77,7 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
 
       <div className="site-container">
         <nav className="footer-nav" aria-label="Footer">
-          {footerNav.map((column) => (
+          {FOOTER_NAV.map((column) => (
             <FooterColumn key={column.title} title={column.title} links={column.links} />
           ))}
         </nav>
@@ -101,9 +96,10 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
         </div>
 
         <p className="footer-disclaimer">
-          This is a physician-supervised program. GLP-1 therapies are prescription
-          medications and may not be appropriate for everyone. All treatment decisions
-          are made by licensed clinicians based on individual health data.
+          Basis Health is a membership-based protocol platform. All therapies are
+          subject to provider review and clinical appropriateness. Membership does not
+          include medications, peptides, labs, or supplements unless purchased
+          separately when appropriate.
         </p>
       </div>
     </footer>

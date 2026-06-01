@@ -22,7 +22,7 @@ export default function ContactPage() {
           <section className="info-page-block">
             <h2 className="info-page-heading">General support</h2>
             <p className="text-body-lg text-grey-7">
-              For help with the website, waitlist, or getting started:
+              For help with the website, membership application, or getting started:
             </p>
             <p>
               <a href={`mailto:${SITE_EMAIL}`} className="info-page-link">
@@ -54,13 +54,13 @@ export default function ContactPage() {
           <section className="info-page-block">
             <h2 className="info-page-heading">FAQs</h2>
             <p className="text-body-lg text-grey-7">
-              Many common questions about GLP–One and our program are answered on our{" "}
+              Many common questions about membership, protocols, and therapies are answered on our{" "}
               <Link href={ROUTES.faq} className="info-page-link">
                 FAQ page
               </Link>{" "}
-              and the{" "}
+              and{" "}
               <Link href={ROUTES.glpOne} className="info-page-link">
-                GLP–One overview
+                Basis Metabolic therapy detail
               </Link>
               .
             </p>

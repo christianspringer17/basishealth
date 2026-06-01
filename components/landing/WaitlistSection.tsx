@@ -1,10 +1,16 @@
 "use client";
 
+import { HOME_FINAL_CTA } from "@/lib/content/home";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { attributionSummary } from "@/lib/attribution";
-import { primaryCtaLabel } from "@/lib/cta";
+import {
+  primaryCtaHref,
+  primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
+} from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import { GHL_FORM_EMBED_URL, isGhlFormEnabled } from "@/lib/ghl";
 import { SITE_EMAIL, SITE_NAME } from "@/lib/site";
@@ -15,7 +21,7 @@ function GhlFormEmbed() {
     <div className="w-full max-w-[520px]">
       <iframe
         src={GHL_FORM_EMBED_URL}
-        title={`Join the ${SITE_NAME} waitlist`}
+        title={`Apply for ${SITE_NAME} membership`}
         className="min-h-[420px] w-full rounded-basal-lg border border-[var(--grey-3)] bg-white"
         loading="lazy"
       />
@@ -232,17 +238,37 @@ export function WaitlistSection() {
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg leading-100 text-grey-9">Stay in the loop</h2>
-          <p className="text-lead max-w-[600px] text-pretty text-grey-7">
-            {useGhl
-              ? "Join the waitlist for launch updates. When enrollment opens, checkout runs through our clinical partner—no intake form on this site."
-              : "Email and optional mobile for launch updates. When enrollment opens, checkout runs through our clinical partner—no intake form on this site."}
+          <h2 className="text-h1-lg leading-100 text-grey-9">{HOME_FINAL_CTA.headline}</h2>
+          <p className="text-lead max-w-[640px] text-pretty text-grey-7">
+            {HOME_FINAL_CTA.body}
           </p>
+          <p className="text-h5 max-w-[560px] text-pretty text-grey-7">
+            {HOME_FINAL_CTA.supportingLine}
+          </p>
+          <div className="flex flex-col items-center gap-3 pt-2 sm:flex-row">
+            <a href={primaryCtaHref()} className="text-h5 text-grey-8 underline underline-offset-2">
+              {primaryCtaLabel()}
+            </a>
+            <span className="hidden text-grey-5 sm:inline" aria-hidden>
+              ·
+            </span>
+            <a
+              href={secondaryCtaHref()}
+              className="text-h5 text-grey-8 underline underline-offset-2"
+            >
+              {secondaryCtaLabel()}
+            </a>
+          </div>
         </div>
       </div>
 
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center md:col-span-14 md:col-start-6">
+          <p className="mb-6 text-center text-body text-grey-7">
+            {useGhl
+              ? "Complete the application below. A member of our team will follow up when enrollment opens."
+              : "Share your details below. We will follow up when membership enrollment opens."}
+          </p>
           {useGhl ? <GhlFormEmbed /> : <NativeWaitlistForm />}
         </div>
       </div>

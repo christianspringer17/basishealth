@@ -1,10 +1,23 @@
-import { NAV_IMAGES } from "@/lib/media";
-import { CTA_LABELS } from "@/lib/cta";
+import { PROTOCOL_NOTES_LABEL } from "@/lib/positioning";
 import { ROUTES } from "@/lib/routes";
-import { SITE_EMAIL } from "@/lib/site";
 
-export { NAV_IMAGES };
+/** v2 lean nav — anchor links + Protocol Notes + FAQ */
+export type NavItem = {
+  id: string;
+  label: string;
+  href: string;
+};
 
+export const NAV_ITEMS: NavItem[] = [
+  { id: "how-it-works", label: "How It Works", href: ROUTES.homeHowItWorks },
+  { id: "protocols", label: "Protocols", href: ROUTES.homeProtocols },
+  { id: "membership", label: "Membership", href: ROUTES.homeMembership },
+  { id: "diagnostics", label: "Diagnostics", href: ROUTES.homeDiagnostics },
+  { id: "protocol-notes", label: PROTOCOL_NOTES_LABEL, href: ROUTES.learn },
+  { id: "faq", label: "FAQ", href: ROUTES.faq },
+];
+
+/** Legacy dropdown types — used by NavDropdown (v1 components, unused in v2 header) */
 export type NavFeaturedMenu = {
   variant: "featured";
   image: string;
@@ -37,108 +50,3 @@ export type NavLearnMenu = {
 };
 
 export type NavMenu = NavFeaturedMenu | NavAboutMenu | NavLearnMenu;
-
-export type NavItem = {
-  id: string;
-  label: string;
-  href: string;
-  menu?: NavMenu;
-};
-
-export const NAV_ITEMS: NavItem[] = [
-  {
-    id: "protocols",
-    label: "GLP–One",
-    href: ROUTES.glpOne,
-    menu: {
-      variant: "featured",
-      image: NAV_IMAGES.protocolDropdown,
-      imageAlt: "GLP-One tirzepatide vial",
-      title: "Personalized protocols",
-      description:
-        "Provider-guided longevity and performance care tailored to your goals.",
-      cta: { label: CTA_LABELS.viewPricing, href: ROUTES.glpOne },
-    },
-  },
-  {
-    id: "about",
-    label: "About",
-    href: ROUTES.about,
-    menu: {
-      variant: "about",
-      cards: [
-        {
-          label: "About us",
-          href: ROUTES.about,
-          image: NAV_IMAGES.aboutHowItWorks,
-          imageAlt: "Clinical GLP-1 vials in a care setting",
-        },
-        {
-          label: "Unlock living",
-          href: ROUTES.aboutVitality,
-          image: NAV_IMAGES.aboutVitality,
-          imageAlt: "Abstract premium wellness texture",
-        },
-      ],
-      contactLabel: `Get in touch: ${SITE_EMAIL}`,
-      contactHref: ROUTES.contact,
-    },
-  },
-  {
-    id: "learn",
-    label: "Learn",
-    href: ROUTES.learn,
-    menu: {
-      variant: "learn",
-      imageCards: [
-        {
-          label: "Your protocol areas",
-          href: ROUTES.learnProtocolAreas,
-          image: NAV_IMAGES.learnProtocols,
-          imageAlt: "Person overlooking the horizon at golden hour",
-        },
-        {
-          label: "As unique as your goals",
-          href: ROUTES.learnUniqueGoals,
-          image: NAV_IMAGES.learnPersonalized,
-          imageAlt: "Aerial view of open green fields",
-        },
-        {
-          label: "What we measure",
-          href: ROUTES.learnWhatWeMeasure,
-          image: NAV_IMAGES.learnScience,
-          imageAlt: "Parent and child in a warm everyday moment",
-        },
-      ],
-      links: [
-        { label: "What to expect", href: ROUTES.learnWhatToExpect },
-        { label: "Meet your metabolism", href: ROUTES.learnFeatured },
-        { label: "Our program", href: ROUTES.learnOurProgram },
-      ],
-      allTopics: { label: "All topics", href: ROUTES.learn },
-    },
-  },
-];
-
-export function getNavMenuLinks(
-  menu: NavMenu,
-): { label: string; href: string }[] {
-  switch (menu.variant) {
-    case "featured":
-      return [
-        { label: menu.title, href: ROUTES.glpOne },
-        { label: menu.cta.label, href: menu.cta.href },
-      ];
-    case "about":
-      return [
-        ...menu.cards.map((c) => ({ label: c.label, href: c.href })),
-        { label: "Contact", href: menu.contactHref },
-      ];
-    case "learn":
-      return [
-        ...menu.imageCards.map((c) => ({ label: c.label, href: c.href })),
-        ...menu.links,
-        menu.allTopics,
-      ];
-  }
-}

@@ -1,21 +1,21 @@
 import { BasalButton } from "@/components/landing/ui";
 import {
   CHECKOUT_HREF,
-  CTA_LABELS,
-  WAITLIST_HREF,
   checkoutCtaLabel,
   isCheckoutLive,
+  primaryCtaHref,
   primaryCtaLabel,
+  secondaryCtaHref,
+  secondaryCtaLabel,
 } from "@/lib/cta";
-import { ROUTES } from "@/lib/routes";
 
 export function ConversionBand({
-  title = "Begin with clarity.",
-  description = "See if GLP–One is right for your body and goals.",
-  primaryLabel = CTA_LABELS.viewPricing,
-  primaryHref = ROUTES.glpOne,
-  secondaryLabel = primaryCtaLabel(),
-  secondaryHref = WAITLIST_HREF,
+  title = "Start with the protocol.",
+  description = "Apply for Basis membership and begin with a structured assessment.",
+  primaryLabel = primaryCtaLabel(),
+  primaryHref = primaryCtaHref(),
+  secondaryLabel = secondaryCtaLabel(),
+  secondaryHref = secondaryCtaHref(),
   showSecondary = true,
   className,
 }: {
