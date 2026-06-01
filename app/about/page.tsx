@@ -2,12 +2,13 @@ import { AboutPageLayout } from "@/components/marketing/AboutPageLayout";
 import { ConversionBand } from "@/components/marketing/ConversionBand";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { ABOUT_PAGES } from "@/lib/content/about-pages";
-import { primaryCtaHref, primaryCtaLabel } from "@/lib/cta";
+import { CTA_LABELS } from "@/lib/cta";
+import { ROUTES } from "@/lib/routes";
 
 export const metadata = {
   title: "About",
   description:
-    "Basis Health is a membership-based protocol platform for metabolic health, longevity, and performance.",
+    "Basis is a protocol-based approach to metabolic care—built on physician review, ongoing support, and therapies when clinically appropriate.",
 };
 
 export default function AboutPage() {
@@ -16,10 +17,10 @@ export default function AboutPage() {
       <AboutPageLayout content={ABOUT_PAGES.main} />
       <ConversionBand
         className="conversion-band--about"
-        title="Healthcare should be continuous."
-        description="Apply for membership and begin with a structured assessment. Protocols evolve with you — not as one-time medication sales."
-        primaryLabel={primaryCtaLabel()}
-        primaryHref={primaryCtaHref()}
+        title="Apply for membership."
+        description="Physician-guided metabolic protocols with ongoing support and therapies when clinically appropriate."
+        primaryLabel={CTA_LABELS.applyMembership}
+        primaryHref={ROUTES.homeMembership}
         showSecondary={false}
       />
     </MarketingShell>

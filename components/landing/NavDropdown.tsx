@@ -1,67 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
 import type { NavMenu } from "./nav-config";
 import { NavDropdownImageCard } from "./NavDropdownImageCard";
-import { BasalButton, cn } from "./ui";
-
-function FeaturedMenu({
-  menu,
-  onNavigate,
-}: {
-  menu: Extract<NavMenu, { variant: "featured" }>;
-  onNavigate?: () => void;
-}) {
-  return (
-    <div className="nav-dropdown-panel nav-dropdown-panel--featured">
-      <div className="nav-dropdown-featured-media">
-        <Image
-          src={menu.image}
-          alt={menu.imageAlt}
-          fill
-          className="object-contain p-6"
-          sizes="360px"
-          priority
-        />
-      </div>
-      <div className="nav-dropdown-featured-copy">
-        <p className="text-h4 text-grey-9">{menu.title}</p>
-        <p className="text-h5 text-pretty text-grey-7">{menu.description}</p>
-        <BasalButton href={menu.cta.href} onClick={onNavigate}>
-          {menu.cta.label}
-        </BasalButton>
-      </div>
-    </div>
-  );
-}
-
-function AboutMenu({
-  menu,
-  onNavigate,
-}: {
-  menu: Extract<NavMenu, { variant: "about" }>;
-  onNavigate?: () => void;
-}) {
-  return (
-    <div className="nav-dropdown-panel nav-dropdown-panel--about">
-      {menu.cards.map((card) => (
-        <NavDropdownImageCard key={card.label} card={card} onNavigate={onNavigate} />
-      ))}
-      <p className="nav-dropdown-footer">
-        <Link
-          href={menu.contactHref}
-          className="nav-dropdown-footer-link"
-          onClick={onNavigate}
-        >
-          {menu.contactLabel}
-          <span aria-hidden className="ml-0.5">
-            ↗
-          </span>
-        </Link>
-      </p>
-    </div>
-  );
-}
+import { cn } from "./ui";
 
 function LearnMenu({
   menu,
@@ -121,11 +62,7 @@ export function NavDropdown({
       role="menu"
       aria-hidden={!open}
     >
-      {menu.variant === "featured" && (
-        <FeaturedMenu menu={menu} onNavigate={onNavigate} />
-      )}
-      {menu.variant === "about" && <AboutMenu menu={menu} onNavigate={onNavigate} />}
-      {menu.variant === "learn" && <LearnMenu menu={menu} onNavigate={onNavigate} />}
+      <LearnMenu menu={menu} onNavigate={onNavigate} />
     </div>
   );
 }

@@ -1,23 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { SITE_NAME } from "@/lib/site";
 import { EonicLogo } from "./EonicLogo";
+import { NavDropdown } from "./NavDropdown";
 import { NavLink } from "./NavLink";
-import {
-  primaryCtaHref,
-  primaryCtaLabel,
-  secondaryCtaHref,
-  secondaryCtaLabel,
-} from "@/lib/cta";
+import { navCtaLabel, primaryCtaHref } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
-import { NAV_ITEMS } from "./nav-config";
+import { getNavMenuLinks, NAV_ITEMS } from "./nav-config";
 import { BasalButton, cn } from "./ui";
 
 export function Header() {
   const [onHero, setOnHero] = useState(true);
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -41,7 +39,14 @@ export function Header() {
   }, [mobileOpen]);
 
   const closeAll = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(null);
     setMobileOpen(false);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(null);
   }, []);
 
   useEffect(() => {
@@ -51,6 +56,13 @@ export function Header() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [closeAll]);
+
+  const openMenu = (id: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setActiveMenu(id);
+  };
+
+  const activeItem = NAV_ITEMS.find((item) => item.id === activeMenu);
 
   return (
     <>
@@ -64,34 +76,62 @@ export function Header() {
                   "focus relative z-[2] inline-flex h-[34px] items-center py-0 pr-2 pl-0",
                   onHero ? "text-grey-1 hover:text-grey-8" : "text-grey-9",
                 )}
+                onMouseEnter={closeMenu}
               >
                 <span className="sr-only">{SITE_NAME}</span>
                 <EonicLogo />
               </Link>
             </div>
 
-            <nav
-              className="hidden items-center justify-center gap-x-8 text-h5 lg:flex xl:gap-x-10"
-              aria-label="Main"
+            {/* Center nav + dropdown share one hover zone so leaving closes the menu */}
+            <div
+              className="relative hidden md:block"
+              onMouseLeave={closeMenu}
             >
-              {NAV_ITEMS.map((item) => (
-                <NavLink
-                  key={item.id}
-                  href={item.href}
-                  prefetch={item.href === ROUTES.learn ? false : undefined}
-                  onHero={onHero}
-                >
-                  {item.label}
-                </NavLink>
-              ))}
-            </nav>
+              <nav
+                className="flex items-center justify-center gap-x-12 text-h5"
+                aria-label="Main"
+              >
+                {NAV_ITEMS.map((item) => (
+                  <div key={item.id}>
+                    <NavLink
+                      href={item.href}
+                      prefetch={item.id === "learn" ? false : undefined}
+                      onHero={onHero}
+                      ariaExpanded={
+                        item.menu ? activeMenu === item.id : undefined
+                      }
+                      onMouseEnter={() =>
+                        item.menu ? openMenu(item.id) : closeMenu()
+                      }
+                      onFocus={() =>
+                        item.menu ? openMenu(item.id) : closeMenu()
+                      }
+                    >
+                      {item.label}
+                    </NavLink>
+                  </div>
+                ))}
+              </nav>
 
-            <div className="hidden flex-1 items-center justify-end gap-x-6 text-h5 md:flex">
-              <NavLink href={secondaryCtaHref()} onHero={onHero}>
-                {secondaryCtaLabel()}
-              </NavLink>
-              <NavLink href={primaryCtaHref()} onHero={onHero}>
-                {primaryCtaLabel()}
+              {activeItem?.menu && (
+                <div className="nav-dropdown-bridge absolute top-full left-1/2 z-50 -translate-x-1/2 pt-5">
+                  <NavDropdown
+                    menu={activeItem.menu}
+                    open
+                    onNavigate={closeMenu}
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
+              <NavLink
+                href={primaryCtaHref()}
+                onHero={onHero}
+                onMouseEnter={closeMenu}
+              >
+                {navCtaLabel()}
               </NavLink>
             </div>
 
@@ -144,31 +184,41 @@ export function Header() {
         aria-hidden={!mobileOpen}
       >
         <div className="flex h-full flex-col overflow-y-auto pt-24 pb-12">
-          <div className="px-horz flex flex-col gap-4">
+          <div className="px-horz flex flex-col gap-6">
             {NAV_ITEMS.map((item) => (
-              <Link
+              <div
                 key={item.id}
-                href={item.href}
-                prefetch={item.href === ROUTES.learn ? false : undefined}
-                className="border-b border-[var(--grey-3)] pb-4 text-h4 text-grey-9"
-                onClick={closeAll}
+                className="border-b border-[var(--grey-3)] pb-5"
               >
-                {item.label}
-              </Link>
+                <p className="text-h5 font-medium text-grey-9">{item.label}</p>
+                {item.menu && (
+                  <ul className="mt-3 flex flex-col gap-2 pl-1">
+                    {getNavMenuLinks(item.menu).map((link) => (
+                      <li key={link.label}>
+                        <Link
+                          href={link.href}
+                          prefetch={link.href === ROUTES.learn ? false : undefined}
+                          className="nav-dropdown-link"
+                          onClick={closeAll}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
             ))}
-            <div className="flex flex-col gap-3 pt-4">
+            <div className="flex flex-col gap-3 pt-2">
               <Link
                 href={ROUTES.contact}
-                className="text-h5 text-grey-7"
+                className="nav-dropdown-link"
                 onClick={closeAll}
               >
                 Contact
               </Link>
-              <BasalButton href={secondaryCtaHref()} onClick={closeAll}>
-                {secondaryCtaLabel()}
-              </BasalButton>
               <BasalButton href={primaryCtaHref()} onClick={closeAll}>
-                {primaryCtaLabel()}
+                {navCtaLabel()}
               </BasalButton>
             </div>
           </div>

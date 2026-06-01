@@ -1,32 +1,8 @@
-/** Membership + therapy pricing — membership is separate from GLP tiers */
+/** GLP-One product tiers — aligned with basal.health, with 3-month bundle upsell */
 
 export type ProductTier = "microdose" | "weightloss";
 export type BillingTerm = "1-month" | "3-month";
 export type PlanId = `${ProductTier}-${BillingTerm}`;
-
-/** Required membership — therapies purchased separately */
-export const MEMBERSHIP = {
-  monthlyPrice: 60,
-  priceLine: "Membership starts at $60/month",
-  includes: [
-    "Secure patient portal",
-    "Health intake",
-    "Physician review",
-    "Personalized protocol recommendation",
-    "Ongoing check-ins",
-    "Messaging and care support",
-    "Progress tracking",
-    "Quarterly protocol recalibration",
-    "Access to therapies when clinically appropriate",
-  ],
-  excludes: [
-    "Medications",
-    "Peptides",
-    "Labs",
-    "Supplements",
-    "Other therapies",
-  ],
-} as const;
 
 export type ProductDefinition = {
   id: ProductTier;

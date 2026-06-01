@@ -2,13 +2,13 @@ import Link from "next/link";
 import { ConversionBand } from "@/components/marketing/ConversionBand";
 import { FaqAccordion } from "@/components/marketing/FaqAccordion";
 import { InfoPageLayout } from "@/components/marketing/InfoPageLayout";
-import { GLP_FAQS, MEMBERSHIP_FAQS } from "@/lib/content/faqs";
+import { GLP_FAQS, GENERAL_FAQS, MEMBERSHIP_FAQS } from "@/lib/content/faqs";
 import { ROUTES } from "@/lib/routes";
 
 export const metadata = {
   title: "FAQs",
   description:
-    "Frequently asked questions about Basis Health membership, protocols, therapies, and getting started.",
+    "Frequently asked questions about Basis membership, protocols, GLP–One, and getting started.",
 };
 
 export default function FaqPage() {
@@ -16,21 +16,24 @@ export default function FaqPage() {
     <>
       <InfoPageLayout
         title="FAQs"
-        subtitle="Membership, protocols, therapies, and how Basis works."
+        subtitle="Answers about membership, protocols, therapies, and how to get started."
         backHref={ROUTES.home}
         backLabel="Home"
       >
-        <FaqAccordion title="Membership & platform" items={MEMBERSHIP_FAQS} />
+        <FaqAccordion title="Membership & Basis" items={MEMBERSHIP_FAQS} />
         <div className="info-page-block-spacer" />
-        <FaqAccordion title="GLP-1 therapy (Basis Metabolic)" items={GLP_FAQS} />
+        <FaqAccordion title="GLP–One & therapies" items={GLP_FAQS} />
+        <div className="info-page-block-spacer" />
+        <FaqAccordion title="Getting started" items={GENERAL_FAQS} />
         <p className="text-body-lg text-grey-7 info-page-footnote">
-          Still have questions?{" "}
+          Access to therapies is subject to provider review, eligibility, and applicable
+          regulations. Results vary. Still have questions?{" "}
           <Link href={ROUTES.contact} className="info-page-link">
             Contact us
           </Link>{" "}
-          or browse{" "}
+          or explore{" "}
           <Link href={ROUTES.learn} className="info-page-link">
-            Protocol Notes
+            Learn
           </Link>
           .
         </p>

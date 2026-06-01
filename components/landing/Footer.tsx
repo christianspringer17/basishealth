@@ -1,9 +1,5 @@
 import Link from "next/link";
-import { PROTOCOL_NOTES_LABEL } from "@/lib/positioning";
-import {
-  primaryCtaHref,
-  primaryCtaLabel,
-} from "@/lib/cta";
+import { primaryCtaHref, primaryCtaLabel, WAITLIST_HREF } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import {
   SOCIAL_LABELS,
@@ -15,28 +11,35 @@ import { BasalButton } from "./ui";
 
 const FOOTER_NAV = [
   {
-    title: "Platform",
+    title: "Membership",
     links: [
-      { label: "How it works", href: ROUTES.homeHowItWorks },
+      { label: "Apply", href: WAITLIST_HREF },
+      { label: "What’s included", href: ROUTES.homeMembership },
       { label: "Protocols", href: ROUTES.homeProtocols },
-      { label: "Membership", href: ROUTES.homeMembership },
-      { label: "Diagnostics", href: ROUTES.homeDiagnostics },
+    ],
+  },
+  {
+    title: "Therapies",
+    links: [
+      { label: "GLP–One", href: ROUTES.glpOne },
+      { label: "FAQ", href: ROUTES.faq },
     ],
   },
   {
     title: "About",
     links: [
       { label: "About us", href: ROUTES.about },
-      { label: "Philosophy", href: ROUTES.homePhilosophy },
-      { label: "Basis Metabolic", href: ROUTES.glpOne },
+      { label: "Unlock living", href: ROUTES.aboutVitality },
+      { label: "How it works", href: ROUTES.aboutHowItWorks },
     ],
   },
   {
-    title: PROTOCOL_NOTES_LABEL,
+    title: "Learn",
     links: [
-      { label: "All notes", href: ROUTES.learn },
+      { label: "Primers", href: ROUTES.learn },
       { label: "Most recent", href: ROUTES.learnFeatured },
       { label: "What to expect", href: ROUTES.learnWhatToExpect },
+      { label: "All topics", href: ROUTES.learn },
     ],
   },
   {
@@ -59,6 +62,7 @@ const FOOTER_NAV = [
 
 export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) {
   const year = new Date().getFullYear();
+  const ctaLabel = primaryCtaLabel();
 
   return (
     <footer className="site-footer">
@@ -66,7 +70,7 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
         <>
           <div className="site-container">
             <div className="footer-cta">
-              <BasalButton href={primaryCtaHref()}>{primaryCtaLabel()}</BasalButton>
+              <BasalButton href={primaryCtaHref()}>{ctaLabel}</BasalButton>
             </div>
           </div>
           <div className="site-container">
@@ -96,10 +100,9 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
         </div>
 
         <p className="footer-disclaimer">
-          Basis Health is a membership-based protocol platform. All therapies are
-          subject to provider review and clinical appropriateness. Membership does not
-          include medications, peptides, labs, or supplements unless purchased
-          separately when appropriate.
+          Basis is a physician-supervised membership program. Therapies such as GLP-1
+          medications may not be appropriate for everyone. Access is subject to provider
+          review, eligibility, and applicable regulations. Results vary.
         </p>
       </div>
     </footer>

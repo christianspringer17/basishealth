@@ -10,12 +10,11 @@ import {
   LEARN_UNDERSTAND_SLUGS,
   pickLearnEntries,
 } from "@/lib/learn-hub";
-import { PROTOCOL_NOTES_LABEL } from "@/lib/positioning";
 
 export const metadata = {
-  title: PROTOCOL_NOTES_LABEL,
+  title: "Learn",
   description:
-    "Editorial notes on metabolic health, protocols, therapies, and long-term care from Basis Health.",
+    "Evidence-informed guides on metabolic health—from insulin sensitivity to body composition and personalized protocols.",
 };
 
 export default function LearnPage() {

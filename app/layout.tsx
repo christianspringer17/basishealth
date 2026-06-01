@@ -7,15 +7,15 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Protocol-based care`,
+    default: `${SITE_NAME} — Protocol-based metabolic care`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Membership-based protocol care for metabolic health, longevity, and performance. Physician-guided protocols with therapies when clinically appropriate.",
+    "Protocol-based metabolic care with physician-guided protocols, ongoing support, and therapies when clinically appropriate.",
   openGraph: {
-    title: `${SITE_NAME} — Protocol-based care`,
+    title: `${SITE_NAME} — Protocol-based metabolic care`,
     description:
-      "Membership-based protocol care for metabolic health, longevity, and performance.",
+      "Membership-based metabolic protocols with physician review, ongoing support, and therapies when clinically appropriate.",
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: SITE_NAME,
     description:
-      "Personalized, provider-guided health protocols for long-term vitality.",
+      "Protocol-based metabolic care with physician-guided protocols and ongoing support.",
   },
   robots: { index: true, follow: true },
 };

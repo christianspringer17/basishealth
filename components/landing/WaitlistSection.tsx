@@ -1,16 +1,10 @@
 "use client";
 
-import { HOME_FINAL_CTA } from "@/lib/content/home";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { attributionSummary } from "@/lib/attribution";
-import {
-  primaryCtaHref,
-  primaryCtaLabel,
-  secondaryCtaHref,
-  secondaryCtaLabel,
-} from "@/lib/cta";
+import { primaryCtaLabel } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import { GHL_FORM_EMBED_URL, isGhlFormEnabled } from "@/lib/ghl";
 import { SITE_EMAIL, SITE_NAME } from "@/lib/site";
@@ -238,37 +232,17 @@ export function WaitlistSection() {
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg leading-100 text-grey-9">{HOME_FINAL_CTA.headline}</h2>
-          <p className="text-lead max-w-[640px] text-pretty text-grey-7">
-            {HOME_FINAL_CTA.body}
+          <h2 className="text-h1-lg leading-100 text-grey-9">Apply for membership</h2>
+          <p className="text-lead max-w-[600px] text-pretty text-grey-7">
+            {useGhl
+              ? "Apply for membership to receive launch updates. When enrollment opens, intake runs through our clinical partner."
+              : "Apply for membership with your email and optional mobile for launch updates. When enrollment opens, intake runs through our clinical partner."}
           </p>
-          <p className="text-h5 max-w-[560px] text-pretty text-grey-7">
-            {HOME_FINAL_CTA.supportingLine}
-          </p>
-          <div className="flex flex-col items-center gap-3 pt-2 sm:flex-row">
-            <a href={primaryCtaHref()} className="text-h5 text-grey-8 underline underline-offset-2">
-              {primaryCtaLabel()}
-            </a>
-            <span className="hidden text-grey-5 sm:inline" aria-hidden>
-              ·
-            </span>
-            <a
-              href={secondaryCtaHref()}
-              className="text-h5 text-grey-8 underline underline-offset-2"
-            >
-              {secondaryCtaLabel()}
-            </a>
-          </div>
         </div>
       </div>
 
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center md:col-span-14 md:col-start-6">
-          <p className="mb-6 text-center text-body text-grey-7">
-            {useGhl
-              ? "Complete the application below. A member of our team will follow up when enrollment opens."
-              : "Share your details below. We will follow up when membership enrollment opens."}
-          </p>
           {useGhl ? <GhlFormEmbed /> : <NativeWaitlistForm />}
         </div>
       </div>

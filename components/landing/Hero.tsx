@@ -17,8 +17,8 @@ export function Hero() {
 
       <div className="site-container site-grid relative z-[2] w-full">
         <div className="col-span-full flex justify-center px-2 text-center">
-          <h1 className="text-hero-title max-w-none text-grey-1 md:whitespace-nowrap">
-            Metabolism is the signal. The signal is broken.
+          <h1 className="text-hero-title max-w-[920px] text-pretty text-grey-1">
+            Metabolic care, built around protocols.
           </h1>
         </div>
       </div>

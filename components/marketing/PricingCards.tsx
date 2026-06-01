@@ -183,7 +183,7 @@ export function PricingCards({
                 data-analytics-label={`pricing_${product.id}_${term}`}
                 data-analytics-location="pricing_cards"
               >
-                {checkoutIsExternal ? checkoutCtaLabel() : CTA_LABELS.waitlist}
+                {checkoutIsExternal ? checkoutCtaLabel() : CTA_LABELS.applyMembership}
               </BasalButton>
             )}
           </div>

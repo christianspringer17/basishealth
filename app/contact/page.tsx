@@ -6,7 +6,7 @@ import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata = {
   title: "Contact",
-  description: "Get in touch with Basis Health for support, billing, and clinical questions.",
+  description: "Get in touch with Basis for membership, billing, and clinical questions.",
 };
 
 export default function ContactPage() {
@@ -54,13 +54,13 @@ export default function ContactPage() {
           <section className="info-page-block">
             <h2 className="info-page-heading">FAQs</h2>
             <p className="text-body-lg text-grey-7">
-              Many common questions about membership, protocols, and therapies are answered on our{" "}
+              Many common questions about GLP–One and our program are answered on our{" "}
               <Link href={ROUTES.faq} className="info-page-link">
                 FAQ page
               </Link>{" "}
-              and{" "}
+              and the{" "}
               <Link href={ROUTES.glpOne} className="info-page-link">
-                Basis Metabolic therapy detail
+                GLP–One overview
               </Link>
               .
             </p>

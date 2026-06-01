@@ -1,21 +1,20 @@
 import { BasalButton } from "@/components/landing/ui";
 import {
   CHECKOUT_HREF,
+  CTA_LABELS,
+  WAITLIST_HREF,
   checkoutCtaLabel,
   isCheckoutLive,
-  primaryCtaHref,
   primaryCtaLabel,
-  secondaryCtaHref,
-  secondaryCtaLabel,
 } from "@/lib/cta";
 
 export function ConversionBand({
-  title = "Start with the protocol.",
-  description = "Apply for Basis membership and begin with a structured assessment.",
-  primaryLabel = primaryCtaLabel(),
-  primaryHref = primaryCtaHref(),
-  secondaryLabel = secondaryCtaLabel(),
-  secondaryHref = secondaryCtaHref(),
+  title = "Apply for membership.",
+  description = "Physician-guided metabolic protocols with ongoing support and therapies when clinically appropriate.",
+  primaryLabel = CTA_LABELS.applyMembership,
+  primaryHref = WAITLIST_HREF,
+  secondaryLabel = primaryCtaLabel(),
+  secondaryHref = WAITLIST_HREF,
   showSecondary = true,
   className,
 }: {

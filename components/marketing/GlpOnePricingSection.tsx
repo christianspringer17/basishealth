@@ -54,11 +54,12 @@ export function GlpOnePricingSection() {
     <section className="section-shell section-gap-lg w-full">
       <div className="site-container site-grid w-full gap-y-12">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg text-grey-9">Therapy tiers within Basis Metabolic</h2>
+          <h2 className="text-h1-lg text-grey-9">Find out what&apos;s right for you</h2>
           <p className="text-lead max-w-[620px] text-pretty text-grey-7">
-            Membership is required. When clinically appropriate, choose a GLP-1 therapy tier
-            — pricing and availability may vary based on eligibility, provider review,
-            pharmacy, and applicable regulations.
+            Choose Microdose or Weight Loss, then commit to 3 months for the strongest
+            outcomes and lowest effective monthly rate. GLP-1 therapy is available through
+            Basis Metabolic for eligible members after provider review. Membership is
+            required and starts at $60/month.
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 import { SITE_NAME } from "@/lib/site";
 
-export const alt = `${SITE_NAME} — Personalized health protocols`;
+export const alt = `${SITE_NAME} — Protocol-based metabolic care`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
             letterSpacing: "-0.03em",
           }}
         >
-          Personalized health protocols for long-term vitality
+          Metabolic care, built around protocols.
         </div>
         <div
           style={{
@@ -50,8 +50,8 @@ export default function OpenGraphImage() {
             lineHeight: 1.4,
           }}
         >
-          Provider-guided longevity and performance care — where medically
-          appropriate.
+          Physician-guided protocols, ongoing support, and therapies when
+          clinically appropriate.
         </div>
       </div>
     ),

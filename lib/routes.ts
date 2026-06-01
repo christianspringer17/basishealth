@@ -1,6 +1,9 @@
 /** Canonical paths — use everywhere nav/footer link */
 export const ROUTES = {
   home: "/",
+  homeMembership: "/#membership",
+  homeProtocols: "/#protocols",
+  homeFaq: "/#faq",
   glpOne: "/glp-one",
   glpOneFaq: "/glp-one#faq",
   signup: "/signup",
@@ -21,14 +24,5 @@ export const ROUTES = {
   termsRefunds: "/terms#refunds",
   privacy: "/privacy",
   accessibility: "/accessibility",
-  /** v2 homepage anchors */
   homeHowItWorks: "/#how-it-works",
-  homeProtocols: "/#protocols",
-  homeMembership: "/#membership",
-  homeDiagnostics: "/#diagnostics",
-  homeTherapies: "/#therapies",
-  homeQuarterly: "/#quarterly",
-  homeWaitlist: "/#waitlist",
-  homePhilosophy: "/#philosophy",
-  homeProtocolNotes: "/#protocol-notes",
 } as const;
