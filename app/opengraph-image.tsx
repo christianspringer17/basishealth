@@ -1,6 +1,7 @@
 import { ImageResponse } from "next/og";
+import { SITE_NAME } from "@/lib/site";
 
-export const alt = "Athene Health — Personalized health protocols";
+export const alt = `${SITE_NAME} — Personalized health protocols`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,7 +27,7 @@ export default function OpenGraphImage() {
             marginBottom: 24,
           }}
         >
-          Athene Health
+          {SITE_NAME}
         </div>
         <div
           style={{

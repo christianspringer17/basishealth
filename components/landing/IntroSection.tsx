@@ -1,4 +1,5 @@
 import { MEDIA } from "@/lib/media";
+import { primaryCtaLabel, WAITLIST_HREF } from "@/lib/cta";
 import { BasalButton, MediaFrame, TextBlock } from "./ui";
 
 export function IntroSection() {
@@ -11,7 +12,7 @@ export function IntroSection() {
             subtitle="Clinician-guided care with personalized dosing support, built for long-term metabolic health."
           />
           <div className="flex justify-center pt-3">
-            <BasalButton href="/signup">Get started</BasalButton>
+            <BasalButton href={WAITLIST_HREF}>{primaryCtaLabel()}</BasalButton>
           </div>
         </div>
       </div>
@@ -24,8 +25,9 @@ export function IntroSection() {
             aspect="product"
             objectFit="contain"
             rounded="2xl"
+            priority
           />
-          <p className="max-w-[420px] text-center text-h5 text-grey-7">
+          <p className="max-w-[420px] text-center text-body text-grey-7">
             Includes medication and personalized dosing support where medically
             appropriate. Imagery is illustrative; actual medication appearance may
             vary by compounding pharmacy partner.

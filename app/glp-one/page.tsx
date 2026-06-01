@@ -5,10 +5,13 @@ import { FeaturesList } from "@/components/marketing/FeaturesList";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { MarketingVisualBlock } from "@/components/marketing/MarketingVisualBlock";
 import { MetabolicMarkersSection } from "@/components/marketing/MetabolicMarkersSection";
-import { PricingCards } from "@/components/marketing/PricingCards";
+import { GlpOnePricingSection } from "@/components/marketing/GlpOnePricingSection";
 import { BasalButton } from "@/components/landing/ui";
-import { SIGNUP_HREF, SIGNUP_LABELS } from "@/lib/cta";
+import { GLP_FAQS } from "@/lib/content/faqs";
+import { CHECKOUT_HREF, checkoutCtaLabel, isCheckoutLive, primaryCtaLabel, WAITLIST_HREF } from "@/lib/cta";
 import { MEDIA } from "@/lib/media";
+import { lowestEffectiveMonthly } from "@/lib/pricing";
+import { ROUTES } from "@/lib/routes";
 
 const GLP_FEATURES = [
   "Eligibility screening and clinician review",
@@ -17,43 +20,10 @@ const GLP_FEATURES = [
   "Metabolic literacy",
 ];
 
-const GLP_FAQS = [
-  {
-    question: "What is tirzepatide?",
-    answer:
-      "Tirzepatide is a GLP-1/GIP receptor agonist used under clinician supervision for metabolic health. Your provider determines whether it is appropriate based on your history and goals.",
-  },
-  {
-    question: "How long does it take to see results?",
-    answer:
-      "Timelines vary. Many patients notice appetite and energy shifts within weeks; meaningful metabolic change often requires months of consistent protocol and follow-up.",
-  },
-  {
-    question: "What is included in my protocol?",
-    answer:
-      "Clinician review, personalized protocol design, scheduled check-ins, and dosing support. Medication is included where medically appropriate and prescribed.",
-  },
-  {
-    question: "Why offer 3- and 6-month plans?",
-    answer:
-      "Metabolic care requires continuity. Longer plans align your care team around sustained outcomes and allow proper titration windows.",
-  },
-  {
-    question: "Is GLP-One right for everyone?",
-    answer:
-      "No. Eligibility depends on medical history, goals, and clinician review. Complete the assessment to find out if care is appropriate for you.",
-  },
-  {
-    question: "Do you take FSA/HSA?",
-    answer:
-      "Many members use HSA/FSA for eligible clinical services. Confirm with your plan administrator.",
-  },
-];
-
 export const metadata = {
   title: "GLP-One",
   description:
-    "Clinician-guided GLP-1 metabolic care with 3- and 6-month subscription plans from Athene Health.",
+    "Clinician-guided GLP-1 metabolic care — Microdose and Weight Loss tiers with 1- and 3-month plans from Basis Health.",
 };
 
 export default function GlpOnePage() {
@@ -64,12 +34,13 @@ export default function GlpOnePage() {
           <div className="site-container site-grid w-full">
             <header className="editorial-page-hero col-span-full md:col-span-18 md:col-start-4">
               <h1 className="text-h1-xl text-pretty text-grey-9">GLP-One™ Tirzepatide</h1>
-              <p className="text-h1-lg max-w-[760px] text-pretty text-grey-7">
+              <p className="text-subtitle max-w-[760px] text-pretty text-grey-7">
                 Clinician-guided treatment with personalized dosing support, built for
                 long-term metabolic health.
               </p>
-              <p className="text-h5 text-grey-7">
-                Compounded tirzepatide from $199/month on 6-month plans
+              <p className="text-body text-grey-7">
+                Compounded tirzepatide from ${lowestEffectiveMonthly()}/month on 3-month
+                plans
               </p>
               <p className="text-h5 text-grey-7">
                 Includes medication, personalized dosing support, and clinician
@@ -77,7 +48,15 @@ export default function GlpOnePage() {
                 vary by compounding pharmacy partner.
               </p>
               <div className="pt-2">
-                <BasalButton href={SIGNUP_HREF}>{SIGNUP_LABELS.assessment}</BasalButton>
+                <BasalButton
+                  href={CHECKOUT_HREF}
+                  data-analytics-event="cta_click"
+                  data-analytics-label="glp_one_hero_checkout"
+                  data-analytics-location="glp_one_hero"
+                  data-analytics-href={CHECKOUT_HREF}
+                >
+                  {isCheckoutLive() ? checkoutCtaLabel() : primaryCtaLabel()}
+                </BasalButton>
               </div>
             </header>
           </div>
@@ -109,42 +88,27 @@ export default function GlpOnePage() {
           </div>
         </section>
 
-        <MarketingVisualBlock />
+        <MarketingVisualBlock ctaHref="#faq" ctaLabel="See common questions" />
 
-        <section className="section-shell section-gap-lg w-full">
-          <div className="site-container site-grid w-full gap-y-12">
-            <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-              <h2 className="text-h1-lg text-grey-9">Find out what&apos;s right for you</h2>
-              <p className="text-h3 max-w-[620px] text-pretty text-grey-7">
-                Choose a care term that fits your goals. Pricing and eligibility are
-                confirmed during your clinical assessment—no payment required to begin.
-              </p>
-            </div>
-            <div className="col-span-full md:col-span-18 md:col-start-4">
-              <PricingCards ctaHref={SIGNUP_HREF} />
-            </div>
-          </div>
-        </section>
+        <GlpOnePricingSection />
 
         <MetabolicMarkersSection showCta={false} />
 
-        <section className="section-shell w-full">
+        <section id="faq" className="section-shell w-full scroll-mt-28">
           <div className="site-container site-grid w-full">
             <div className="col-span-full md:col-span-14 md:col-start-6">
-              <FaqAccordion items={GLP_FAQS} />
-              <div className="mt-10">
-                <BasalButton href={SIGNUP_HREF}>Is GLP-One right for me?</BasalButton>
-              </div>
+              <FaqAccordion
+                title="Questions are good. Let's dive in."
+                items={GLP_FAQS}
+              />
             </div>
           </div>
         </section>
       </div>
 
       <ConversionBand
-        primaryLabel={SIGNUP_LABELS.assessment}
-        primaryHref={SIGNUP_HREF}
         secondaryLabel="How it works"
-        secondaryHref="/about/how-it-works"
+        secondaryHref={ROUTES.aboutHowItWorks}
       />
     </MarketingShell>
   );

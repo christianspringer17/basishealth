@@ -1,15 +1,16 @@
 import { cn } from "./ui";
+import { SITE_NAME_SHORT } from "@/lib/site";
 
-/** Text wordmark — Basal uses a compact SVG at ~40px; we match with display type */
+/** Compact header wordmark — matches basal.health top-left treatment */
 export function EonicLogo({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "font-[family-name:var(--font-display)] text-[14px] leading-none font-normal tracking-[-0.04em] md:text-[15px]",
+        "font-[family-name:var(--font-display)] text-h5 leading-none font-semibold tracking-[-0.04em]",
         className,
       )}
     >
-      Athene
+      {SITE_NAME_SHORT}
     </span>
   );
 }

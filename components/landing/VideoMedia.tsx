@@ -27,28 +27,13 @@ export function VideoMedia({
   const [posterSrc, setPosterSrc] = useState(poster || PLACEHOLDER);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const attemptPlay = () => {
-    const video = videoRef.current;
-    if (!video || failed) return;
-    // Some browsers require the muted property set before play() for autoplay.
-    video.muted = true;
-    // Ensure the element has started fetching media.
-    video.load();
-    video.play().catch(() => {
-      /* autoplay blocked — poster still visible */
-    });
-  };
-
   useEffect(() => {
     setPosterSrc(poster || PLACEHOLDER);
-  }, [poster]);
+    setReady(false);
+    setFailed(false);
+  }, [poster, videoSrc]);
 
-  useEffect(() => {
-    attemptPlay();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [failed, videoSrc]);
-
-  const showVideo = !failed && videoSrc;
+  const showVideo = !failed && Boolean(videoSrc);
 
   return (
     <div className={cn("absolute inset-0 bg-[var(--grey-2)]", className)}>
@@ -68,7 +53,9 @@ export function VideoMedia({
       />
       {showVideo && (
         <video
+          key={videoSrc}
           ref={videoRef}
+          src={videoSrc}
           className={cn(
             "absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-700",
             ready ? "opacity-100" : "opacity-0",
@@ -77,24 +64,11 @@ export function VideoMedia({
           muted
           loop
           playsInline
-          preload="metadata"
-          // iOS Safari sometimes needs this explicit attribute.
-          // eslint-disable-next-line react/no-unknown-property
-          webkit-playsinline="true"
+          preload="auto"
           poster={posterSrc}
-          onLoadedMetadata={() => {
-            setReady(true);
-            attemptPlay();
-          }}
-          onCanPlay={() => {
-            setReady(true);
-            attemptPlay();
-          }}
           onPlaying={() => setReady(true)}
           onError={() => setFailed(true)}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        />
       )}
     </div>
   );

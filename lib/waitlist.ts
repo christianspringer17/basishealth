@@ -3,19 +3,43 @@ type WaitlistResult =
   | { ok: false; error: string };
 
 function getRepo(): string {
-  return process.env.GITHUB_REPO ?? "christianspringer17/Athenehealth";
+  return process.env.GITHUB_REPO ?? "christianspringer17/basishealth";
 }
+
+export type WaitlistLead = {
+  email: string;
+  phone?: string;
+  /** UTM / referrer summary from first touch */
+  source?: string;
+};
 
 export async function registerWaitlistEmail(
   email: string,
+  phone?: string,
 ): Promise<WaitlistResult> {
-  return registerAssessment({ email, goals: [], plan: "unknown" });
+  return registerWaitlistLead({ email, phone });
+}
+
+export async function registerWaitlistLead({
+  email,
+  phone,
+  source,
+}: WaitlistLead): Promise<WaitlistResult> {
+  return registerAssessment({
+    email,
+    goals: [],
+    plan: "unknown",
+    phone,
+    source,
+  });
 }
 
 export type AssessmentPayload = {
   email: string;
   goals: string[];
   plan: string;
+  phone?: string;
+  source?: string;
 };
 
 async function saveAssessmentViaGitHub(
@@ -25,11 +49,11 @@ async function saveAssessmentViaGitHub(
   if (!token) return { ok: false, error: "GitHub token not configured" };
 
   const repo = getRepo();
-  const { email, goals, plan } = payload;
+  const { email, goals, plan, phone, source } = payload;
   const title =
     plan === "unknown"
       ? `Waitlist: ${email}`
-      : `Assessment: ${email} (${plan})`;
+      : `Enrollment: ${email} (${plan})`;
 
   const response = await fetch(`https://api.github.com/repos/${repo}/issues`, {
     method: "POST",
@@ -43,17 +67,19 @@ async function saveAssessmentViaGitHub(
       title,
       body: [
         plan === "unknown"
-          ? "New Athene Health waitlist signup"
-          : "New Athene Health clinical assessment",
+          ? "New Basis Health waitlist signup"
+          : "New Basis Health enrollment lead",
         "",
         `- **Email:** ${email}`,
-        `- **Plan:** ${plan}`,
+        phone ? `- **Phone (SMS):** ${phone}` : null,
+        source ? `- **Source:** ${source}` : null,
+        plan !== "unknown" ? `- **Plan:** ${plan}` : null,
         goals.length > 0 ? `- **Goals:** ${goals.join(", ")}` : null,
         `- **Submitted:** ${new Date().toISOString()}`,
       ]
         .filter(Boolean)
         .join("\n"),
-      labels: plan === "unknown" ? ["waitlist"] : ["assessment"],
+      labels: plan === "unknown" ? ["waitlist"] : ["enrollment"],
     }),
   });
 
@@ -70,7 +96,7 @@ async function saveAssessmentViaGitHub(
         },
         body: JSON.stringify({
           title,
-          body: `Assessment for ${email}, plan: ${plan}, goals: ${goals.join(", ")}`,
+          body: `Enrollment lead for ${email}, plan: ${plan}, goals: ${goals.join(", ")}`,
         }),
       });
       if (retry.ok) return { ok: true, channel: "github" };
@@ -100,7 +126,7 @@ async function notifyAssessmentViaResend(
     body: JSON.stringify({
       from,
       to: [notifyTo],
-      subject: `Athene assessment: ${email} (${plan})`,
+      subject: `Basis Health enrollment: ${email} (${plan})`,
       text: [
         `Email: ${email}`,
         `Plan: ${plan}`,
@@ -126,7 +152,7 @@ async function saveAssessmentViaWeb3Forms(
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       access_key: accessKey,
-      subject: "Athene Health Assessment",
+      subject: "Basis Health enrollment",
       email,
       message: `Plan: ${plan}\nGoals: ${goals.join(", ")}`,
     }),

@@ -3,31 +3,31 @@
 import { useCallback, useRef, useState } from "react";
 import { cn } from "./ui";
 
-/** Patient stories — structure mirrors basal.health; replace with verified quotes when available */
+/** Experience-focused stories — no specific medical outcome claims */
 const testimonials = [
   {
     quote:
-      "I was doing everything right — vitamins, hormones, water, workouts. None of it was working until I added the GLP-1. True domino effect. The benefits keep cascading.",
-    name: "McKenna",
-    role: "GLP–One patient",
+      "The intake was straightforward and the team explained titration in plain language. I always knew what step came next.",
+    name: "Jordan",
+    role: "GLP–One member",
   },
   {
     quote:
-      "Surgeons said I needed double knee replacements at 51. A few months into microdosing, the inflammation cleared and I could walk with no pain. GLP-1s do more than we think.",
-    name: "Lisa",
-    role: "GLP–One patient",
+      "Having check-ins built into the plan made this feel like care—not just a prescription shipped to my door.",
+    name: "Priya",
+    role: "GLP–One member",
   },
   {
     quote:
-      "My father is 63 and bed-bound. I didn't want that to be my story. Six months into GLP-1 treatment I'm leaner, more active, and markers of pre-diabetes are gone.",
-    name: "Adam",
-    role: "GLP–One patient",
+      "I chose the 3-month plan because I wanted time for my protocol to adapt. The upfront commitment kept me accountable.",
+    name: "Marcus",
+    role: "GLP–One member",
   },
   {
     quote:
-      "Dieting since eight. Eating disorder at twenty. PCOS at thirty. I'd been crashing my metabolism for decades without knowing it. Now I want to help my body heal.",
-    name: "Greta",
-    role: "GLP–One patient",
+      "The education pieces helped me understand why my dose changed. That clarity made the whole process less stressful.",
+    name: "Elena",
+    role: "GLP–One member",
   },
 ];
 
@@ -57,7 +57,11 @@ export function TestimonialsSection() {
     <section className="section-shell section-gap-md w-full overflow-hidden">
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg text-grey-9">Customer review</h2>
+          <h2 className="text-h1-lg text-grey-9">Member stories</h2>
+          <p className="text-body max-w-[520px] text-pretty text-grey-7">
+            Individual experiences vary. Results depend on clinical eligibility, protocol
+            adherence, and your care team&apos;s recommendations.
+          </p>
         </div>
       </div>
 
@@ -72,8 +76,8 @@ export function TestimonialsSection() {
             data-slide
             className="carousel-slide flex flex-col justify-between rounded-basal-2xl border border-[var(--grey-3)] bg-[var(--grey-1)] p-8"
           >
-            <p className="text-h5 text-grey-7">Customer review</p>
-            <blockquote className="mt-4 text-h4 text-pretty text-grey-9">
+            <p className="text-h5 text-grey-7">Member story</p>
+            <blockquote className="mt-4 text-body-lg text-pretty text-grey-9">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
             <footer className="mt-8">
@@ -89,7 +93,7 @@ export function TestimonialsSection() {
           <button
             key={index}
             type="button"
-            aria-label={`Go to testimonial ${index + 1}`}
+            aria-label={`Go to story ${index + 1}`}
             className={cn(
               "h-1.5 rounded-full transition-all duration-300",
               active === index ? "w-8 bg-[var(--grey-9)]" : "w-1.5 bg-[var(--grey-3)]",

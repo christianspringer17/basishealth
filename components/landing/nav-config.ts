@@ -1,4 +1,7 @@
 import { NAV_IMAGES } from "@/lib/media";
+import { CTA_LABELS } from "@/lib/cta";
+import { ROUTES } from "@/lib/routes";
+import { SITE_EMAIL } from "@/lib/site";
 
 export { NAV_IMAGES };
 
@@ -46,7 +49,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "protocols",
     label: "GLP–One",
-    href: "/glp-one",
+    href: ROUTES.glpOne,
     menu: {
       variant: "featured",
       image: NAV_IMAGES.protocolDropdown,
@@ -54,66 +57,65 @@ export const NAV_ITEMS: NavItem[] = [
       title: "Personalized protocols",
       description:
         "Provider-guided longevity and performance care tailored to your goals.",
-      cta: { label: "Begin assessment", href: "/signup" },
+      cta: { label: CTA_LABELS.viewPricing, href: ROUTES.glpOne },
     },
   },
   {
     id: "about",
     label: "About",
-    href: "/about",
+    href: ROUTES.about,
     menu: {
       variant: "about",
       cards: [
         {
-          label: "How it works",
-          href: "/about/how-it-works",
+          label: "About us",
+          href: ROUTES.about,
           image: NAV_IMAGES.aboutHowItWorks,
-          imageAlt: "Clinical consultation",
+          imageAlt: "Clinical GLP-1 vials in a care setting",
         },
         {
-          label: "Built for vitality",
-          href: "/about/vitality",
+          label: "Unlock living",
+          href: ROUTES.aboutVitality,
           image: NAV_IMAGES.aboutVitality,
-          imageAlt: "Active lifestyle and long-term vitality",
+          imageAlt: "Abstract premium wellness texture",
         },
       ],
-      contactLabel: "Get in touch: hello@athenehealth.com",
-      contactHref: "mailto:hello@athenehealth.com",
+      contactLabel: `Get in touch: ${SITE_EMAIL}`,
+      contactHref: ROUTES.contact,
     },
   },
   {
     id: "learn",
     label: "Learn",
-    href: "/learn",
+    href: ROUTES.learn,
     menu: {
       variant: "learn",
       imageCards: [
         {
           label: "Your protocol areas",
-          href: "/learn/protocol-areas",
+          href: ROUTES.learnProtocolAreas,
           image: NAV_IMAGES.learnProtocols,
-          imageAlt: "Personalized care",
+          imageAlt: "Person overlooking the horizon at golden hour",
         },
         {
           label: "As unique as your goals",
-          href: "/learn/as-unique-as-your-goals",
+          href: ROUTES.learnUniqueGoals,
           image: NAV_IMAGES.learnPersonalized,
-          imageAlt: "Individual health journey",
+          imageAlt: "Aerial view of open green fields",
         },
         {
           label: "What we measure",
-          href: "/learn/what-we-measure",
+          href: ROUTES.learnWhatWeMeasure,
           image: NAV_IMAGES.learnScience,
-          imageAlt: "Health markers and science",
+          imageAlt: "Parent and child in a warm everyday moment",
         },
       ],
       links: [
-        { label: "What to expect", href: "/learn/what-to-expect" },
-        { label: "Protocol areas", href: "/learn/protocol-areas" },
-        { label: "Our program", href: "/learn/our-program" },
-        { label: "Begin assessment", href: "/signup" },
+        { label: "What to expect", href: ROUTES.learnWhatToExpect },
+        { label: "Meet your metabolism", href: ROUTES.learnFeatured },
+        { label: "Our program", href: ROUTES.learnOurProgram },
       ],
-      allTopics: { label: "All topics", href: "/learn" },
+      allTopics: { label: "All topics", href: ROUTES.learn },
     },
   },
 ];
@@ -124,7 +126,7 @@ export function getNavMenuLinks(
   switch (menu.variant) {
     case "featured":
       return [
-        { label: menu.title, href: "/glp-one" },
+        { label: menu.title, href: ROUTES.glpOne },
         { label: menu.cta.label, href: menu.cta.href },
       ];
     case "about":

@@ -24,7 +24,7 @@ export function VisualSection() {
             rounded="2xl"
             showControls
           />
-          <p className="max-w-[480px] text-center text-h5 text-grey-7">
+          <p className="max-w-[480px] text-center text-body text-grey-7">
             GLP–One is clinician-guided treatment with ongoing clinical support.
             Eligibility review helps determine whether treatment is appropriate for
             you.

@@ -28,7 +28,7 @@ export function FaqAccordion({
                 aria-expanded={isOpen}
                 onClick={() => setOpenIndex(isOpen ? null : index)}
               >
-                <span className="text-h4 text-grey-9">{item.question}</span>
+                <span className="text-grey-9">{item.question}</span>
                 <span className="faq-accordion-icon" aria-hidden>
                   {isOpen ? "−" : "+"}
                 </span>

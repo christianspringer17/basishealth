@@ -1,8 +1,9 @@
+import { VALID_PLAN_IDS, type PlanId } from "@/lib/pricing";
+import { SITE_EMAIL } from "@/lib/site";
 import { registerAssessment } from "@/lib/waitlist";
 import { NextResponse } from "next/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const VALID_PLANS = new Set(["3-month", "6-month"]);
 
 export async function POST(request: Request) {
   let body: { email?: string; goals?: string[]; plan?: string };
@@ -26,9 +27,9 @@ export async function POST(request: Request) {
     );
   }
 
-  if (!plan || !VALID_PLANS.has(plan)) {
+  if (!plan || !VALID_PLAN_IDS.has(plan as PlanId)) {
     return NextResponse.json(
-      { error: "Please select a 3-month or 6-month plan." },
+      { error: "Please select a valid plan." },
       { status: 400 },
     );
   }
@@ -47,7 +48,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "We could not save your assessment right now. Please email hello@athenehealth.com.",
+          `We could not save your assessment right now. Please email ${SITE_EMAIL}.`,
       },
       { status: 503 },
     );

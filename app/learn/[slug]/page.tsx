@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticlePage } from "@/components/marketing/ArticlePage";
-import { ConversionBand } from "@/components/marketing/ConversionBand";
 import { MarketingShell } from "@/components/marketing/MarketingShell";
-import { learnPages } from "@/lib/content/learn-pages";
+import { getRelatedLearnEntries, learnPages } from "@/lib/content/learn-pages";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -28,8 +27,7 @@ export default async function LearnArticlePage({ params }: Props) {
 
   return (
     <MarketingShell>
-      <ArticlePage content={content} />
-      <ConversionBand />
+      <ArticlePage content={content} related={getRelatedLearnEntries(slug)} />
     </MarketingShell>
   );
 }

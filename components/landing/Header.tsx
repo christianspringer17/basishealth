@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { SITE_NAME } from "@/lib/site";
 import { EonicLogo } from "./EonicLogo";
 import { NavDropdown } from "./NavDropdown";
 import { NavLink } from "./NavLink";
+import { WAITLIST_HREF, primaryCtaLabel } from "@/lib/cta";
+import { ROUTES } from "@/lib/routes";
 import { getNavMenuLinks, NAV_ITEMS } from "./nav-config";
 import { BasalButton, cn } from "./ui";
 
@@ -75,7 +78,7 @@ export function Header() {
                 )}
                 onMouseEnter={closeMenu}
               >
-                <span className="sr-only">Athene Health</span>
+                <span className="sr-only">{SITE_NAME}</span>
                 <EonicLogo />
               </Link>
             </div>
@@ -93,6 +96,7 @@ export function Header() {
                   <div key={item.id}>
                     <NavLink
                       href={item.href}
+                      prefetch={item.id === "learn" ? false : undefined}
                       onHero={onHero}
                       ariaExpanded={
                         item.menu ? activeMenu === item.id : undefined
@@ -123,11 +127,11 @@ export function Header() {
 
             <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
               <NavLink
-                href="/signup"
+                href={WAITLIST_HREF}
                 onHero={onHero}
                 onMouseEnter={closeMenu}
               >
-                Get started
+                {primaryCtaLabel()}
               </NavLink>
             </div>
 
@@ -193,6 +197,7 @@ export function Header() {
                       <li key={link.label}>
                         <Link
                           href={link.href}
+                          prefetch={link.href === ROUTES.learn ? false : undefined}
                           className="nav-dropdown-link"
                           onClick={closeAll}
                         >
@@ -206,14 +211,14 @@ export function Header() {
             ))}
             <div className="flex flex-col gap-3 pt-2">
               <Link
-                href="mailto:hello@athenehealth.com"
+                href={ROUTES.contact}
                 className="nav-dropdown-link"
                 onClick={closeAll}
               >
                 Contact
               </Link>
-              <BasalButton href="/signup" onClick={closeAll}>
-                Get started
+              <BasalButton href={WAITLIST_HREF} onClick={closeAll}>
+                {primaryCtaLabel()}
               </BasalButton>
             </div>
           </div>

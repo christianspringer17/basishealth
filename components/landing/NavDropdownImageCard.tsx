@@ -23,6 +23,7 @@ export function NavDropdownImageCard({
         fill
         className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
         sizes="380px"
+        quality={88}
       />
       <span className="nav-dropdown-image-scrim" aria-hidden />
       <span className={pillClassName}>

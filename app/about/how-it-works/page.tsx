@@ -6,7 +6,7 @@ import { ABOUT_PAGES } from "@/lib/content/about-pages";
 export const metadata = {
   title: "How it works",
   description:
-    "From intake to evolving protocol—how Athene Health delivers clinician-guided metabolic care on 3- and 6-month plans.",
+    "From intake to evolving protocol—how Basis Health delivers clinician-guided GLP-One care on 1- and 3-month plans.",
 };
 
 export default function HowItWorksPage() {

@@ -1,6 +1,6 @@
-# Athene Health
+# Basis Health
 
-Landing page for Athene Health — personalized, provider-guided longevity and performance protocols.
+Landing page for Basis Health — personalized, provider-guided longevity and performance protocols.
 
 ## View the site (no local setup)
 

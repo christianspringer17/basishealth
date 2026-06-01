@@ -1,59 +1,110 @@
 import Link from "next/link";
+import { WAITLIST_HREF, primaryCtaLabel } from "@/lib/cta";
+import { ROUTES } from "@/lib/routes";
+import {
+  SOCIAL_LABELS,
+  SOCIAL_PLATFORMS,
+  isExternalSocial,
+  socialHref,
+} from "@/lib/site";
 import { BasalButton } from "./ui";
 
-const FOOTER_LINKS = {
-  glpOne: [
-    { label: "Get started", href: "/signup" },
-    { label: "Learn more", href: "/glp-one" },
-  ],
-  about: [
-    { label: "Our story", href: "/about" },
-    { label: "How it works", href: "/about/how-it-works" },
-    { label: "Built for vitality", href: "/about/vitality" },
-  ],
-  learn: [
-    { label: "All topics", href: "/learn" },
-    { label: "What to expect", href: "/learn/what-to-expect" },
-    { label: "What we measure", href: "/learn/what-we-measure" },
-  ],
-  support: [
-    { label: "Contact", href: "mailto:hello@athenehealth.com" },
-    { label: "Privacy", href: "/privacy" },
-    { label: "Terms", href: "/terms" },
-  ],
-} as const;
+const FOOTER_NAV = [
+  {
+    title: "GLP–One",
+    links: [
+      { label: "Get started", href: WAITLIST_HREF },
+      { label: "Learn more", href: ROUTES.glpOne },
+    ],
+  },
+  {
+    title: "About",
+    links: [
+      { label: "About us", href: ROUTES.about },
+      { label: "Unlock living", href: ROUTES.aboutVitality },
+      { label: "How it works", href: ROUTES.aboutHowItWorks },
+    ],
+  },
+  {
+    title: "Learn",
+    links: [
+      { label: "Primers", href: ROUTES.learn },
+      { label: "Most recent", href: ROUTES.learnFeatured },
+      { label: "What to expect", href: ROUTES.learnWhatToExpect },
+      { label: "All topics", href: ROUTES.learn },
+    ],
+  },
+  {
+    title: "Connect",
+    links: SOCIAL_PLATFORMS.map((platform) => ({
+      label: SOCIAL_LABELS[platform],
+      href: socialHref(platform),
+      external: isExternalSocial(platform),
+    })),
+  },
+  {
+    title: "Support",
+    links: [
+      { label: "Contact", href: ROUTES.contact },
+      { label: "FAQs", href: ROUTES.faq },
+      { label: "Refunds", href: ROUTES.termsRefunds },
+    ],
+  },
+] as const;
 
-export function Footer() {
+export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) {
+  const year = new Date().getFullYear();
+  const ctaLabel = primaryCtaLabel();
+
+  const footerNav = FOOTER_NAV.map((column) => ({
+    ...column,
+    links: column.links.map((link) =>
+      link.href === WAITLIST_HREF && link.label === "Get started"
+        ? { ...link, label: ctaLabel }
+        : link,
+    ),
+  }));
+
   return (
-    <footer className="site-footer relative w-full">
-      <div className="absolute top-0 z-[3] h-px w-full bg-[var(--grey-3)]" aria-hidden />
-
-      <div className="site-container site-grid relative z-[2] overflow-hidden rounded-b-[var(--radius-2xl)] bg-white pt-10 shadow-[0_12px_48px_oklch(0%_0_0/0.06)]">
-        <div className="col-span-full flex flex-col items-center pb-20 md:col-span-20 md:col-start-3">
-          <div className="mb-16 flex w-full flex-col items-center gap-8 text-center">
-            <h2 className="text-h1-lg max-w-lg text-pretty text-grey-9">Begin with clarity.</h2>
-            <p className="text-h3 max-w-[520px] text-pretty text-grey-7">
-              See if GLP–One is right for your body and your goals.
-            </p>
-            <BasalButton href="/signup">Begin your clinical assessment</BasalButton>
+    <footer className="site-footer">
+      {showPrimaryCta ? (
+        <>
+          <div className="site-container">
+            <div className="footer-cta">
+              <BasalButton href={WAITLIST_HREF}>{primaryCtaLabel()}</BasalButton>
+            </div>
           </div>
-
-          <div className="grid w-full gap-10 border-t border-[var(--grey-3)] pt-12 sm:grid-cols-2 md:grid-cols-4">
-            <FooterColumn title="GLP–One" links={FOOTER_LINKS.glpOne} />
-            <FooterColumn title="About" links={FOOTER_LINKS.about} />
-            <FooterColumn title="Learn" links={FOOTER_LINKS.learn} />
-            <FooterColumn title="Support" links={FOOTER_LINKS.support} />
+          <div className="site-container">
+            <div className="footer-divider" aria-hidden />
           </div>
+        </>
+      ) : null}
 
-          <p className="mt-12 max-w-2xl text-center text-h5 leading-relaxed text-grey-7">
-            This is a physician-supervised program. GLP-1 therapies are prescription
-            medications and may not be appropriate for everyone. All treatment decisions
-            are made by licensed clinicians based on individual health data.
-          </p>
-          <p className="mt-6 text-h5 text-grey-7">
-            © {new Date().getFullYear()} Athene Health, LLC. All rights reserved.
+      <div className="site-container">
+        <nav className="footer-nav" aria-label="Footer">
+          {footerNav.map((column) => (
+            <FooterColumn key={column.title} title={column.title} links={column.links} />
+          ))}
+        </nav>
+
+        <div className="footer-legal">
+          <div className="footer-legal__links">
+            <Link href={ROUTES.terms}>Terms + Conditions</Link>
+            <span aria-hidden>|</span>
+            <Link href={ROUTES.privacy}>Privacy Policy</Link>
+            <span aria-hidden>|</span>
+            <Link href={ROUTES.accessibility}>Accessibility</Link>
+          </div>
+          <p className="footer-legal__copy">
+            © {year} Basis Health LLC. All rights reserved.
           </p>
         </div>
+
+        <p className="footer-disclaimer">
+          This is a physician-supervised program. GLP-1 therapies are prescription
+          medications and may not be appropriate for everyone. All treatment decisions
+          are made by licensed clinicians based on individual health data.
+        </p>
       </div>
     </footer>
   );
@@ -64,20 +115,36 @@ function FooterColumn({
   links,
 }: {
   title: string;
-  links: readonly { label: string; href: string }[];
+  links: readonly {
+    label: string;
+    href: string;
+    external?: boolean;
+  }[];
 }) {
   return (
-    <div>
-      <h3 className="text-h5 font-medium text-grey-9">{title}</h3>
-      <ul className="mt-4 flex flex-col gap-2">
+    <div className="footer-nav__col">
+      <h3 className="footer-nav__title">{title}</h3>
+      <ul className="footer-nav__list">
         {links.map((link) => (
-          <li key={link.href}>
-            <Link
-              href={link.href}
-              className="text-h5 text-grey-7 transition-colors duration-280 hover:text-grey-9"
-            >
-              {link.label}
-            </Link>
+          <li key={link.label}>
+            {link.external ? (
+              <a
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="footer-nav__link"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                href={link.href}
+                prefetch={link.href === ROUTES.learn ? false : undefined}
+                className="footer-nav__link"
+              >
+                {link.label}
+              </Link>
+            )}
           </li>
         ))}
       </ul>

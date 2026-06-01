@@ -14,7 +14,7 @@ export function FeaturesList({
       {intro && <p className="features-list-intro text-body-lg text-pretty text-grey-7">{intro}</p>}
       <ul className="features-list-items">
         {items.map((item) => (
-          <li key={item} className="features-list-item text-h3 text-grey-9">
+          <li key={item} className="features-list-item text-h4 font-semibold text-grey-9">
             {item}
           </li>
         ))}

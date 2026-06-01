@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ROUTES } from "@/lib/routes";
 import type { NavMenu } from "./nav-config";
 import { NavDropdownImageCard } from "./NavDropdownImageCard";
 import { BasalButton, cn } from "./ui";
@@ -80,6 +81,7 @@ function LearnMenu({
             {index > 0 && <hr className="nav-dropdown-divider" />}
             <Link
               href={link.href}
+              prefetch={link.href === ROUTES.learn ? false : undefined}
               className="nav-dropdown-divider-link"
               onClick={onNavigate}
             >
@@ -90,6 +92,7 @@ function LearnMenu({
       </div>
       <Link
         href={menu.allTopics.href}
+        prefetch={menu.allTopics.href === ROUTES.learn ? false : undefined}
         className="nav-dropdown-all-topics"
         onClick={onNavigate}
       >

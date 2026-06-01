@@ -1,10 +1,11 @@
-import { registerWaitlistEmail } from "@/lib/waitlist";
+import { registerWaitlistLead } from "@/lib/waitlist";
+import { SITE_EMAIL } from "@/lib/site";
 import { NextResponse } from "next/server";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function POST(request: Request) {
-  let body: { email?: string };
+  let body: { email?: string; phone?: string; source?: string };
 
   try {
     body = await request.json();
@@ -13,6 +14,7 @@ export async function POST(request: Request) {
   }
 
   const email = body.email?.trim().toLowerCase();
+  const phone = body.phone?.trim();
 
   if (!email || !EMAIL_RE.test(email)) {
     return NextResponse.json(
@@ -21,14 +23,19 @@ export async function POST(request: Request) {
     );
   }
 
-  const result = await registerWaitlistEmail(email);
+  const source = body.source?.trim().slice(0, 240);
+  const result = await registerWaitlistLead({
+    email,
+    phone: phone || undefined,
+    source: source || undefined,
+  });
 
   if (!result.ok) {
     console.error("[waitlist]", result.error);
     return NextResponse.json(
       {
         error:
-          "We could not save your signup right now. Please email hello@athenehealth.com and we will add you manually.",
+          `We could not save your signup right now. Please email ${SITE_EMAIL} and we will add you manually.`,
       },
       { status: 503 },
     );

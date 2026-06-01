@@ -29,16 +29,8 @@ export function CinematicBlock({
   const videoRef = useRef<HTMLVideoElement>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [videoFailed, setVideoFailed] = useState(false);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [posterSrc, setPosterSrc] = useState(poster || PLACEHOLDER);
-
-  const attemptPlay = () => {
-    const v = videoRef.current;
-    if (!v || videoFailed) return;
-    v.muted = true;
-    v.load();
-    v.play().catch(() => setPlaying(false));
-  };
 
   const aspectClass =
     aspect === "portrait"
@@ -47,26 +39,30 @@ export function CinematicBlock({
 
   useEffect(() => {
     setPosterSrc(poster || PLACEHOLDER);
-  }, [poster]);
+    setVideoReady(false);
+    setVideoFailed(false);
+    setPlaying(false);
+  }, [poster, videoSrc]);
 
-  useEffect(() => {
-    attemptPlay();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [videoFailed, videoSrc]);
-
-  const toggle = () => {
+  const toggle = async () => {
     const v = videoRef.current;
     if (!v) return;
-    if (v.paused) {
-      v.play();
-      setPlaying(true);
-    } else {
-      v.pause();
+    try {
+      if (v.paused) {
+        v.muted = true;
+        await v.play();
+        setPlaying(true);
+        setVideoReady(true);
+      } else {
+        v.pause();
+        setPlaying(false);
+      }
+    } catch {
       setPlaying(false);
     }
   };
 
-  const showVideo = !videoFailed && videoSrc;
+  const showVideo = !videoFailed && Boolean(videoSrc);
 
   return (
     <div
@@ -92,7 +88,9 @@ export function CinematicBlock({
       />
       {showVideo && (
         <video
+          key={videoSrc}
           ref={videoRef}
+          src={videoSrc}
           className={cn(
             "absolute inset-0 h-full w-full object-cover transition-opacity duration-700",
             videoReady ? "opacity-100" : "opacity-0",
@@ -101,24 +99,15 @@ export function CinematicBlock({
           muted
           loop
           playsInline
-          preload="metadata"
-          // eslint-disable-next-line react/no-unknown-property
-          webkit-playsinline="true"
+          preload="auto"
           poster={posterSrc}
-          onLoadedMetadata={() => {
+          onPlaying={() => {
             setVideoReady(true);
-            attemptPlay();
+            setPlaying(true);
           }}
-          onCanPlay={() => {
-            setVideoReady(true);
-            attemptPlay();
-          }}
-          onError={() => setVideoFailed(true)}
-          onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+          onError={() => setVideoFailed(true)}
+        />
       )}
       {showControls && (
         <div className="absolute bottom-10 left-1/2 z-[3] flex -translate-x-1/2 gap-3 md:bottom-12">

@@ -13,6 +13,7 @@ export function NavLink({
   onFocus,
   ariaExpanded,
   type = "link",
+  prefetch,
 }: {
   href?: string;
   children: ReactNode;
@@ -23,6 +24,8 @@ export function NavLink({
   onFocus?: FocusEventHandler<HTMLAnchorElement | HTMLButtonElement>;
   ariaExpanded?: boolean;
   type?: "link" | "button";
+  /** Set false on /learn to avoid stale webpack prefetch chunks in dev */
+  prefetch?: boolean;
 }) {
   const classes = cn(
     "nav-link-basal focus flex-center",
@@ -48,6 +51,7 @@ export function NavLink({
   return (
     <Link
       href={href ?? "/"}
+      prefetch={prefetch}
       className={classes}
       onClick={onClick}
       onMouseEnter={onMouseEnter}

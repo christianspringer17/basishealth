@@ -1,6 +1,8 @@
 export type EditorialSection = {
+  id?: string;
   eyebrow?: string;
-  heading: string;
+  /** Omitted when the eyebrow carries the section title (Basal-style) */
+  heading?: string;
   paragraphs: string[];
 };
 
@@ -10,11 +12,13 @@ export type AboutPageContent = {
   intro?: string;
   backHref?: string;
   backLabel?: string;
-  founders?: {
-    names: string;
-    role: string;
-    image: { src: string; alt: string };
-  };
+  /** Two equal editorial images on main About (basal.health/about) */
+  galleryImages?: { src: string; alt: string }[];
+  /** Pill anchor below intro — scrolls to first story section */
+  storyAnchor?: { label: string; href: string };
+  /** Horizontal editorial carousel below story anchor (basal.health/about) */
+  storyCarouselImages?: { src: string; alt: string }[];
+  /** Single hero image on sub-pages (how-it-works, vitality) */
   heroImage?: { src: string; alt: string };
   /** Editorial blocks (eyebrow + heading + body) */
   sections: EditorialSection[];
@@ -43,5 +47,8 @@ export type LearnIndexEntry = {
   category: string;
   readTime: string;
   published: string;
+  /** ISO date for sort order (newest first) */
+  sortDate: string;
   description: string;
+  cardImage?: { src: string; alt: string };
 };

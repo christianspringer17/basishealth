@@ -1,89 +1,10 @@
-import { NAV_IMAGES } from "@/lib/media";
-import type { ArticlePageContent, LearnIndexEntry } from "./types";
+import { EDITORIAL_IMAGES } from "@/lib/media";
+import { learnIndexEntries } from "./learn-index";
+import type { ArticlePageContent } from "./types";
 
-export const learnIndexEntries: LearnIndexEntry[] = [
-  {
-    slug: "protocol-areas",
-    title: "Your protocol areas",
-    category: "Understand",
-    readTime: "4 min read",
-    published: "May 2026",
-    description:
-      "Energy, metabolism, recovery, sleep, and healthy aging—how Athene organizes care around the signals that matter.",
-  },
-  {
-    slug: "as-unique-as-your-goals",
-    title: "As unique as your goals",
-    category: "Understand",
-    readTime: "8 min read",
-    published: "May 2026",
-    description:
-      "Why identical inputs produce different metabolic outcomes—and what that means for your protocol.",
-  },
-  {
-    slug: "what-we-measure",
-    title: "What we measure",
-    category: "Measure",
-    readTime: "5 min read",
-    published: "May 2026",
-    description:
-      "The five metabolic markers we use to read how your systems are communicating.",
-  },
-  {
-    slug: "what-to-expect",
-    title: "What to expect",
-    category: "Understand",
-    readTime: "6 min read",
-    published: "May 2026",
-    description:
-      "From intake to ongoing adaptation—what your first 3 or 6 months with Athene look like.",
-  },
-  {
-    slug: "our-program",
-    title: "Our program",
-    category: "Understand",
-    readTime: "5 min read",
-    published: "May 2026",
-    description:
-      "One guided program with clinical oversight, personalized protocols, and subscription plans built for commitment.",
-  },
-  {
-    slug: "why-insulin-sensitivity-matters",
-    title: "Why insulin sensitivity matters before glucose goes wrong",
-    category: "Understand",
-    readTime: "5 min read",
-    published: "May 2026",
-    description:
-      "Fasting glucose can look normal while insulin resistance is already progressing. Here is what to watch for.",
-  },
-  {
-    slug: "five-metabolic-pillars",
-    title: "The five pillars we use to read metabolic health",
-    category: "Understand",
-    readTime: "3 min read",
-    published: "May 2026",
-    description:
-      "How insulin sensitivity, muscle, hormones, aerobic reserve, and body composition form a complete picture.",
-  },
-  {
-    slug: "why-muscle-is-metabolic-reserve",
-    title: "Why muscle is metabolic reserve",
-    category: "Understand",
-    readTime: "3 min read",
-    published: "May 2026",
-    description:
-      "Muscle tissue is not just for strength—it is one of your largest metabolic organs.",
-  },
-  {
-    slug: "meet-your-metabolism",
-    title: "Meet Your Metabolism",
-    category: "Improve",
-    readTime: "6 min read",
-    published: "May 2026",
-    description:
-      "Metabolism is coordination between systems—not a single dial to turn up or down.",
-  },
-];
+export { getLearnEntry, learnIndexEntries } from "./learn-index";
+
+const E = EDITORIAL_IMAGES;
 
 export const learnPages: Record<string, ArticlePageContent> = {
   "protocol-areas": {
@@ -91,13 +12,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "Your protocol areas",
     category: "Understand",
     readTime: "4 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
-      "Athene organizes care around the domains where metabolic health shows up in daily life—so your protocol stays coherent instead of fragmented.",
-    heroImage: {
-      src: NAV_IMAGES.learnProtocols,
-      alt: "Personalized metabolic care",
-    },
+      "Basis Health organizes care around the domains where metabolic health shows up in daily life—so your protocol stays coherent instead of fragmented.",
+    heroImage: { src: E.coastalSky, alt: "Coastal horizon at dawn" },
     sections: [
       {
         heading: "Energy",
@@ -114,7 +32,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
       {
         heading: "Recovery & sleep",
         paragraphs: [
-          "Rest and repair are metabolic inputs. Sleep quality, training load, and stress shape how your protocol should evolve over a 3- or 6-month plan.",
+          "Rest and repair are metabolic inputs. Sleep quality, training load, and stress shape how your protocol should evolve over a 1- or 3-month plan.",
         ],
       },
       {
@@ -137,13 +55,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "As unique as your goals",
     category: "Understand",
     readTime: "8 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "Identical meals, training plans, and medications produce different metabolic responses in different people. Your protocol should reflect that variation—not ignore it.",
-    heroImage: {
-      src: NAV_IMAGES.learnPersonalized,
-      alt: "Individual metabolic health journey",
-    },
+    heroImage: { src: E.wellnessField, alt: "Resting in a field of wildflowers" },
     sections: [
       {
         heading: "The same input, different outcomes",
@@ -155,7 +70,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
       {
         heading: "Why upfront subscription plans help",
         paragraphs: [
-          "Metabolic change rarely follows a 30-day timeline. Three- and six-month commitments give your clinician room to titrate, observe, and adjust without rushing toward the wrong outcome.",
+          "Metabolic change rarely follows a 30-day timeline. A 3-month commitment gives your clinician room to titrate, observe, and adjust without rushing toward the wrong outcome.",
           "You’re not buying a product—you’re investing in a relationship with measurable markers and clear checkpoints.",
         ],
       },
@@ -163,7 +78,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
         heading: "Calibration over perfection",
         paragraphs: [
           "The goal isn’t exhaustive self-tracking. It’s enough structured data—labs, symptoms, and lifestyle context—to know whether your protocol is working for your body.",
-          "Athene integrates those signals so adjustments are informed, not guessed.",
+          "Basis Health integrates those signals so adjustments are informed, not guessed.",
         ],
       },
     ],
@@ -173,13 +88,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "What we measure",
     category: "Measure",
     readTime: "5 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "We focus on five metabolic markers that predict long-term health—signals that tell us how well your systems are communicating.",
-    heroImage: {
-      src: NAV_IMAGES.learnScience,
-      alt: "Health markers and metabolic science",
-    },
+    heroImage: { src: E.clinicalBlue, alt: "Clinical science imagery" },
     sections: [
       {
         heading: "Insulin sensitivity",
@@ -218,32 +130,27 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "What to expect",
     category: "Understand",
     readTime: "6 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
-      "A clear timeline for your first months with Athene—from eligibility review through protocol adaptation on a 3- or 6-month plan.",
+      "A clear timeline for your first months with Basis Health—from eligibility review through protocol adaptation on a 1- or 3-month plan.",
+    heroImage: { src: E.wellnessField, alt: "Patient-centered clinical care" },
     sections: [
       {
         heading: "Week 1: Intake & eligibility",
         paragraphs: [
-          "Complete your health intake and goals assessment. A licensed provider reviews whether Athene is medically appropriate for you before any treatment begins.",
+          "Complete your health intake during checkout. A licensed provider reviews whether Basis Health is medically appropriate for you before any treatment begins.",
         ],
       },
       {
         heading: "Weeks 2–4: Protocol initiation",
         paragraphs: [
-          "If approved, you receive a personalized protocol with clear expectations for labs, check-ins, and lifestyle inputs. Your subscription term (3 or 6 months) starts here.",
+          "If approved, you receive a personalized protocol with clear expectations for labs, check-ins, and lifestyle inputs. Your subscription term (1 or 3 months) starts here.",
         ],
       },
       {
-        heading: "Months 2–3: First adaptations",
+        heading: "Months 2–3: Adaptation & renewal",
         paragraphs: [
-          "Most metabolic interventions need time to show measurable change. Expect structured follow-ups to review markers, symptoms, and adherence—not reactive chaos.",
-        ],
-      },
-      {
-        heading: "Months 4–6: Long-horizon tuning",
-        paragraphs: [
-          "Six-month subscribers benefit from deeper titration cycles and seasonal adjustments. Three-month plans focus on establishing a stable baseline you can extend or refine.",
+          "Three-month plans include a full titration window and structured follow-ups. One-month plans establish a baseline you can renew or upgrade to 3 months for better value.",
         ],
       },
     ],
@@ -251,7 +158,7 @@ export const learnPages: Record<string, ArticlePageContent> = {
       {
         question: "Why subscribe upfront?",
         answer:
-          "Metabolic care requires continuity. Upfront 3- and 6-month plans align your care team around sustained outcomes—not transactional visits.",
+          "Metabolic care requires continuity. Upfront 3-month plans align your care team around sustained outcomes—not transactional visits.",
       },
       {
         question: "Can I cancel?",
@@ -265,18 +172,15 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "Our program",
     category: "Understand",
     readTime: "5 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "One adaptive program with clinician guidance from day one—structured subscription plans, transparent pricing, and protocols that evolve with you.",
-    heroImage: {
-      src: NAV_IMAGES.protocolProduct,
-      alt: "Athene Health clinical protocol",
-    },
+    heroImage: { src: E.clinicalBlue, alt: "Basis Health Health clinical protocol" },
     sections: [
       {
         heading: "Clinical intake",
         paragraphs: [
-          "Structured assessment and eligibility review with licensed providers. We don’t prescribe first and ask questions later.",
+          "Structured intake and eligibility review with licensed providers. We don’t prescribe first and ask questions later.",
         ],
       },
       {
@@ -292,10 +196,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
         ],
       },
       {
-        heading: "3- and 6-month subscriptions",
+        heading: "Microdose, weight loss & billing terms",
         paragraphs: [
-          "Choose the horizon that fits your goals. Six months for deeper metabolic recalibration; three months to establish a strong foundation with option to renew.",
-          "Complete the clinical assessment to begin with launch pricing.",
+          "Choose Microdose or Weight Loss based on your goals, then select monthly or 3-month billing. Three-month plans offer the best per-month value and are our recommendation for meaningful titration.",
+          "Join the waitlist for launch updates, or complete checkout through our clinical partner when enrollment is open.",
         ],
       },
     ],
@@ -305,9 +209,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "Why insulin sensitivity matters before glucose goes wrong",
     category: "Understand",
     readTime: "5 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "Fasting glucose is a lagging indicator. Insulin sensitivity often shifts years before glucose crosses a diagnostic threshold.",
+    heroImage: { src: E.clinicalBlue, alt: "Metabolic markers and insulin sensitivity" },
     sections: [
       {
         heading: "The hidden workload",
@@ -328,9 +233,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "The five pillars we use to read metabolic health",
     category: "Understand",
     readTime: "3 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "Five signals—insulin sensitivity, muscle mass, hormonal rhythm, aerobic reserve, and body composition—tell us how your metabolic systems communicate.",
+    heroImage: { src: E.clinicalBlue, alt: "Five metabolic health pillars" },
     sections: [
       {
         heading: "More than one marker",
@@ -345,9 +251,10 @@ export const learnPages: Record<string, ArticlePageContent> = {
     title: "Why muscle is metabolic reserve",
     category: "Understand",
     readTime: "3 min read",
-    published: "May 2026",
+    published: "March 20, 2026",
     lead:
       "Skeletal muscle is a primary site of glucose disposal. Preserving and building muscle supports metabolic health across the lifespan.",
+    heroImage: { src: E.wellnessField, alt: "Muscle and metabolic reserve" },
     sections: [
       {
         heading: "Muscle as an organ",
@@ -361,23 +268,61 @@ export const learnPages: Record<string, ArticlePageContent> = {
     slug: "meet-your-metabolism",
     title: "Meet Your Metabolism",
     category: "Improve",
-    readTime: "6 min read",
-    published: "May 2026",
+    readTime: "14 min read",
+    published: "October 2, 2025",
     lead:
-      "Metabolism is the coordination of fuel use, hormone signaling, and recovery—not a single speed setting on a dial.",
+      "Metabolism is often described as speed: fast or slow, efficient or sluggish. What metabolism actually does is coordinate—how the body partitions fuel, shifts between substrates, and adjusts to hormonal signals and time of day.",
+    heroImage: { src: E.coastalSky, alt: "Coastal horizon at dawn" },
     sections: [
       {
-        heading: "Coordination, not speed",
+        heading: "Beyond the calorie model",
         paragraphs: [
-          "Popular culture treats metabolism as fast vs. slow. Clinically, it is more useful to ask whether your systems are communicating well—insulin, cortisol, thyroid, and cellular energy pathways working in concert.",
+          "The calorie model has shaped public thinking for decades. There is truth in it, but it narrows what metabolism does. The body senses fuel availability, adjusts hormone output, and coordinates decisions across organs—not as a passive calorie ledger.",
+          "If metabolism is coordination, the informative questions are about insulin sensitivity, tissue responsiveness, body composition, and timing. Calories still matter; they are not sufficient to explain most of what goes wrong.",
         ],
       },
       {
-        heading: "What you can influence",
+        heading: "Insulin as a coordination hormone",
         paragraphs: [
-          "Sleep, resistance training, protein intake, meal timing, and therapeutics where appropriate all modify metabolic coordination. The right combination depends on your baseline.",
+          "Insulin regulates blood sugar, but it also directs how the body partitions energy—storage, mobilization, and repair. After a meal, insulin rises and the body processes incoming nutrients. Between meals, insulin falls and stored fat is mobilized.",
+          "When sensitivity erodes, muscle absorbs less glucose, the liver may release glucose despite adequate levels, and the pancreas compensates with more insulin. Blood glucose can remain normal for years while workload climbs—a pattern standard fasting glucose alone may miss.",
         ],
+      },
+      {
+        heading: "Why muscle matters",
+        paragraphs: [
+          "Skeletal muscle is the largest insulin-responsive tissue and the primary destination for blood sugar after a meal in a metabolically healthy person. Less muscle means less disposal capacity and more insulin required for the same load.",
+          "Resistance training improves insulin sensitivity in studies even when weight does not change—the tissue becomes a more effective glucose sink. Muscle loss from aging, inactivity, or illness has metabolic consequences beyond strength or appearance.",
+        ],
+      },
+      {
+        heading: "Metabolic flexibility",
+        paragraphs: [
+          "A well-coordinated metabolism shifts between fuel sources: glucose after carbohydrate, fat between meals. As insulin resistance progresses, that flexibility often degrades—difficulty fasting, afternoon crashes, fat stores that feel hard to access.",
+          "Flexibility tends to improve when insulin sensitivity improves: regular training, meal timing that allows insulin to fall, adequate sleep, and therapeutics where clinically appropriate. The shift is usually gradual—felt in daily energy before it appears on every lab panel.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is metabolism really about calories?",
+        answer:
+          "Calories contribute to energy balance. How the body partitions, stores, and mobilizes them depends on insulin sensitivity, muscle mass, hormonal timing, and substrate switching—the calorie framework is part of the picture, not the whole of it.",
+      },
+      {
+        question: "Does exercise help without weight loss?",
+        answer:
+          "Resistance training improves insulin sensitivity and glucose disposal independently of scale weight. Muscle quality and mitochondrial function both influence how well you handle fuel.",
       },
     ],
   },
 };
+
+export function getRelatedLearnEntries(slug: string, limit = 2) {
+  const current = learnIndexEntries.find((e) => e.slug === slug);
+  if (!current) return [];
+  return learnIndexEntries
+    .filter((e) => e.slug !== slug && e.category === current.category)
+    .sort((a, b) => b.sortDate.localeCompare(a.sortDate))
+    .slice(0, limit);
+}

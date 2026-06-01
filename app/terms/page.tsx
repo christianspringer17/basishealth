@@ -1,81 +1,27 @@
 import type { Metadata } from "next";
+import { LegalMarkdown } from "@/components/legal/LegalMarkdown";
 import { LegalPage } from "@/components/landing/LegalPage";
+import { loadLegalMarkdown } from "@/lib/content/legal/load-legal";
+import { parseLegalFrontmatter } from "@/lib/content/legal/parse-legal";
 
 export const metadata: Metadata = {
-  title: "Terms of Use — Athene Health",
-  description: "Terms governing use of the Athene Health website.",
+  title: "Terms + Conditions — Basis Health",
+  description: "Terms governing use of the Basis Health website and services.",
 };
 
 export default function TermsPage() {
+  const raw = loadLegalMarkdown(
+    "terms-01.md",
+    "terms-02.md",
+    "terms-03.md",
+    "terms-04.md",
+    "terms-05.md",
+  );
+  const { body } = parseLegalFrontmatter(raw);
+
   return (
-    <LegalPage title="Terms of Use">
-      <p className="text-sm text-[#66615c]">Last updated: May 23, 2026</p>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Agreement</h2>
-        <p>
-          By accessing the Athene Health website, you agree to these Terms of Use.
-          If you do not agree, please do not use the site.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Educational content only</h2>
-        <p>
-          Information on this website is provided for general educational and
-          informational purposes. It does not constitute medical advice,
-          diagnosis, or treatment. Always consult a licensed healthcare provider
-          for personal medical decisions.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">No guarantees</h2>
-        <p>
-          We do not guarantee specific health outcomes. Any future services will
-          be subject to eligibility review, medical appropriateness, and
-          applicable laws.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Waitlist</h2>
-        <p>
-          Joining the waitlist does not create a provider-patient relationship or
-          guarantee access to services. We may modify or discontinue the waitlist
-          or launch timeline at any time.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Intellectual property</h2>
-        <p>
-          Site content, branding, and materials are owned by Athene Health or its
-          licensors and may not be copied or used without permission.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Limitation of liability</h2>
-        <p>
-          To the fullest extent permitted by law, Athene Health is not liable for
-          damages arising from your use of this website or reliance on its
-          content.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-lg font-medium text-[#171717]">Contact</h2>
-        <p>
-          Questions about these terms:{" "}
-          <a
-            href="mailto:hello@athenehealth.com"
-            className="text-[#4A6FA5] underline-offset-2 hover:underline"
-          >
-            hello@athenehealth.com
-          </a>
-        </p>
-      </section>
+    <LegalPage title="Terms + Conditions" lastUpdated="May 13, 2026">
+      <LegalMarkdown source={body} />
     </LegalPage>
   );
 }

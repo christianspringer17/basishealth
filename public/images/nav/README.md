@@ -4,12 +4,18 @@
 |------|---------|
 | `protocol-product.png` | Homepage intro (full kit mockup) |
 | `protocol-dropdown.png` | GLP–One nav dropdown (vial) — do not change |
-| `nav-about.jpg` | About → How it works |
-| `nav-unlock.jpg` | About → Built for vitality |
-| `nav-learn-metabolism.jpg` | Learn → Your protocol areas |
-| `nav-learn-fingerprint.jpg` | Learn → As unique as your goals |
-| `nav-learn-markers.jpg` | Learn → What we measure |
+| `nav-about.webp` | About → About us; How it works hero |
+| `nav-unlock.webp` | About → Unlock living; Vitality hero |
+| `nav-learn-metabolism.webp` | Learn → Your protocol areas (from `pexels-john-de-leon-*.jpg`) |
+| `nav-learn-fingerprint.webp` | Learn → As unique as your goals (from `pexels-maris-uuetoa-*.jpg`) |
+| `nav-learn-markers.webp` | Learn → What we measure (from `pexels-wr-heustis-*.jpg`) |
 
-Replace any `nav-*.jpg` with your own licensed photography (≈900×500, crop-friendly).
+Regenerate premium exports:
 
-Other cards are placeholders — swap with licensed photography when ready.
+```bash
+node scripts/install-nav-images.mjs
+```
+
+About page gallery lives in `public/images/editorial/about-primary.webp` and `about-secondary.webp` (same script).
+
+Replace with licensed brand photography when ready (≈1600×1000, crop-friendly).

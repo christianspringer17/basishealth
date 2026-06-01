@@ -6,10 +6,12 @@ All imagery is served from `/public/images` — no third-party stock URLs in pro
 
 | File | Purpose |
 |------|---------|
-| Use `nav/nav-about.jpg` or add `about/founders.jpg` | Founders portrait on `/about` |
-| `nav/nav-unlock.jpg` | Secondary editorial image on About |
+| `editorial/about-primary.webp` | Main About gallery (left) |
+| `editorial/about-secondary.webp` | Main About gallery (right) |
+| `nav/nav-about.webp` | About nav card, How it works hero, story carousel |
+| `nav/nav-unlock.webp` | Unlock living nav card, Vitality hero |
 
-Update founder names in `lib/content/about-pages.ts` when you have final copy.
+Regenerate: `npm run images:nav`
 
 ## Hero & video posters
 

@@ -1,46 +1,52 @@
-import { SIGNUP_HREF, SIGNUP_LABELS } from "@/lib/cta";
-import { NAV_IMAGES } from "@/lib/media";
+import { EDITORIAL_IMAGES, NAV_IMAGES } from "@/lib/media";
 import type { AboutPageContent } from "./types";
 
 /** Main About — structure aligned with https://basal.health/about */
 export const aboutMain: AboutPageContent = {
   title: "What does it mean to truly care for metabolism?",
   subtitle:
-    "We’re inspired by moments of understanding, when someone finally feels heard by their own body. Athene exists to restore that relationship.",
-  founders: {
-    names: "Athene clinical leadership",
-    role: "Founding clinicians",
-    image: {
-      src: NAV_IMAGES.aboutHowItWorks,
-      alt: "Athene Health clinical team",
+    "We’re inspired by moments of understanding, when someone finally feels heard by their own body. Basis Health exists to restore that relationship.",
+  galleryImages: [
+    {
+      src: EDITORIAL_IMAGES.aboutPrimary,
+      alt: "Mindful wellness practice in calm natural light",
     },
-  },
+    {
+      src: EDITORIAL_IMAGES.aboutSecondary,
+      alt: "Premium spa-inspired wellness environment",
+    },
+  ],
   intro:
     "We always cared about health, but we didn’t always understand the role that metabolism plays in how we feel, how we function. Twenty-five years of curiosity and a new wave of research gave us radical clarity. Get metabolism right and everything gets better. So, we built what we couldn’t find—a metabolism-first approach to wellness.",
-  heroImage: {
-    src: NAV_IMAGES.aboutVitality,
-    alt: "Patient-centered metabolic care",
-  },
+  storyAnchor: { label: "Our story", href: "#our-story" },
+  storyCarouselImages: [
+    {
+      src: NAV_IMAGES.aboutHowItWorks,
+      alt: "Clinical GLP-1 vials in a care setting",
+    },
+    {
+      src: NAV_IMAGES.aboutVitality,
+      alt: "Abstract premium wellness texture",
+    },
+  ],
   sections: [
     {
-      eyebrow: "Our story",
+      id: "our-story",
       heading: "Care as partnership",
       paragraphs: [
-        "Athene is built on the belief that care works best when it’s shared. Patients as participants. Practitioners as partners. Decisions made with clarity, not urgency. Health practiced over time—not rushed toward outcomes.",
+        "Basis Health is built on the belief that care works best when it’s shared. Patients as participants. Practitioners as partners. Decisions made with clarity, not urgency. Health practiced over time—not rushed toward outcomes.",
       ],
     },
     {
       eyebrow: "We've never known more",
-      heading: "About metabolic science—and about you",
       paragraphs: [
-        "About metabolic science generally. About our own individual bodies. New research, diagnostic tools, and wearable tracking tech mean this is the moment to crack your unique metabolic code. Athene will be here to help.",
+        "About metabolic science generally. About our own individual bodies. New research, diagnostic tools, and wearable tracking tech mean this is the moment to crack your unique metabolic code. Basis Health will be here to help.",
       ],
     },
     {
       eyebrow: "No more noise",
-      heading: "The metabolic health space is loud",
       paragraphs: [
-        "Supplements that overpromise. Clinics that underdeliver. Programs built around a medication, not a patient. Athene is different because the science demands it. GLP-1 therapy only works when the metabolic environment is managed, and that requires real clinicians, real diagnostics, and a protocol that adapts. Welcome to the quiet calm of care.",
+        "The metabolic health space is loud. Supplements that overpromise. Clinics that underdeliver. Programs built around a medication, not a patient. Basis Health is different because the science demands it. GLP-1 therapy only works when the metabolic environment is managed, and that requires real clinicians, real diagnostics, and a protocol that adapts. Welcome to the quiet calm of care.",
       ],
     },
   ],
@@ -61,9 +67,8 @@ export const aboutHowItWorks: AboutPageContent = {
   backLabel: "About",
   heroImage: {
     src: NAV_IMAGES.aboutHowItWorks,
-    alt: "Provider reviewing patient health data",
+    alt: "Clinical GLP-1 vials in a care setting",
   },
-  cta: { label: SIGNUP_LABELS.assessment, href: SIGNUP_HREF },
   steps: [
     {
       heading: "Eligibility screening & clinician review",
@@ -102,15 +107,14 @@ export const aboutVitality: AboutPageContent = {
   backLabel: "About",
   heroImage: {
     src: NAV_IMAGES.aboutVitality,
-    alt: "Vitality and long-term metabolic health",
+    alt: "Abstract premium wellness texture",
   },
-  cta: { label: SIGNUP_LABELS.assessmentShort, href: SIGNUP_HREF },
   sections: [
     {
       eyebrow: "Vitality",
       heading: "A systems outcome—not a single metric",
       paragraphs: [
-        "Energy, sleep quality, recovery, and metabolic markers don’t move in isolation. Athene treats them as connected signals in one plan—because that’s how your body actually works.",
+        "Energy, sleep quality, recovery, and metabolic markers don’t move in isolation. Basis Health treats them as connected signals in one plan—because that’s how your body actually works.",
       ],
     },
     {

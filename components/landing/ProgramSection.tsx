@@ -16,7 +16,7 @@ export function ProgramSection() {
           <div className="col-span-full flex flex-col items-center gap-6 text-center md:col-span-16 md:col-start-5">
             <div className="flex flex-col items-center gap-2">
               <h2 className="text-h1-lg leading-100 text-grey-9">One adaptive program.</h2>
-              <p className="text-h1-lg leading-100 text-grey-7">
+              <p className="text-subtitle leading-100 text-grey-7">
                 Clinician-guided from day one.
               </p>
             </div>
@@ -25,7 +25,7 @@ export function ProgramSection() {
         </div>
 
         <div className="site-container site-grid w-full">
-          <div className="section-stack-loose col-span-full md:col-span-18 md:col-start-4">
+          <div className="section-stack col-span-full md:col-span-18 md:col-start-4">
             <CinematicBlock
               poster={MEDIA.programPoster}
               videoSrc={MEDIA.programVideo}
@@ -35,7 +35,9 @@ export function ProgramSection() {
               showControls
             />
 
-            <BasalButton href="/glp-one">Explore GLP–One</BasalButton>
+            <BasalButton href="/glp-one" className="mt-6">
+              Explore GLP–One
+            </BasalButton>
           </div>
         </div>
       </section>

@@ -1,49 +1,48 @@
 import Image from "next/image";
 import Link from "next/link";
+import { ArticleEndCta } from "@/components/marketing/ArticleEndCta";
 import { FaqAccordion } from "@/components/marketing/FaqAccordion";
-import { BasalButton } from "@/components/landing/ui";
-import { SIGNUP_HREF, SIGNUP_LABELS } from "@/lib/cta";
+import { RelatedLearnArticles } from "@/components/marketing/RelatedLearnArticles";
 import type { ArticlePageContent } from "@/lib/content/types";
-
-export function ArticlePage({ content }: { content: ArticlePageContent }) {
+import type { LearnIndexEntry } from "@/lib/content/types";
+import { formatReadTimeLabel } from "@/lib/learn-format";
+export function ArticlePage({
+  content,
+  related = [],
+}: {
+  content: ArticlePageContent;
+  related?: LearnIndexEntry[];
+}) {
   return (
-    <article className="marketing-page">
-      <section className="section-shell section-gap-lg w-full">
-        <div className="site-container site-grid w-full">
-          <header className="editorial-page-hero col-span-full md:col-span-16 md:col-start-5">
+    <article className="marketing-page article-page">
+      <section className="article-page-main section-shell w-full">
+        <div className="site-container">
+          <header className="article-page-header">
             <Link href="/learn" className="editorial-back">
               ← Learn
             </Link>
-            <p className="editorial-eyebrow">{content.category}</p>
-            <h1 className="text-h1-xl max-w-[900px] text-pretty text-grey-9">{content.title}</h1>
-            <div className="learn-card-meta-row">
-              <span>{content.readTime}</span>
-              <span aria-hidden>·</span>
-              <span>{content.published}</span>
-            </div>
-            <p className="text-h3 max-w-[760px] text-pretty text-grey-7">{content.lead}</p>
+            <h1 className="article-page-title">{content.title}</h1>
+            <p className="article-page-read-time">{formatReadTimeLabel(content.readTime)}</p>
+            <p className="article-page-published">Published: {content.published}</p>
+            <p className="article-page-lead">{content.lead}</p>
           </header>
-        </div>
 
-        {content.heroImage && (
-          <div className="site-container site-grid w-full">
-            <div className="col-span-full md:col-span-20 md:col-start-3">
-              <div className="editorial-figure">
+          {content.heroImage && (
+            <div className="article-page-figure">
+              <div className="editorial-figure editorial-figure--article">
                 <Image
                   src={content.heroImage.src}
                   alt={content.heroImage.alt}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 860px) 100vw, 80vw"
+                  sizes="(max-width: 860px) 100vw, 720px"
                   priority
                 />
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        <div className="site-container site-grid w-full">
-          <div className="col-span-full md:col-span-14 md:col-start-6">
+          <div className="article-page-body-wrap">
             <div className="article-body">
               {content.sections.map((section) => (
                 <section key={section.heading} className="editorial-block">
@@ -69,12 +68,11 @@ export function ArticlePage({ content }: { content: ArticlePageContent }) {
               </section>
             )}
 
-            <div className="article-cta">
-              <BasalButton href={SIGNUP_HREF}>{SIGNUP_LABELS.startAssessment}</BasalButton>
-            </div>
+            <RelatedLearnArticles entries={related} category={content.category} />
           </div>
         </div>
       </section>
+      <ArticleEndCta />
     </article>
   );
 }

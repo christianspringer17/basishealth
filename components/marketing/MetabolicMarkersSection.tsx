@@ -56,7 +56,7 @@ export function MetabolicMarkersSection({
 
       <div className="site-container site-grid w-full">
         <div className="col-span-full md:col-span-22 md:col-start-2">
-          <div className="flex min-h-[480px] flex-col items-center overflow-hidden rounded-basal-2xl bg-accent-1 py-10 text-accent-5 md:min-h-[min(90svh,700px)] md:py-14 md:px-horz">
+          <div className="flex min-h-[480px] flex-col items-center overflow-hidden rounded-basal-2xl bg-[var(--grey-2)] py-10 text-grey-8 md:min-h-[min(90svh,700px)] md:py-14 md:px-horz">
             <h3 className="text-h3 leading-100 px-horz text-center md:px-0">
               The Five Metabolic Markers
             </h3>
@@ -72,19 +72,19 @@ export function MetabolicMarkersSection({
                 >
                   <div className="relative flex h-[72px] w-[72px] items-center justify-center">
                     <div
-                      className="absolute inset-0 rounded-full border border-[var(--accent-2)] bg-white/70 transition-transform duration-350"
+                      className="absolute inset-0 rounded-full border border-[var(--grey-3)] bg-white/70 transition-transform duration-350"
                       style={{
                         transform: active === index ? "scale(1)" : "scale(0.88)",
                       }}
                     />
                     <div
-                      className="relative h-3 w-3 rounded-full bg-[var(--accent-5)] transition-all duration-350"
+                      className="relative h-3 w-3 rounded-full bg-[var(--grey-8)] transition-all duration-350"
                       style={{
                         transform: active === index ? "scale(1.25)" : "scale(1)",
                       }}
                     />
                   </div>
-                  <p className="text-h3 leading-100 text-center text-accent-5">{item.name}</p>
+                  <p className="text-h3 leading-100 text-center text-primary">{item.name}</p>
                 </button>
               ))}
             </div>
@@ -95,7 +95,7 @@ export function MetabolicMarkersSection({
                   key={item.name}
                   type="button"
                   onClick={() => setActive(index)}
-                  className="rounded-basal-lg border border-[var(--accent-2)] bg-white/60 px-3 py-4 text-h5 text-accent-5 transition-opacity"
+                  className="rounded-basal-lg border border-[var(--grey-3)] bg-white/60 px-3 py-4 text-body text-grey-8 transition-opacity"
                   style={{ opacity: active === index ? 1 : 0.5 }}
                 >
                   {item.name}
@@ -104,12 +104,12 @@ export function MetabolicMarkersSection({
             </div>
 
             <div className="mt-auto flex w-full max-w-[450px] flex-col items-center px-horz pt-10 text-center md:px-0 md:pt-0">
-              <p className="text-h4 text-pretty text-accent-5 transition-opacity duration-300">
+              <p className="text-body-lg text-pretty text-secondary transition-opacity duration-300">
                 {METABOLIC_MARKERS[active].description}
               </p>
               <Link
                 href="/learn/what-we-measure"
-                className="mt-5 text-h5 text-accent-5 underline-offset-4 transition-opacity hover:underline"
+                className="mt-5 text-h5 text-grey-8 underline-offset-4 transition-opacity hover:underline"
               >
                 Explore
               </Link>

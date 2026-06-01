@@ -1,42 +1,28 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
+import { SiteChrome } from "@/components/analytics/SiteChrome";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-display",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500"],
-});
-
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://athenehealth.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Athene Health — Personalized health protocols",
-    template: "%s | Athene Health",
+    default: `${SITE_NAME} — Personalized health protocols`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
     "Provider-guided longevity and performance protocols designed to support energy, recovery, metabolism, and long-term vitality.",
   openGraph: {
-    title: "Athene Health — Personalized health protocols",
+    title: `${SITE_NAME} — Personalized health protocols`,
     description:
       "Provider-guided longevity and performance protocols for energy, recovery, metabolism, and long-term vitality.",
-    siteName: "Athene Health",
+    siteName: SITE_NAME,
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Athene Health",
+    title: SITE_NAME,
     description:
       "Personalized, provider-guided health protocols for long-term vitality.",
   },
@@ -49,12 +35,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${outfit.variable} ${inter.variable} h-full scroll-smooth`}
-    >
-      <body className="min-h-full bg-white font-sans text-[var(--grey-9)] antialiased">
-        {children}
+    <html lang="en" className="h-full scroll-smooth">
+      <body className="min-h-full bg-white font-sans text-secondary antialiased">
+        <AnalyticsScripts />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
