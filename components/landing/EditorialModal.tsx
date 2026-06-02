@@ -67,6 +67,19 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
         </button>
 
         <div className="editorial-modal-scroll">
+          <div className="editorial-modal-figure editorial-modal-figure--hero">
+            <div className="editorial-modal-image-wrap editorial-modal-image-wrap--product">
+              <Image
+                src={MEDIA.glpOneProductMockup}
+                alt="GLP-One medication kit with vial, syringe, and packaging"
+                fill
+                className="object-contain p-4"
+                sizes="(max-width: 860px) 100vw, 720px"
+                priority
+              />
+            </div>
+          </div>
+
           <header className="editorial-modal-intro">
             <h2 id={titleId} className="editorial-modal-title">
               Introducing GLP–One
@@ -87,18 +100,6 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
               </BasalButton>
             </div>
           </header>
-
-          <div className="editorial-modal-figure">
-            <div className="editorial-modal-image-wrap">
-              <Image
-                src={MEDIA.editorialModal}
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 860px) 100vw, 720px"
-              />
-            </div>
-          </div>
 
           <section className="editorial-modal-section">
             <p className="editorial-modal-eyebrow">Why this matters</p>

@@ -15,6 +15,6 @@ export const MEMBERSHIP_PLAN = {
     "Access to Basis Metabolic and future protocol tracks",
     "Member pricing on therapies when eligible",
   ],
-  backgroundImage: EDITORIAL_IMAGES.wellnessField,
-  backgroundAlt: "Open landscape at golden hour",
+  backgroundImage: EDITORIAL_IMAGES.membershipPeptideBg,
+  backgroundAlt: "Abstract peptide molecules in soft clinical blue",
 } as const;

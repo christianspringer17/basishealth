@@ -2,10 +2,13 @@ import type { FaqItem } from "@/components/marketing/FaqAccordion";
 import { max3MonthSavings } from "@/lib/pricing";
 import { SITE_EMAIL } from "@/lib/site";
 
+export { FAQ_CATEGORIES, type FaqCategory } from "@/lib/content/faq-categories";
+export { HOME_FAQS } from "@/lib/content/faq-categories";
+
 const maxSavings = max3MonthSavings();
 
-/** Homepage — concise protocol clinic model */
-export const HOME_FAQS: FaqItem[] = [
+/** /faq page — membership + platform (legacy flat lists) */
+export const MEMBERSHIP_FAQS: FaqItem[] = [
   {
     question: "What is Basis?",
     answer:
@@ -41,11 +44,6 @@ export const HOME_FAQS: FaqItem[] = [
     answer:
       "No. Basis is membership-based. Therapies are available only through the appropriate care pathway after intake and provider review.",
   },
-];
-
-/** /faq page — membership + platform */
-export const MEMBERSHIP_FAQS: FaqItem[] = [
-  ...HOME_FAQS,
   {
     question: "How do I apply?",
     answer:

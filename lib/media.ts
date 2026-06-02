@@ -15,6 +15,8 @@ export const MEDIA = {
   visualPoster: "/images/visual-poster.jpg",
   visualVideo: process.env.NEXT_PUBLIC_VISUAL_VIDEO_URL ?? "/videos/visual.mp4",
   editorialModal: "/images/nav/nav-about.webp",
+  /** GLP–One product kit — editorial modal hero */
+  glpOneProductMockup: "/images/glp-one-product-mockup.png",
   intro: "/images/nav/protocol-product.png",
   /** Replace with /images/sections/*.jpg when brand photography is ready */
   program: "/images/placeholder.svg",
@@ -39,6 +41,8 @@ export const EDITORIAL_IMAGES = {
   coastalSkyThumb: "/images/editorial/coastal-sky-thumb.webp",
   clinicalBlue: "/images/editorial/clinical-blue.webp",
   clinicalBlueThumb: "/images/editorial/clinical-blue-thumb.webp",
+  /** Peptide / molecule macro — membership pricing card */
+  membershipPeptideBg: "/images/membership-peptide-bg.png",
 } as const;
 
 export const NAV_IMAGES = {

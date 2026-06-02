@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type KeyboardEvent } from "react";
 import { PROTOCOL_CARDS } from "@/lib/content/protocol-cards";
 import { MEDIA } from "@/lib/media";
 import { CinematicBlock } from "./CinematicBlock";
@@ -29,14 +29,33 @@ export function ProgramSection() {
 
         <div className="site-container site-grid w-full">
           <div className="col-span-full grid gap-4 sm:grid-cols-2 md:col-span-18 md:col-start-4 xl:grid-cols-5">
-            {PROTOCOL_CARDS.map((protocol) => (
-              <article
-                key={protocol.name}
-                className={cn(
-                  "flex flex-col gap-3 rounded-basal-lg border border-[var(--grey-3)] p-6 text-left",
-                  protocol.status === "coming-soon" && "opacity-80",
-                )}
-              >
+            {PROTOCOL_CARDS.map((protocol) => {
+              const opensGlpModal =
+                protocol.status === "available" && protocol.name === "Basis Metabolic";
+
+              return (
+                <article
+                  key={protocol.name}
+                  className={cn(
+                    "flex flex-col gap-3 rounded-basal-lg border border-[var(--grey-3)] p-6 text-left",
+                    protocol.status === "coming-soon" && "opacity-80",
+                    opensGlpModal &&
+                      "cursor-pointer transition-colors hover:border-[var(--grey-4)] hover:bg-[var(--grey-1)]",
+                  )}
+                  {...(opensGlpModal
+                    ? {
+                        role: "button" as const,
+                        tabIndex: 0,
+                        onClick: () => setEditorialOpen(true),
+                        onKeyDown: (e: KeyboardEvent) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            setEditorialOpen(true);
+                          }
+                        },
+                      }
+                    : {})}
+                >
                 <div className="flex flex-col gap-1">
                   <h3 className="text-h5 text-grey-9">{protocol.name}</h3>
                   <p
@@ -54,7 +73,8 @@ export function ProgramSection() {
                   {protocol.description}
                 </p>
               </article>
-            ))}
+              );
+            })}
           </div>
         </div>
 
