@@ -14,7 +14,7 @@ export const metadata = {
 
 export default function MembershipPage() {
   return (
-    <MarketingShell className="flex flex-col">
+    <MarketingShell className="flex flex-col" showFooterCta={false}>
       <section className="membership-page-intro section-shell section-gap-md w-full scroll-mt-28 pt-28">
         <div className="site-container site-grid w-full">
           <div className="col-span-full flex flex-col gap-4 text-center md:col-span-14 md:col-start-6">
