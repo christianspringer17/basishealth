@@ -1,10 +1,11 @@
 import { BrandLockupSection } from "@/components/landing/BrandLockupSection";
 import { ExpectSection } from "@/components/landing/ExpectSection";
+import { ExplainerSection } from "@/components/landing/ExplainerSection";
 import { Footer } from "@/components/landing/Footer";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { HomeFaqSection } from "@/components/landing/HomeFaqSection";
-import { IntroSection } from "@/components/landing/IntroSection";
+import { MembershipPlanSection } from "@/components/landing/MembershipPlanSection";
 import { ProgramSection } from "@/components/landing/ProgramSection";
 import { ScienceSection } from "@/components/landing/ScienceSection";
 import { StatementSection } from "@/components/landing/StatementSection";
@@ -19,7 +20,7 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <StatementSection />
-        <IntroSection />
+        <ExplainerSection />
         <ProgramSection />
         <ExpectSection />
         <BrandLockupSection />
@@ -27,6 +28,7 @@ export default function Home() {
         <TestimonialsSection />
         <VitalitySection />
         <HomeFaqSection />
+        <MembershipPlanSection />
         <WaitlistSection />
       </main>
       <Footer showPrimaryCta={false} />

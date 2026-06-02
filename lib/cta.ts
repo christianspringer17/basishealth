@@ -17,6 +17,7 @@ export const CTA_LABELS = {
   getStarted: "Get started",
   learnMore: "Learn more",
   viewPricing: "View pricing",
+  seeMembershipPlan: "See membership plan",
   startCheckout: "Start checkout",
 } as const;
 

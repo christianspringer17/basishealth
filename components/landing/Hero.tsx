@@ -18,7 +18,7 @@ export function Hero() {
       <div className="site-container site-grid relative z-[2] w-full">
         <div className="col-span-full flex justify-center px-2 text-center">
           <h1 className="text-hero-title max-w-[920px] text-pretty text-grey-1">
-            Metabolic care, built around protocols.
+            The body doesn&apos;t need a trend. It needs a protocol.
           </h1>
         </div>
       </div>

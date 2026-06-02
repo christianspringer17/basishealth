@@ -1,0 +1,68 @@
+">Terms + ConditionsLast Updated: May 13, 2026
+
+IMPORTANT NOTICE: THIS AGREEMENT CONTAINS A BINDING ARBITRATION PROVISION AND CLASS ACTION WAIVER. IT AFFECTS YOUR LEGAL RIGHTS AS DETAILED IN THE ARBITRATION AND CLASS ACTION WAIVER SECTION BELOW. PLEASE READ CAREFULLY.
+
+WE DO NOT PROVIDE MEDICAL ADVICE. IF YOU THINK YOU MAY HAVE A MEDICAL EMERGENCY, YOU SHOULD DIAL “911” IMMEDIATELY. The Services are not appropriate for emergency care or urgent situations. Do not disregard or delay seeking medical advice based on anything that appears or does not appear on the Services.
+
+## Key Points
+
+We hope you read these entire Terms for full detail, but here are some key points:
+- Basal does not presently provide medical advice.
+- Instead, we help individuals establish and maintain a relationship with certain third-party healthcare providers. We also provide some non-medical services and information to our users.
+- To determine if you are eligible for the Services, we will ask you some initial qualifying questions, which were approved by the relevant Practices and/or Providers, about yourself and your health.
+- If you meet certain criteria, you will make an appointment with the Practice and create an account on the Practice’s and/or Provider’s patient portal. The portal may have the Fridays logo, but the Practice, Provider, or its service providers operate it – not us.
+
+## Introduction
+
+Basal Health LLC owns and operates https://basal.health (the “Site”). Your use of the Site, any part thereof, or anything associated therewith, including the services, features, content, and applications, together with the Site, are the Basal Health services (“Services”) offered by Basal Health LLC in collaboration with its licensed telehealth partners (the “Telehealth Partners”), and their affiliated medical groups (“Medical Groups”) and licensed clinicians (“Providers”). Any products or services provided through the Site or any affiliated website, software, or application owned or operated by or in collaboration with Basal Health LLC and the Telehealth Partners are governed by these Terms of Service (“Terms” or “Terms of Service”). By accessing or using any of the Services, you agree to be bound by these Terms.
+
+## Agreement to Terms
+
+These Terms of Service constitute a legally binding agreement made between you (“you”) and Basal Health LLC. These Terms of Service, together with any other terms and policies referenced herein, govern your access to and use of the Site and Services. Even if you have arrived at the Site or Services through a website or mobile application operated or controlled by a third party (including one of our licensed Telehealth Partners), you understand and agree that these Terms of Service are entered into between you and Basal Health LLC.
+
+By accessing or using the Site or Services, you acknowledge that you have read, understood, and agreed to be bound by all of these Terms of Service.
+
+PLEASE READ THESE TERMS CAREFULLY BEFORE USING THE SITE OR SERVICES. IF YOU DO NOT AGREE WITH ALL OF THESE TERMS OF USE OR THE OTHER TERMS AND POLICIES REFERRED TO HEREIN, YOU ARE EXPRESSLY PROHIBITED FROM USING THE SITE OR SERVICES AND MUST DISCONTINUE USE IMMEDIATELY. ANY ADDITIONAL, DIFFERENT, OR CONFLICTING TERMS AND CONDITIONS ON ANY DOCUMENT, NOTICE, OR COMMUNICATION ISSUED BY YOU TO BASAL HEALTH LLC AT ANY TIME ARE HEREBY OBJECTED TO AND REJECTED BY BASAL HEALTH LLC. SUCH TERMS SHALL BE WHOLLY INAPPLICABLE TO YOUR ACCESS TO AND USE OF THE SITE AND SHALL NOT BE BINDING IN ANY WAY ON BASAL HEALTH LLC.
+
+Supplemental terms and conditions or documents that may be posted on the Site from time to time are hereby expressly incorporated herein by reference. We reserve the right, in our sole discretion, to make changes or modifications to these Terms of Service or any other terms and policies referenced herein (including, without limitation, the Privacy Policy) (collectively, the “Additional Terms”) at any time and for any reason. We will alert you about any changes by updating the “Last Updated” date of these Terms of Service or the applicable Additional Terms. Except to the extent prohibited by applicable law, you waive any right to receive specific notice of each such change. It is your responsibility to review these Terms of Service and any Additional Terms periodically to stay informed of updates.
+
+You will be deemed to have accepted any revised Terms of Service or Additional Terms by your continued use of the Site or Services after the date such updates are posted. If you disagree with these Terms of Service or any Additional Terms, your sole and exclusive remedy is to discontinue your use of the Site or Services.
+
+## Requirements for Use
+
+You must have compatible computing and/or mobile devices, access to the internet, and certain necessary software to use the Site. Fees and data charges may apply to your use of the Site, the Services, and the internet.
+
+## Your Relationship with Basal Health LLC
+
+Basal Health LLC does not provide any medical services, including via the Site. The Services may include access to one or more professional medical organizations affiliated with our licensed Telehealth Partners (collectively, the “Medical Groups” or “Groups”), which provide healthcare services (“Healthcare Services”) through the Site. These Groups employ or contract with licensed medical providers and other clinicians (“Providers”) who offer certain Healthcare Services. All Providers who deliver Healthcare Services are independent practitioners contracted or employed by affiliated Medical Groups that collaborate with Basal Health LLC but are not employed or contracted by Basal Health LLC. These independent clinicians are solely responsible for the Healthcare Services you receive.
+
+Accessing the Site does not create any patient-provider relationship between you and Basal Health LLC. The Site is designed to facilitate access to certain Healthcare Services but is not, and should not be considered or used as, comprehensive medical advice, care, diagnosis, or treatment. In some cases, the Services may not be the most appropriate way for you to provide information to, communicate with, or seek medical care and treatment from a healthcare provider. For example, your Provider may determine that your diagnosis or treatment requires an in-person office visit or cannot be appropriately addressed through the Healthcare Services or the use of the Site or Services. In such cases, you may be notified that you will be unable to access Healthcare Services using the Site or Services for the particular issue for which you requested assistance, along with additional information regarding next steps.
+
+Basal Health is not responsible or liable for any advice, course of treatment, diagnosis, or any other information, services, or products that you may obtain through the Providers or Medical Groups.
+
+To the extent the Services you seek require care by a licensed provider, all Healthcare Service consultations are provided by a Provider licensed in the state where you, the patient, are located, and are delivered via a secure platform that complies with the privacy and security standards established under the federal Health Insurance Portability and Accountability Act (“HIPAA”). Providers who deliver Healthcare Services may provide diagnoses and prescribe medication, if clinically appropriate. Similarly, Providers may issue prescriptions, where clinically appropriate and legally permitted, including for commercially available and compounded medications.
+
+## Independent Medical Judgment
+
+Basal Health LLC is not licensed to practice medicine and does not provide any healthcare service. Basal Health LLC does not control or interfere with the provision of Healthcare Services provided by any Provider, which include medically trained clinicians and their affiliated Medical Groups, each of whom is independent from Basal Health LLC and solely responsible for the healthcare service you receive. You understand and agree that Basal Health LLC is not responsible for any Healthcare Service provided by a Provider or their Medical Group, including any personal injury or property damage. You further understand and agree that after reviewing your information, the Provider in their independent professional judgment, will determine whether to prescribe medication, other treatments, or, alternatively, recommend that you consult with alternative clinical resources.
+
+## Pharmacy Services
+
+By accepting these Terms of Service, you additionally understand and agree that Basal Health LLC is not acting as a pharmacy, nor does Basal Health LLC control or interfere with any such services. By accepting these Terms of Service, you understand and agree that you may be entering into a relationship with a pharmacy, pharmacist, and/or pharmacy group or other such relationship with any one or more such third-party entities.
+
+## Electronic Communications
+
+By accepting these Terms of Service, you agree and consent to Basal Health LLC sending you disclosures, notices, messages, reports, and other communications electronically.
+
+It is your responsibility to monitor and review these communications. You agree that any notices, agreements, disclosures, or other communications that Basal Health LLC sends to you electronically will satisfy any legal communication requirements, including but not limited to requirements that such communications be in writing.
+
+You should maintain copies of all electronic communications from us by printing a paper copy or saving an electronic copy for your records.
+
+You acknowledge and agree that you will not hold Basal Health LLC liable for any loss, injury, or claim of any kind resulting from your failure to read these communications, monitor your account, or comply with any instructions or recommendations contained in such communications.
+
+## Access Rights and Prohibited Use
+
+The Site is hosted in the United States. The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country. Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable. The Site is intended for users who are at least 18 years old or are able to independently consent to the requested Healthcare Services in their jurisdiction. Persons under the age of 18 or who are otherwise not able to independently consent to the requested Healthcare Services in their jurisdiction are not permitted to use or register for the Site or Services.
+
+## Your Protected Health Information (“PHI”)
+<p class="prose__paragr

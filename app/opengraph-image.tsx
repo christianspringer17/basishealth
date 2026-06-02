@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
             letterSpacing: "-0.03em",
           }}
         >
-          Metabolic care, built around protocols.
+          The body doesn&apos;t need a trend. It needs a protocol.
         </div>
         <div
           style={{

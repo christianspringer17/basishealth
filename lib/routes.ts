@@ -4,6 +4,7 @@ export const ROUTES = {
   homeMembership: "/#membership",
   homeProtocols: "/#protocols",
   homeFaq: "/#faq",
+  homeMembershipPlan: "/#membership-plan",
   glpOne: "/glp-one",
   glpOneFaq: "/glp-one#faq",
   signup: "/signup",
