@@ -1722,6 +1722,7 @@ b {
 }
 
 .brand-lockup-panel {
+  position: relative;
   display: flex;
   min-height: min(72svh, 640px);
   width: 100%;
@@ -1729,10 +1730,21 @@ b {
   overflow: hidden;
   border-radius: 32px;
   padding: 40px var(--margin-horizontal) 48px;
-  background: #6b9fe8;
+  background: var(--accent-2);
+}
+
+.brand-lockup-texture {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none;
 }
 
 .brand-lockup-text {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap: 0.02em;

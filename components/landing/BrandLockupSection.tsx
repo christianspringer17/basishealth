@@ -1,3 +1,5 @@
+import { BrandLockupTextureBackground } from "./BrandLockupTextureBackground";
+
 export function BrandLockupSection() {
   return (
     <section
@@ -6,6 +8,7 @@ export function BrandLockupSection() {
     >
       <div className="site-container brand-lockup-wrap">
         <div className="brand-lockup-panel">
+          <BrandLockupTextureBackground />
           <p className="brand-lockup-text">
             <span>built for</span>
             <span>long-term</span>

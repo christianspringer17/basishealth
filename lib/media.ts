@@ -45,6 +45,8 @@ export const EDITORIAL_IMAGES = {
   membershipPricingBg: "/images/membership-pricing-bg.png",
   /** Peptide / molecule macro — membership nav preview */
   membershipPeptideBg: "/images/membership-peptide-bg.png",
+  /** Brand lockup PaperTexture source */
+  brandLockupTexture: "/images/brand-lockup-texture.png",
 } as const;
 
 export const NAV_IMAGES = {
