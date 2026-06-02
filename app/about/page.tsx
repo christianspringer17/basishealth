@@ -6,7 +6,7 @@ import { CTA_LABELS } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 
 export const metadata = {
-  title: "About",
+  title: "About us",
   description:
     "Basis is a protocol-based approach to metabolic care—built on physician review, ongoing support, and therapies when clinically appropriate.",
 };
@@ -20,7 +20,7 @@ export default function AboutPage() {
         title="Apply for membership."
         description="Physician-guided metabolic protocols with ongoing support and therapies when clinically appropriate."
         primaryLabel={CTA_LABELS.applyMembership}
-        primaryHref={ROUTES.homeMembership}
+        primaryHref={ROUTES.membership}
         showSecondary={false}
       />
     </MarketingShell>

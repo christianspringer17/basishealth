@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { EXPLAINER_ITEMS } from "@/lib/content/explainer-items";
 import { CTA_LABELS } from "@/lib/cta";
-import { ROUTES } from "@/lib/routes";
 import { cn } from "./ui";
 
 export function ExplainerSection() {
@@ -88,7 +87,7 @@ export function ExplainerSection() {
                       ) : null}
 
                       {item.id === "how-to-start" ? (
-                        <Link href={ROUTES.homeMembershipPlan} className="explainer-plan-link">
+                        <Link href="#membership-plan" className="explainer-plan-link">
                           {CTA_LABELS.seeMembershipPlan}
                         </Link>
                       ) : null}

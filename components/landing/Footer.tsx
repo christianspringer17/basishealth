@@ -14,7 +14,7 @@ const FOOTER_NAV = [
     title: "Membership",
     links: [
       { label: "Apply", href: WAITLIST_HREF },
-      { label: "What’s included", href: ROUTES.homeMembership },
+      { label: "What's included", href: ROUTES.membership },
       { label: "Protocols", href: ROUTES.homeProtocols },
     ],
   },
@@ -22,14 +22,14 @@ const FOOTER_NAV = [
     title: "Therapies",
     links: [
       { label: "GLP–One", href: ROUTES.glpOne },
-      { label: "FAQ", href: ROUTES.faq },
+      { label: "FAQ", href: ROUTES.membershipFaq },
     ],
   },
   {
     title: "About",
     links: [
       { label: "About us", href: ROUTES.about },
-      { label: "Unlock living", href: ROUTES.aboutVitality },
+      { label: "Unlock living", href: ROUTES.membership },
       { label: "How it works", href: ROUTES.aboutHowItWorks },
     ],
   },
@@ -54,7 +54,7 @@ const FOOTER_NAV = [
     title: "Support",
     links: [
       { label: "Contact", href: ROUTES.contact },
-      { label: "FAQs", href: ROUTES.faq },
+      { label: "FAQs", href: ROUTES.membershipFaq },
       { label: "Refunds", href: ROUTES.termsRefunds },
     ],
   },

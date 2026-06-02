@@ -4,13 +4,6 @@ import { SITE_EMAIL } from "@/lib/site";
 
 export { NAV_IMAGES };
 
-export type NavLearnMenu = {
-  variant: "learn";
-  imageCards: NavImageCard[];
-  links: { label: string; href: string }[];
-  allTopics: { label: string; href: string };
-};
-
 export type NavImageCard = {
   label: string;
   href: string;
@@ -19,7 +12,19 @@ export type NavImageCard = {
   showPlayIcon?: boolean;
 };
 
-export type NavMenu = NavLearnMenu;
+export type NavLearnMenu = {
+  variant: "learn";
+  imageCards: NavImageCard[];
+  links: { label: string; href: string }[];
+  allTopics: { label: string; href: string };
+};
+
+export type NavAboutMenu = {
+  variant: "about";
+  imageCards: NavImageCard[];
+};
+
+export type NavMenu = NavLearnMenu | NavAboutMenu;
 
 export type NavItem = {
   id: string;
@@ -32,7 +37,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "membership",
     label: "Membership",
-    href: ROUTES.homeMembership,
+    href: ROUTES.membership,
   },
   {
     id: "learn",
@@ -69,15 +74,36 @@ export const NAV_ITEMS: NavItem[] = [
     },
   },
   {
-    id: "faq",
-    label: "FAQ",
-    href: ROUTES.homeFaq,
+    id: "about",
+    label: "About",
+    href: ROUTES.about,
+    menu: {
+      variant: "about",
+      imageCards: [
+        {
+          label: "About us",
+          href: ROUTES.about,
+          image: NAV_IMAGES.aboutHowItWorks,
+          imageAlt: "Clinical care in a premium wellness setting",
+        },
+        {
+          label: "Unlock living",
+          href: ROUTES.membership,
+          image: NAV_IMAGES.aboutVitality,
+          imageAlt: "Abstract premium wellness texture",
+        },
+      ],
+    },
   },
 ];
 
 export function getNavMenuLinks(
   menu: NavMenu,
 ): { label: string; href: string }[] {
+  if (menu.variant === "about") {
+    return menu.imageCards.map((c) => ({ label: c.label, href: c.href }));
+  }
+
   return [
     ...menu.imageCards.map((c) => ({ label: c.label, href: c.href })),
     ...menu.links,

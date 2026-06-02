@@ -55,7 +55,7 @@ export default function ContactPage() {
             <h2 className="info-page-heading">FAQs</h2>
             <p className="text-body-lg text-grey-7">
               Many common questions about GLP–One and our program are answered on our{" "}
-              <Link href={ROUTES.faq} className="info-page-link">
+              <Link href={ROUTES.membershipFaq} className="info-page-link">
                 FAQ page
               </Link>{" "}
               and the{" "}

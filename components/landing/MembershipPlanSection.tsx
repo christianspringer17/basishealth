@@ -49,7 +49,7 @@ export function MembershipPlanSection() {
 
               <div className="membership-plan__actions">
                 <BasalButton href={primaryCtaHref()}>{primaryCtaLabel()}</BasalButton>
-                <Link href={ROUTES.faq} className="membership-plan__learn-more">
+                <Link href={ROUTES.membershipFaq} className="membership-plan__learn-more">
                   {CTA_LABELS.learnMore}
                 </Link>
               </div>

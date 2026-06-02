@@ -43,6 +43,22 @@ function LearnMenu({
   );
 }
 
+function AboutMenu({
+  menu,
+  onNavigate,
+}: {
+  menu: Extract<NavMenu, { variant: "about" }>;
+  onNavigate?: () => void;
+}) {
+  return (
+    <div className="nav-dropdown-panel nav-dropdown-panel--about">
+      {menu.imageCards.map((card) => (
+        <NavDropdownImageCard key={card.label} card={card} onNavigate={onNavigate} />
+      ))}
+    </div>
+  );
+}
+
 export function NavDropdown({
   menu,
   open,
@@ -62,7 +78,11 @@ export function NavDropdown({
       role="menu"
       aria-hidden={!open}
     >
-      <LearnMenu menu={menu} onNavigate={onNavigate} />
+      {menu.variant === "learn" ? (
+        <LearnMenu menu={menu} onNavigate={onNavigate} />
+      ) : (
+        <AboutMenu menu={menu} onNavigate={onNavigate} />
+      )}
     </div>
   );
 }

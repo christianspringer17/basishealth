@@ -4,7 +4,6 @@ import { ExplainerSection } from "@/components/landing/ExplainerSection";
 import { Footer } from "@/components/landing/Footer";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { HomeFaqSection } from "@/components/landing/HomeFaqSection";
 import { MembershipPlanSection } from "@/components/landing/MembershipPlanSection";
 import { ProgramSection } from "@/components/landing/ProgramSection";
 import { ScienceSection } from "@/components/landing/ScienceSection";
@@ -27,7 +26,6 @@ export default function Home() {
         <ScienceSection />
         <TestimonialsSection />
         <VitalitySection />
-        <HomeFaqSection />
         <MembershipPlanSection />
         <WaitlistSection />
       </main>
