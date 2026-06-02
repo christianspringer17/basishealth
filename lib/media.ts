@@ -33,9 +33,12 @@ export const MEDIA = {
 
 /** Learn / About editorial photography */
 export const EDITORIAL_IMAGES = {
-  aboutPrimary: "/images/editorial/about-primary.webp",
-  aboutSecondary: "/images/editorial/about-secondary.webp",
+  aboutPrimary: "/images/editorial/about-primary.jpg",
+  aboutSecondary: "/images/editorial/about-secondary.jpg",
+  aboutPartnership: "/images/editorial/about-partnership-lupine.jpg",
   wellnessField: "/images/editorial/wellness-field.webp",
+  /** Life Unlocked carousel — metabolic health media card */
+  lifeUnlockedMetabolic: "/images/editorial/life-unlocked-metabolic-health.jpg",
   wellnessFieldThumb: "/images/editorial/wellness-field-thumb.webp",
   coastalSky: "/images/editorial/coastal-sky.webp",
   coastalSkyThumb: "/images/editorial/coastal-sky-thumb.webp",

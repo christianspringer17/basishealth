@@ -208,7 +208,7 @@ function NativeWaitlistForm() {
           </label>
         ) : null}
 
-        <BasalSubmitButton disabled={loading} className="w-full sm:w-auto sm:self-center">
+        <BasalSubmitButton disabled={loading} variant="accent" className="w-full sm:w-auto sm:self-center">
           {loading ? "Submitting…" : primaryCtaLabel()}
         </BasalSubmitButton>
       </form>
@@ -232,7 +232,7 @@ export function WaitlistSection() {
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg leading-100 text-grey-9">Apply for membership</h2>
+          <h2 className="text-h1-lg leading-100 text-grey-9">Begin with Clarity</h2>
           <p className="text-lead max-w-[600px] text-pretty text-grey-7">
             {useGhl
               ? "Apply for membership to receive launch updates. When enrollment opens, intake runs through our clinical partner."

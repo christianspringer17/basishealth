@@ -12,7 +12,7 @@ export function AssessmentSection() {
             launch updates—clinical intake runs through our partner at checkout when
             enrollment opens.
           </p>
-          <BasalButton href={WAITLIST_HREF}>{primaryCtaLabel()}</BasalButton>
+          <BasalButton href={WAITLIST_HREF} variant="accent">{primaryCtaLabel()}</BasalButton>
           <p className="text-body max-w-[480px] text-pretty text-grey-7">
             Licensed clinicians · HIPAA-compliant care · Microdose & Weight Loss tiers
           </p>

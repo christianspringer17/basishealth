@@ -38,6 +38,7 @@ export function ConversionBand({
           <div className="conversion-band__actions flex flex-col items-center gap-3 pt-2 sm:flex-row sm:justify-center">
             <BasalButton
               href={primaryHref}
+              variant="accent"
               data-analytics-event="cta_click"
               data-analytics-label="conversion_primary"
               data-analytics-location="conversion_band"

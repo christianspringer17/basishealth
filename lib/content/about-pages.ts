@@ -10,11 +10,11 @@ export const aboutMain: AboutPageContent = {
   galleryImages: [
     {
       src: EDITORIAL_IMAGES.aboutPrimary,
-      alt: "Mindful wellness practice in calm natural light",
+      alt: "Abstract blue fluid droplets in soft clinical light",
     },
     {
       src: EDITORIAL_IMAGES.aboutSecondary,
-      alt: "Premium spa-inspired wellness environment",
+      alt: "A person resting peacefully in a sunlit meadow of wildflowers",
     },
   ],
   storyAnchor: { label: "Our story", href: "#our-story" },
@@ -46,8 +46,8 @@ export const aboutMain: AboutPageContent = {
     {
       type: "image",
       image: {
-        src: NAV_IMAGES.aboutHero,
-        alt: "A lone figure walking a snow-covered slope beneath a crescent moon",
+        src: EDITORIAL_IMAGES.aboutPartnership,
+        alt: "Blue lupine flowers in warm golden light",
       },
     },
     { type: "section", sectionId: "never-known-more" },

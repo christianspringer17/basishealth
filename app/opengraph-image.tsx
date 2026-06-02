@@ -39,7 +39,7 @@ export default function OpenGraphImage() {
             letterSpacing: "-0.03em",
           }}
         >
-          The body doesn&apos;t need a trend. It needs a protocol.
+          Your health has a protocol. Now your care does too.
         </div>
         <div
           style={{

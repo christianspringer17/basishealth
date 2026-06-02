@@ -64,8 +64,8 @@ export const LIFE_UNLOCKED_CAROUSEL: LifeUnlockedCarouselItem[] = [
   {
     type: "media",
     mediaType: "image",
-    src: "/images/expect/step-3-care.webp",
-    alt: "Person resting peacefully in a sunlit green field",
+    src: EDITORIAL_IMAGES.lifeUnlockedMetabolic,
+    alt: "Blue agapanthus flower in soft natural light",
     overlay: "Built around long-term metabolic health.",
   },
 ];

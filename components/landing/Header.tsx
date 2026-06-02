@@ -190,7 +190,7 @@ export function Header() {
                 key={item.id}
                 className="border-b border-[var(--grey-3)] pb-5"
               >
-                <p className="text-h5 font-medium text-grey-9">{item.label}</p>
+                <p className="text-h4 text-grey-9">{item.label}</p>
                 {item.menu && (
                   <ul className="mt-3 flex flex-col gap-2 pl-1">
                     {getNavMenuLinks(item.menu).map((link) => (
@@ -217,7 +217,7 @@ export function Header() {
               >
                 Contact
               </Link>
-              <BasalButton href={primaryCtaHref()} onClick={closeAll}>
+              <BasalButton href={primaryCtaHref()} variant="accent" onClick={closeAll}>
                 {navCtaLabel()}
               </BasalButton>
             </div>

@@ -9,26 +9,55 @@ export function cn(...classes: (string | false | undefined)[]) {
 
 export const IMAGES = MEDIA;
 
-const arrowIcon = (
+export const basalPlusIcon = (
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+    <path d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1z" />
+  </svg>
+);
+
+const basalArrowIcon = (
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden>
     <path d="M13.172 12 8.222 7.05l1.415-1.415L16 12l-6.364 6.364-1.415-1.415z" />
   </svg>
 );
 
-function BasalButtonInner({ children }: { children: ReactNode }) {
+function BasalButtonInner({
+  children,
+  icon = "plus",
+}: {
+  children: ReactNode;
+  icon?: "plus" | "arrow" | "none";
+}) {
   return (
     <>
       <span className="basal-btn__label">{children}</span>
-      <span className="basal-btn__pill" aria-hidden>
-        {arrowIcon}
-      </span>
+      {icon !== "none" && (
+        <span className="basal-btn__pill" aria-hidden>
+          {icon === "arrow" ? basalArrowIcon : basalPlusIcon}
+        </span>
+      )}
     </>
   );
 }
 
-const basalBtnClass = (className?: string) =>
+type BasalButtonVariant = "default" | "accent" | "intro" | "secondary";
+
+function basalBtnVariantClass(variant: BasalButtonVariant) {
+  if (variant === "intro") return "basal-btn--intro";
+  if (variant === "secondary") return "basal-btn--secondary";
+  return "basal-btn--primary";
+}
+
+function basalBtnIcon(variant: BasalButtonVariant): "plus" | "arrow" | "none" {
+  if (variant === "secondary") return "arrow";
+  if (variant === "intro") return "arrow";
+  return "plus";
+}
+
+const basalBtnClass = (className?: string, variant: BasalButtonVariant = "default") =>
   cn(
-    "group/button basal-btn basal-btn--grey focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--grey-3)]",
+    "group/button basal-btn focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--grey-3)]",
+    basalBtnVariantClass(variant),
     className,
   );
 
@@ -36,17 +65,19 @@ export function BasalButton({
   href,
   children,
   className,
+  variant = "default",
   onClick,
   ...rest
 }: {
   href: string;
   children: ReactNode;
   className?: string;
+  variant?: BasalButtonVariant;
   onClick?: (e: React.MouseEvent) => void;
 } & Omit<React.ComponentProps<typeof Link>, "href" | "children" | "className" | "onClick">) {
   return (
-    <Link href={href} className={basalBtnClass(className)} onClick={onClick} {...rest}>
-      <BasalButtonInner>{children}</BasalButtonInner>
+    <Link href={href} className={basalBtnClass(className, variant)} onClick={onClick} {...rest}>
+      <BasalButtonInner icon={basalBtnIcon(variant)}>{children}</BasalButtonInner>
     </Link>
   );
 }
@@ -54,18 +85,20 @@ export function BasalButton({
 export function BasalSubmitButton({
   children,
   className,
+  variant = "default",
   ...props
 }: {
   children: ReactNode;
   className?: string;
+  variant?: BasalButtonVariant;
 } & Pick<ButtonHTMLAttributes<HTMLButtonElement>, "disabled" | "type">) {
   return (
     <button
       type={props.type ?? "submit"}
       disabled={props.disabled}
-      className={cn(basalBtnClass(className), "cursor-pointer")}
+      className={cn(basalBtnClass(className, variant), "cursor-pointer")}
     >
-      <BasalButtonInner>{children}</BasalButtonInner>
+      <BasalButtonInner icon={basalBtnIcon(variant)}>{children}</BasalButtonInner>
     </button>
   );
 }
@@ -93,9 +126,9 @@ export function PlusButton({ onClick }: { onClick?: () => void }) {
   return (
     <button
       type="button"
-      aria-label="Learn more about the program"
+      aria-label="Learn more about GLP–One"
       onClick={onClick}
-      className="flex h-[44px] w-[44px] items-center justify-center rounded-[14px] border border-[var(--grey-3)] bg-[var(--grey-1)] text-grey-7 transition-colors hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="basal-btn--intro-icon focus focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--grey-3)]"
     >
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
         <path d="M12 5a1 1 0 0 1 1 1v5h5a1 1 0 1 1 0 2h-5v5a1 1 0 1 1-2 0v-5H6a1 1 0 1 1 0-2h5V6a1 1 0 0 1 1-1z" />

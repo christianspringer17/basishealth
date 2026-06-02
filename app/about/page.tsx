@@ -13,7 +13,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <MarketingShell>
+    <MarketingShell showFooterCta={false}>
       <AboutPageLayout content={ABOUT_PAGES.main} />
       <ConversionBand
         className="conversion-band--about"

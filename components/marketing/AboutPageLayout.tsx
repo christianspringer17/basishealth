@@ -16,7 +16,7 @@ function AboutGallery({ images }: { images: { src: string; alt: string }[] }) {
               alt={image.alt}
               fill
               className="about-editorial-image"
-              sizes="(max-width: 860px) 50vw, 640px"
+              sizes="(max-width: 860px) 50vw, 720px"
               quality={90}
               priority
             />
@@ -148,7 +148,7 @@ function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
   return (
     <div className="about-page">
       <section className="about-page__title-block" aria-labelledby="about-title">
-        <h1 id="about-title" className="about-page__title about-page__title--gradient">
+        <h1 id="about-title" className="about-page__title">
           {content.title}
         </h1>
       </section>

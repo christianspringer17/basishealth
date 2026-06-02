@@ -6,7 +6,7 @@ export function EonicLogo({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "font-[family-name:var(--font-display)] text-h5 leading-none font-semibold tracking-[-0.04em]",
+        "font-[family-name:var(--font-display)] text-h5 leading-none font-light tracking-[-0.04em]",
         className,
       )}
     >

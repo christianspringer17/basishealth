@@ -27,7 +27,7 @@ export function MediaCard({ item }: { item: LifeUnlockedMediaItem }) {
             src={item.src}
             alt={item.alt}
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="(max-width: 860px) 78vw, 360px"
           />
         )}

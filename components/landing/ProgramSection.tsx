@@ -62,7 +62,7 @@ export function ProgramSection() {
                     className={cn(
                       "text-h5",
                       protocol.status === "available"
-                        ? "text-grey-8"
+                        ? "text-accent-5"
                         : "text-grey-6",
                     )}
                   >
@@ -80,7 +80,7 @@ export function ProgramSection() {
 
         <div className="site-container site-grid w-full">
           <div className="col-span-full flex flex-col items-center gap-3 text-center md:col-span-16 md:col-start-5">
-            <h3 className="text-h5 text-grey-9">Precision Protocols are coming soon.</h3>
+            <h3 className="section-accent-title">Precision Protocols are coming soon.</h3>
             <p className="max-w-[640px] text-body text-pretty text-grey-7">
               Basis is starting with metabolic care and expanding into additional
               protocol tracks for hormones, longevity, recovery, and performance.
