@@ -1,34 +1,15 @@
-import { EDITORIAL_IMAGES, NAV_IMAGES } from "@/lib/media";
+import { NAV_IMAGES } from "@/lib/media";
 import type { AboutPageContent } from "./types";
 
 /** Main About — brand-first protocol clinic */
 export const aboutMain: AboutPageContent = {
   title: "What does it mean to care for someone over time?",
   subtitle:
-    "Basis exists for people who want a clinical relationship they can grow with—not a product they have to keep shopping for.",
-  galleryImages: [
-    {
-      src: EDITORIAL_IMAGES.aboutPrimary,
-      alt: "Mindful wellness practice in calm natural light",
-    },
-    {
-      src: EDITORIAL_IMAGES.aboutSecondary,
-      alt: "Premium spa-inspired wellness environment",
-    },
-  ],
-  intro:
-    "We built Basis around a simple conviction: trust has to come before the transaction. When someone believes in how you practice care—who you are, what you stand for, how you show up over time—they don't price-shop every month. They stay. That's the difference between a long-term member and a transactional patient. Basis is a membership-based protocol clinic designed for that kind of relationship—starting with metabolic care and expanding into hormone, longevity, recovery, and performance under one connected membership.",
-  storyAnchor: { label: "Our story", href: "#our-story" },
-  storyCarouselImages: [
-    {
-      src: NAV_IMAGES.aboutHowItWorks,
-      alt: "Clinical care in a calm, premium setting",
-    },
-    {
-      src: NAV_IMAGES.aboutVitality,
-      alt: "Abstract premium wellness texture",
-    },
-  ],
+    "We are inspired by moments of care. At Basis, we aim to make modern healthcare feel more continuous, personal, and grounded — combining physician-guided protocols, thoughtful technology, and long-term support for people seeking a better foundation for their health. We believe that care is the foundation to improve health for all.",
+  heroImage: {
+    src: NAV_IMAGES.aboutHero,
+    alt: "A lone figure walking a snow-covered slope beneath a crescent moon",
+  },
   sections: [
     {
       id: "our-story",
@@ -67,7 +48,7 @@ export const aboutHowItWorks: AboutPageContent = {
   backLabel: "About",
   heroImage: {
     src: NAV_IMAGES.aboutHowItWorks,
-    alt: "Clinical GLP-1 vials in a care setting",
+    alt: "Clinical care in a calm, premium setting",
   },
   steps: [
     {
@@ -91,14 +72,13 @@ export const aboutHowItWorks: AboutPageContent = {
     {
       heading: "Metabolic literacy",
       paragraphs: [
-        "GLP–One is more than a prescription. It’s a care framework designed to help you address the root of metabolic dysfunction. Education and personalized clinician counseling are an important part of this process.",
+        "GLP–One is more than a prescription. It's a care framework designed to help you address the root of metabolic dysfunction. Education and personalized clinician counseling are an important part of this process.",
       ],
     },
   ],
   sections: [],
 };
 
-/** “Unlock living” / vitality — basal About > Unlock Living */
 export const aboutVitality: AboutPageContent = {
   title: "This is life unlocked",
   subtitle:
@@ -114,28 +94,28 @@ export const aboutVitality: AboutPageContent = {
       eyebrow: "Vitality",
       heading: "A systems outcome—not a single metric",
       paragraphs: [
-        "Energy, sleep quality, recovery, and metabolic markers don’t move in isolation. Basis Health treats them as connected signals in one plan—because that’s how your body actually works.",
+        "Energy, sleep quality, recovery, and metabolic markers don't move in isolation. Basis treats them as connected signals in one plan—because that's how your body actually works.",
       ],
     },
     {
       eyebrow: "Sustainable capacity",
       heading: "Performance without burnout",
       paragraphs: [
-        "Whether you’re optimizing for daily output or long-term healthspan, the goal is sustainable capacity—not spikes followed by crashes. Protocols balance therapeutics with training, nutrition, sleep, and stress inputs.",
+        "Whether you're optimizing for daily output or long-term healthspan, the goal is sustainable capacity—not spikes followed by crashes. Protocols balance therapeutics with training, nutrition, sleep, and stress inputs.",
       ],
     },
     {
       eyebrow: "The long arc",
       heading: "Designed for months, not days",
       paragraphs: [
-        "Vitality isn’t a 30-day challenge. It’s the compound effect of aligned care over months and years. Three- and six-month plans give you and your clinician the timeline metabolic change actually requires.",
+        "Vitality isn't a 30-day challenge. It's the compound effect of aligned care over months and years. Three- and six-month plans give you and your clinician the timeline metabolic change actually requires.",
       ],
     },
   ],
   approach: {
     heading: "Begin again",
     paragraphs: [
-      "When biological signals are distorted, effort fails. You don’t need more discipline—you need a protocol that evolves with you.",
+      "When biological signals are distorted, effort fails. You don't need more discipline—you need a protocol that evolves with you.",
     ],
   },
 };

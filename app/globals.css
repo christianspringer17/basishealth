@@ -1148,15 +1148,48 @@ b {
 }
 
 .about-page__title {
-  max-width: 18ch;
+  max-width: 14ch;
   margin: 0;
   font-family: var(--font-sans);
   font-size: clamp(1.75rem, 4.5vw, 2.75rem);
   line-height: 1.12;
   letter-spacing: -0.03em;
   font-weight: var(--font-light);
-  color: var(--grey-7);
   text-wrap: balance;
+}
+
+.about-page__title--gradient {
+  background: linear-gradient(
+    135deg,
+    #2f5f9e 0%,
+    #4a82c4 28%,
+    #6b9fe8 55%,
+    #9ec4f0 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.about-page__hero-wrap {
+  width: 100%;
+  padding-inline: var(--margin-horizontal);
+  padding-bottom: clamp(48px, 7vh, 80px);
+}
+
+.about-page__hero {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: clamp(48px, 8vw, 120px);
+  background: var(--grey-2);
+}
+
+.about-page__lead {
+  padding-bottom: clamp(56px, 8vh, 96px);
 }
 
 .about-page__gallery-wrap {
@@ -1207,15 +1240,16 @@ b {
 }
 
 .about-page__subtitle {
-  max-width: 22ch;
+  max-width: none;
   margin: 0;
   font-family: var(--font-sans);
-  font-size: clamp(1.25rem, 3.2vw, var(--h1-lg-font-size));
-  line-height: 1.35;
-  letter-spacing: -0.03em;
+  font-size: clamp(1.05rem, 2.2vw, var(--lead-font-size));
+  line-height: 1.55;
+  letter-spacing: -0.02em;
   font-weight: var(--font-light);
   color: var(--grey-7);
-  text-wrap: balance;
+  text-wrap: pretty;
+  text-align: left;
 }
 
 .about-page__intro {
@@ -1353,9 +1387,29 @@ b {
 .about-page__sections {
   display: flex;
   flex-direction: column;
-  gap: clamp(64px, 10vh, 112px);
-  padding-top: clamp(16px, 3vh, 32px);
-  padding-bottom: clamp(64px, 10vh, 112px);
+  gap: clamp(48px, 7vh, 72px);
+  padding-top: 0;
+  padding-bottom: clamp(48px, 8vh, 88px);
+}
+
+.about-section--editorial {
+  width: 100%;
+}
+
+.about-section--editorial .about-section__eyebrow,
+.about-section--editorial .about-section__heading,
+.about-section--editorial .about-section__body {
+  text-align: left;
+}
+
+.about-section--editorial .about-section__heading {
+  max-width: none;
+  font-size: var(--h5-font-size);
+  margin-bottom: 4px;
+}
+
+.about-section--editorial .about-section__body {
+  max-width: none;
 }
 
 .about-section--centered {

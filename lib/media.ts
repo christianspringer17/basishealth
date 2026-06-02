@@ -58,4 +58,6 @@ export const NAV_IMAGES = {
   learnScience: "/images/nav/nav-learn-markers.webp",
   /** Membership nav hover preview */
   membership: "/images/nav/nav-membership.png",
+  /** Main About page hero */
+  aboutHero: "/images/editorial/about-hero.png",
 } as const;

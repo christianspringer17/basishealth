@@ -1,82 +1,57 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BasalButton } from "@/components/landing/ui";
-import { AboutStoryCarousel } from "@/components/marketing/AboutStoryCarousel";
 import type { AboutPageContent, EditorialSection } from "@/lib/content/types";
 
-const plusIcon = (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden>
-    <path d="M12 5v14M5 12h14" />
-  </svg>
-);
-
-function AboutImagePair({ images }: { images: { src: string; alt: string }[] }) {
+function AboutHeroImage({ image }: { image: { src: string; alt: string } }) {
   return (
-    <div className="about-gallery">
-      {images.map((image) => (
-        <div key={image.src} className="about-gallery__cell">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            className="about-editorial-image"
-            sizes="(max-width: 860px) 50vw, 640px"
-            quality={90}
-            priority
-          />
-        </div>
-      ))}
+    <div className="about-page__hero">
+      <Image
+        src={image.src}
+        alt={image.alt}
+        fill
+        className="about-editorial-image"
+        sizes="(max-width: 860px) 100vw, 1200px"
+        quality={90}
+        priority
+      />
     </div>
   );
 }
 
 function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
-  const gallery = content.galleryImages ?? [];
-
   return (
     <div className="about-page">
       <section className="about-page__title-block" aria-labelledby="about-title">
-        <h1 id="about-title" className="about-page__title">
+        <h1 id="about-title" className="about-page__title about-page__title--gradient">
           {content.title}
         </h1>
       </section>
 
-      {gallery.length > 0 && (
-        <section className="about-page__gallery-wrap" aria-label="Editorial photography">
+      {content.heroImage && (
+        <section className="about-page__hero-wrap" aria-label="Editorial photography">
           <div className="site-container">
-            <AboutImagePair images={gallery} />
+            <AboutHeroImage image={content.heroImage} />
           </div>
         </section>
       )}
 
       {content.subtitle && (
-        <section className="about-page__centered-copy">
-          <p className="about-page__subtitle">{content.subtitle}</p>
+        <section className="about-page__lead">
+          <div className="site-container site-grid w-full">
+            <p className="about-page__subtitle col-span-full md:col-span-14 md:col-start-5">
+              {content.subtitle}
+            </p>
+          </div>
         </section>
-      )}
-
-      {content.intro && (
-        <section className="about-page__centered-copy about-page__centered-copy--intro">
-          <p className="about-page__intro">{content.intro}</p>
-        </section>
-      )}
-
-      {content.storyAnchor && (
-        <div className="about-page__anchor-wrap">
-          <a href={content.storyAnchor.href} className="about-story-pill">
-            <span>{content.storyAnchor.label}</span>
-            <span className="about-story-pill__icon">{plusIcon}</span>
-          </a>
-        </div>
-      )}
-
-      {content.storyCarouselImages && content.storyCarouselImages.length > 0 && (
-        <AboutStoryCarousel images={content.storyCarouselImages} />
       )}
 
       <div className="about-page__sections">
         {content.sections.map((section) => (
-          <AboutCenteredSection key={section.id ?? section.heading ?? section.eyebrow} section={section} />
+          <AboutEditorialSection
+            key={section.id ?? section.heading ?? section.eyebrow}
+            section={section}
+          />
         ))}
       </div>
 
@@ -85,20 +60,24 @@ function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
   );
 }
 
-function AboutCenteredSection({ section }: { section: EditorialSection }) {
+function AboutEditorialSection({ section }: { section: EditorialSection }) {
   return (
     <section
       id={section.id}
-      className="about-section about-section--centered scroll-mt-28"
+      className="about-section about-section--editorial scroll-mt-28"
     >
-      {section.eyebrow && !section.heading && (
-        <p className="about-section__eyebrow">{section.eyebrow}</p>
-      )}
-      {section.heading && <h2 className="about-section__heading">{section.heading}</h2>}
-      <div className="about-section__body">
-        {section.paragraphs.map((paragraph) => (
-          <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-        ))}
+      <div className="site-container site-grid w-full">
+        <div className="col-span-full md:col-span-14 md:col-start-5">
+          {section.eyebrow && !section.heading && (
+            <p className="about-section__eyebrow">{section.eyebrow}</p>
+          )}
+          {section.heading && <h2 className="about-section__heading">{section.heading}</h2>}
+          <div className="about-section__body">
+            {section.paragraphs.map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -264,7 +243,9 @@ function AboutSubpageLayout({ content }: { content: AboutPageContent }) {
 }
 
 export function AboutPageLayout({ content }: { content: AboutPageContent }) {
-  const isBasalMain = Boolean(content.galleryImages?.length && !content.backHref);
+  const isBasalMain = Boolean(
+    !content.backHref && (content.heroImage || (content.galleryImages?.length ?? 0) > 0),
+  );
 
   if (isBasalMain) {
     return <AboutBasalMainLayout content={content} />;
