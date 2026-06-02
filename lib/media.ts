@@ -47,6 +47,8 @@ export const EDITORIAL_IMAGES = {
   membershipPeptideBg: "/images/membership-peptide-bg.png",
   /** Brand lockup PaperTexture source */
   brandLockupTexture: "/images/brand-lockup-texture.png",
+  /** About page PaperTexture source */
+  aboutPaperTexture: "/images/editorial/about-secondary.webp",
 } as const;
 
 export const NAV_IMAGES = {

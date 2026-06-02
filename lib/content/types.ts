@@ -6,6 +6,12 @@ export type EditorialSection = {
   paragraphs: string[];
 };
 
+export type AboutFlowItem =
+  | { type: "section"; sectionId: string }
+  | { type: "image"; image: { src: string; alt: string } }
+  | { type: "carousel"; images: { src: string; alt: string }[] }
+  | { type: "paperTexture" };
+
 export type AboutPageContent = {
   title: string;
   subtitle?: string;
@@ -18,6 +24,8 @@ export type AboutPageContent = {
   storyAnchor?: { label: string; href: string };
   /** Horizontal editorial carousel below story anchor (basal.health/about) */
   storyCarouselImages?: { src: string; alt: string }[];
+  /** Interleaved media + sections on main About */
+  flow?: AboutFlowItem[];
   /** Single hero image on sub-pages (how-it-works, vitality) */
   heroImage?: { src: string; alt: string };
   /** Editorial blocks (eyebrow + heading + body) */

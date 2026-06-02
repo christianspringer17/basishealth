@@ -1,7 +1,31 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AboutPaperTextureBackground } from "@/components/marketing/AboutPaperTextureBackground";
+import { AboutStoryCarousel } from "@/components/marketing/AboutStoryCarousel";
 import { BasalButton } from "@/components/landing/ui";
-import type { AboutPageContent, EditorialSection } from "@/lib/content/types";
+import type { AboutFlowItem, AboutPageContent, EditorialSection } from "@/lib/content/types";
+
+function AboutGallery({ images }: { images: { src: string; alt: string }[] }) {
+  return (
+    <section className="about-page__gallery-wrap" aria-label="Editorial photography">
+      <div className="about-gallery">
+        {images.map((image) => (
+          <div key={image.src} className="about-gallery__cell">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="about-editorial-image"
+              sizes="(max-width: 860px) 50vw, 640px"
+              quality={90}
+              priority
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 
 function AboutHeroImage({ image }: { image: { src: string; alt: string } }) {
   return (
@@ -13,13 +37,114 @@ function AboutHeroImage({ image }: { image: { src: string; alt: string } }) {
         className="about-editorial-image"
         sizes="(max-width: 860px) 100vw, 1200px"
         quality={90}
-        priority
       />
     </div>
   );
 }
 
+function AboutStoryPill({ label, href }: { label: string; href: string }) {
+  return (
+    <div className="about-page__anchor-wrap">
+      <Link href={href} className="about-story-pill">
+        {label}
+        <span className="about-story-pill__icon" aria-hidden>
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4 6l4 4 4-4"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </span>
+      </Link>
+    </div>
+  );
+}
+
+function AboutCenteredSection({ section }: { section: EditorialSection }) {
+  return (
+    <section
+      id={section.id}
+      className="about-section about-section--centered scroll-mt-28"
+    >
+      {section.eyebrow && !section.heading && (
+        <p className="about-section__eyebrow">{section.eyebrow}</p>
+      )}
+      {section.heading && <h2 className="about-section__heading">{section.heading}</h2>}
+      <div className="about-section__body">
+        {section.paragraphs.map((paragraph) => (
+          <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function AboutApproachBlock({ section }: { section: EditorialSection }) {
+  return (
+    <section className="about-approach">
+      <div className="site-container site-grid w-full">
+        <div className="about-approach__inner col-span-full md:col-span-14 md:col-start-4">
+          {section.eyebrow && <p className="about-approach__label">{section.eyebrow}</p>}
+          {section.heading && <h2 className="about-approach__headline">{section.heading}</h2>}
+          {section.paragraphs.length > 0 && (
+            <div className="about-approach__body">
+              {section.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutFlowBlock({
+  item,
+  sectionsById,
+}: {
+  item: AboutFlowItem;
+  sectionsById: Map<string, EditorialSection>;
+}) {
+  switch (item.type) {
+    case "section": {
+      const section = sectionsById.get(item.sectionId);
+      if (!section) return null;
+      return <AboutCenteredSection key={item.sectionId} section={section} />;
+    }
+    case "image":
+      return (
+        <section
+          key={item.image.src}
+          className="about-page__media-break"
+          aria-label="Editorial photography"
+        >
+          <div className="site-container">
+            <AboutHeroImage image={item.image} />
+          </div>
+        </section>
+      );
+    case "carousel":
+      return <AboutStoryCarousel key={item.images.map((i) => i.src).join("-")} images={item.images} />;
+    case "paperTexture":
+      return (
+        <section key="paper-texture" className="about-page__paper-panel" aria-hidden>
+          <AboutPaperTextureBackground />
+        </section>
+      );
+    default:
+      return null;
+  }
+}
+
 function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
+  const sectionsById = new Map(
+    content.sections.map((section) => [section.id ?? section.heading ?? section.eyebrow ?? "", section]),
+  );
+
   return (
     <div className="about-page">
       <section className="about-page__title-block" aria-labelledby="about-title">
@@ -28,80 +153,49 @@ function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
         </h1>
       </section>
 
-      {content.heroImage && (
-        <section className="about-page__hero-wrap" aria-label="Editorial photography">
-          <div className="site-container">
-            <AboutHeroImage image={content.heroImage} />
-          </div>
-        </section>
+      {content.galleryImages && content.galleryImages.length > 0 && (
+        <AboutGallery images={content.galleryImages} />
       )}
 
       {content.subtitle && (
-        <section className="about-page__lead">
-          <div className="site-container site-grid w-full">
-            <p className="about-page__subtitle col-span-full md:col-span-14 md:col-start-5">
-              {content.subtitle}
-            </p>
-          </div>
+        <section className="about-page__centered-copy about-page__centered-copy--lead">
+          <p className="about-page__subtitle">{content.subtitle}</p>
         </section>
       )}
 
-      <div className="about-page__sections">
-        {content.sections.map((section) => (
-          <AboutEditorialSection
-            key={section.id ?? section.heading ?? section.eyebrow}
-            section={section}
-          />
-        ))}
-      </div>
+      {content.intro && (
+        <section className="about-page__centered-copy about-page__centered-copy--intro">
+          <p className="about-page__intro">{content.intro}</p>
+        </section>
+      )}
+
+      {content.storyAnchor && (
+        <AboutStoryPill label={content.storyAnchor.label} href={content.storyAnchor.href} />
+      )}
+
+      {content.flow && content.flow.length > 0 ? (
+        <div className="about-page__flow">
+          {content.flow.map((item, index) => (
+            <AboutFlowBlock
+              key={`${item.type}-${index}`}
+              item={item}
+              sectionsById={sectionsById}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="about-page__sections">
+          {content.sections.map((section) => (
+            <AboutCenteredSection
+              key={section.id ?? section.heading ?? section.eyebrow}
+              section={section}
+            />
+          ))}
+        </div>
+      )}
 
       {content.approach && <AboutApproachBlock section={content.approach} />}
     </div>
-  );
-}
-
-function AboutEditorialSection({ section }: { section: EditorialSection }) {
-  return (
-    <section
-      id={section.id}
-      className="about-section about-section--editorial scroll-mt-28"
-    >
-      <div className="site-container site-grid w-full">
-        <div className="col-span-full md:col-span-14 md:col-start-5">
-          {section.eyebrow && !section.heading && (
-            <p className="about-section__eyebrow">{section.eyebrow}</p>
-          )}
-          {section.heading && <h2 className="about-section__heading">{section.heading}</h2>}
-          <div className="about-section__body">
-            {section.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AboutApproachBlock({ section }: { section: EditorialSection }) {
-  const [headline, ...rest] = section.paragraphs;
-
-  return (
-    <section className="about-approach">
-      <div className="site-container site-grid w-full">
-        <div className="about-approach__inner col-span-full md:col-span-14 md:col-start-4">
-          {section.heading && <p className="about-approach__label">{section.heading}</p>}
-          {headline && <h2 className="about-approach__headline">{headline}</h2>}
-          {rest.length > 0 && (
-            <div className="about-approach__body">
-              {rest.map((paragraph) => (
-                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-              ))}
-            </div>
-          )}
-        </div>
-      </div>
-    </section>
   );
 }
 
@@ -243,9 +337,7 @@ function AboutSubpageLayout({ content }: { content: AboutPageContent }) {
 }
 
 export function AboutPageLayout({ content }: { content: AboutPageContent }) {
-  const isBasalMain = Boolean(
-    !content.backHref && (content.heroImage || (content.galleryImages?.length ?? 0) > 0),
-  );
+  const isBasalMain = Boolean(!content.backHref && (content.galleryImages?.length ?? 0) > 0);
 
   if (isBasalMain) {
     return <AboutBasalMainLayout content={content} />;

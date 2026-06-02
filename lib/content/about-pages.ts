@@ -1,15 +1,23 @@
-import { NAV_IMAGES } from "@/lib/media";
+import { EDITORIAL_IMAGES, NAV_IMAGES } from "@/lib/media";
 import type { AboutPageContent } from "./types";
 
-/** Main About — brand-first protocol clinic */
+/** Main About — Basal rhythm with Basis brand copy */
 export const aboutMain: AboutPageContent = {
   title: "What does it mean to care for someone over time?",
-  subtitle:
-    "We are inspired by moments of care. At Basis, we aim to make modern healthcare feel more continuous, personal, and grounded — combining physician-guided protocols, thoughtful technology, and long-term support for people seeking a better foundation for their health. We believe that care is the foundation to improve health for all.",
-  heroImage: {
-    src: NAV_IMAGES.aboutHero,
-    alt: "A lone figure walking a snow-covered slope beneath a crescent moon",
-  },
+  subtitle: "We're inspired by moments of care.",
+  intro:
+    "At Basis, we aim to make modern healthcare feel more continuous, personal, and grounded — combining physician-guided protocols, thoughtful technology, and long-term support for people seeking a better foundation for their health. We believe that care is the foundation to improve health for all.",
+  galleryImages: [
+    {
+      src: EDITORIAL_IMAGES.aboutPrimary,
+      alt: "Mindful wellness practice in calm natural light",
+    },
+    {
+      src: EDITORIAL_IMAGES.aboutSecondary,
+      alt: "Premium spa-inspired wellness environment",
+    },
+  ],
+  storyAnchor: { label: "Our story", href: "#our-story" },
   sections: [
     {
       id: "our-story",
@@ -19,22 +27,50 @@ export const aboutMain: AboutPageContent = {
       ],
     },
     {
+      id: "never-known-more",
       eyebrow: "We've never known more",
       paragraphs: [
         "About human biology. About personalization. About what modern medicine can actually do when it's practiced with continuity. New diagnostics, therapeutics, and research create real opportunity—but only if someone helps you turn information into a plan that evolves. That's the job of a protocol clinic.",
       ],
     },
     {
+      id: "no-more-noise",
       eyebrow: "No more noise",
       paragraphs: [
         "The wellness industry is loud. Trend cycles. Dashboards full of biomarkers with no one to interpret them. Clinics built around a single drug or a single test. Basis is intentionally quiet. One membership. Provider review. Personalized protocol recommendations. Therapies when clinically appropriate—purchased separately, never buried in fine print. We lead with who we are and how we practice. The products follow.",
       ],
     },
   ],
+  flow: [
+    { type: "section", sectionId: "our-story" },
+    {
+      type: "image",
+      image: {
+        src: NAV_IMAGES.aboutHero,
+        alt: "A lone figure walking a snow-covered slope beneath a crescent moon",
+      },
+    },
+    { type: "section", sectionId: "never-known-more" },
+    {
+      type: "carousel",
+      images: [
+        {
+          src: NAV_IMAGES.aboutHowItWorks,
+          alt: "Clinical care in a calm, premium setting",
+        },
+        {
+          src: NAV_IMAGES.aboutVitality,
+          alt: "Abstract premium wellness texture",
+        },
+      ],
+    },
+    { type: "section", sectionId: "no-more-noise" },
+    { type: "paperTexture" },
+  ],
   approach: {
-    heading: "Our approach",
+    eyebrow: "Our approach",
+    heading: "Protocol-based care isn't a SKU.",
     paragraphs: [
-      "Protocol-based care isn't a SKU.",
       "Membership gives you access to clinical oversight, ongoing support, and recalibration—not a bundle of medications disguised as a subscription. Basis Metabolic is our first live track. More protocol areas are coming. What stays constant is the relationship: one team, one portal, one standard of care that compounds over time.",
     ],
   },
