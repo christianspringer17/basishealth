@@ -8,7 +8,6 @@ import { MembershipPlanSection } from "@/components/landing/MembershipPlanSectio
 import { ProgramSection } from "@/components/landing/ProgramSection";
 import { ScienceSection } from "@/components/landing/ScienceSection";
 import { StatementSection } from "@/components/landing/StatementSection";
-import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { VitalitySection } from "@/components/landing/VitalitySection";
 import { WaitlistSection } from "@/components/landing/WaitlistSection";
 
@@ -24,7 +23,6 @@ export default function Home() {
         <ExpectSection />
         <BrandLockupSection />
         <ScienceSection />
-        <TestimonialsSection />
         <VitalitySection />
         <MembershipPlanSection />
         <WaitlistSection />
