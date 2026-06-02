@@ -599,6 +599,169 @@ b {
   }
 }
 
+/* Life Unlocked — mixed review + media carousel */
+.life-unlocked-section__title {
+  color: var(--accent-5);
+  letter-spacing: -0.03em;
+}
+
+.carousel-track--life-unlocked {
+  gap: 0;
+  padding-inline: max(var(--margin-horizontal), calc(50% - min(42vw, 180px)));
+}
+
+.carousel-slide--life-unlocked {
+  flex: 0 0 min(82vw, 320px);
+  margin-right: 16px;
+  scroll-snap-align: center;
+}
+
+.life-unlocked-card {
+  display: flex;
+  flex-direction: column;
+  height: clamp(420px, 62vw, 520px);
+  border-radius: clamp(32px, 5vw, 48px);
+  overflow: hidden;
+}
+
+.life-unlocked-card--review {
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(28px, 4vw, 40px) clamp(24px, 3.5vw, 36px);
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--accent-1) 88%, #fff) 0%,
+    color-mix(in srgb, var(--accent-2) 42%, #fff) 100%
+  );
+  text-align: center;
+}
+
+.life-unlocked-review__label {
+  margin: 0;
+  font-size: var(--h5-font-size);
+  font-weight: var(--font-strong);
+  color: var(--accent-5);
+  letter-spacing: -0.01em;
+}
+
+.life-unlocked-review__quote {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 28ch;
+}
+
+.life-unlocked-review__quote p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2.4vw, var(--lead-font-size));
+  line-height: 1.45;
+  letter-spacing: -0.02em;
+  font-weight: var(--font-light);
+  color: color-mix(in srgb, var(--grey-9) 82%, var(--accent-5));
+  text-wrap: pretty;
+}
+
+.life-unlocked-review__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.life-unlocked-review__name {
+  margin: 0;
+  font-size: var(--h5-font-size);
+  font-weight: var(--font-strong);
+  color: var(--accent-5);
+}
+
+.life-unlocked-review__type {
+  margin: 0;
+  font-size: var(--h5-font-size);
+  font-weight: var(--font-light);
+  color: var(--accent-4);
+}
+
+.life-unlocked-card--media {
+  position: relative;
+  background: var(--grey-2);
+}
+
+.life-unlocked-media__frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.life-unlocked-media__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 0.08) 0%,
+    rgb(0 0 0 / 0.22) 55%,
+    rgb(0 0 0 / 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+.life-unlocked-media__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 24px;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2.4vw, var(--lead-font-size));
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  font-weight: var(--font-light);
+  color: #fff;
+  text-align: center;
+  text-wrap: balance;
+  pointer-events: none;
+}
+
+.life-unlocked-media__play {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 3;
+  display: flex;
+  height: 36px;
+  width: 36px;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.35);
+  background: rgb(255 255 255 / 0.18);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  pointer-events: none;
+}
+
+@media (min-width: 860px) {
+  .carousel-track--life-unlocked {
+    padding-inline: max(
+      var(--margin-horizontal),
+      calc(50% - min(calc((100vw - 2 * var(--margin-horizontal)) * 0.18), 200px))
+    );
+  }
+
+  .carousel-slide--life-unlocked {
+    flex: 0 0 min(calc((100vw - 2 * var(--margin-horizontal)) * 0.36), 360px);
+    max-width: 360px;
+    margin-right: 20px;
+  }
+}
+
 /* Basal-style image nav dropdowns */
 .nav-dropdown-basal--positioned.nav-dropdown-basal--featured,
 .nav-dropdown-basal--positioned.nav-dropdown-basal--about,
