@@ -41,7 +41,9 @@ export const EDITORIAL_IMAGES = {
   coastalSkyThumb: "/images/editorial/coastal-sky-thumb.webp",
   clinicalBlue: "/images/editorial/clinical-blue.webp",
   clinicalBlueThumb: "/images/editorial/clinical-blue-thumb.webp",
-  /** Peptide / molecule macro — membership pricing card */
+  /** Membership pricing card background */
+  membershipPricingBg: "/images/membership-pricing-bg.png",
+  /** Peptide / molecule macro — membership nav preview */
   membershipPeptideBg: "/images/membership-peptide-bg.png",
 } as const;
 
