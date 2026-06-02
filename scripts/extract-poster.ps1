@@ -26,7 +26,7 @@ if (-not $ffmpeg) {
 }
 
 $proc = Start-Process -FilePath "ffmpeg" -ArgumentList @(
-  "-y", "-i", $videoPath, "-ss", "00:00:01", "-frames:v", "1", "-update", "1", "-q:v", "2", $outputPath
+  "-y", "-i", $videoPath, "-ss", "0", "-frames:v", "1", "-update", "1", "-q:v", "2", $outputPath
 ) -Wait -PassThru -NoNewWindow -RedirectStandardError "NUL" -RedirectStandardOutput "NUL"
 
 if ($proc.ExitCode -ne 0 -or -not (Test-Path $outputPath)) {

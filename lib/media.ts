@@ -8,6 +8,8 @@
  */
 export const MEDIA = {
   heroPoster: "/images/herovid2-poster.jpg",
+  /** Link preview (iMessage, social) — first frame of hero video, 1200×630 */
+  openGraphImage: "/images/opengraph-hero.jpg",
   heroVideo: process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/herovid2.mp4",
   /** Previous hero video, moved into the Program section */
   programPoster: "/images/hero-poster.jpg",
