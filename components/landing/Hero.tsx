@@ -18,7 +18,7 @@ export function Hero() {
       <div className="site-container site-grid relative z-[2] w-full">
         <div className="col-span-full flex justify-center px-2 text-center">
           <h1 className="text-hero-title max-w-[920px] text-pretty text-grey-1">
-            Your health has a protocol. Now your care does too.
+            One membership. Care that evolves with you.
           </h1>
         </div>
       </div>
