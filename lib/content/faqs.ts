@@ -4,32 +4,37 @@ import { SITE_EMAIL } from "@/lib/site";
 
 const maxSavings = max3MonthSavings();
 
-/** Homepage + membership model — concise */
+/** Homepage — concise protocol clinic model */
 export const HOME_FAQS: FaqItem[] = [
   {
     question: "What is Basis?",
     answer:
-      "Basis is a membership-based metabolic protocol platform. Members receive access to physician review, personalized protocol recommendations, ongoing support, and quarterly recalibration.",
+      "Basis is a membership-based protocol clinic starting with metabolic care. Members receive access to provider review, protocol recommendations, ongoing support, and recalibration.",
   },
   {
     question: "What does membership include?",
     answer:
-      "Membership includes portal access, physician review, protocol recommendations, support and check-ins, and quarterly recalibration. Membership starts at $60/month.",
+      "Membership includes portal access, provider review, personalized protocol recommendations, support, and recalibration. Membership starts at $60/month.",
   },
   {
-    question: "Are medications included?",
+    question: "Are therapies included?",
     answer:
-      "No. Medications, peptides, labs, and supplements are purchased separately when clinically appropriate.",
+      "No. Therapies, labs, medications, peptides, supplements, and other interventions are purchased separately when clinically appropriate.",
   },
   {
     question: "Are labs required?",
     answer:
-      "No. Labs are optional and may be recommended when they help refine your protocol. Optional diagnostics may be available over time.",
+      "No. Labs are optional and may be recommended when they help refine your protocol.",
   },
   {
     question: "Is Basis a GLP-1 company?",
     answer:
-      "No. GLP-1 therapy may be part of Basis Metabolic when clinically appropriate, but Basis is built around protocol-based metabolic care.",
+      "No. GLP-1 therapy may be part of Basis Metabolic when clinically appropriate, but Basis is built around protocol-based care.",
+  },
+  {
+    question: "What protocols are available?",
+    answer:
+      "Basis Metabolic is the first live protocol. Additional tracks for hormones, longevity, recovery, and performance are coming soon.",
   },
   {
     question: "Can I access therapy without membership?",
@@ -44,7 +49,7 @@ export const MEMBERSHIP_FAQS: FaqItem[] = [
   {
     question: "How do I apply?",
     answer:
-      "Apply for membership on our homepage. When enrollment opens, intake and checkout run through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
+      "Apply for membership on our homepage. When enrollment opens, intake runs through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
   },
 ];
 
@@ -63,7 +68,7 @@ export const GLP_FAQS: FaqItem[] = [
   {
     question: "How long does it take to see results?",
     answer:
-      "Timelines vary. Many members notice appetite and energy shifts within weeks; meaningful metabolic change often requires months of consistent protocol and follow-up. Results vary.",
+      "Timelines vary. Many members notice appetite and energy shifts within weeks; meaningful metabolic change often requires months of consistent protocol and follow-up. Individual outcomes vary.",
   },
   {
     question: "Microdose vs. weight loss — what's the difference?",

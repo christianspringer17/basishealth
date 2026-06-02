@@ -14,21 +14,27 @@ export const PROTOCOL_CARDS: readonly ProtocolCard[] = [
       "Weight management, appetite regulation, energy, and long-term metabolic health.",
   },
   {
-    name: "Recovery",
+    name: "Hormone",
     status: "coming-soon",
     statusLabel: "Coming soon",
-    description: "Structured support for recovery and physical resilience.",
+    description: "Hormone-focused protocols through provider-guided care.",
   },
   {
     name: "Longevity",
     status: "coming-soon",
     statusLabel: "Coming soon",
-    description: "Future protocols for vitality and long-term optimization.",
+    description: "Lab-informed protocols for long-term health and resilience.",
+  },
+  {
+    name: "Recovery",
+    status: "coming-soon",
+    statusLabel: "Coming soon",
+    description: "Support for recovery, inflammation, and physical resilience.",
   },
   {
     name: "Performance",
     status: "coming-soon",
     statusLabel: "Coming soon",
-    description: "Future protocols for training support and optimization.",
+    description: "Protocols for training support and optimization.",
   },
 ] as const;

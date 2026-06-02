@@ -17,10 +17,10 @@ export function ProgramSection() {
           <div className="col-span-full flex flex-col items-center gap-6 text-center md:col-span-16 md:col-start-5">
             <div className="flex flex-col items-center gap-2">
               <h2 className="text-h1-lg leading-100 text-grey-9">
-                Protocols for metabolic health.
+                Protocol tracks for metabolic health and beyond.
               </h2>
               <p className="text-subtitle leading-100 text-grey-7">
-                Physician-guided care, built for long-term progress.
+                Basis Metabolic is live today. Additional tracks are coming soon.
               </p>
             </div>
             <PlusButton onClick={() => setEditorialOpen(true)} />
@@ -28,7 +28,7 @@ export function ProgramSection() {
         </div>
 
         <div className="site-container site-grid w-full">
-          <div className="col-span-full grid gap-4 sm:grid-cols-2 md:col-span-18 md:col-start-4 lg:grid-cols-4">
+          <div className="col-span-full grid gap-4 sm:grid-cols-2 md:col-span-18 md:col-start-4 xl:grid-cols-5">
             {PROTOCOL_CARDS.map((protocol) => (
               <article
                 key={protocol.name}
@@ -55,6 +55,17 @@ export function ProgramSection() {
                 </p>
               </article>
             ))}
+          </div>
+        </div>
+
+        <div className="site-container site-grid w-full">
+          <div className="col-span-full flex flex-col items-center gap-3 text-center md:col-span-16 md:col-start-5">
+            <h3 className="text-h5 text-grey-9">Precision Protocols are coming soon.</h3>
+            <p className="max-w-[640px] text-body text-pretty text-grey-7">
+              Basis is starting with metabolic care and expanding into additional
+              protocol tracks for hormones, longevity, recovery, and performance.
+              Members will build on one connected care relationship over time.
+            </p>
           </div>
         </div>
 

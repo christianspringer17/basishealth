@@ -3,7 +3,7 @@ import { MetabolicMarkersSection } from "@/components/marketing/MetabolicMarkers
 export function ScienceSection() {
   return (
     <MetabolicMarkersSection
-      title="The science has changed. Your care should, too."
+      title="The science has changed. Your protocol should, too."
       showCta
     />
   );
