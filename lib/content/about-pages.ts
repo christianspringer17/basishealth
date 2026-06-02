@@ -1,11 +1,11 @@
 import { EDITORIAL_IMAGES, NAV_IMAGES } from "@/lib/media";
 import type { AboutPageContent } from "./types";
 
-/** Main About — structure aligned with https://basal.health/about */
+/** Main About — brand-first protocol clinic */
 export const aboutMain: AboutPageContent = {
-  title: "What does it mean to truly care for metabolism?",
+  title: "What does it mean to care for someone over time?",
   subtitle:
-    "We’re inspired by moments of understanding, when someone finally feels heard by their own body. Basis Health exists to restore that relationship.",
+    "Basis exists for people who want a clinical relationship they can grow with—not a product they have to keep shopping for.",
   galleryImages: [
     {
       src: EDITORIAL_IMAGES.aboutPrimary,
@@ -17,12 +17,12 @@ export const aboutMain: AboutPageContent = {
     },
   ],
   intro:
-    "We always cared about health, but we didn’t always understand the role that metabolism plays in how we feel, how we function. Twenty-five years of curiosity and a new wave of research gave us radical clarity. Get metabolism right and everything gets better. So, we built what we couldn’t find—a metabolism-first approach to wellness.",
+    "We built Basis around a simple conviction: trust has to come before the transaction. When someone believes in how you practice care—who you are, what you stand for, how you show up over time—they don't price-shop every month. They stay. That's the difference between a long-term member and a transactional patient. Basis is a membership-based protocol clinic designed for that kind of relationship—starting with metabolic care and expanding into hormone, longevity, recovery, and performance under one connected membership.",
   storyAnchor: { label: "Our story", href: "#our-story" },
   storyCarouselImages: [
     {
       src: NAV_IMAGES.aboutHowItWorks,
-      alt: "Clinical GLP-1 vials in a care setting",
+      alt: "Clinical care in a calm, premium setting",
     },
     {
       src: NAV_IMAGES.aboutVitality,
@@ -34,27 +34,27 @@ export const aboutMain: AboutPageContent = {
       id: "our-story",
       heading: "Care as partnership",
       paragraphs: [
-        "Basis Health is built on the belief that care works best when it’s shared. Patients as participants. Practitioners as partners. Decisions made with clarity, not urgency. Health practiced over time—not rushed toward outcomes.",
+        "Basis is built on shared decision-making—not checkout flows. Members and clinicians work together over months and years: reviewing progress, refining protocols, and adjusting as goals change. You are a participant in your care, not a line item in a funnel.",
       ],
     },
     {
       eyebrow: "We've never known more",
       paragraphs: [
-        "About metabolic science generally. About our own individual bodies. New research, diagnostic tools, and wearable tracking tech mean this is the moment to crack your unique metabolic code. Basis Health will be here to help.",
+        "About human biology. About personalization. About what modern medicine can actually do when it's practiced with continuity. New diagnostics, therapeutics, and research create real opportunity—but only if someone helps you turn information into a plan that evolves. That's the job of a protocol clinic.",
       ],
     },
     {
       eyebrow: "No more noise",
       paragraphs: [
-        "The metabolic health space is loud. Supplements that overpromise. Clinics that underdeliver. Programs built around a medication, not a patient. Basis Health is different because the science demands it. GLP-1 therapy only works when the metabolic environment is managed, and that requires real clinicians, real diagnostics, and a protocol that adapts. Welcome to the quiet calm of care.",
+        "The wellness industry is loud. Trend cycles. Dashboards full of biomarkers with no one to interpret them. Clinics built around a single drug or a single test. Basis is intentionally quiet. One membership. Provider review. Personalized protocol recommendations. Therapies when clinically appropriate—purchased separately, never buried in fine print. We lead with who we are and how we practice. The products follow.",
       ],
     },
   ],
   approach: {
     heading: "Our approach",
     paragraphs: [
-      "Metabolic care isn’t one-size-fits-all.",
-      "Effective education and treatment demand a functional patient-practitioner relationship and customized protocols. What we offer is bespoke. Dynamic. Never rushed. Patients are co-pilots. Practitioners listen as much as they talk. We don't scale at the expense of quality.",
+      "Protocol-based care isn't a SKU.",
+      "Membership gives you access to clinical oversight, ongoing support, and recalibration—not a bundle of medications disguised as a subscription. Basis Metabolic is our first live track. More protocol areas are coming. What stays constant is the relationship: one team, one portal, one standard of care that compounds over time.",
     ],
   },
 };
