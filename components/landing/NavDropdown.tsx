@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ROUTES } from "@/lib/routes";
 import type { NavMenu } from "./nav-config";
@@ -59,6 +60,48 @@ function AboutMenu({
   );
 }
 
+function MembershipMenu({
+  menu,
+  onNavigate,
+}: {
+  menu: Extract<NavMenu, { variant: "membership" }>;
+  onNavigate?: () => void;
+}) {
+  const { featured } = menu;
+
+  return (
+    <div className="nav-dropdown-panel nav-dropdown-panel--membership">
+      <Link
+        href={featured.href}
+        className="nav-dropdown-featured-media group focus"
+        onClick={onNavigate}
+      >
+        <Image
+          src={featured.image}
+          alt={featured.imageAlt}
+          fill
+          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+          sizes="360px"
+          quality={88}
+        />
+        <span className="nav-dropdown-image-scrim" aria-hidden />
+        <span className="nav-dropdown-glass-pill">{featured.label}</span>
+      </Link>
+
+      <div className="nav-dropdown-divider-list">
+        {menu.links.map((link, index) => (
+          <div key={link.label}>
+            {index > 0 && <hr className="nav-dropdown-divider" />}
+            <Link href={link.href} className="nav-dropdown-divider-link" onClick={onNavigate}>
+              {link.label}
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function NavDropdown({
   menu,
   open,
@@ -80,8 +123,10 @@ export function NavDropdown({
     >
       {menu.variant === "learn" ? (
         <LearnMenu menu={menu} onNavigate={onNavigate} />
-      ) : (
+      ) : menu.variant === "about" ? (
         <AboutMenu menu={menu} onNavigate={onNavigate} />
+      ) : (
+        <MembershipMenu menu={menu} onNavigate={onNavigate} />
       )}
     </div>
   );

@@ -24,7 +24,13 @@ export type NavAboutMenu = {
   imageCards: NavImageCard[];
 };
 
-export type NavMenu = NavLearnMenu | NavAboutMenu;
+export type NavMembershipMenu = {
+  variant: "membership";
+  featured: NavImageCard;
+  links: { label: string; href: string }[];
+};
+
+export type NavMenu = NavLearnMenu | NavAboutMenu | NavMembershipMenu;
 
 export type NavItem = {
   id: string;
@@ -38,6 +44,20 @@ export const NAV_ITEMS: NavItem[] = [
     id: "membership",
     label: "Membership",
     href: ROUTES.membership,
+    menu: {
+      variant: "membership",
+      featured: {
+        label: "Explore membership",
+        href: ROUTES.membership,
+        image: NAV_IMAGES.membership,
+        imageAlt: "Abstract peptide molecules in soft clinical blue",
+      },
+      links: [
+        { label: "What's included", href: ROUTES.membership },
+        { label: "Plan details", href: ROUTES.membershipPlan },
+        { label: "FAQs", href: ROUTES.membershipFaq },
+      ],
+    },
   },
   {
     id: "learn",
@@ -102,6 +122,13 @@ export function getNavMenuLinks(
 ): { label: string; href: string }[] {
   if (menu.variant === "about") {
     return menu.imageCards.map((c) => ({ label: c.label, href: c.href }));
+  }
+
+  if (menu.variant === "membership") {
+    return [
+      { label: menu.featured.label, href: menu.featured.href },
+      ...menu.links,
+    ];
   }
 
   return [

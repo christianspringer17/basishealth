@@ -9,6 +9,7 @@
 | `nav-learn-metabolism.webp` | Learn → Your protocol areas (from `pexels-john-de-leon-*.jpg`) |
 | `nav-learn-fingerprint.webp` | Learn → As unique as your goals (from `pexels-maris-uuetoa-*.jpg`) |
 | `nav-learn-markers.webp` | Learn → What we measure (from `pexels-wr-heustis-*.jpg`) |
+| `nav-membership.png` | Membership nav hover preview (peptide / molecule macro) |
 
 Regenerate premium exports:
 

@@ -602,13 +602,15 @@ b {
 /* Basal-style image nav dropdowns */
 .nav-dropdown-basal--positioned.nav-dropdown-basal--featured,
 .nav-dropdown-basal--positioned.nav-dropdown-basal--about,
-.nav-dropdown-basal--positioned.nav-dropdown-basal--learn {
+.nav-dropdown-basal--positioned.nav-dropdown-basal--learn,
+.nav-dropdown-basal--positioned.nav-dropdown-basal--membership {
   min-width: 0;
   width: 100%;
   padding: 16px;
 }
 
-.nav-dropdown-basal--featured {
+.nav-dropdown-basal--featured,
+.nav-dropdown-basal--membership {
   width: min(360px, 92vw);
 }
 
@@ -627,12 +629,14 @@ b {
   gap: 12px;
 }
 
-.nav-dropdown-panel--featured {
+.nav-dropdown-panel--featured,
+.nav-dropdown-panel--membership {
   gap: 16px;
 }
 
 .nav-dropdown-featured-media {
   position: relative;
+  display: block;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 20px;

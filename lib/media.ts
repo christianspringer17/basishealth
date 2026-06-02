@@ -54,4 +54,6 @@ export const NAV_IMAGES = {
   learnProtocols: "/images/nav/nav-learn-metabolism.webp",
   learnPersonalized: "/images/nav/nav-learn-fingerprint.webp",
   learnScience: "/images/nav/nav-learn-markers.webp",
+  /** Membership nav hover preview */
+  membership: "/images/nav/nav-membership.png",
 } as const;
