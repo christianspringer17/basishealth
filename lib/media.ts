@@ -7,7 +7,7 @@
  * See public/videos/README.md and public/images/README.md
  */
 export const MEDIA = {
-  heroPoster: "/images/video2-poster.jpg",
+  heroPoster: "/images/herovid2-poster.jpg",
   heroVideo: process.env.NEXT_PUBLIC_HERO_VIDEO_URL ?? "/videos/herovid2.mp4",
   /** Previous hero video, moved into the Program section */
   programPoster: "/images/hero-poster.jpg",
