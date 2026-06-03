@@ -66,3 +66,28 @@ Or: `npm run dev:clean`
 **Why it keeps happening:** `npm run build` and `npm run dev` both write to `.next`. On Windows, running them together (or switching without a clean) corrupts the cache. `npm run dev` now auto-clears a production or broken `.next` before starting. After `npm run build`, run `npm run dev:clean` before dev again.
 
 Node 18.18+ or 20+ (`.nvmrc`).
+
+## Cursor Cloud specific instructions
+
+Single Next.js app — no Docker, database, or separate backend services. One dev server on **http://localhost:3000** serves all pages and API routes (`/api/waitlist`, `/api/assessment`).
+
+### Commands (see `package.json` for the full list)
+
+| Task | Command |
+|------|---------|
+| Install deps | `npm install` |
+| Dev server | `npm run dev` (runs `predev` cache checks; Turbo via `scripts/start-dev.mjs`) |
+| Dev after build | `npm run dev:clean` — required if you ran `npm run build` first (both write to `.next`) |
+| Lint | `npm run lint` |
+| Production build | `npm run build` then `npm start` |
+| Tests | **None configured** — CI runs lint + build only (`.github/workflows/ci.yml`) |
+
+### Running the dev server
+
+Use **one** dev server instance on port 3000. If port 3000 is in use, stop the existing process before starting another. Long-running dev servers are best kept in a tmux session (e.g. `npm run dev:clean` in `/workspace`).
+
+### Waitlist / assessment APIs
+
+Browsing the site works without env vars. Form submissions need at least one backend from `.env.example` (`WAITLIST_GITHUB_TOKEN`, `RESEND_API_KEY` + `WAITLIST_NOTIFY_EMAIL`, or `WEB3FORMS_ACCESS_KEY`). Without them, POST `/api/waitlist` returns a graceful error pointing users to `concierge@basis.care`.
+
+Optional public env vars (`NEXT_PUBLIC_GHL_FORM_EMBED_URL`, `NEXT_PUBLIC_MYDOSE_CHECKOUT_URL`, analytics IDs) change CTAs and embeds but are not required for local page rendering.
