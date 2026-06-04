@@ -11,10 +11,10 @@ import { BasalButton } from "./ui";
 
 const FOOTER_NAV = [
   {
-    title: "Membership",
+    title: "Get started",
     links: [
-      { label: "Apply", href: WAITLIST_HREF },
-      { label: "What's included", href: ROUTES.membership },
+      { label: "Start assessment", href: WAITLIST_HREF },
+      { label: "View plans", href: ROUTES.glpOne },
       { label: "Protocols", href: ROUTES.homeProtocols },
     ],
   },
@@ -29,7 +29,7 @@ const FOOTER_NAV = [
     title: "About",
     links: [
       { label: "About us", href: ROUTES.about },
-      { label: "Unlock living", href: ROUTES.membership },
+      { label: "Unlock living", href: ROUTES.aboutVitality },
       { label: "How it works", href: ROUTES.aboutHowItWorks },
     ],
   },
@@ -100,9 +100,9 @@ export function Footer({ showPrimaryCta = true }: { showPrimaryCta?: boolean }) 
         </div>
 
         <p className="footer-disclaimer">
-          Basis is a physician-supervised membership program. Therapies such as GLP-1
-          medications may not be appropriate for everyone. Access is subject to provider
-          review, eligibility, and applicable regulations. Results vary.
+          Basis offers physician-supervised GLP-1 and metabolic protocols. Therapies such
+          as GLP-1 medications may not be appropriate for everyone. Access is subject to
+          provider review, eligibility, and applicable regulations. Results vary.
         </p>
       </div>
     </footer>

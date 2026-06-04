@@ -70,11 +70,12 @@ export function EditorialModal({ open, onClose }: EditorialModalProps) {
           <div className="editorial-modal-figure editorial-modal-figure--hero">
             <div className="editorial-modal-image-wrap editorial-modal-image-wrap--product">
               <Image
-                src={MEDIA.glpOneProductMockup}
+                src={MEDIA.homeIntroProduct}
                 alt="GLP-One medication kit with vial, syringe, and packaging"
-                fill
-                className="object-contain p-4"
-                sizes="(max-width: 860px) 100vw, 720px"
+                width={1183}
+                height={769}
+                className="editorial-modal-product-img"
+                sizes="(max-width: 860px) 92vw, 600px"
                 priority
               />
             </div>

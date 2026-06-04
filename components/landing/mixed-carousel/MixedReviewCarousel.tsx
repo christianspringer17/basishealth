@@ -55,7 +55,7 @@ export function MixedReviewCarousel({
     <div
       ref={trackRef}
       className="carousel-track carousel-track--life-unlocked mt-12 w-full"
-      aria-label="Life Unlocked — member reviews and care moments"
+      aria-label="Life Unlocked — patient stories and care moments"
     >
       {items.map((item, index) => (
         <div

@@ -18,12 +18,12 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "What is Basis?",
         answer:
-          "Basis is a membership-based protocol clinic. We start with metabolic care and expand into hormone, longevity, recovery, and performance tracks — all under one connected membership and care team.",
+          "Basis is a physician-guided metabolic health brand. We start with GLP-1 and metabolic protocols and expand into hormone, longevity, recovery, and performance tracks — all under one connected care team.",
       },
       {
         question: "Do I need a prescription?",
         answer:
-          "Many therapies on Basis require a prescription and provider review. Membership gives you access to clinical oversight; medications and peptides are prescribed separately when clinically appropriate.",
+          "Many therapies on Basis require a prescription and provider review. You start with an online assessment; medications are prescribed only when clinically appropriate.",
       },
       {
         question: "How is Basis different from biomarker-only services?",
@@ -33,43 +33,43 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "Is Basis just another GLP-1 company?",
         answer:
-          "No. GLP-1 therapy may be part of Basis Metabolic when appropriate, but Basis is a protocol clinic — membership, clinical oversight, and multiple therapy tracks over time.",
+          "No. GLP-1 therapy may be part of Basis Metabolic when appropriate, but Basis is a protocol clinic — clinical oversight and multiple therapy tracks over time.",
       },
       {
         question: "How do I get started?",
         answer:
-          "Apply for membership on our homepage. When enrollment opens, intake runs through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
+          "Start your assessment on our homepage. When enrollment is live in your state, intake runs through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
       },
     ],
   },
   {
-    id: "membership",
-    label: "Membership",
+    id: "plans",
+    label: "Plans & pricing",
     items: [
       {
-        question: "What's included in membership?",
+        question: "What's included in a plan?",
         answer:
-          "Membership includes portal access, provider review, personalized protocol recommendations, ongoing support, recalibration consults, and member pricing on therapies when eligible. Membership starts at $60/month.",
+          "Plans include licensed provider review, personalized protocol recommendations, ongoing support, refill coordination, and dosing guidance when clinically appropriate. Therapy and medication pricing are shown separately by tier and duration.",
       },
       {
-        question: "Does membership include therapies or medications?",
+        question: "Do plans include therapies or medications?",
         answer:
-          "No. Therapies, labs, medications, peptides, and supplements are purchased separately when clinically appropriate. Membership is your access layer — the clinical relationship and protocol guidance.",
+          "Plan pricing covers clinical care and protocol support. Medications, labs, peptides, and supplements are part of your protocol when clinically appropriate and priced on the relevant therapy plan.",
       },
       {
         question: "Is there a long-term commitment?",
         answer:
-          "Membership is billed monthly. You can pause or cancel according to the terms in your member agreement. We design for long-term protocol relationships, not lock-in.",
+          "You can choose monthly or multi-month GLP-1 plans. Billing and cancellation terms are explained at checkout. We recommend multi-month protocols for titration and value, not lock-in for its own sake.",
       },
       {
-        question: "Can I access therapy without membership?",
+        question: "Can I access therapy without completing intake?",
         answer:
-          "No. Basis is membership-based. Therapies are available only through the appropriate care pathway after intake and provider review.",
+          "No. Therapies are available only after online assessment and provider review through our clinical partner.",
       },
       {
         question: "How much do therapies typically cost?",
         answer:
-          "Pricing varies by protocol and tier. GLP-1 therapy on Basis Metabolic starts around $240/month for microdose and $340/month for weight-loss titration — separate from the $60 membership fee. Your clinician recommends what fits after review.",
+          "Pricing varies by tier and duration. GLP-1 therapy on Basis Metabolic starts around $240/month for microdose and $340/month for weight-loss titration on monthly billing, with lower effective monthly rates on 3-month plans. Your clinician recommends what fits after review.",
       },
     ],
   },
@@ -80,7 +80,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "What protocol tracks are available?",
         answer:
-          "Basis Metabolic is live today. Hormone, Longevity, Recovery, and Performance tracks are coming soon. Members build on one connected care relationship as new tracks launch.",
+          "Basis Metabolic is live today. Hormone, Longevity, Recovery, and Performance tracks are coming soon. You build on one connected care relationship as new tracks launch.",
       },
       {
         question: "What is Basis Metabolic?",
@@ -90,12 +90,12 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "Are peptides part of Basis?",
         answer:
-          "Peptides and other advanced therapies may be recommended within specific protocol tracks when clinically appropriate. They are prescribed and purchased separately — never bundled into membership by default.",
+          "Peptides and other advanced therapies may be recommended within specific protocol tracks when clinically appropriate. They are prescribed and purchased separately — never bundled into a plan by default.",
       },
       {
         question: "How often does my protocol change?",
         answer:
-          "Protocols evolve with your response, labs (when used), and goals. Recalibration is built into membership — not a one-time prescription at checkout.",
+          "Protocols evolve with your response, labs (when used), and goals. Ongoing recalibration is part of care — not a one-time prescription at checkout.",
       },
     ],
   },
@@ -121,7 +121,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "Do you offer HSA/FSA?",
         answer:
-          "Many members use HSA/FSA for eligible clinical services. Confirm with your plan administrator.",
+          "Many people use HSA/FSA for eligible clinical services. Confirm with your plan administrator.",
       },
     ],
   },
@@ -135,9 +135,9 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
           "GLP-One is Basis Metabolic's physician-supervised GLP-1 program — modern GLP-1 therapeutics, optional diagnostics, and ongoing clinical oversight. Your protocol adapts as your body responds.",
       },
       {
-        question: "How does GLP-1 therapy relate to membership?",
+        question: "How does GLP-1 therapy relate to Basis Metabolic?",
         answer:
-          "Membership is required and starts at $60/month. GLP-1 therapy tiers reflect medication and care pricing separate from membership. Eligible plans include clinician review, protocol design, check-ins, and dosing support.",
+          "GLP-1 therapy is part of a Basis Metabolic protocol when clinically appropriate. Plan tiers reflect medication and care pricing for the duration you choose — including clinician review, protocol design, check-ins, and dosing support.",
       },
       {
         question: "Microdose vs. weight loss — what's the difference?",
@@ -151,7 +151,7 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "Is GLP-One right for everyone?",
         answer:
-          "No. Eligibility depends on medical history, goals, and clinician review. Apply for membership for launch updates or complete checkout when enrollment is live.",
+          "No. Eligibility depends on medical history, goals, and clinician review. Start your assessment for launch updates or complete checkout when enrollment is live.",
       },
     ],
   },
@@ -162,16 +162,16 @@ export const FAQ_CATEGORIES: FaqCategory[] = [
       {
         question: "Where is Basis available?",
         answer:
-          "We are building toward nationwide availability. Apply for membership or contact us for the latest on your state.",
+          "We are building toward nationwide availability. Start your assessment or contact us for the latest on your state.",
       },
       {
         question: "How do I contact Basis?",
-        answer: `Email ${SITE_EMAIL} for general questions. Billing and clinical support lines will be listed on your member materials when you enroll.`,
+        answer: `Email ${SITE_EMAIL} for general questions. Billing and clinical support lines will be listed in your care materials after enrollment.`,
       },
       {
         question: "What happens after I apply?",
         answer:
-          "You'll receive updates as enrollment opens in your area. When live, intake and checkout run through our clinical partner — provider review happens before any therapy is prescribed.",
+          "You'll receive updates as assessment opens in your area. When live, intake and checkout run through our clinical partner — provider review happens before any therapy is prescribed.",
       },
     ],
   },

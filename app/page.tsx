@@ -1,10 +1,9 @@
 import { BrandLockupSection } from "@/components/landing/BrandLockupSection";
 import { ExpectSection } from "@/components/landing/ExpectSection";
-import { ExplainerSection } from "@/components/landing/ExplainerSection";
+import { IntroSection } from "@/components/landing/IntroSection";
 import { Footer } from "@/components/landing/Footer";
 import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
-import { MembershipPlanSection } from "@/components/landing/MembershipPlanSection";
 import { ProgramSection } from "@/components/landing/ProgramSection";
 import { ScienceSection } from "@/components/landing/ScienceSection";
 import { StatementSection } from "@/components/landing/StatementSection";
@@ -18,13 +17,12 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <StatementSection />
-        <ExplainerSection />
+        <IntroSection />
         <ProgramSection />
         <ExpectSection />
         <BrandLockupSection />
         <ScienceSection />
         <VitalitySection />
-        <MembershipPlanSection />
         <WaitlistSection />
       </main>
       <Footer showPrimaryCta={false} />

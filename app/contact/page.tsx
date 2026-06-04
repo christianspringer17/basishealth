@@ -6,7 +6,7 @@ import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata = {
   title: "Contact",
-  description: "Get in touch with Basis for membership, billing, and clinical questions.",
+  description: "Get in touch with Basis for plans, billing, and clinical questions.",
 };
 
 export default function ContactPage() {
@@ -22,7 +22,7 @@ export default function ContactPage() {
           <section className="info-page-block">
             <h2 className="info-page-heading">General support</h2>
             <p className="text-body-lg text-grey-7">
-              For help with the website, membership application, or getting started:
+              For help with the website, your assessment, or getting started:
             </p>
             <p>
               <a href={`mailto:${SITE_EMAIL}`} className="info-page-link">

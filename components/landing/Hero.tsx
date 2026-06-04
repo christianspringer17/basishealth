@@ -16,9 +16,9 @@ export function Hero() {
       <div className="hero-overlay absolute inset-0 z-[1]" aria-hidden />
 
       <div className="site-container site-grid relative z-[2] w-full">
-        <div className="col-span-full flex justify-center px-2 text-center">
-          <h1 className="text-hero-title max-w-[920px] text-pretty text-grey-1">
-            One membership. Care that evolves with you.
+        <div className="col-span-full flex flex-col items-center text-center">
+          <h1 className="hero-headline text-hero-title text-grey-1">
+            Longevity tailored for your biology
           </h1>
         </div>
       </div>

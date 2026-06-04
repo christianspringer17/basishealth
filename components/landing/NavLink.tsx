@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { FocusEventHandler, MouseEventHandler, ReactNode } from "react";
 import { cn } from "./ui";
 
-/** Basal.health nav pill — h-34, px-14, glass ::after, 220ms transitions */
+/** Basal.health nav pill — h-34 px-14, liquid glass always visible */
 export function NavLink({
   href,
   children,
@@ -43,7 +43,7 @@ export function NavLink({
         onFocus={onFocus}
         aria-expanded={ariaExpanded}
       >
-        {children}
+        <span className="nav-link-basal__label">{children}</span>
       </button>
     );
   }
@@ -58,7 +58,7 @@ export function NavLink({
       onFocus={onFocus}
       aria-expanded={ariaExpanded}
     >
-      {children}
+      <span className="nav-link-basal__label">{children}</span>
     </Link>
   );
 }

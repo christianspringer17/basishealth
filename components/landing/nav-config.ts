@@ -24,13 +24,23 @@ export type NavAboutMenu = {
   imageCards: NavImageCard[];
 };
 
+export type NavFeaturedMenu = {
+  variant: "featured";
+  image: string;
+  imageAlt: string;
+  title: string;
+  description: string;
+  cta: { label: string; href: string };
+  links: { label: string; href: string }[];
+};
+
 export type NavMembershipMenu = {
   variant: "membership";
   featured: NavImageCard;
   links: { label: string; href: string }[];
 };
 
-export type NavMenu = NavLearnMenu | NavAboutMenu | NavMembershipMenu;
+export type NavMenu = NavLearnMenu | NavAboutMenu | NavMembershipMenu | NavFeaturedMenu;
 
 export type NavItem = {
   id: string;
@@ -41,22 +51,18 @@ export type NavItem = {
 
 export const NAV_ITEMS: NavItem[] = [
   {
-    id: "membership",
-    label: "Membership",
-    href: ROUTES.membership,
+    id: "treatments",
+    label: "Treatments",
+    href: ROUTES.glpOne,
     menu: {
-      variant: "membership",
-      featured: {
-        label: "Explore membership",
-        href: ROUTES.membership,
-        image: NAV_IMAGES.membership,
-        imageAlt: "Abstract peptide molecules in soft clinical blue",
-      },
-      links: [
-        { label: "What's included", href: ROUTES.membership },
-        { label: "Plan details", href: ROUTES.membershipPlan },
-        { label: "FAQs", href: ROUTES.membershipFaq },
-      ],
+      variant: "featured",
+      image: NAV_IMAGES.glpOneNavProduct,
+      imageAlt: "Basis GLP-One medication kit",
+      title: "GLP-One",
+      description:
+        "Physician-guided therapies — starting with GLP-One metabolic care.",
+      cta: { label: "Get started", href: ROUTES.glpOne },
+      links: [],
     },
   },
   {
@@ -108,7 +114,7 @@ export const NAV_ITEMS: NavItem[] = [
         },
         {
           label: "Unlock living",
-          href: ROUTES.membership,
+          href: ROUTES.glpOne,
           image: NAV_IMAGES.aboutVitality,
           imageAlt: "Abstract premium wellness texture",
         },
@@ -129,6 +135,10 @@ export function getNavMenuLinks(
       { label: menu.featured.label, href: menu.featured.href },
       ...menu.links,
     ];
+  }
+
+  if (menu.variant === "featured") {
+    return [{ label: menu.cta.label, href: menu.cta.href }, ...menu.links];
   }
 
   return [

@@ -24,11 +24,11 @@ export type LifeUnlockedCarouselItem =
 export const LIFE_UNLOCKED_CAROUSEL: LifeUnlockedCarouselItem[] = [
   {
     type: "review",
-    label: "Member Review",
+    label: "Patient story",
     quote:
       "I came in looking for metabolic support. What made Basis different was the structure — it felt like a plan, not another product.",
     name: "Maya",
-    memberType: "Basis Member",
+    memberType: "Basis patient",
   },
   {
     type: "media",
@@ -40,11 +40,11 @@ export const LIFE_UNLOCKED_CAROUSEL: LifeUnlockedCarouselItem[] = [
   },
   {
     type: "review",
-    label: "Member Review",
+    label: "Patient story",
     quote:
       "The process felt clear from the beginning. I understood what I was doing, why it mattered, and how the protocol could adjust over time.",
     name: "Ethan",
-    memberType: "Basis Metabolic Member",
+    memberType: "Basis Metabolic",
   },
   {
     type: "media",
@@ -55,11 +55,11 @@ export const LIFE_UNLOCKED_CAROUSEL: LifeUnlockedCarouselItem[] = [
   },
   {
     type: "review",
-    label: "Member Review",
+    label: "Patient story",
     quote:
       "I liked that care didn't stop after the first step. The check-ins and protocol approach made the experience feel more intentional.",
     name: "Lena",
-    memberType: "Basis Member",
+    memberType: "Basis patient",
   },
   {
     type: "media",
@@ -73,5 +73,5 @@ export const LIFE_UNLOCKED_CAROUSEL: LifeUnlockedCarouselItem[] = [
 export const LIFE_UNLOCKED_SECTION = {
   title: "Life Unlocked",
   subtitle:
-    "Basis is built around protocols, support, and a care relationship that can evolve over time.",
+    "Basis is built around protocols, support, and ongoing care that ensures you reach your goals",
 } as const;

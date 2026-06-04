@@ -3,7 +3,8 @@
 | File | Used in |
 |------|---------|
 | `protocol-product.png` | Homepage intro (full kit mockup) |
-| `protocol-dropdown.png` | GLP–One nav dropdown (vial) — do not change |
+| `glp-one-nav-product.png` | GLP–One nav dropdown (product kit, transparent) |
+| `protocol-dropdown.png` | Legacy vial shot |
 | `nav-about.webp` | About → About us; How it works hero |
 | `nav-unlock.webp` | About → Unlock living; Vitality hero |
 | `nav-learn-metabolism.webp` | Learn → Your protocol areas (from `pexels-john-de-leon-*.jpg`) |

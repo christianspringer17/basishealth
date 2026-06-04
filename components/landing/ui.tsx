@@ -43,6 +43,7 @@ function BasalButtonInner({
 type BasalButtonVariant = "default" | "accent" | "intro" | "secondary";
 
 function basalBtnVariantClass(variant: BasalButtonVariant) {
+  if (variant === "accent") return "basal-btn--accent";
   if (variant === "intro") return "basal-btn--intro";
   if (variant === "secondary") return "basal-btn--secondary";
   return "basal-btn--primary";
@@ -112,7 +113,7 @@ export function TextBlock({
 }) {
   return (
     <div className="flex flex-col items-center gap-1.5 text-center">
-      <div className="text-h1 text-grey-9 text-pretty md:text-h1-lg">{title}</div>
+      <div className="text-h1 text-grey-7 text-pretty md:text-h1-lg">{title}</div>
       {subtitle && (
         <div className="text-lead text-grey-7 text-pretty md:text-subtitle">
           {subtitle}
@@ -143,14 +144,17 @@ export function MediaFrame({
   aspect = "cinema",
   rounded = "2xl",
   objectFit = "cover",
+  surface = "default",
   className,
   priority = false,
 }: {
   src: string;
   alt: string;
   aspect?: "cinema" | "card" | "portrait" | "product";
-  rounded?: "lg" | "2xl";
+  rounded?: "lg" | "2xl" | "none";
   objectFit?: "cover" | "contain";
+  /** `transparent` — no frame fill (for PNG product shots on page background) */
+  surface?: "default" | "transparent";
   className?: string;
   priority?: boolean;
 }) {
@@ -164,9 +168,21 @@ export function MediaFrame({
           : "aspect-[0.85] md:aspect-video";
 
   const bgClass =
-    aspect === "product" || objectFit === "contain"
-      ? "bg-white"
-      : "bg-[var(--grey-2)]";
+    surface === "transparent"
+      ? "bg-transparent"
+      : aspect === "product" || objectFit === "contain"
+        ? "bg-white"
+        : "bg-[var(--grey-2)]";
+
+  const roundedClass =
+    rounded === "none"
+      ? ""
+      : rounded === "2xl"
+        ? "rounded-basal-2xl"
+        : "rounded-basal-lg";
+
+  const productImgPadding =
+    surface === "transparent" ? "p-0 md:p-2" : "p-6 md:p-10";
 
   return (
     <div
@@ -174,7 +190,7 @@ export function MediaFrame({
         "relative w-full overflow-hidden",
         bgClass,
         aspectClass,
-        rounded === "2xl" ? "rounded-basal-2xl" : "rounded-basal-lg",
+        roundedClass,
         className,
       )}
     >
@@ -185,7 +201,10 @@ export function MediaFrame({
           alt={alt}
           decoding="async"
           fetchPriority={priority ? "high" : "auto"}
-          className="absolute inset-0 h-full w-full object-contain p-6 md:p-10"
+          className={cn(
+            "absolute inset-0 h-full w-full object-contain",
+            productImgPadding,
+          )}
           draggable={false}
         />
       ) : (

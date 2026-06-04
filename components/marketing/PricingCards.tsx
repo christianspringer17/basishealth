@@ -1,20 +1,12 @@
 "use client";
 
-import { BasalButton, cn } from "@/components/landing/ui";
-import {
-  CHECKOUT_HREF,
-  CTA_LABELS,
-  checkoutCtaLabel,
-  checkoutUrlForPlan,
-  isCheckoutLive,
-  WAITLIST_HREF,
-} from "@/lib/cta";
+import { cn } from "@/components/landing/ui";
+import { MEDIA } from "@/lib/media";
 import {
   BILLING_TERMS,
   GLP_PRODUCTS,
   max3MonthSavings,
-  planId,
-  priceDisplay,
+  monthlyPillPrice,
   type BillingTerm,
   type ProductTier,
 } from "@/lib/pricing";
@@ -78,114 +70,72 @@ export function PricingCards({
   term,
   selectedProduct,
   onSelectProduct,
-  ctaHref = isCheckoutLive() ? CHECKOUT_HREF : WAITLIST_HREF,
 }: {
   term: BillingTerm;
   selectedProduct?: ProductTier;
   onSelectProduct?: (tier: ProductTier) => void;
-  ctaHref?: string;
 }) {
-  const checkoutIsExternal = ctaHref.startsWith("http");
   const interactive = Boolean(onSelectProduct);
 
   return (
-    <div className="grid w-full gap-6 md:grid-cols-2">
+    <div className="pricing-cards-product">
       {GLP_PRODUCTS.map((product) => {
         const isSelected = selectedProduct === product.id;
-        const display = priceDisplay(product, term);
-        const showRecommended =
-          term === "3-month" && product.recommendedOn3Month;
-        const showPopular = term === "3-month" && product.popularOn3Month;
 
         return (
-          <div
-            key={product.id}
-            className={cn(
-              "relative flex flex-col gap-6 rounded-basal-2xl border p-8 transition-colors",
-              isSelected
-                ? "border-[var(--grey-7)] bg-[var(--grey-1)]"
-                : "border-[var(--grey-3)] bg-[var(--grey-1)]",
-              interactive ? "cursor-pointer hover:border-[var(--grey-7)]" : "",
-            )}
-            onClick={interactive ? () => onSelectProduct?.(product.id) : undefined}
-            onKeyDown={
-              interactive
-                ? (e) => {
-                    if (e.key === "Enter" || e.key === " ") onSelectProduct?.(product.id);
-                  }
-                : undefined
-            }
-            role={interactive ? "button" : undefined}
-            tabIndex={interactive ? 0 : undefined}
-            aria-pressed={interactive ? isSelected : undefined}
-          >
-            {showPopular && (
-              <span className="absolute top-6 right-6 rounded-full border border-[var(--grey-3)] bg-white px-3 py-1 text-h5 text-grey-9">
-                Most popular
-              </span>
-            )}
-            {showRecommended && (
-              <span
-                className={cn(
-                  "absolute top-6 rounded-full border border-[var(--grey-3)] bg-white px-3 py-1 text-h5 text-grey-9",
-                  showPopular ? "right-36" : "right-6",
-                )}
-              >
-                Best value
-              </span>
-            )}
-            {term === "3-month" && display.savings && display.savings > 0 && (
-              <span className="absolute top-6 left-6 rounded-full bg-[var(--accent-1)] px-3 py-1 text-h5 text-[var(--accent-5)]">
-                Save ${display.savings}
-              </span>
-            )}
-
-            <div className={term === "3-month" ? "pt-6" : undefined}>
-              <p className="text-h5 text-grey-7">{product.subtitle}</p>
-              <h3 className="text-h1-lg text-grey-9">{product.name}</h3>
-              <p className="mt-2 text-body text-pretty text-grey-7">{product.description}</p>
-            </div>
-
-            <div>
-              <p className="text-h1-xl text-grey-9">
-                {display.primary}
-                {term === "1-month" && (
-                  <span className="text-h5 text-grey-7">{display.secondary}</span>
-                )}
-              </p>
-              {term === "3-month" && display.secondary && (
-                <p className="mt-1 text-body text-grey-7">{display.secondary}</p>
+          <div key={product.id} className="pricing-card-product-wrap">
+            <article
+              className={cn(
+                "pricing-card-product",
+                isSelected && "pricing-card-product--selected",
+                interactive && "pricing-card-product--interactive",
               )}
-              <p className="mt-2 text-h5 text-grey-7">
-                Pricing confirmed after clinical review
+              onClick={interactive ? () => onSelectProduct?.(product.id) : undefined}
+              onKeyDown={
+                interactive
+                  ? (e) => {
+                      if (e.key === "Enter" || e.key === " ") onSelectProduct?.(product.id);
+                    }
+                  : undefined
+              }
+              role={interactive ? "button" : undefined}
+              tabIndex={interactive ? 0 : undefined}
+              aria-pressed={interactive ? isSelected : undefined}
+            >
+              <p className="pricing-card-product-label">{product.cardLabel}</p>
+              <div className="pricing-card-product__media">
+                {/* Native img — preserves PNG transparency; file: public/images/glp-one-pricing-vial.png */}
+                <img
+                  src={MEDIA.glpOnePricingVial}
+                  alt=""
+                  decoding="async"
+                  draggable={false}
+                  className="pricing-card-product__vial"
+                />
+              </div>
+
+              <div className="pricing-card-product__headings">
+                <h3 className="pricing-card-product__headline">{product.cardHeadline}</h3>
+                <p className="pricing-card-product__subtitle">{product.cardSubtitle}</p>
+              </div>
+
+              <p className="pricing-card-product__desc">
+                <span>{product.description}</span>
+                <button
+                  type="button"
+                  className="pricing-card-product__hint"
+                  aria-label={`More about ${product.cardHeadline}`}
+                  title={product.tooltip}
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  ?
+                </button>
               </p>
-            </div>
 
-            <ul className="flex flex-col gap-2">
-              {product.features.map((feature) => (
-                <li key={feature} className="flex items-start gap-2 text-body text-grey-7">
-                  <span className="mt-1 text-grey-9" aria-hidden>
-                    ✓
-                  </span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
-
-            {!interactive && (
-              <BasalButton
-                href={
-                  checkoutIsExternal
-                    ? checkoutUrlForPlan(planId(product.id, term), ctaHref)
-                    : ctaHref
-                }
-                data-analytics-event="cta_click"
-                data-analytics-label={`pricing_${product.id}_${term}`}
-                data-analytics-location="pricing_cards"
-              >
-                {checkoutIsExternal ? checkoutCtaLabel() : CTA_LABELS.applyMembership}
-              </BasalButton>
-            )}
+              <p className="pricing-card-product__price">
+                {monthlyPillPrice(product, term)}
+              </p>
+            </article>
           </div>
         );
       })}

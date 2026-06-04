@@ -8,8 +8,8 @@ export type ExpectStep = {
 
 export const EXPECT_STEPS: ExpectStep[] = [
   {
-    title: "Apply for membership",
-    body: "Start with an application and assessment. Share your goals and health history so your care team can understand where you are today.",
+    title: "Start your assessment",
+    body: "Begin with a short online assessment. Share your goals and health history so your care team can understand where you are today.",
     image: "/images/expect/step-1-eligibility.webp",
     imageMobile: "/images/expect/step-1-eligibility-mobile.webp",
     alt: "Parent gently holding a baby, close-up on caring hands",
@@ -29,7 +29,7 @@ export const EXPECT_STEPS: ExpectStep[] = [
   },
   {
     title: "Therapies when clinically appropriate",
-    body: "Depending on eligibility and provider review, your protocol may include GLP-1 therapy, peptides, labs, supplements, or other interventions—purchased separately from membership.",
+    body: "Depending on eligibility and provider review, your protocol may include GLP-1 therapy, peptides, labs, supplements, or other interventions—added to your plan when clinically appropriate.",
     image: "/images/expect/step-4-literacy.webp",
     imageMobile: "/images/expect/step-4-literacy-mobile.webp",
     alt: "Yellow wildflowers in soft focus against a pale sky",

@@ -19,6 +19,12 @@ export const MEDIA = {
   editorialModal: "/images/nav/nav-about.webp",
   /** GLP–One product kit — editorial modal hero */
   glpOneProductMockup: "/images/glp-one-product-mockup.png",
+  /** Homepage intro — GLP-One kit (transparent PNG) */
+  homeIntroProduct: "/images/glp-one-home-product.png",
+  /** GLP-One pricing cards — labeled vial (public/images/glp-one-pricing-vial.png) */
+  glpOnePricingVial: "/images/glp-one-pricing-vial.png",
+  /** GLP-One final CTA — hand holding vial (transparent PNG) */
+  glpOneHandVial: "/images/glp-one-hand-vial.png",
   intro: "/images/nav/protocol-product.png",
   /** Replace with /images/sections/*.jpg when brand photography is ready */
   program: "/images/placeholder.svg",
@@ -58,8 +64,10 @@ export const EDITORIAL_IMAGES = {
 
 export const NAV_IMAGES = {
   protocolProduct: "/images/nav/protocol-product.png",
-  /** Vial shot — GLP–One nav dropdown only */
+  /** Vial shot — legacy */
   protocolDropdown: "/images/nav/protocol-dropdown.png",
+  /** GLP-1 nav hover card — vial product shot */
+  glpOneNavProduct: "/images/nav/protocol-dropdown.png",
   aboutHowItWorks: "/images/nav/nav-about.webp",
   aboutVitality: "/images/nav/nav-unlock.webp",
   learnProtocols: "/images/nav/nav-learn-metabolism.webp",

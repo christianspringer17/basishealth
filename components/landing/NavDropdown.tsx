@@ -102,6 +102,42 @@ function MembershipMenu({
   );
 }
 
+function FeaturedMenu({
+  menu,
+  onNavigate,
+}: {
+  menu: Extract<NavMenu, { variant: "featured" }>;
+  onNavigate?: () => void;
+}) {
+  return (
+    <div className="nav-dropdown-panel nav-dropdown-panel--featured">
+      <div className="nav-dropdown-product-card">
+        <div className="nav-dropdown-product-card__media">
+          <Image
+            src={menu.image}
+            alt={menu.imageAlt}
+            width={300}
+            height={200}
+            className="nav-dropdown-product-card__image"
+            sizes="(max-width: 360px) 300px"
+            quality={90}
+            priority
+          />
+        </div>
+        <h3 className="nav-dropdown-product-card__title">{menu.title}</h3>
+        <p className="nav-dropdown-product-card__description">{menu.description}</p>
+        <Link
+          href={menu.cta.href}
+          className="nav-dropdown-product-cta"
+          onClick={onNavigate}
+        >
+          {menu.cta.label}
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export function NavDropdown({
   menu,
   open,
@@ -125,6 +161,8 @@ export function NavDropdown({
         <LearnMenu menu={menu} onNavigate={onNavigate} />
       ) : menu.variant === "about" ? (
         <AboutMenu menu={menu} onNavigate={onNavigate} />
+      ) : menu.variant === "featured" ? (
+        <FeaturedMenu menu={menu} onNavigate={onNavigate} />
       ) : (
         <MembershipMenu menu={menu} onNavigate={onNavigate} />
       )}

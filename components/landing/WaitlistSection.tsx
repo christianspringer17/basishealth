@@ -15,7 +15,7 @@ function GhlFormEmbed() {
     <div className="w-full max-w-[520px]">
       <iframe
         src={GHL_FORM_EMBED_URL}
-        title={`Apply for ${SITE_NAME} membership`}
+        title={`Get early access to ${SITE_NAME}`}
         className="min-h-[420px] w-full rounded-basal-lg border border-[var(--grey-3)] bg-white"
         loading="lazy"
       />
@@ -232,11 +232,11 @@ export function WaitlistSection() {
     >
       <div className="site-container site-grid w-full">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
-          <h2 className="text-h1-lg leading-100 text-grey-9">Begin with Clarity</h2>
+          <h2 className="text-h1-lg leading-100 text-grey-7">Begin with Clarity</h2>
           <p className="text-lead max-w-[600px] text-pretty text-grey-7">
             {useGhl
-              ? "Apply for membership to receive launch updates. When enrollment opens, intake runs through our clinical partner."
-              : "Apply for membership with your email and optional mobile for launch updates. When enrollment opens, intake runs through our clinical partner."}
+              ? "Get launch updates while we open assessment in your state. When live, start your assessment through our clinical partner — you won't be charged unless a provider approves treatment."
+              : "Share your email for launch updates. When assessment is live, a licensed provider will review your eligibility before any charge."}
           </p>
         </div>
       </div>

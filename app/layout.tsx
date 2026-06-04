@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${SITE_NAME} — Protocol-based metabolic care`,
     description:
-      "Membership-based metabolic protocols with physician review, ongoing support, and therapies when clinically appropriate.",
+      "Physician-guided GLP-1 and metabolic protocols with ongoing support and therapies when clinically appropriate.",
     siteName: SITE_NAME,
     type: "website",
     locale: "en_US",

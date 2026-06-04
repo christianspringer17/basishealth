@@ -1,13 +1,15 @@
 /** Canonical paths — use everywhere nav/footer link */
 export const ROUTES = {
   home: "/",
-  homeMembership: "/#membership",
+  homePlans: "/#plans",
+  homeHowCareWorks: "/#how-care-works",
   homeProtocols: "/#protocols",
   homeFaq: "/#faq",
-  homeMembershipPlan: "/#membership-plan",
+  /** @deprecated Use homePlans */
+  homeMembershipPlan: "/#plans",
   membership: "/membership",
   membershipFaq: "/membership#faq",
-  membershipPlan: "/membership#membership-plan",
+  membershipPlan: "/membership#plans",
   glpOne: "/glp-one",
   glpOneFaq: "/glp-one#faq",
   signup: "/signup",
@@ -21,6 +23,7 @@ export const ROUTES = {
   learnUniqueGoals: "/learn/as-unique-as-your-goals",
   learnWhatWeMeasure: "/learn/what-we-measure",
   learnOurProgram: "/learn/our-program",
+  account: "/account",
   contact: "/contact",
   faq: "/faq",
   connect: "/connect",

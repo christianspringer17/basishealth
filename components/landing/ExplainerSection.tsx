@@ -11,7 +11,7 @@ export function ExplainerSection() {
   const [openId, setOpenId] = useState<string>(EXPLAINER_ITEMS[0]?.id ?? "");
 
   return (
-    <section id="membership" className="explainer-section section-shell section-gap-lg w-full scroll-mt-28">
+    <section id="how-care-works" className="explainer-section section-shell section-gap-lg w-full scroll-mt-28">
       <div className="site-container site-grid w-full">
         <div className="col-span-full md:col-span-16 md:col-start-5">
           <div className="explainer-list">
@@ -86,9 +86,9 @@ export function ExplainerSection() {
                         </ul>
                       ) : null}
 
-                      {item.id === "how-to-start" ? (
-                        <Link href="#membership-plan" className="explainer-plan-link">
-                          {CTA_LABELS.seeMembershipPlan}
+                      {item.id === "start-glp-one" ? (
+                        <Link href="#plans" className="explainer-plan-link">
+                          {CTA_LABELS.seePlans}
                         </Link>
                       ) : null}
                     </div>

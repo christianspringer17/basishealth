@@ -16,7 +16,7 @@ export function ProgramSection() {
         <div className="site-container site-grid w-full">
           <div className="col-span-full flex flex-col items-center gap-6 text-center md:col-span-16 md:col-start-5">
             <div className="flex flex-col items-center gap-2">
-              <h2 className="text-h1-lg leading-100 text-grey-9">
+              <h2 className="text-h1-lg leading-100 text-grey-7">
                 Protocol tracks for metabolic health and beyond.
               </h2>
               <p className="text-subtitle leading-100 text-grey-7">
@@ -57,7 +57,7 @@ export function ProgramSection() {
                     : {})}
                 >
                 <div className="flex flex-col gap-1">
-                  <h3 className="text-h5 text-grey-9">{protocol.name}</h3>
+                  <h3 className="text-h5 text-grey-7">{protocol.name}</h3>
                   <p
                     className={cn(
                       "text-h5",
@@ -84,7 +84,7 @@ export function ProgramSection() {
             <p className="max-w-[640px] text-body text-pretty text-grey-7">
               Basis is starting with metabolic care and expanding into additional
               protocol tracks for hormones, longevity, recovery, and performance.
-              Members will build on one connected care relationship over time.
+              You build on one connected care relationship over time.
             </p>
           </div>
         </div>

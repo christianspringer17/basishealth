@@ -7,22 +7,22 @@ export { HOME_FAQS } from "@/lib/content/faq-categories";
 
 const maxSavings = max3MonthSavings();
 
-/** /faq page — membership + platform (legacy flat lists) */
+/** /membership page — platform & plans */
 export const MEMBERSHIP_FAQS: FaqItem[] = [
   {
     question: "What is Basis?",
     answer:
-      "Basis is a membership-based protocol clinic starting with metabolic care. Members receive access to provider review, protocol recommendations, ongoing support, and recalibration.",
+      "Basis is a physician-guided metabolic health brand starting with GLP-1 and metabolic protocols. You receive provider review, protocol recommendations, ongoing support, and recalibration when clinically appropriate.",
   },
   {
-    question: "What does membership include?",
+    question: "What's included in a plan?",
     answer:
-      "Membership includes portal access, provider review, personalized protocol recommendations, support, and recalibration. Membership starts at $60/month.",
+      "Plans include licensed provider review, personalized protocol recommendations, support, and refill coordination. Therapy and medication are priced on the plan you choose after clinical review.",
   },
   {
     question: "Are therapies included?",
     answer:
-      "No. Therapies, labs, medications, peptides, supplements, and other interventions are purchased separately when clinically appropriate.",
+      "Clinical care is included in your plan pricing. Medications and add-on therapies are prescribed and billed according to your protocol when clinically appropriate.",
   },
   {
     question: "Are labs required?",
@@ -32,7 +32,7 @@ export const MEMBERSHIP_FAQS: FaqItem[] = [
   {
     question: "Is Basis a GLP-1 company?",
     answer:
-      "No. GLP-1 therapy may be part of Basis Metabolic when clinically appropriate, but Basis is built around protocol-based care.",
+      "No. GLP-1 therapy may be part of Basis Metabolic when clinically appropriate, but Basis is built around physician-guided protocol care.",
   },
   {
     question: "What protocols are available?",
@@ -40,14 +40,14 @@ export const MEMBERSHIP_FAQS: FaqItem[] = [
       "Basis Metabolic is the first live protocol. Additional tracks for hormones, longevity, recovery, and performance are coming soon.",
   },
   {
-    question: "Can I access therapy without membership?",
+    question: "Can I access therapy without completing intake?",
     answer:
-      "No. Basis is membership-based. Therapies are available only through the appropriate care pathway after intake and provider review.",
+      "No. Therapies are available only after online assessment and provider review through our clinical partner.",
   },
   {
-    question: "How do I apply?",
+    question: "How do I get started?",
     answer:
-      "Apply for membership on our homepage. When enrollment opens, intake runs through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
+      "Start your assessment on our homepage. When enrollment is live, intake runs through our clinical partner. Access to therapy is subject to provider review, eligibility, and applicable regulations.",
   },
 ];
 
@@ -56,7 +56,7 @@ export const GLP_FAQS: FaqItem[] = [
   {
     question: "How does GLP-1 therapy relate to Basis Metabolic?",
     answer:
-      "GLP-1 therapy may be included as part of a Basis Metabolic protocol when clinically appropriate. Membership is required and starts at $60/month. GLP-1 tiers on this page reflect therapy pricing separate from membership.",
+      "GLP-1 therapy may be included as part of a Basis Metabolic protocol when clinically appropriate. Plan tiers on this page reflect therapy and care pricing for the duration you select.",
   },
   {
     question: "What is tirzepatide?",
@@ -66,7 +66,7 @@ export const GLP_FAQS: FaqItem[] = [
   {
     question: "How long does it take to see results?",
     answer:
-      "Timelines vary. Many members notice appetite and energy shifts within weeks; meaningful metabolic change often requires months of consistent protocol and follow-up. Individual outcomes vary.",
+      "Timelines vary. Many people notice appetite and energy shifts within weeks; meaningful metabolic change often requires months of consistent protocol and follow-up. Individual outcomes vary.",
   },
   {
     question: "Microdose vs. weight loss — what's the difference?",
@@ -85,12 +85,12 @@ export const GLP_FAQS: FaqItem[] = [
   {
     question: "Is GLP-One right for everyone?",
     answer:
-      "No. Eligibility depends on medical history, goals, and clinician review. Apply for membership for launch updates or complete checkout when enrollment is live.",
+      "No. Eligibility depends on medical history, goals, and clinician review. Start your assessment for launch updates or complete checkout when enrollment is live.",
   },
   {
     question: "Do you take FSA/HSA?",
     answer:
-      "Many members use HSA/FSA for eligible clinical services. Confirm with your plan administrator.",
+      "Many people use HSA/FSA for eligible clinical services. Confirm with your plan administrator.",
   },
 ];
 
@@ -98,16 +98,16 @@ export const GENERAL_FAQS: FaqItem[] = [
   {
     question: "How do I get started?",
     answer:
-      "Apply for membership on our homepage. When enrollment opens, checkout runs through our clinical partner—no patient intake form on this site.",
+      "Start your assessment on our homepage. When enrollment is live, checkout runs through our clinical partner—no patient intake form on this site.",
   },
   {
     question: "Where is Basis available?",
     answer:
-      "We are building toward nationwide availability. Apply for membership or contact us for the latest on your state.",
+      "We are building toward nationwide availability. Start your assessment or contact us for the latest on your state.",
   },
   {
     question: "How do I contact us?",
-    answer: `Email ${SITE_EMAIL} for general questions. Billing and clinical support lines will be listed on your member materials when you enroll.`,
+    answer: `Email ${SITE_EMAIL} for general questions. Billing and clinical support lines will be listed in your care materials after enrollment.`,
   },
 ];
 

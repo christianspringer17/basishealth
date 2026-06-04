@@ -16,6 +16,8 @@ export type AboutPageContent = {
   title: string;
   subtitle?: string;
   intro?: string;
+  /** Credibility line under intro (main About) */
+  trustItems?: string[];
   backHref?: string;
   backLabel?: string;
   /** Two equal editorial images on main About (basal.health/about) */

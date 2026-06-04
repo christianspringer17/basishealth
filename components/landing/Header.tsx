@@ -6,10 +6,10 @@ import { SITE_NAME } from "@/lib/site";
 import { EonicLogo } from "./EonicLogo";
 import { NavDropdown } from "./NavDropdown";
 import { NavLink } from "./NavLink";
-import { navCtaLabel, primaryCtaHref } from "@/lib/cta";
+import { navCtaHref, navCtaLabel } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import { getNavMenuLinks, NAV_ITEMS } from "./nav-config";
-import { BasalButton, cn } from "./ui";
+import { cn } from "./ui";
 
 export function Header() {
   const [onHero, setOnHero] = useState(true);
@@ -25,7 +25,7 @@ export function Header() {
     }
     const observer = new IntersectionObserver(
       ([entry]) => setOnHero(entry.isIntersecting),
-      { threshold: 0.08, rootMargin: "-60px 0px 0px 0px" },
+      { threshold: 0, rootMargin: "-56px 0px 0px 0px" },
     );
     observer.observe(hero);
     return () => observer.disconnect();
@@ -66,7 +66,7 @@ export function Header() {
 
   return (
     <>
-      <header className="group/header site-container site-grid fixed top-0 right-0 left-0 z-50 py-10">
+      <header className="site-nav-header group/header site-container site-grid fixed top-0 right-0 left-0 z-50 bg-transparent py-10">
         <div className="relative z-[2] col-span-full flex w-full items-center justify-between md:col-span-20 md:col-start-3">
           <div className="flex w-full items-center justify-between text-[length:var(--body-font-size)]">
             <div className="flex flex-1 justify-start">
@@ -125,12 +125,11 @@ export function Header() {
               )}
             </div>
 
-            <div className="hidden flex-1 items-center justify-end gap-x-12 text-h5 md:flex">
-              <NavLink
-                href={primaryCtaHref()}
-                onHero={onHero}
-                onMouseEnter={closeMenu}
-              >
+            <div
+              className="hidden flex-1 items-center justify-end text-h5 md:flex"
+              onMouseEnter={closeMenu}
+            >
+              <NavLink href={navCtaHref()} onHero={onHero} onMouseEnter={closeMenu}>
                 {navCtaLabel()}
               </NavLink>
             </div>
@@ -217,9 +216,14 @@ export function Header() {
               >
                 Contact
               </Link>
-              <BasalButton href={primaryCtaHref()} variant="accent" onClick={closeAll}>
+              <NavLink
+                href={navCtaHref()}
+                onHero={false}
+                className="w-fit"
+                onClick={closeAll}
+              >
                 {navCtaLabel()}
-              </BasalButton>
+              </NavLink>
             </div>
           </div>
         </div>

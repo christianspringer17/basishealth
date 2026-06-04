@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AboutPaperTextureBackground } from "@/components/marketing/AboutPaperTextureBackground";
 import { AboutStoryCarousel } from "@/components/marketing/AboutStoryCarousel";
-import { BasalButton } from "@/components/landing/ui";
+import { BasalButton, cn } from "@/components/landing/ui";
 import type { AboutFlowItem, AboutPageContent, EditorialSection } from "@/lib/content/types";
 
 function AboutGallery({ images }: { images: { src: string; alt: string }[] }) {
@@ -39,6 +39,18 @@ function AboutHeroImage({ image }: { image: { src: string; alt: string } }) {
         quality={90}
       />
     </div>
+  );
+}
+
+function AboutTrustList({ items }: { items: string[] }) {
+  return (
+    <ul className="about-trust__list" aria-label="Trust and compliance">
+      {items.map((item) => (
+        <li key={item} className="about-trust__item">
+          {item}
+        </li>
+      ))}
+    </ul>
   );
 }
 
@@ -157,17 +169,17 @@ function AboutBasalMainLayout({ content }: { content: AboutPageContent }) {
         <AboutGallery images={content.galleryImages} />
       )}
 
-      {content.subtitle && (
-        <section className="about-page__centered-copy about-page__centered-copy--lead">
-          <p className="about-page__subtitle">{content.subtitle}</p>
+      {(content.subtitle || content.intro || content.trustItems?.length) ? (
+        <section className="about-page__prologue site-container" aria-label="About Basis">
+          {content.subtitle && (
+            <p className="about-page__subtitle">{content.subtitle}</p>
+          )}
+          {content.intro && <p className="about-page__intro">{content.intro}</p>}
+          {content.trustItems && content.trustItems.length > 0 && (
+            <AboutTrustList items={content.trustItems} />
+          )}
         </section>
-      )}
-
-      {content.intro && (
-        <section className="about-page__centered-copy about-page__centered-copy--intro">
-          <p className="about-page__intro">{content.intro}</p>
-        </section>
-      )}
+      ) : null}
 
       {content.storyAnchor && (
         <AboutStoryPill label={content.storyAnchor.label} href={content.storyAnchor.href} />

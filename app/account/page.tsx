@@ -1,6 +1,15 @@
-import { redirect } from "next/navigation";
-import { WAITLIST_HREF } from "@/lib/cta";
+import { AccountLoginForm } from "@/components/account/AccountLoginForm";
+import { AccountPageShell } from "@/components/account/AccountPageShell";
+
+export const metadata = {
+  title: "Account",
+  description: "Sign in to your Basis patient portal.",
+};
 
 export default function AccountPage() {
-  redirect(WAITLIST_HREF);
+  return (
+    <AccountPageShell>
+      <AccountLoginForm />
+    </AccountPageShell>
+  );
 }
