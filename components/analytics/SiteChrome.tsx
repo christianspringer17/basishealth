@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackEvent } from "@/lib/analytics";
+import { trackEvent, type AnalyticsEventName } from "@/lib/analytics";
 import { captureAttribution } from "@/lib/attribution";
 function AnalyticsClickCapture() {
   useEffect(() => {
@@ -16,7 +16,7 @@ function AnalyticsClickCapture() {
       const name = el.dataset.analyticsEvent;
       if (!name) return;
 
-      trackEvent("cta_click", {
+      trackEvent(name as AnalyticsEventName, {
         label: el.dataset.analyticsLabel,
         href: el.dataset.analyticsHref ?? el.getAttribute("href") ?? undefined,
         location: el.dataset.analyticsLocation,

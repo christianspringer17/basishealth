@@ -19,6 +19,7 @@ function fuseIntakeUrl(): string | undefined {
 export const CHECKOUT_HREF = fuseIntakeUrl() ?? WAITLIST_HREF;
 
 export const CTA_LABELS = {
+  startGlpOneAssessment: "Start GLP-One assessment",
   apply: "Start assessment",
   applyMembership: "Start assessment",
   startAssessment: "Start assessment",
@@ -54,6 +55,15 @@ export function navCtaHref(): string {
 
 export function primaryCtaHref(): string {
   return isIntakeLive() ? CHECKOUT_HREF : WAITLIST_HREF;
+}
+
+/** Homepage + GLP-One funnel — plans page when intake offline (D1) */
+export function glpOneAssessmentHref(): string {
+  return isIntakeLive() ? CHECKOUT_HREF : ROUTES.glpOnePlans;
+}
+
+export function glpOneAssessmentLabel(): string {
+  return CTA_LABELS.startGlpOneAssessment;
 }
 
 export function checkoutCtaLabel(): string {

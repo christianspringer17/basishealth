@@ -1,9 +1,42 @@
-import { NAV_IMAGES } from "@/lib/media";
 import { ROUTES } from "@/lib/routes";
 import { SITE_EMAIL } from "@/lib/site";
 
-export { NAV_IMAGES };
+export type NavItem = {
+  id: string;
+  label: string;
+  href: string;
+};
 
+export const NAV_ITEMS: NavItem[] = [
+  {
+    id: "glp-one",
+    label: "GLP-One",
+    href: ROUTES.glpOne,
+  },
+  {
+    id: "how-it-works",
+    label: "How it works",
+    href: ROUTES.homeHowItWorks,
+  },
+  {
+    id: "our-approach",
+    label: "Our Approach",
+    href: ROUTES.ourApproach,
+  },
+  {
+    id: "faq",
+    label: "FAQ",
+    href: ROUTES.glpOneFaq,
+  },
+];
+
+/** Footer / secondary — About contact line */
+export const NAV_CONTACT = {
+  label: `Get in touch: ${SITE_EMAIL}`,
+  href: ROUTES.contact,
+} as const;
+
+/** @deprecated Flat nav in 1.5 — kept for NavDropdown.tsx compile */
 export type NavImageCard = {
   label: string;
   href: string;
@@ -12,144 +45,26 @@ export type NavImageCard = {
   showPlayIcon?: boolean;
 };
 
-export type NavLearnMenu = {
-  variant: "learn";
-  imageCards: NavImageCard[];
-  links: { label: string; href: string }[];
-  allTopics: { label: string; href: string };
-};
-
-export type NavAboutMenu = {
-  variant: "about";
-  imageCards: NavImageCard[];
-};
-
-export type NavFeaturedMenu = {
-  variant: "featured";
-  image: string;
-  imageAlt: string;
-  title: string;
-  description: string;
-  cta: { label: string; href: string };
-  links: { label: string; href: string }[];
-};
-
-export type NavMembershipMenu = {
-  variant: "membership";
-  featured: NavImageCard;
-  links: { label: string; href: string }[];
-};
-
-export type NavMenu = NavLearnMenu | NavAboutMenu | NavMembershipMenu | NavFeaturedMenu;
-
-export type NavItem = {
-  id: string;
-  label: string;
-  href: string;
-  menu?: NavMenu;
-};
-
-export const NAV_ITEMS: NavItem[] = [
-  {
-    id: "treatments",
-    label: "Treatments",
-    href: ROUTES.glpOne,
-    menu: {
-      variant: "featured",
-      image: NAV_IMAGES.glpOneNavProduct,
-      imageAlt: "Basis GLP-One medication kit",
-      title: "GLP-One",
-      description:
-        "Physician-guided therapies — starting with GLP-One metabolic care.",
-      cta: { label: "Get started", href: ROUTES.glpOne },
-      links: [],
-    },
-  },
-  {
-    id: "learn",
-    label: "Learn",
-    href: ROUTES.learn,
-    menu: {
-      variant: "learn",
-      imageCards: [
-        {
-          label: "Your protocol areas",
-          href: ROUTES.learnProtocolAreas,
-          image: NAV_IMAGES.learnProtocols,
-          imageAlt: "Person overlooking the horizon at golden hour",
-        },
-        {
-          label: "As unique as your goals",
-          href: ROUTES.learnUniqueGoals,
-          image: NAV_IMAGES.learnPersonalized,
-          imageAlt: "Aerial view of open green fields",
-        },
-        {
-          label: "What we measure",
-          href: ROUTES.learnWhatWeMeasure,
-          image: NAV_IMAGES.learnScience,
-          imageAlt: "Parent and child in a warm everyday moment",
-        },
-      ],
-      links: [
-        { label: "What to expect", href: ROUTES.learnWhatToExpect },
-        { label: "Meet your metabolism", href: ROUTES.learnFeatured },
-        { label: "Our program", href: ROUTES.learnOurProgram },
-      ],
-      allTopics: { label: "All topics", href: ROUTES.learn },
-    },
-  },
-  {
-    id: "about",
-    label: "About",
-    href: ROUTES.about,
-    menu: {
-      variant: "about",
-      imageCards: [
-        {
-          label: "About us",
-          href: ROUTES.about,
-          image: NAV_IMAGES.aboutHowItWorks,
-          imageAlt: "Clinical care in a premium wellness setting",
-        },
-        {
-          label: "Unlock living",
-          href: ROUTES.glpOne,
-          image: NAV_IMAGES.aboutVitality,
-          imageAlt: "Abstract premium wellness texture",
-        },
-      ],
-    },
-  },
-];
-
-export function getNavMenuLinks(
-  menu: NavMenu,
-): { label: string; href: string }[] {
-  if (menu.variant === "about") {
-    return menu.imageCards.map((c) => ({ label: c.label, href: c.href }));
-  }
-
-  if (menu.variant === "membership") {
-    return [
-      { label: menu.featured.label, href: menu.featured.href },
-      ...menu.links,
-    ];
-  }
-
-  if (menu.variant === "featured") {
-    return [{ label: menu.cta.label, href: menu.cta.href }, ...menu.links];
-  }
-
-  return [
-    ...menu.imageCards.map((c) => ({ label: c.label, href: c.href })),
-    ...menu.links,
-    menu.allTopics,
-  ];
-}
-
-/** Footer / secondary — About contact line */
-export const NAV_CONTACT = {
-  label: `Get in touch: ${SITE_EMAIL}`,
-  href: ROUTES.contact,
-} as const;
+/** @deprecated Flat nav in 1.5 — kept for NavDropdown.tsx compile */
+export type NavMenu =
+  | {
+      variant: "learn";
+      imageCards: NavImageCard[];
+      links: { label: string; href: string }[];
+      allTopics: { label: string; href: string };
+    }
+  | { variant: "about"; imageCards: NavImageCard[] }
+  | {
+      variant: "membership";
+      featured: NavImageCard;
+      links: { label: string; href: string }[];
+    }
+  | {
+      variant: "featured";
+      image: string;
+      imageAlt: string;
+      title: string;
+      description: string;
+      cta: { label: string; href: string };
+      links: { label: string; href: string }[];
+    };

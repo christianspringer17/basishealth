@@ -1,0 +1,14 @@
+export { ActiveProtocolSection } from "./ActiveProtocolSection";
+export { HomepageAboutSection } from "./HomepageAboutSection";
+export { HomepageCategorySection } from "./HomepageCategorySection";
+export { AddOnsSupportSection } from "./AddOnsSupportSection";
+export { ConnectedCareSystemSection } from "./ConnectedCareSystemSection";
+export { FutureProtocolsSection } from "./FutureProtocolsSection";
+export { HomepageFaqPreview } from "./HomepageFaqPreview";
+export { HomepageFinalCta } from "./HomepageFinalCta";
+export { HomepageHero } from "./HomepageHero";
+export { HowItWorksSteps } from "./HowItWorksSteps";
+export { MobileStickyCta } from "./MobileStickyCta";
+export { OfferCard } from "./OfferCard";
+export { TrustStrip } from "./TrustStrip";
+export { WhyBasisCards } from "./WhyBasisCards";

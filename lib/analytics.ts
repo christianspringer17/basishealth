@@ -3,7 +3,18 @@ export type AnalyticsEventName =
   | "waitlist_submit"
   | "waitlist_error"
   | "pricing_plan_click"
-  | "checkout_start";
+  | "checkout_start"
+  | "hero_cta_click"
+  | "secondary_cta_click"
+  | "protocol_card_click"
+  | "faq_expand"
+  | "homepage_to_glp_one_click"
+  | "assessment_start"
+  | "sticky_cta_click"
+  | "eden_weight_cta"
+  | "eden_weight_interact"
+  | "eden_experience_goal"
+  | "eden_how_step";
 
 export type AnalyticsEventProps = Record<string, string | number | boolean | undefined>;
 

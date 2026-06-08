@@ -47,6 +47,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="h-full scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+      </head>
       <body className="min-h-full bg-white font-sans text-secondary antialiased">
         <AnalyticsScripts />
         <SiteChrome>{children}</SiteChrome>

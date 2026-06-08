@@ -1,31 +1,41 @@
-import { BrandLockupSection } from "@/components/landing/BrandLockupSection";
-import { ExpectSection } from "@/components/landing/ExpectSection";
-import { IntroSection } from "@/components/landing/IntroSection";
-import { Footer } from "@/components/landing/Footer";
-import { Header } from "@/components/landing/Header";
-import { Hero } from "@/components/landing/Hero";
-import { ProgramSection } from "@/components/landing/ProgramSection";
-import { ScienceSection } from "@/components/landing/ScienceSection";
-import { StatementSection } from "@/components/landing/StatementSection";
-import { VitalitySection } from "@/components/landing/VitalitySection";
-import { WaitlistSection } from "@/components/landing/WaitlistSection";
+import {
+  EdenBmiCalculator,
+  EdenGlpOneStatement,
+  EdenExperienceSection,
+  EdenFaqSection,
+  EdenFooter,
+  EdenGuideSection,
+  EdenHeader,
+  EdenHero,
+  EdenHowItWorks,
+  EdenOnlineSection,
+  EdenProductMenu,
+  EdenPromoBanner,
+  EdenStickyCta,
+  EdenValuesSection,
+} from "@/components/eden";
 
 export default function Home() {
   return (
-    <div className="home-page">
-      <Header />
-      <main className="flex flex-col">
-        <Hero />
-        <StatementSection />
-        <IntroSection />
-        <ProgramSection />
-        <ExpectSection />
-        <BrandLockupSection />
-        <ScienceSection />
-        <VitalitySection />
-        <WaitlistSection />
+    <div className="homepage-page homepage-page--eden">
+      <div className="eden-sticky-nav">
+        <EdenPromoBanner />
+        <EdenHeader />
+      </div>
+      <main>
+        <EdenHero />
+        <EdenProductMenu />
+        <EdenExperienceSection />
+        <EdenBmiCalculator />
+        <EdenHowItWorks />
+        <EdenOnlineSection />
+        <EdenGlpOneStatement />
+        <EdenValuesSection />
+        <EdenFaqSection />
+        <EdenGuideSection />
       </main>
-      <Footer showPrimaryCta={false} />
+      <EdenFooter />
+      <EdenStickyCta />
     </div>
   );
 }

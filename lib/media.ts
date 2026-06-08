@@ -25,6 +25,10 @@ export const MEDIA = {
   glpOnePricingVial: "/images/glp-one-pricing-vial.png",
   /** GLP-One final CTA — hand holding vial (transparent PNG) */
   glpOneHandVial: "/images/glp-one-hand-vial.png",
+  /** Homepage product category cards */
+  productGlp1WeightLoss: "/images/products/glp1-weight-loss.png",
+  productGlp1Microdose: "/images/products/glp1-microdose.png",
+  productHormoneSupport: "/images/products/hormone-support.png",
   intro: "/images/nav/protocol-product.png",
   /** Replace with /images/sections/*.jpg when brand photography is ready */
   program: "/images/placeholder.svg",

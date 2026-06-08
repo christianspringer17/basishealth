@@ -27,7 +27,10 @@ export function GlpOnePricingSection({ className }: { className?: string }) {
 
   return (
     <section
-      className={["section-shell section-gap-lg w-full", className].filter(Boolean).join(" ")}
+      id="plans"
+      className={["section-shell section-gap-lg w-full scroll-mt-28", className]
+        .filter(Boolean)
+        .join(" ")}
     >
       <div className="site-container site-grid w-full gap-y-8">
         <div className="col-span-full flex flex-col items-center gap-4 text-center md:col-span-16 md:col-start-5">
