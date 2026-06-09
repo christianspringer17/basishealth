@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { EdenLegalPage } from "@/components/eden/EdenLegalPage";
 import { LegalMarkdown } from "@/components/legal/LegalMarkdown";
-import { LegalPage } from "@/components/landing/LegalPage";
 import { loadLegalMarkdown } from "@/lib/content/legal/load-legal";
 import { parseLegalFrontmatter } from "@/lib/content/legal/parse-legal";
 
@@ -19,8 +19,8 @@ export default function PrivacyPage() {
   const { lastUpdated, body } = parseLegalFrontmatter(raw);
 
   return (
-    <LegalPage title="Privacy" lastUpdated={lastUpdated ?? undefined}>
+    <EdenLegalPage title="Privacy" lastUpdated={lastUpdated ?? undefined}>
       <LegalMarkdown source={body} />
-    </LegalPage>
+    </EdenLegalPage>
   );
 }

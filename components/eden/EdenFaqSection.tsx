@@ -7,13 +7,28 @@ import { glpOneAssessmentHref } from "@/lib/cta";
 import { trackEvent } from "@/lib/analytics";
 import { EdenSectionHeader } from "./EdenSectionHeader";
 
-export function EdenFaqSection() {
-  const { faq } = EDEN_HOMEPAGE;
+type EdenFaqContent = {
+  headline: string;
+  subhead?: string;
+  cta?: string;
+  items: readonly { question: string; answer: string }[];
+};
+
+export function EdenFaqSection({
+  id = "faq",
+  content,
+  analyticsLocation = "eden_faq",
+}: {
+  id?: string;
+  content?: EdenFaqContent;
+  analyticsLocation?: string;
+} = {}) {
+  const faq = content ?? EDEN_HOMEPAGE.faq;
   const ctaHref = glpOneAssessmentHref();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="eden-faq">
+    <section id={id} className="eden-faq">
       <div className="site-container">
         <EdenSectionHeader
           title={faq.headline}
@@ -38,7 +53,7 @@ export function EdenFaqSection() {
                       if (next !== null) {
                         trackEvent("faq_expand", {
                           label: item.question,
-                          location: "eden_faq",
+                          location: analyticsLocation,
                         });
                       }
                     }}
@@ -57,11 +72,13 @@ export function EdenFaqSection() {
           </div>
         </div>
 
-        <div className="eden-faq__cta">
-          <a href={ctaHref} className="eden-btn eden-btn--primary eden-btn--lg">
-            {faq.cta}
-          </a>
-        </div>
+        {faq.cta ? (
+          <div className="eden-faq__cta">
+            <a href={ctaHref} className="eden-btn eden-btn--primary eden-btn--lg">
+              {faq.cta}
+            </a>
+          </div>
+        ) : null}
       </div>
     </section>
   );

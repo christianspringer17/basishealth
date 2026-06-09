@@ -4,16 +4,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { EonicLogo } from "@/components/landing/EonicLogo";
 import { cn } from "@/components/landing/ui";
+import { EDEN_HEADER_MENUS } from "@/lib/eden-nav";
 import { glpOneAssessmentHref, glpOneAssessmentLabel } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import { SITE_NAME } from "@/lib/site";
-
-const NAV = [
-  { label: "GLP-One", href: ROUTES.glpOne },
-  { label: "Plans", href: ROUTES.glpOnePlans },
-  { label: "Our approach", href: ROUTES.ourApproach },
-  { label: "FAQ", href: ROUTES.faq },
-];
+import { EdenMobileNavGroup, EdenNavDropdown } from "./EdenNavDropdown";
 
 export function EdenHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -48,10 +43,8 @@ export function EdenHeader() {
           </Link>
 
           <nav className="eden-header__nav" aria-label="Main">
-            {NAV.map((item) => (
-              <Link key={item.href} href={item.href} className="eden-header__link">
-                {item.label}
-              </Link>
+            {EDEN_HEADER_MENUS.map((menu) => (
+              <EdenNavDropdown key={menu.id} label={menu.label} items={menu.items} />
             ))}
           </nav>
 
@@ -82,15 +75,13 @@ export function EdenHeader() {
 
       <div className={cn("eden-mobile-nav", mobileOpen && "eden-mobile-nav--open")}>
         <nav aria-label="Mobile">
-          {NAV.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="eden-mobile-nav__link"
-              onClick={close}
-            >
-              {item.label}
-            </Link>
+          {EDEN_HEADER_MENUS.map((menu) => (
+            <EdenMobileNavGroup
+              key={menu.id}
+              label={menu.label}
+              items={menu.items}
+              onNavigate={close}
+            />
           ))}
           <Link
             href={ctaHref}

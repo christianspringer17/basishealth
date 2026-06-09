@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import { EdenLegalPage } from "@/components/eden/EdenLegalPage";
 import { LegalMarkdown } from "@/components/legal/LegalMarkdown";
-import { LegalPage } from "@/components/landing/LegalPage";
 import { loadLegalMarkdown } from "@/lib/content/legal/load-legal";
 import { parseLegalFrontmatter } from "@/lib/content/legal/parse-legal";
 
@@ -20,8 +20,8 @@ export default function TermsPage() {
   const { body } = parseLegalFrontmatter(raw);
 
   return (
-    <LegalPage title="Terms + Conditions" lastUpdated="May 13, 2026">
+    <EdenLegalPage title="Terms + Conditions" lastUpdated="May 13, 2026">
       <LegalMarkdown source={body} />
-    </LegalPage>
+    </EdenLegalPage>
   );
 }

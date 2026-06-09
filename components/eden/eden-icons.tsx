@@ -64,6 +64,100 @@ export function EdenIconArrow({ className }: IconProps) {
   );
 }
 
+export function EdenIconProvider({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <path
+        d="M6.5 4.5a3.5 3.5 0 1 1 7 0v1.5M4 17v-1.75c0-2.1 1.9-3.75 4.25-3.75h3.5C14.1 11.5 16 13.15 16 15.25V17"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="10" cy="4.5" r="2.25" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
+  );
+}
+
+export function EdenIconMedication({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <rect x="5" y="7" width="10" height="6" rx="3" stroke="currentColor" strokeWidth="1.3" />
+      <path d="M8 7V5.5a2 2 0 0 1 4 0V7" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <path d="M10 9.5v2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function EdenIconPricing({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <path
+        d="M6.5 10.5 8.75 12.75 13.5 8"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <circle cx="10" cy="10" r="7" stroke="currentColor" strokeWidth="1.3" />
+    </svg>
+  );
+}
+
+export function EdenIconUsFlag({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <rect x="3" y="4" width="14" height="12" rx="1" stroke="currentColor" strokeWidth="1.2" />
+      <path d="M3 7.5h14M3 10.5h14M3 13.5h14" stroke="currentColor" strokeWidth="0.8" />
+      <rect x="3" y="4" width="6" height="6.5" fill="currentColor" fillOpacity="0.12" />
+    </svg>
+  );
+}
+
+export function EdenIconPackage({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <path
+        d="M10 3.5 16.5 7v6L10 16.5 3.5 13V7L10 3.5Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path d="M10 3.5v13M3.5 7 10 10.5 16.5 7" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+      <circle cx="14.5" cy="14.5" r="2.25" stroke="currentColor" strokeWidth="1" />
+    </svg>
+  );
+}
+
+export function EdenIconShieldOff({ className }: IconProps) {
+  return (
+    <svg className={className} width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+      <path
+        d="M10 2.5 15.5 4.75V9.25c0 3.1-2.2 5.65-5.5 6.75-3.3-1.1-5.5-3.65-5.5-6.75V4.75L10 2.5Z"
+        stroke="currentColor"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      <path d="M8 8.5 12 12.5M12 8.5 8 12.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function EdenIconTrendDown({ className }: IconProps) {
+  return (
+    <svg className={className} width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+      <path
+        d="M4.5 7.5 9 12l4.5-4.5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path d="M9 3v9" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 export function EdenMarqueeIcon({ type, className }: IconProps & { type: string }) {
   if (type === "truck") return <EdenIconTruck className={className} />;
   if (type === "shield") return <EdenIconShield className={className} />;

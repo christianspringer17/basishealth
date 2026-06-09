@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/landing/LegalPage";
+import { EdenLegalPage } from "@/components/eden/EdenLegalPage";
 import { SITE_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function AccessibilityPage() {
   return (
-    <LegalPage title="Accessibility" lastUpdated="May 27, 2026">
+    <EdenLegalPage title="Accessibility" lastUpdated="May 27, 2026">
       <div className="prose">
         <section className="prose__section" aria-labelledby="accessibility-commitment">
           <h2 id="accessibility-commitment" className="prose__heading prose__heading--h2">
@@ -75,6 +75,6 @@ export default function AccessibilityPage() {
           </div>
         </section>
       </div>
-    </LegalPage>
+    </EdenLegalPage>
   );
 }

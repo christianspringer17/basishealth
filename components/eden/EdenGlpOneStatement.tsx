@@ -21,7 +21,6 @@ export function EdenGlpOneStatement() {
           <h2 id="eden-glp-statement-heading" className="eden-glp-statement__title">
             {glpOneStatement.title}
           </h2>
-          <p className="eden-glp-statement__subtitle">{glpOneStatement.subtitle}</p>
         </div>
 
         <p className="eden-glp-statement__body">{glpOneStatement.body}</p>

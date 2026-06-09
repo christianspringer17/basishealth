@@ -1,5 +1,6 @@
 import {
   EdenBmiCalculator,
+  EdenWeightProgramSection,
   EdenGlpOneStatement,
   EdenExperienceSection,
   EdenFaqSection,
@@ -8,11 +9,9 @@ import {
   EdenHeader,
   EdenHero,
   EdenHowItWorks,
-  EdenOnlineSection,
   EdenProductMenu,
   EdenPromoBanner,
   EdenStickyCta,
-  EdenValuesSection,
 } from "@/components/eden";
 
 export default function Home() {
@@ -26,13 +25,12 @@ export default function Home() {
         <EdenHero />
         <EdenProductMenu />
         <EdenExperienceSection />
+        <EdenWeightProgramSection />
         <EdenBmiCalculator />
         <EdenHowItWorks />
-        <EdenOnlineSection />
-        <EdenGlpOneStatement />
-        <EdenValuesSection />
         <EdenFaqSection />
         <EdenGuideSection />
+        <EdenGlpOneStatement />
       </main>
       <EdenFooter />
       <EdenStickyCta />

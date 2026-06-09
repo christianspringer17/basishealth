@@ -1,15 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import { EDEN_HOMEPAGE } from "@/lib/content/eden-homepage";
-import { trackEvent } from "@/lib/analytics";
+import { EdenProtocolCarousel } from "./EdenProtocolCarousel";
 import { EdenReveal } from "./EdenReveal";
 import { EdenSectionHeader } from "./EdenSectionHeader";
 
 export function EdenHowItWorks() {
   const { howItWorks } = EDEN_HOMEPAGE;
-  const [activeStep, setActiveStep] = useState(0);
-  const step = howItWorks.steps[activeStep];
+  const { promoCards } = howItWorks;
 
   return (
     <section id="how-it-works" className="eden-how" aria-labelledby="eden-how-title">
@@ -20,94 +16,72 @@ export function EdenHowItWorks() {
           subhead={howItWorks.subhead}
           align="center"
         />
+      </div>
 
-        <EdenReveal className="eden-how__panel eden-dash-card">
-          <ol className="eden-how__steps" role="tablist" aria-label="Care journey steps">
-            {howItWorks.steps.map((item, index) => {
-              const isActive = activeStep === index;
-              return (
-                <li key={item.id} className="eden-how__step">
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    className={`eden-how__tab${isActive ? " eden-how__tab--active" : ""}`}
-                    onClick={() => {
-                      setActiveStep(index);
-                      trackEvent("eden_how_step", {
-                        label: item.id,
-                        location: "eden_how",
-                      });
-                    }}
-                  >
-                    <span className="eden-how__tab-num">{index + 1}</span>
-                    <span className="eden-how__tab-label">{item.label}</span>
-                  </button>
-                  {index < howItWorks.steps.length - 1 ? (
-                    <span className="eden-how__connector" aria-hidden />
-                  ) : null}
-                </li>
-              );
-            })}
-          </ol>
+      <EdenReveal>
+        <EdenProtocolCarousel />
+      </EdenReveal>
 
-          <div className="eden-how__detail" aria-live="polite">
-            <div key={step.id} className="eden-how__detail-inner">
-              <div className="eden-how__detail-head">
-                <p className="eden-how__detail-title">{step.label}</p>
-                <span className="eden-how__detail-badge">{howItWorks.timeBadge}</span>
-              </div>
-              <p className="eden-how__detail-body">{step.detail}</p>
-            </div>
-          </div>
-        </EdenReveal>
-
+      <div className="site-container">
         <EdenReveal delay={80}>
-          <div className="eden-how__grid" role="tablist" aria-label="Clinical standards by step">
-          {howItWorks.steps.map((item, index) => {
-            const isActive = activeStep === index;
-            return (
-              <article key={item.id} className="eden-how-card">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  className={[
-                    "eden-how-card__button eden-dash-card",
-                    isActive ? "eden-how-card__button--active" : "",
-                  ]
-                    .filter(Boolean)
-                    .join(" ")}
-                  onClick={() => {
-                    setActiveStep(index);
-                    trackEvent("eden_how_step", {
-                      label: item.id,
-                      location: "eden_how_card",
-                    });
-                  }}
-                >
-                  <div className={`eden-how-card__media eden-grad--${item.gradient}`}>
-                    <img
-                      src={item.image}
-                      alt={item.imageAlt}
-                      width={400}
-                      height={500}
-                      loading="lazy"
-                    />
-                    <div className="eden-how-card__overlay">
-                      <div className="eden-how-card__badges">
-                        <span className="eden-how-card__step">Step {String(index + 1).padStart(2, "0")}</span>
-                        <span className="eden-how-card__stat">{item.stat}</span>
-                      </div>
-                      <h3 className="eden-how-card__name">{item.name}</h3>
-                      <p className="eden-how-card__role">{item.role}</p>
-                      <p className="eden-how-card__bio">{item.credentials}</p>
-                    </div>
-                  </div>
-                </button>
-              </article>
-            );
-          })}
+          <div className="eden-how__promo-row">
+            <article
+              className="eden-how-promo eden-how-promo--photo"
+              style={{ backgroundImage: `url(${promoCards.vitality.image})` }}
+            >
+              <img
+                src={promoCards.vitality.image}
+                alt={promoCards.vitality.imageAlt}
+                className="sr-only-visually"
+                loading="lazy"
+              />
+              <div className="eden-how-promo__overlay">
+                <div className="eden-how-promo__copy eden-how-promo__copy--light">
+                  <h3 className="eden-how-promo__headline">{promoCards.vitality.headline}</h3>
+                  <p className="eden-how-promo__subhead">{promoCards.vitality.subhead}</p>
+                  <a
+                    href={promoCards.vitality.ctaHref}
+                    className="eden-btn eden-how-promo__cta eden-how-promo__cta--light"
+                    data-analytics-event="eden_how_promo_cta"
+                    data-analytics-label="start_my_journey"
+                    data-analytics-location="eden_how_promo_vitality"
+                    data-analytics-href={promoCards.vitality.ctaHref}
+                  >
+                    {promoCards.vitality.cta}
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article className="eden-how-promo eden-how-promo--product">
+              <div className="eden-how-promo__inner">
+                <div className="eden-how-promo__copy">
+                  <h3 className="eden-how-promo__headline">{promoCards.skin.headline}</h3>
+                  <p className="eden-how-promo__subhead">{promoCards.skin.subhead}</p>
+                  <a
+                    href={promoCards.skin.ctaHref}
+                    className="eden-btn eden-how-promo__cta"
+                    data-analytics-event="eden_how_promo_cta"
+                    data-analytics-label="begin_today"
+                    data-analytics-location="eden_how_promo_skin"
+                    data-analytics-href={promoCards.skin.ctaHref}
+                  >
+                    {promoCards.skin.cta}
+                  </a>
+                </div>
+
+                <div className="eden-how-promo__product-card">
+                  <img
+                    src={promoCards.skin.productImage}
+                    alt={promoCards.skin.productAlt}
+                    className="eden-how-promo__product"
+                    width={400}
+                    height={964}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </article>
           </div>
         </EdenReveal>
 

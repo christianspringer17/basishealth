@@ -3,6 +3,7 @@ export type AnalyticsEventName =
   | "waitlist_submit"
   | "waitlist_error"
   | "pricing_plan_click"
+  | "pricing_term_select"
   | "checkout_start"
   | "hero_cta_click"
   | "secondary_cta_click"

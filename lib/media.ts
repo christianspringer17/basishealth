@@ -26,6 +26,9 @@ export const MEDIA = {
   /** GLP-One final CTA — hand holding vial (transparent PNG) */
   glpOneHandVial: "/images/glp-one-hand-vial.png",
   /** Homepage product category cards */
+  productLean: "/images/products/lean.png",
+  productRegulation: "/images/products/regulation.png",
+  productVitality: "/images/products/vitality.png",
   productGlp1WeightLoss: "/images/products/glp1-weight-loss.png",
   productGlp1Microdose: "/images/products/glp1-microdose.png",
   productHormoneSupport: "/images/products/hormone-support.png",
@@ -60,6 +63,28 @@ export const EDITORIAL_IMAGES = {
   membershipPricingBg: "/images/membership-pricing-bg.png",
   /** Peptide / molecule macro — membership nav preview */
   membershipPeptideBg: "/images/membership-peptide-bg.png",
+  /** Homepage weight program — member cutout */
+  weightProgramCutout: "/images/editorial/weight-program-cutout.png",
+  /** NAD+ hand vial — homepage promo card (photo) */
+  nadHandVial: "/images/editorial/nad-hand-vial.jpg",
+  /** Glutathione vial — homepage promo card */
+  glutathioneVial: "/images/editorial/glutathione-vial.png",
+  /** Balance TRT vial — weight planner center card */
+  balanceVialCard: "/images/editorial/balance-vial-card.png",
+  /** How it works — step imagery */
+  howItWorksTreatments: "/images/how-it-works/treatments.png",
+  howItWorksGoalsApp: "/images/how-it-works/goals-app.png",
+  howItWorksShipping: "/images/how-it-works/shipping.png",
+  howItWorksProviderSupport: "/images/how-it-works/provider-support.png",
+  /** Protocol carousel — Ro-style full-bleed card backgrounds (title cropped out) */
+  howItWorksGoalsCardBg: "/images/how-it-works/goals-card-bg.png",
+  howItWorksTreatmentsCardBg: "/images/how-it-works/treatments-card-bg.png",
+  howItWorksShippingExpedited: "/images/how-it-works/shipping-expedited.png",
+  /** Legacy cutouts — kept for reference, no longer used in carousel */
+  howItWorksProviderCutout: "/images/how-it-works/cutouts/provider-cutout.png",
+  howItWorksGoalsCutout: "/images/how-it-works/cutouts/goals-cutout.png",
+  howItWorksTreatmentsCutout: "/images/how-it-works/cutouts/treatments-cutout.png",
+  howItWorksShippingCutout: "/images/how-it-works/cutouts/shipping-cutout.png",
   /** Brand lockup PaperTexture source */
   brandLockupTexture: "/images/brand-lockup-texture.png",
   /** About page PaperTexture source */

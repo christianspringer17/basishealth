@@ -142,3 +142,84 @@ export const VALID_PLAN_IDS = new Set<PlanId>(
     planId(p.id, "3-month"),
   ]),
 );
+
+/* ------------------------------------------------------------------ */
+/* Commitment pricing — /pricing page (monthly / 3 / 6 / annual)       */
+/* ------------------------------------------------------------------ */
+
+export type CommitmentTermId = "monthly" | "3-month" | "6-month" | "annual";
+
+export type CommitmentTerm = {
+  id: CommitmentTermId;
+  label: string;
+  months: number;
+  /** e.g. "Best value" chip on the toggle */
+  badge?: string;
+  /** "billed annually", "billed every 3 months", … */
+  billedNote: string;
+};
+
+export const COMMITMENT_TERMS: readonly CommitmentTerm[] = [
+  { id: "monthly", label: "Monthly", months: 1, billedNote: "billed monthly" },
+  { id: "3-month", label: "3-Month", months: 3, billedNote: "billed every 3 months" },
+  { id: "6-month", label: "6-Month", months: 6, billedNote: "billed every 6 months" },
+  { id: "annual", label: "Annual", months: 12, badge: "Best value", billedNote: "billed annually" },
+] as const;
+
+/**
+ * Total billed upfront per commitment term.
+ * Monthly and 3-month mirror monthlyPrice / threeMonthTotal above.
+ */
+export const COMMITMENT_TOTALS: Record<
+  ProductTier,
+  Record<CommitmentTermId, number>
+> = {
+  microdose: {
+    monthly: 240,
+    "3-month": 550,
+    "6-month": 1050,
+    annual: 1980,
+  },
+  weightloss: {
+    monthly: 340,
+    "3-month": 780,
+    "6-month": 1500,
+    annual: 2820,
+  },
+};
+
+export function commitmentTotal(tier: ProductTier, term: CommitmentTermId): number {
+  return COMMITMENT_TOTALS[tier][term];
+}
+
+/** Effective monthly rate for a commitment, rounded to the dollar */
+export function commitmentMonthly(tier: ProductTier, term: CommitmentTermId): number {
+  const months = termById(term).months;
+  return Math.round(commitmentTotal(tier, term) / months);
+}
+
+/** Savings over 12 months vs paying month-to-month */
+export function commitmentYearlySavings(
+  tier: ProductTier,
+  term: CommitmentTermId,
+): number {
+  const months = termById(term).months;
+  const monthlyRate = COMMITMENT_TOTALS[tier].monthly;
+  const effective = commitmentTotal(tier, term) / months;
+  return Math.round((monthlyRate - effective) * 12);
+}
+
+export function termById(term: CommitmentTermId): CommitmentTerm {
+  const found = COMMITMENT_TERMS.find((t) => t.id === term);
+  if (!found) throw new Error(`Unknown commitment term: ${term}`);
+  return found;
+}
+
+/** Lowest effective monthly rate across all products + terms — "from $X/mo" */
+export function lowestCommitmentMonthly(): number {
+  return Math.min(
+    ...GLP_PRODUCTS.flatMap((p) =>
+      COMMITMENT_TERMS.map((t) => commitmentMonthly(p.id, t.id)),
+    ),
+  );
+}

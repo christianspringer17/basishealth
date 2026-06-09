@@ -3,13 +3,14 @@ import { ROUTES } from "@/lib/routes";
 import { SITE_NAME } from "@/lib/site";
 
 const LINKS = [
-  { label: "GLP-One", href: ROUTES.glpOne },
-  { label: "Plans", href: ROUTES.glpOnePlans },
-  { label: "Our approach", href: ROUTES.ourApproach },
-  { label: "FAQ", href: ROUTES.faq },
+  { label: "Pricing", href: ROUTES.pricing },
+  { label: "About", href: ROUTES.about },
+  { label: "Learn", href: ROUTES.learn },
+  { label: "FAQ", href: ROUTES.homeFaq },
   { label: "Contact", href: ROUTES.contact },
   { label: "Privacy", href: ROUTES.privacy },
   { label: "Terms", href: ROUTES.terms },
+  { label: "Accessibility", href: ROUTES.accessibility },
 ];
 
 export function EdenFooter() {

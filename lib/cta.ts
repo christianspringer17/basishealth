@@ -1,11 +1,4 @@
-import type { PlanId } from "@/lib/pricing";
 import { ROUTES } from "@/lib/routes";
-
-/** Primary conversion — waitlist until Fuse intake is live */
-export const WAITLIST_HREF = "/#waitlist";
-
-/** @deprecated Use WAITLIST_HREF */
-export const SIGNUP_HREF = WAITLIST_HREF;
 
 function fuseIntakeUrl(): string | undefined {
   const fuse = process.env.NEXT_PUBLIC_FUSE_INTAKE_URL?.trim();
@@ -15,75 +8,35 @@ function fuseIntakeUrl(): string | undefined {
   return undefined;
 }
 
-/** Fuse intake when configured; otherwise waitlist anchor */
-export const CHECKOUT_HREF = fuseIntakeUrl() ?? WAITLIST_HREF;
+/** Fuse intake when configured; otherwise the pricing page */
+export const CHECKOUT_HREF = fuseIntakeUrl() ?? ROUTES.pricing;
 
 export const CTA_LABELS = {
   startGlpOneAssessment: "Start GLP-One assessment",
-  apply: "Start assessment",
-  applyMembership: "Start assessment",
   startAssessment: "Start assessment",
-  getEarlyAccess: "Get early access",
   getStarted: "Get started",
   learnMore: "Learn more",
   viewPricing: "View pricing",
-  seeMembershipPlan: "View plans",
-  seePlans: "View plans",
-  startCheckout: "Start assessment",
 } as const;
 
 export function isIntakeLive(): boolean {
   return Boolean(fuseIntakeUrl());
 }
 
-/** @deprecated Use isIntakeLive */
-export function isCheckoutLive(): boolean {
-  return isIntakeLive();
-}
-
 export function primaryCtaLabel(): string {
   return CTA_LABELS.startAssessment;
 }
 
-export function navCtaLabel(): string {
-  return "Account";
-}
-
-export function navCtaHref(): string {
-  return ROUTES.account;
-}
-
+/** Primary conversion — Fuse intake when live, pricing page otherwise */
 export function primaryCtaHref(): string {
-  return isIntakeLive() ? CHECKOUT_HREF : WAITLIST_HREF;
+  return isIntakeLive() ? CHECKOUT_HREF : ROUTES.pricing;
 }
 
-/** Homepage + GLP-One funnel — plans page when intake offline (D1) */
+/** Eden header / sticky CTA / pricing cards */
 export function glpOneAssessmentHref(): string {
-  return isIntakeLive() ? CHECKOUT_HREF : ROUTES.glpOnePlans;
+  return isIntakeLive() ? CHECKOUT_HREF : ROUTES.pricing;
 }
 
 export function glpOneAssessmentLabel(): string {
   return CTA_LABELS.startGlpOneAssessment;
 }
-
-export function checkoutCtaLabel(): string {
-  return CTA_LABELS.startAssessment;
-}
-
-/** Append plan query param for Fuse intake deep links */
-export function checkoutUrlForPlan(
-  plan: PlanId,
-  baseUrl: string = CHECKOUT_HREF,
-): string {
-  if (!baseUrl.startsWith("http")) return baseUrl;
-  const separator = baseUrl.includes("?") ? "&" : "?";
-  return `${baseUrl}${separator}plan=${plan}`;
-}
-
-/** @deprecated Use CTA_LABELS */
-export const SIGNUP_LABELS = {
-  assessment: CTA_LABELS.startAssessment,
-  assessmentShort: CTA_LABELS.startAssessment,
-  getStarted: CTA_LABELS.getStarted,
-  startAssessment: CTA_LABELS.startAssessment,
-} as const;

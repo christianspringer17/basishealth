@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArticlePage } from "@/components/marketing/ArticlePage";
-import { MarketingShell } from "@/components/marketing/MarketingShell";
+import { EdenPageShell } from "@/components/eden/EdenPageShell";
 import { getRelatedLearnEntries, learnPages } from "@/lib/content/learn-pages";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -26,8 +26,10 @@ export default async function LearnArticlePage({ params }: Props) {
   if (!content) notFound();
 
   return (
-    <MarketingShell>
-      <ArticlePage content={content} related={getRelatedLearnEntries(slug)} />
-    </MarketingShell>
+    <EdenPageShell>
+      <div className="eden-subpage-offset">
+        <ArticlePage content={content} related={getRelatedLearnEntries(slug)} />
+      </div>
+    </EdenPageShell>
   );
 }

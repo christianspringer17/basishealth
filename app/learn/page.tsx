@@ -1,6 +1,6 @@
+import { EdenPageShell } from "@/components/eden/EdenPageShell";
 import { LearnArticleCard } from "@/components/marketing/LearnArticleCard";
 import { LearnCarouselSection } from "@/components/marketing/LearnCarouselSection";
-import { MarketingShell } from "@/components/marketing/MarketingShell";
 import { learnIndexEntries } from "@/lib/content/learn-index";
 import {
   LEARN_FEATURED_SLUG,
@@ -29,8 +29,8 @@ export default function LearnPage() {
   const improve = pickLearnEntries(LEARN_IMPROVE_SLUGS);
 
   return (
-    <MarketingShell>
-      <div className="marketing-page learn-page">
+    <EdenPageShell>
+      <div className="marketing-page learn-page eden-subpage-offset">
         <section className="learn-page-main section-shell w-full">
           <div className="site-container site-grid w-full learn-page-grid">
             <div className="learn-page-column">
@@ -63,6 +63,6 @@ export default function LearnPage() {
           </div>
         </section>
       </div>
-    </MarketingShell>
+    </EdenPageShell>
   );
 }

@@ -18,7 +18,7 @@ export const SOCIAL_LABELS: Record<SocialPlatform, string> = {
   linkedin: "LinkedIn",
 };
 
-/** Set in .env when profiles are live; otherwise footer links to /connect */
+/** Set in .env when profiles are live; otherwise footer links to /contact */
 export const SOCIAL_URLS: Record<SocialPlatform, string | undefined> = {
   instagram: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
   twitter: process.env.NEXT_PUBLIC_TWITTER_URL,
@@ -27,7 +27,7 @@ export const SOCIAL_URLS: Record<SocialPlatform, string | undefined> = {
 };
 
 export function socialHref(platform: SocialPlatform): string {
-  return SOCIAL_URLS[platform] ?? ROUTES.connect;
+  return SOCIAL_URLS[platform] ?? ROUTES.contact;
 }
 
 export function isExternalSocial(platform: SocialPlatform): boolean {
