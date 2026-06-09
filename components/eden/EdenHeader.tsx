@@ -5,16 +5,17 @@ import { useCallback, useEffect, useState } from "react";
 import { EonicLogo } from "@/components/landing/EonicLogo";
 import { cn } from "@/components/landing/ui";
 import { EDEN_HEADER_MENUS } from "@/lib/eden-nav";
-import { glpOneAssessmentHref, glpOneAssessmentLabel } from "@/lib/cta";
+import { navAccountHref, navAccountLabel } from "@/lib/cta";
 import { ROUTES } from "@/lib/routes";
 import { SITE_NAME } from "@/lib/site";
 import { EdenMobileNavGroup, EdenNavDropdown } from "./EdenNavDropdown";
+import { EdenShellCta } from "./EdenShellCta";
 
 export function EdenHeader() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const close = useCallback(() => setMobileOpen(false), []);
-  const ctaHref = glpOneAssessmentHref();
-  const ctaLabel = glpOneAssessmentLabel();
+  const accountHref = navAccountHref();
+  const accountLabel = navAccountLabel();
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -49,16 +50,14 @@ export function EdenHeader() {
           </nav>
 
           <div className="eden-header__actions">
-            <Link
-              href={ctaHref}
-              className="eden-btn eden-btn--primary eden-header__cta"
-              data-analytics-event="nav_cta_click"
-              data-analytics-label="eden_header_cta"
-              data-analytics-location="eden_header"
-              data-analytics-href={ctaHref}
-            >
-              {ctaLabel}
-            </Link>
+            <EdenShellCta
+              label={accountLabel}
+              href={accountHref}
+              variant="text"
+              className="eden-header__link eden-header__account"
+              analyticsLocation="eden_header"
+              analyticsLabel="account"
+            />
             <button
               type="button"
               className="eden-header__menu"
@@ -83,13 +82,15 @@ export function EdenHeader() {
               onNavigate={close}
             />
           ))}
-          <Link
-            href={ctaHref}
-            className="eden-btn eden-btn--primary eden-mobile-nav__cta"
-            onClick={close}
-          >
-            {ctaLabel}
-          </Link>
+          <EdenShellCta
+            label={accountLabel}
+            href={accountHref}
+            variant="text"
+            className="eden-mobile-nav__link eden-mobile-nav__account"
+            analyticsLocation="eden_mobile_nav"
+            analyticsLabel="account"
+            onNavigate={close}
+          />
         </nav>
       </div>
     </>

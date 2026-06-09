@@ -1,12 +1,27 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { glpOneAssessmentHref, glpOneAssessmentLabel } from "@/lib/cta";
+import { findTreatmentHref, findTreatmentLabel } from "@/lib/cta";
+import { EdenShellCta } from "./EdenShellCta";
+
+function ArrowIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden>
+      <path
+        d="M3 7h7M7.5 4.5 10 7l-2.5 2.5"
+        stroke="currentColor"
+        strokeWidth="1.4"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
 
 export function EdenStickyCta() {
   const [visible, setVisible] = useState(false);
-  const href = glpOneAssessmentHref();
-  const label = glpOneAssessmentLabel();
+  const href = findTreatmentHref();
+  const label = findTreatmentLabel();
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -49,16 +64,18 @@ export function EdenStickyCta() {
 
   return (
     <div className="eden-sticky-cta">
-      <a
+      <EdenShellCta
+        label={label}
         href={href}
-        className="eden-btn eden-btn--primary eden-sticky-cta__btn"
-        data-analytics-event="sticky_cta_click"
-        data-analytics-label="eden_sticky"
-        data-analytics-location="eden_sticky"
-        data-analytics-href={href}
+        className="eden-btn--secondary eden-sticky-cta__btn"
+        analyticsLocation="eden_sticky"
+        analyticsLabel="find_treatment"
       >
-        {label}
-      </a>
+        <span className="eden-sticky-cta__label">{label}</span>
+        <span className="eden-sticky-cta__arrow" aria-hidden>
+          <ArrowIcon />
+        </span>
+      </EdenShellCta>
     </div>
   );
 }

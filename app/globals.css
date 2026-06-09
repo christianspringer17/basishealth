@@ -19,6 +19,14 @@
 }
 
 @font-face {
+  font-family: "Sofia Pro";
+  src: url("/fonts/webfonts/static/Sofia Pro Medium Az.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
   font-family: "Supreme";
   src: url("/fonts/webfonts/static/Supreme-Thin.otf") format("opentype");
   font-weight: 200;

@@ -1,16 +1,12 @@
 import { cn } from "./ui";
-import { SITE_NAME_SHORT } from "@/lib/site";
 
-/** Compact header wordmark — matches basal.health top-left treatment */
+/** Compact header wordmark — Sofia Pro */
 export function EonicLogo({ className }: { className?: string }) {
   return (
     <span
-      className={cn(
-        "font-[family-name:var(--font-display)] text-h5 leading-none font-light tracking-[-0.04em]",
-        className,
-      )}
+      className={cn("eden-wordmark", className)}
     >
-      {SITE_NAME_SHORT}
+      basis
     </span>
   );
 }

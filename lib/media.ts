@@ -23,8 +23,8 @@ export const MEDIA = {
   homeIntroProduct: "/images/glp-one-home-product.png",
   /** GLP-One pricing cards — labeled vial (public/images/glp-one-pricing-vial.png) */
   glpOnePricingVial: "/images/glp-one-pricing-vial.png",
-  /** GLP-One final CTA — hand holding vial (transparent PNG) */
-  glpOneHandVial: "/images/glp-one-hand-vial.png",
+  /** GLP-One final CTA — hand holding vial on white (homepage, flush above footer) */
+  glpOneHandVialWhite: "/images/glp-one-hand-vial-white.png",
   /** Homepage product category cards */
   productLean: "/images/products/lean.png",
   productRegulation: "/images/products/regulation.png",

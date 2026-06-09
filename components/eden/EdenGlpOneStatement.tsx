@@ -15,44 +15,44 @@ export function EdenGlpOneStatement() {
 
   return (
     <section id="eden-glp-statement" className="eden-glp-statement" aria-labelledby="eden-glp-statement-heading">
-      <EdenReveal>
-      <div className="eden-glp-statement__inner site-container">
-        <div className="eden-glp-statement__headline">
-          <h2 id="eden-glp-statement-heading" className="eden-glp-statement__title">
-            {glpOneStatement.title}
-          </h2>
-        </div>
+      <EdenReveal className="eden-glp-statement__reveal">
+        <div className="eden-glp-statement__content site-container">
+          <div className="eden-glp-statement__headline">
+            <h2 id="eden-glp-statement-heading" className="eden-glp-statement__title">
+              {glpOneStatement.title}
+            </h2>
+          </div>
 
-        <p className="eden-glp-statement__body">{glpOneStatement.body}</p>
+          <p className="eden-glp-statement__body">{glpOneStatement.body}</p>
 
-        <div className="eden-glp-statement__cta">
-          <a
-            href={ctaHref}
-            className="eden-btn eden-btn--pill"
-            data-analytics-event="cta_click"
-            data-analytics-label="glp_one_final_primary"
-            data-analytics-location="eden_glp_statement"
-            data-analytics-href={ctaHref}
-          >
-            <span className="eden-btn__label">{glpOneStatement.ctaLabel}</span>
-            <span className="eden-btn__pill" aria-hidden>
-              {plusIcon}
-            </span>
-          </a>
+          <div className="eden-glp-statement__cta">
+            <a
+              href={ctaHref}
+              className="eden-btn eden-btn--pill"
+              data-analytics-event="cta_click"
+              data-analytics-label="glp_one_final_primary"
+              data-analytics-location="eden_glp_statement"
+              data-analytics-href={ctaHref}
+            >
+              <span className="eden-btn__label">{glpOneStatement.ctaLabel}</span>
+              <span className="eden-btn__pill" aria-hidden>
+                {plusIcon}
+              </span>
+            </a>
+          </div>
         </div>
 
         <figure className="eden-glp-statement__figure">
           <img
-            src={MEDIA.glpOneHandVial}
+            src={MEDIA.glpOneHandVialWhite}
             alt="Hand holding a GLP-One tirzepatide injection vial"
             className="eden-glp-statement__hand"
-            width={2048}
+            width={1024}
             height={1536}
             loading="lazy"
             decoding="async"
           />
         </figure>
-      </div>
       </EdenReveal>
     </section>
   );

@@ -17,7 +17,47 @@ export const CTA_LABELS = {
   getStarted: "Get started",
   learnMore: "Learn more",
   viewPricing: "View pricing",
+  account: "Account",
+  findTreatment: "Find your treatment",
 } as const;
+
+function patientPortalUrl(): string | undefined {
+  const url = process.env.NEXT_PUBLIC_PATIENT_PORTAL_URL?.trim();
+  return url?.startsWith("http") ? url : undefined;
+}
+
+function findTreatmentUrl(): string | undefined {
+  const url = process.env.NEXT_PUBLIC_FIND_TREATMENT_URL?.trim();
+  if (!url) return undefined;
+  if (url.startsWith("http") || url.startsWith("/")) return url;
+  return undefined;
+}
+
+/** Header — patient portal when NEXT_PUBLIC_PATIENT_PORTAL_URL is set */
+export function navAccountHref(): string | undefined {
+  return patientPortalUrl();
+}
+
+export function navAccountLabel(): string {
+  return CTA_LABELS.account;
+}
+
+/** Sticky FAB — treatment finder when NEXT_PUBLIC_FIND_TREATMENT_URL is set */
+export function findTreatmentHref(): string | undefined {
+  return findTreatmentUrl();
+}
+
+export function findTreatmentLabel(): string {
+  return CTA_LABELS.findTreatment;
+}
+
+export function isNavAccountLive(): boolean {
+  return Boolean(navAccountHref());
+}
+
+export function isFindTreatmentLive(): boolean {
+  return Boolean(findTreatmentHref());
+}
 
 export function isIntakeLive(): boolean {
   return Boolean(fuseIntakeUrl());

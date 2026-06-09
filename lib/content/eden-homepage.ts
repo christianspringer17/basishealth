@@ -302,7 +302,7 @@ export const EDEN_HOMEPAGE = {
     ],
   },
   faq: {
-    headline: "Common questions",
+    headline: "Build your basis",
     subhead: "Quick answers about eligibility, pricing, and how Basis works.",
     cta: "Still unsure? Start your assessment",
     items: [
