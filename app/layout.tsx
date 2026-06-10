@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
 import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
 import { SiteChrome } from "@/components/analytics/SiteChrome";
-import { SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Protocol-based metabolic care`,
+    default: `${SITE_NAME} — ${SITE_TAGLINE}`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
     "Protocol-based metabolic care with physician-guided protocols, ongoing support, and therapies when clinically appropriate.",
   openGraph: {
-    title: `${SITE_NAME} — Protocol-based metabolic care`,
+    title: SITE_NAME,
     description:
       "Physician-guided GLP-1 and metabolic protocols with ongoing support and therapies when clinically appropriate.",
     siteName: SITE_NAME,

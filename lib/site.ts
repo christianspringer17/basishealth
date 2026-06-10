@@ -3,6 +3,7 @@ import { ROUTES } from "./routes";
 /** Public-facing brand */
 export const SITE_NAME = "Basis";
 export const SITE_NAME_SHORT = "Basis";
+export const SITE_TAGLINE = "Personalized Prescription Health and Wellness";
 export const SITE_LEGAL_NAME = "Basis Health LLC";
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ?? "https://basis.care";

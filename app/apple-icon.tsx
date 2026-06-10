@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 import {
-  BasisWordmark,
+  BasisLetterB,
   getSofiaProFont,
   sofiaProFontDefinition,
 } from "@/lib/og/basis-wordmark";
@@ -8,12 +8,12 @@ import {
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-/** iOS / iMessage compact link preview — white wordmark on transparent */
+/** iOS / iMessage compact link preview — white Sofia Pro "b" on transparent */
 export default async function AppleIcon() {
   const fontData = await getSofiaProFont();
 
   return new ImageResponse(
-    <BasisWordmark fontSize={52} color="#ffffff" />,
+    <BasisLetterB fontSize={118} color="#ffffff" />,
     {
       ...size,
       fonts: [{ ...sofiaProFontDefinition, data: fontData }],

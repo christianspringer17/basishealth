@@ -21,13 +21,13 @@ export const sofiaProFontDefinition = {
   weight: 500 as const,
 };
 
-type BasisWordmarkProps = {
+type BasisMarkProps = {
   fontSize: number;
   color: string;
 };
 
-/** Wordmark for next/og ImageResponse — transparent canvas, Sofia Pro Medium */
-export function BasisWordmark({ fontSize, color }: BasisWordmarkProps) {
+/** Full wordmark — "basis" in Sofia Pro Medium */
+export function BasisWordmark({ fontSize, color }: BasisMarkProps) {
   return (
     <div
       style={{
@@ -51,6 +51,35 @@ export function BasisWordmark({ fontSize, color }: BasisWordmarkProps) {
         }}
       >
         basis
+      </span>
+    </div>
+  );
+}
+
+/** Letter mark — lowercase "b" cutout for link preview icons */
+export function BasisLetterB({ fontSize, color }: BasisMarkProps) {
+  return (
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "transparent",
+      }}
+    >
+      <span
+        style={{
+          fontFamily: "Sofia Pro",
+          fontSize,
+          fontWeight: 500,
+          color,
+          lineHeight: 1,
+          marginTop: fontSize * 0.04,
+        }}
+      >
+        b
       </span>
     </div>
   );
